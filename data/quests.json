@@ -1,0 +1,11 @@
+[
+  {
+    "id": "demo-quest-01",
+    "name": "Demo Quest Entry",
+    "description": "Placeholder quest record. No gameplay claim is being made.",
+    "tags": ["quest", "demo"],
+    "confidence": "Unverified placeholder",
+    "version": "Prototype",
+    "lastVerified": "Not verified"
+  }
+]
