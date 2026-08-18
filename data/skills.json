@@ -1,0 +1,83 @@
+[
+  {
+    "id": "aqua-bloom",
+    "name": "Aqua Bloom",
+    "class": "Enchanter",
+    "element": "Water",
+    "description": "Water-element magic skill for Enchanter. Its damage formula was corrected and rebalanced in v1.1.6.",
+    "tags": ["enchanter", "water", "skill"],
+    "confidence": "Official confirmed",
+    "version": "Added August 3, 2026; rebalanced v1.1.6",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "body-slam",
+    "name": "Body Slam",
+    "class": "Defender",
+    "element": "Earth",
+    "description": "Jump into the air and slam down for AoE damage that scales with DEF. Pulls nearby enemies toward you and stuns them.",
+    "tags": ["defender", "earth", "aoe", "stun", "def scaling"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.6",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "tailwind",
+    "name": "Tailwind",
+    "class": "Enchanter",
+    "element": "Wind",
+    "description": "Leap backward while dealing continuous damage and pushing enemies back by 1 stud.",
+    "tags": ["enchanter", "wind", "pushback", "movement"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.6",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "blade-rush",
+    "name": "Blade Rush",
+    "class": "Warrior",
+    "element": "Neutral",
+    "description": "Dash forward and slash enemies in your path. Has 2 charges within a 3-second window and a 7-second cooldown after the charges are used.",
+    "tags": ["warrior", "neutral", "dash", "charges"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.6",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "doombell",
+    "name": "Doombell",
+    "class": "Cleric",
+    "element": "Fire",
+    "description": "Summons a giant bell over an area, dealing impact damage, stunning enemies, and applying Burn damage over time.",
+    "tags": ["cleric", "fire", "stun", "burn", "aoe"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.6",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "whirlwind",
+    "name": "Whirlwind",
+    "class": "Defender",
+    "description": "Changed in v1.1.6 to scale with DEF instead of PATK. Damage scaling increased from 100% to 400%.",
+    "tags": ["defender", "skill", "def scaling"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.6",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "timber-charge",
+    "name": "Timber Charge",
+    "description": "Hit behavior and damage were improved in the July 30 patch. It stuns non-demihumans for 1 second. In v1.1.8 it gained crowd-control immunity during use; deferred CC applies after the skill ends, except Timber Charge versus Timber Charge.",
+    "tags": ["skill", "stun", "cc immunity"],
+    "confidence": "Official confirmed",
+    "version": "July 30, 2026 and v1.1.8",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates and announcements tabs"
+  }
+]
