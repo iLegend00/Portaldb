@@ -68,6 +68,21 @@
     "source": "Official Discord small-updates v1.1.7 + user-supplied in-game screenshots on 2026-08-18"
   },
   {
+    "id": "rendall",
+    "name": "Rendall",
+    "profession": "Bartender",
+    "description": "Bartender and general-goods vendor. His dialogue invites the player to buy or sell goods, and his shop carries tools, seeds, scrolls, food, cooking-related goods, and feed.",
+    "openHours": "14:00 - 07:00",
+    "restockIntervalMinutes": 5,
+    "dialogueOptions": ["Buy / Sell Goods", "Closing my tab."],
+    "shopCategories": ["Tool", "Seed", "Scroll", "HP Food", "MP Food", "Cooking", "Feed"],
+    "tags": ["npc", "bartender", "shop", "general goods", "tool", "seed", "scroll", "hp food", "mp food", "cooking", "feed", "rendall"],
+    "confidence": "In-game verified",
+    "version": "Current through 2026-08-18",
+    "lastVerified": "2026-08-18",
+    "source": "User-supplied in-game screenshots on 2026-08-18"
+  },
+  {
     "id": "leaf",
     "name": "Leaf",
     "description": "NPC confirmed to offer a Part-Time Job while sleeping.",
