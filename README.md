@@ -17,8 +17,8 @@ The current build includes:
 - confidence / verification metadata
 - real item, NPC, quest, boss, race, job, location, code, mechanic, skill, and update records
 - Item Finder v1
-- rich NPC profile views with shops, services, hours, dialogue, linked items, linked quests, and evidence metadata
-- cross-links from Item Finder acquisition sources into matching NPC/boss/database entries
+- richer NPC profile rendering and item/NPC relationships
+- Main Quest Guide v1 with chapter/part progression, objectives, rewards, location flow, and explicit verification gaps
 - no backend requirement
 
 ## Data policy
@@ -60,9 +60,9 @@ Then open:
 
 ## Current roadmap
 
-1. Continue normalizing and expanding verified Portal data.
-2. Build richer Quest database views using the same linked-data approach as NPC profiles.
-3. Finish Chapter 2 and the Side Quest / Achievement / Codex / NPC quest-tab references after the remaining screenshots are available.
+1. Fill the remaining Chapter 2 quest gaps when the missing in-game screenshots are available.
+2. Expand enemy, boss, and location relationships so Item Finder and Quest Guide can cross-link more deeply.
+3. Continue normalizing and expanding verified Portal data.
 4. Add crafting calculator once recipe coverage is sufficient.
 5. Add build planner once enough class/stat/equipment data is verified.
 6. Replace the hero placeholder with original anime artwork based on the site owner's Roblox avatar.
