@@ -3,27 +3,29 @@
     "id": "fortune-clover",
     "name": "Fortune Clover",
     "type": "Upper Headgear",
-    "description": "Headgear obtained from Tin Tortoise.",
+    "description": "Headgear obtained from Tin Tortoise. Tradable as of v1.1.12.",
     "stats": {"criticalRatePercent": 2, "criticalDamagePercent": 5},
     "sourceMob": "Tin Tortoise",
-    "tags": ["headgear", "tin tortoise", "critical rate", "critical damage"],
+    "tradeable": true,
+    "tags": ["headgear", "tin tortoise", "critical rate", "critical damage", "tradable"],
     "confidence": "Official confirmed",
-    "version": "August 3, 2026 patch",
+    "version": "Current through v1.1.12",
     "lastVerified": "2026-08-18",
-    "source": "Official Discord big-updates tab"
+    "source": "Official Discord big-updates August 3 patch and small-updates v1.1.12"
   },
   {
     "id": "bone-bite",
     "name": "Bone Bite",
     "type": "Headgear",
-    "description": "Headgear obtained from Junk King.",
+    "description": "Headgear obtained from Junk King. Tradable as of v1.1.12.",
     "stats": {"physicalATK": 10, "magicATK": 10},
     "sourceMob": "Junk King",
-    "tags": ["headgear", "junk king", "physical atk", "magic atk"],
+    "tradeable": true,
+    "tags": ["headgear", "junk king", "physical atk", "magic atk", "tradable"],
     "confidence": "Official confirmed",
-    "version": "August 3, 2026 patch",
+    "version": "Current through v1.1.12",
     "lastVerified": "2026-08-18",
-    "source": "Official Discord big-updates tab"
+    "source": "Official Discord big-updates August 3 patch and small-updates v1.1.12"
   },
   {
     "id": "tinkers-goggles",
@@ -55,12 +57,12 @@
     "id": "magnifying-glass",
     "name": "Magnifying Glass",
     "type": "Identify Item",
-    "description": "Used by the Identify system on Shoes, Gloves, Bracelet, Necklace, and Upper/Middle/Lower Headgear. Dropped by Lycaros.",
-    "obtain": "Lycaros",
-    "tags": ["identify", "lycaros", "equipment", "magnifying glass"],
+    "description": "Used by the Identify system on Shoes, Gloves, Bracelet, Necklace, and Upper/Middle/Lower Headgear. Originally confirmed as a Lycaros drop; as of v1.1.10, Junk King and Tin Tortoise can also drop it.",
+    "obtain": ["Lycaros", "Junk King", "Tin Tortoise"],
+    "tags": ["identify", "lycaros", "junk king", "tin tortoise", "equipment", "magnifying glass"],
     "confidence": "Official confirmed",
-    "version": "v1.1.6",
+    "version": "Current through v1.1.10",
     "lastVerified": "2026-08-18",
-    "source": "Official Discord big-updates tab"
+    "source": "Official Discord big-updates v1.1.6 and small-updates v1.1.10"
   }
 ]
