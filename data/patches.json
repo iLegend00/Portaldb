@@ -28,9 +28,7 @@
     "version": "Small update",
     "confidence": "Official confirmed",
     "source": "Official Discord small-updates tab",
-    "highlights": [
-      "Attack cone widened from ±20° to ±45° for the next patch"
-    ]
+    "highlights": ["Attack cone widened from ±20° to ±45° for the next patch"]
   },
   {
     "id": "2026-07-30-patch",
@@ -79,6 +77,27 @@
     ]
   },
   {
+    "id": "2026-08-05-patch",
+    "title": "Patch Notes — August 5, 2026",
+    "date": "2026-08-05",
+    "version": "Unnumbered announcement",
+    "confidence": "Official confirmed",
+    "source": "Official Discord announcement by Swaroff [PRTL]",
+    "highlights": [
+      "Greenhouse became craftable at the Workbench",
+      "Maximum 1 Greenhouse per plot by default",
+      "Season 1 Premium Pass grants +1 additional permanent Greenhouse slot",
+      "Level 20 players received 1 Ultimate Skillbook as compensation",
+      "Goblin Claw Machine Ultimate Skillbook changed from Untradeable to Tradeable",
+      "Fish and Food assets were reworked",
+      "Boss Quest removed from Battle Pass Quest and EXP moved to Mini Boss Quest",
+      "Battle Pass +1 Level option (+3000 EXP) added for 15 Robux",
+      "Party/Solo Top 1-3 Damage tracking fixed for quests and Codex",
+      "Swimming-stuck issue fixed",
+      "Second-door usability issue fixed"
+    ]
+  },
+  {
     "id": "v1.0.4",
     "title": "Patch Notes — v1.0.4",
     "date": "2026-08-06",
@@ -103,27 +122,6 @@
       "Fixed Aqua Bloom skill glitch",
       "Combat Mode changed to trigger when dealing or receiving damage",
       "Some poles made slippery"
-    ]
-  },
-  {
-    "id": "2026-08-05-patch",
-    "title": "Patch Notes — August 5, 2026",
-    "date": "2026-08-05",
-    "version": "Unnumbered announcement",
-    "confidence": "Official confirmed",
-    "source": "Official Discord announcement by Swaroff [PRTL]",
-    "highlights": [
-      "Greenhouse became craftable at the Workbench",
-      "Maximum 1 Greenhouse per plot by default",
-      "Season 1 Premium Pass grants +1 additional permanent Greenhouse slot",
-      "Level 20 players received 1 Ultimate Skillbook as compensation",
-      "Goblin Claw Machine Ultimate Skillbook changed from Untradeable to Tradeable",
-      "Fish and Food assets were reworked",
-      "Boss Quest removed from Battle Pass Quest and EXP moved to Mini Boss Quest",
-      "Battle Pass +1 Level option (+3000 EXP) added for 15 Robux",
-      "Party/Solo Top 1-3 Damage tracking fixed for quests and Codex",
-      "Swimming-stuck issue fixed",
-      "Second-door usability issue fixed"
     ]
   },
   {
@@ -213,8 +211,9 @@
   {
     "id": "v1.1.12",
     "title": "Patch Notes — v1.1.12",
-    "date": null,
-    "dateNote": "Discord export showed only time 02:05; calendar date was not visible in the supplied text.",
+    "date": "2026-08-18",
+    "postedTimeLocal": "02:05",
+    "timestampContext": "Discord displayed only the time because the post was from the viewer's current day. Date resolved using the site owner's local date; the 02:05 clock time is the site owner's Discord display timezone and should not be interpreted as the developer's timezone.",
     "version": "v1.1.12",
     "confidence": "Official confirmed",
     "source": "Official Discord small-updates tab",
