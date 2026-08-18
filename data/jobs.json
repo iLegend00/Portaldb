@@ -1,0 +1,42 @@
+[
+  {
+    "id": "job-warrior",
+    "name": "Warrior",
+    "description": "Known player job/class. Community race documentation identifies Warrior as a physical-attack-oriented job that benefits from STR and also values AGI/DEX.",
+    "tags": ["job", "class", "warrior", "physical attack", "p.atk", "str", "agi", "dex"],
+    "confidence": "Community verified",
+    "version": "Release v1.0",
+    "lastVerified": "2026-08-18",
+    "source": "Gamepur race guide, published 2026-08-04"
+  },
+  {
+    "id": "job-defender",
+    "name": "Defender",
+    "description": "Known player job/class. Community race documentation identifies Defender as benefiting from VIT and STR-oriented Human bonuses.",
+    "tags": ["job", "class", "defender", "tank", "vit", "str"],
+    "confidence": "Community verified",
+    "version": "Release v1.0",
+    "lastVerified": "2026-08-18",
+    "source": "Gamepur race guide, published 2026-08-04"
+  },
+  {
+    "id": "job-enchanter",
+    "name": "Enchanter",
+    "description": "Known player job/class. Community race documentation identifies Enchanter as benefiting from INT and WIS.",
+    "tags": ["job", "class", "enchanter", "magic", "int", "wis"],
+    "confidence": "Community verified",
+    "version": "Release v1.0",
+    "lastVerified": "2026-08-18",
+    "source": "Gamepur race guide, published 2026-08-04"
+  },
+  {
+    "id": "job-cleric",
+    "name": "Cleric",
+    "description": "Known player job/class. Community race documentation identifies Cleric as benefiting from INT and WIS.",
+    "tags": ["job", "class", "cleric", "magic", "int", "wis", "support"],
+    "confidence": "Community verified",
+    "version": "Release v1.0",
+    "lastVerified": "2026-08-18",
+    "source": "Gamepur race guide, published 2026-08-04"
+  }
+]
