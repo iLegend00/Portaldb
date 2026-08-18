@@ -29,12 +29,18 @@
   {
     "id": "neria",
     "name": "Neria",
-    "description": "NPC confirmed to offer a Part-Time Job while sleeping.",
-    "tags": ["npc", "part-time job", "neria"],
-    "confidence": "Official confirmed",
-    "version": "v1.1.7",
+    "profession": "Librarian",
+    "description": "Librarian NPC who sells Skill Books. Her shop supports General, Warrior, Defender, Cleric, and Enchanter categories. She is also officially confirmed to offer a Part-Time Job while sleeping.",
+    "shopName": "Librarian",
+    "openHours": "7 AM - 2 AM",
+    "restockIntervalMinutes": 15,
+    "dialogueOptions": ["Buy Skill Books", "I'll go."],
+    "shopCategories": ["General", "Warrior", "Defender", "Cleric", "Enchanter"],
+    "tags": ["npc", "librarian", "shop", "skill books", "warrior", "defender", "cleric", "enchanter", "part-time job", "neria"],
+    "confidence": "Official confirmed + in-game verified",
+    "version": "Current through 2026-08-18",
     "lastVerified": "2026-08-18",
-    "source": "Official Discord small-updates v1.1.7"
+    "source": "Official Discord small-updates v1.1.7 + user-supplied in-game screenshots on 2026-08-18"
   },
   {
     "id": "leaf",
