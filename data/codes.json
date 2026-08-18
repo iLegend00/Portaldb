@@ -1,0 +1,82 @@
+[
+  {
+    "code": "1KLIKES",
+    "rewards": [
+      {"item":"Race Reroll Mirror","quantity":3},
+      {"item":"Stats Reset Scroll","quantity":3}
+    ],
+    "status": "Officially listed",
+    "postedDate": "2026-07-31",
+    "postedTimeLocal": "15:00",
+    "source": "Official Discord redeem-code tab — TOYYY [PRTL]",
+    "confidence": "Official confirmed",
+    "notes": "Still displayed in the official redeem-code tab as of 2026-08-18; active redemption has not been independently tested by PortalDB."
+  },
+  {
+    "code": "2KLIKES",
+    "rewards": [
+      {"item":"Job Change Mask","quantity":1}
+    ],
+    "status": "Officially listed",
+    "postedDate": "2026-07-31",
+    "postedTimeLocal": "15:00",
+    "source": "Official Discord redeem-code tab — TOYYY [PRTL]",
+    "confidence": "Official confirmed",
+    "notes": "Still displayed in the official redeem-code tab as of 2026-08-18; active redemption has not been independently tested by PortalDB."
+  },
+  {
+    "code": "5KLIKES",
+    "rewards": [
+      {"item":"Job Change Mask","quantity":1},
+      {"item":"Stats Reset Scroll","quantity":3},
+      {"item":"Race Reroll Mirror","quantity":5}
+    ],
+    "status": "Officially listed",
+    "postedDate": "2026-07-31",
+    "postedTimeLocal": "15:00",
+    "source": "Official Discord redeem-code tab — TOYYY [PRTL]",
+    "confidence": "Official confirmed",
+    "notes": "Still displayed in the official redeem-code tab as of 2026-08-18; active redemption has not been independently tested by PortalDB."
+  },
+  {
+    "code": "RELEASE",
+    "rewards": [
+      {"item":"Fishing Rod","quantity":1},
+      {"item":"Axe","quantity":1},
+      {"item":"Pickaxe","quantity":1}
+    ],
+    "status": "Officially listed",
+    "postedDate": "2026-07-31",
+    "postedTimeLocal": "15:00",
+    "source": "Official Discord redeem-code tab — TOYYY [PRTL]",
+    "confidence": "Official confirmed",
+    "notes": "Still displayed in the official redeem-code tab as of 2026-08-18; active redemption has not been independently tested by PortalDB."
+  },
+  {
+    "code": "THROUGHTHEPORTAL",
+    "rewards": [
+      {"item":"Wooden Glider","quantity":1},
+      {"item":"Race Reroll Mirror","quantity":3}
+    ],
+    "status": "Officially listed",
+    "postedDate": "2026-07-31",
+    "postedTimeLocal": "15:00",
+    "source": "Official Discord redeem-code tab — TOYYY [PRTL]",
+    "confidence": "Official confirmed",
+    "notes": "Still displayed in the official redeem-code tab as of 2026-08-18; active redemption has not been independently tested by PortalDB."
+  },
+  {
+    "code": "10KLIKES",
+    "rewards": [
+      {"item":"Stats Reset Scroll","quantity":3},
+      {"item":"Aurorite","quantity":10},
+      {"item":"Magnifying Glass","quantity":3}
+    ],
+    "status": "Officially listed",
+    "postedDate": "2026-08-17",
+    "postedTimeLocal": "09:53",
+    "source": "Official Discord redeem-code tab — TOYYY [PRTL]",
+    "confidence": "Official confirmed",
+    "notes": "Discord showed 'Yesterday at 09:53' when supplied on 2026-08-18 in the user's local timezone. Still displayed in the official redeem-code tab; active redemption has not been independently tested by PortalDB."
+  }
+]
