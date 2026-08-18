@@ -116,11 +116,17 @@
   {
     "id": "hogan",
     "name": "Hogan",
-    "description": "NPC confirmed to offer a Part-Time Job while sleeping.",
-    "tags": ["npc", "part-time job", "hogan"],
-    "confidence": "Official confirmed",
-    "version": "v1.1.7",
+    "profession": "Rancher",
+    "description": "Rancher NPC who runs Hooves & Horns Livestock. His dialogue offers livestock, animal tools, and mounts, and his shop also contains Feed, Cooking, and Farm categories. He is also officially confirmed to offer a Part-Time Job while sleeping.",
+    "shopName": "Hooves & Horns Livestock",
+    "openHours": "5 AM - 12 AM",
+    "restockIntervalMinutes": 5,
+    "dialogueOptions": ["Buy / Sell Livestock", "Buy / Sell Animal Tools", "Buy / Sell Mounts", "Thanks, I'll get going."],
+    "shopCategories": ["Livestock", "Feed", "Cooking", "Farm", "Tool", "Mount"],
+    "tags": ["npc", "rancher", "hooves and horns livestock", "shop", "livestock", "feed", "cooking", "farm", "animal tools", "mounts", "part-time job", "hogan"],
+    "confidence": "Official confirmed + in-game verified",
+    "version": "Current through 2026-08-18",
     "lastVerified": "2026-08-18",
-    "source": "Official Discord small-updates v1.1.7"
+    "source": "Official Discord small-updates v1.1.7 + user-supplied in-game screenshots on 2026-08-18"
   }
 ]
