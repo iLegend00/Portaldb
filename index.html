@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="site-nav.css" />
   <link rel="stylesheet" href="quest-ui.css" />
   <style>
-    .finder-section{padding-top:90px}.finder-shell{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(24,19,40,.94),rgba(12,10,23,.96));overflow:hidden;box-shadow:var(--shadow)}.finder-head{padding:28px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;gap:24px;align-items:end}.finder-head h2{margin:6px 0 8px;font-size:clamp(30px,4vw,46px)}.finder-head p{max-width:720px;margin:0;color:var(--muted);font-size:12px;line-height:1.7}.finder-count{white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--gold2);font-size:10px}.finder-controls{display:grid;grid-template-columns:1fr 190px 190px auto;gap:10px;padding:18px 28px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.018)}.finder-controls input,.finder-controls select{width:100%;height:44px;border:1px solid rgba(232,190,103,.2);border-radius:10px;background:#110e20;color:var(--text);padding:0 12px;outline:0}.finder-controls input:focus,.finder-controls select:focus{border-color:rgba(232,190,103,.55)}.finder-controls button{height:44px;padding:0 16px;border-radius:10px;border:1px solid var(--line);background:rgba(168,108,255,.1);color:var(--gold2);font-weight:700}.finder-results{padding:22px 28px 28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.finder-card{border:1px solid rgba(232,190,103,.16);border-radius:15px;background:linear-gradient(180deg,rgba(29,23,47,.88),rgba(15,12,27,.94));padding:18px;min-width:0}.finder-card-top{display:flex;justify-content:space-between;gap:14px;align-items:start}.finder-kicker{display:block;color:var(--gold);font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.finder-card h3{margin:7px 0 0;font-size:21px}.finder-status{flex:0 0 auto;padding:5px 8px;border-radius:999px;border:1px solid rgba(141,217,167,.24);background:rgba(141,217,167,.08);color:#a9e5bc;font-size:9px}.finder-card>p{color:var(--muted);font-size:11px;line-height:1.65;margin:13px 0}.finder-line{display:grid;grid-template-columns:78px 1fr;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.05);font-size:10px}.finder-line b{color:var(--gold2);font-family:Inter,sans-serif}.finder-line span{color:#d1c6d5}.finder-sources{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.07)}.finder-sources>b{display:block;margin-bottom:8px;color:var(--gold2);font:600 10px Inter,sans-serif;text-transform:uppercase;letter-spacing:.08em}.finder-source{width:100%;display:flex;justify-content:space-between;gap:12px;align-items:center;padding:8px 9px;margin-top:6px;border:1px solid rgba(255,255,255,.06);border-radius:8px;background:rgba(255,255,255,.02);color:#c8bdcb;text-align:left;font-size:9px}.finder-source.is-linked:hover{border-color:rgba(232,190,103,.38);background:rgba(232,190,103,.05)}.finder-source b{color:var(--gold);font-size:8px;white-space:nowrap}.finder-card-footer{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:15px;padding-top:11px;border-top:1px solid rgba(255,255,255,.07);color:#8f8396;font-size:8px}.finder-card-footer button{margin-left:auto;border:0;background:transparent;color:var(--gold2);font-size:9px;font-weight:700}.finder-empty{grid-column:1/-1;padding:48px;text-align:center;border:1px dashed rgba(232,190,103,.2);border-radius:14px;color:var(--muted)}.finder-empty strong{display:block;color:var(--text);margin-bottom:6px}.item-empty{padding:8px;color:#8f8396;font-size:9px}.entry-obtain{margin-top:18px;padding:14px;border:1px solid rgba(232,190,103,.16);border-radius:10px;background:rgba(255,255,255,.02)}.entry-obtain>strong{display:block;margin-bottom:8px;color:var(--gold2)}.entry-obtain>div{padding:5px 0;color:var(--muted);font-size:11px}.verified-note{color:#a9e5bc!important}.timeline-item .verified-note{color:#a9e5bc!important}@media(max-width:900px){.finder-controls{grid-template-columns:1fr 1fr}.finder-controls input{grid-column:1/-1}.finder-results{grid-template-columns:1fr}.finder-head{align-items:start;flex-direction:column}}@media(max-width:560px){.finder-head,.finder-controls,.finder-results{padding-left:16px;padding-right:16px}.finder-controls{grid-template-columns:1fr}.finder-controls input{grid-column:auto}.finder-line{grid-template-columns:1fr}.finder-count{white-space:normal}}
+    .finder-section{padding-top:90px}.finder-shell{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(24,19,40,.94),rgba(12,10,23,.96));overflow:hidden;box-shadow:var(--shadow)}.finder-head{padding:28px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;gap:24px;align-items:end}.finder-head h2{margin:6px 0 8px;font-size:clamp(30px,4vw,46px)}.finder-head p{max-width:720px;margin:0;color:var(--muted);font-size:12px;line-height:1.7}.finder-count{white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--gold2);font-size:10px}.finder-controls{display:grid;grid-template-columns:1fr 190px 190px auto;gap:10px;padding:18px 28px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.018)}.finder-controls input,.finder-controls select{width:100%;height:44px;border:1px solid rgba(232,190,103,.2);border-radius:10px;background:#110e20;color:var(--text);padding:0 12px;outline:0}.finder-controls input:focus,.finder-controls select:focus{border-color:rgba(232,190,103,.55)}.finder-controls button{height:44px;padding:0 16px;border-radius:10px;border:1px solid var(--line);background:rgba(168,108,255,.1);color:var(--gold2);font-weight:700}.finder-results{padding:22px 28px 28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.finder-card{border:1px solid rgba(232,190,103,.16);border-radius:15px;background:linear-gradient(180deg,rgba(29,23,47,.88),rgba(15,12,27,.94));padding:18px;min-width:0}.finder-card-top{display:flex;justify-content:space-between;gap:14px;align-items:start}.finder-kicker{display:block;color:var(--gold);font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.finder-card h3{margin:7px 0 0;font-size:21px}.finder-status{flex:0 0 auto;padding:5px 8px;border-radius:999px;border:1px solid rgba(141,217,167,.24);background:rgba(141,217,167,.08);color:#a9e5bc;font-size:9px}.finder-card>p{color:var(--muted);font-size:11px;line-height:1.65;margin:13px 0}.finder-line{display:grid;grid-template-columns:78px 1fr;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.05);font-size:10px}.finder-line b{color:var(--gold2);font-family:Inter,sans-serif}.finder-line span{color:#d1c6d5}.finder-sources{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.07)}.finder-sources>b{display:block;margin-bottom:8px;color:var(--gold2);font:600 10px Inter,sans-serif;text-transform:uppercase;letter-spacing:.08em}.finder-source{width:100%;display:flex;justify-content:space-between;gap:12px;align-items:center;padding:8px 9px;margin-top:6px;border:1px solid rgba(255,255,255,.06);border-radius:8px;background:rgba(255,255,255,.02);color:#c8bdcb;text-align:left;font-size:9px}.finder-source.is-linked:hover{border-color:rgba(232,190,103,.38);background:rgba(232,190,103,.05)}.finder-source b{color:var(--gold);font-size:8px;white-space:nowrap}.finder-card-footer{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:15px;padding-top:11px;border-top:1px solid rgba(255,255,255,.07);color:#8f8396;font-size:8px}.finder-card-footer button{margin-left:auto;border:0;background:transparent;color:var(--gold2);font-size:9px;font-weight:700}.finder-empty{grid-column:1/-1;padding:48px;text-align:center;border:1px dashed rgba(232,190,103,.2);border-radius:14px;color:var(--muted)}.finder-empty strong{display:block;color:var(--text);margin-bottom:6px}.item-empty{padding:8px;color:#8f8396;font-size:9px}.entry-obtain{margin-top:18px;padding:14px;border:1px solid rgba(232,190,103,.16);border-radius:10px;background:rgba(255,255,255,.02)}.entry-obtain>strong{display:block;margin-bottom:8px;color:var(--gold2)}.entry-obtain>div{padding:5px 0;color:var(--muted);font-size:11px}.verified-note{color:#a9e5bc!important}.timeline-item .verified-note{color:#a9e5bc!important}.tool-card-link{text-decoration:none;color:inherit}.tool-card-link:hover{transform:translateY(-2px)}@media(max-width:900px){.finder-controls{grid-template-columns:1fr 1fr}.finder-controls input{grid-column:1/-1}.finder-results{grid-template-columns:1fr}.finder-head{align-items:start;flex-direction:column}}@media(max-width:560px){.finder-head,.finder-controls,.finder-results{padding-left:16px;padding-right:16px}.finder-controls{grid-template-columns:1fr}.finder-controls input{grid-column:auto}.finder-line{grid-template-columns:1fr}.finder-count{white-space:normal}}
   </style>
 </head>
 <body>
@@ -21,64 +22,32 @@
   <header class="topbar shell">
     <a class="brand" href="#top">
       <span class="brand-emblem">✦</span>
-      <span class="brand-copy">
-        <strong>PORTAL<span>DB</span></strong>
-        <small>THE PORTAL COMPANION</small>
-      </span>
+      <span class="brand-copy"><strong>PORTAL<span>DB</span></strong><small>THE PORTAL COMPANION</small></span>
     </a>
-
     <nav class="main-nav" aria-label="Primary">
       <a class="active" href="#top">Home</a>
-      <a href="#database">Database</a>
       <a href="#item-finder">Item Finder</a>
       <a href="#quest-guide">Quests</a>
-      <a href="#tools">Tools</a>
+      <a href="crafting.html">Crafting</a>
+      <a href="build-planner.html">Build Planner</a>
     </nav>
-
     <button class="round-btn" id="focusSearch" aria-label="Focus search">⌕</button>
   </header>
 
   <main id="top">
     <section class="hero shell">
       <div class="hero-art">
-        <div class="moon"></div>
-        <div class="portal-ring ring-1"></div>
-        <div class="portal-ring ring-2"></div>
-        <div class="portal-core"></div>
-        <div class="mountain mountain-a"></div>
-        <div class="mountain mountain-b"></div>
-        <div class="city city-a"></div>
-        <div class="city city-b"></div>
-        <div class="hero-character-placeholder">
-          <div class="character-aura"></div>
-          <div class="character-card">
-            <span>YOUR AVATAR</span>
-            <small>Anime hero art goes here later</small>
-          </div>
-        </div>
+        <div class="moon"></div><div class="portal-ring ring-1"></div><div class="portal-ring ring-2"></div><div class="portal-core"></div>
+        <div class="mountain mountain-a"></div><div class="mountain mountain-b"></div><div class="city city-a"></div><div class="city city-b"></div>
+        <div class="hero-character-placeholder"><div class="character-aura"></div><div class="character-card"><span>YOUR AVATAR</span><small>Anime hero art goes here later</small></div></div>
       </div>
-
       <div class="hero-overlay"></div>
-
       <div class="hero-content">
         <div class="eyebrow">UNOFFICIAL COMMUNITY COMPANION</div>
         <h1>Your journey.<br><em>Our knowledge.</em></h1>
         <p>The fast, beautiful way to find verified information about items, quests, NPCs, bosses, professions, mechanics, codes, and updates in <strong>The Portal</strong>.</p>
-
-        <div class="search-shell">
-          <span class="search-mark">⌕</span>
-          <input id="globalSearch" type="search" autocomplete="off" placeholder="Search items, quests, NPCs, bosses, codes..." />
-          <button id="searchButton">Search</button>
-        </div>
-
-        <div class="popular-searches">
-          <span>Try:</span>
-          <button data-query="Breda">Breda</button>
-          <button data-query="Magnifying Glass">Magnifying Glass</button>
-          <button data-query="Lycaros">Lycaros</button>
-          <button data-query="10KLIKES">10KLIKES</button>
-        </div>
-
+        <div class="search-shell"><span class="search-mark">⌕</span><input id="globalSearch" type="search" autocomplete="off" placeholder="Search items, quests, NPCs, bosses, codes..." /><button id="searchButton">Search</button></div>
+        <div class="popular-searches"><span>Try:</span><button data-query="Breda">Breda</button><button data-query="Magnifying Glass">Magnifying Glass</button><button data-query="Lycaros">Lycaros</button><button data-query="10KLIKES">10KLIKES</button></div>
         <div id="searchResults" class="search-results hidden"></div>
       </div>
     </section>
@@ -88,52 +57,35 @@
       <button class="category-card" data-category="quests"><span class="category-icon">✎</span><strong>Quests</strong><small>Objectives and rewards</small></button>
       <button class="category-card" data-category="npcs"><span class="category-icon">♙</span><strong>NPCs</strong><small>Merchants and services</small></button>
       <button class="category-card" data-category="bosses"><span class="category-icon">♛</span><strong>Bosses</strong><small>Stats, mechanics and drops</small></button>
-      <button class="category-card" data-category="crafting"><span class="category-icon">⚒</span><strong>Crafting</strong><small>Recipes and materials</small></button>
-      <button class="category-card" data-category="builds"><span class="category-icon">✧</span><strong>Builds</strong><small>Plan stats and loadouts</small></button>
+      <button class="category-card" onclick="window.location.href='crafting.html'"><span class="category-icon">⚒</span><strong>Crafting</strong><small>Calculator and recipes</small></button>
+      <button class="category-card" onclick="window.location.href='build-planner.html'"><span class="category-icon">✧</span><strong>Builds</strong><small>Plan stats and loadouts</small></button>
     </section>
 
     <section class="finder-section shell" id="item-finder">
       <div class="finder-shell">
-        <div class="finder-head">
-          <div><span class="panel-kicker">ITEM FINDER V1</span><h2>Find it. Know where it comes from.</h2><p>Search the verified item records currently in PortalDB. Acquisition methods, drop rates, shops, requirements, values, effects, fishing conditions, and verification metadata appear when known.</p></div>
-          <span class="finder-count" id="itemFinderCount">Loading items…</span>
-        </div>
-        <div class="finder-controls">
-          <input id="itemFinderSearch" type="search" placeholder="Search item, source, stat, enemy, NPC..." autocomplete="off" />
-          <select id="itemFinderCategory" aria-label="Item category"><option>Loading…</option></select>
-          <select id="itemFinderStatus" aria-label="Trade state"><option>Loading…</option></select>
-          <button id="itemFinderClear">Clear</button>
-        </div>
+        <div class="finder-head"><div><span class="panel-kicker">ITEM FINDER V1</span><h2>Find it. Know where it comes from.</h2><p>Search the verified item records currently in PortalDB. Acquisition methods, drop rates, shops, requirements, values, effects, fishing conditions, and verification metadata appear when known.</p></div><span class="finder-count" id="itemFinderCount">Loading items…</span></div>
+        <div class="finder-controls"><input id="itemFinderSearch" type="search" placeholder="Search item, source, stat, enemy, NPC..." autocomplete="off" /><select id="itemFinderCategory" aria-label="Item category"><option>Loading…</option></select><select id="itemFinderStatus" aria-label="Trade state"><option>Loading…</option></select><button id="itemFinderClear">Clear</button></div>
         <div class="finder-results" id="itemFinderResults"></div>
       </div>
     </section>
 
     <section class="quest-section shell" id="quest-guide">
       <div class="quest-shell">
-        <div class="quest-head">
-          <div><span class="panel-kicker">MAIN QUEST GUIDE V1</span><h2>Follow the story without losing the thread.</h2><p>Each chapter is built directly from in-game quest-menu verification. Objectives and rewards stay in sequence, locations and known relationships are linked where possible, and missing screenshots remain visibly marked instead of being guessed.</p></div>
-          <span class="quest-count" id="questCount">Loading quests…</span>
-        </div>
-        <div class="quest-tabs" id="questTabs"></div>
-        <div class="quest-content" id="questContent"><div class="quest-empty">Loading main quest data…</div></div>
+        <div class="quest-head"><div><span class="panel-kicker">MAIN QUEST GUIDE V1</span><h2>Follow the story without losing the thread.</h2><p>Each chapter is built directly from in-game quest-menu verification. Objectives and rewards stay in sequence, locations and known relationships are linked where possible, and missing screenshots remain visibly marked instead of being guessed.</p></div><span class="quest-count" id="questCount">Loading quests…</span></div>
+        <div class="quest-tabs" id="questTabs"></div><div class="quest-content" id="questContent"><div class="quest-empty">Loading main quest data…</div></div>
       </div>
     </section>
 
     <section class="content-grid shell" id="updates">
       <article class="panel latest-panel">
-        <div class="panel-heading"><div><span class="panel-kicker">LATEST</span><h2>Project updates</h2></div><span class="status-chip">v0.3 data build</span></div>
-        <div class="timeline-item"><div class="timeline-icon">✓</div><div><strong>Verified Portal data is live in the repository</strong><p class="verified-note">Items, NPCs, quests, bosses, races, jobs, mechanics, codes, locations, skills, and official update records are now represented in structured data.</p></div></div>
-        <div class="timeline-item"><div class="timeline-icon">⚔</div><div><strong>Item Finder v1 active</strong><p>Filter real item records and inspect known drop rates, shops, gathering sources, fishing conditions, requirements, stats, effects, and verification status.</p></div></div>
-        <div class="timeline-item"><div class="timeline-icon">✎</div><div><strong>Main Quest Guide v1 active</strong><p>Chapter 1 is presented as a complete five-part progression chain; Chapter 2 visibly preserves the remaining verification gaps.</p></div></div>
+        <div class="panel-heading"><div><span class="panel-kicker">LATEST</span><h2>Project updates</h2></div><span class="status-chip">v0.3 preview build</span></div>
+        <div class="timeline-item"><div class="timeline-icon">✓</div><div><strong>Verified Portal data foundation</strong><p class="verified-note">Items, NPCs, quests, bosses, enemies, races, jobs, mechanics, codes, locations, skills, and official update records are represented in structured data.</p></div></div>
+        <div class="timeline-item"><div class="timeline-icon">⚔</div><div><strong>Item Finder + relationship layer active</strong><p>Known shops, NPCs, enemies, bosses, quests, locations, and acquisition sources cross-link where verified records exist.</p></div></div>
+        <div class="timeline-item"><div class="timeline-icon">✧</div><div><strong>Crafting Calculator and Build Planner shells active</strong><p>Both tools are functional around verified schemas while unknown recipes and formulas remain explicitly unfilled.</p></div></div>
       </article>
-
-      <article class="panel featured-panel">
-        <div class="panel-heading"><div><span class="panel-kicker">DATABASE</span><h2>Structured entries</h2></div><span class="small-muted">Search-ready</span></div>
-        <div id="entryPreview" class="entry-preview"></div>
-      </article>
-
+      <article class="panel featured-panel"><div class="panel-heading"><div><span class="panel-kicker">DATABASE</span><h2>Structured entries</h2></div><span class="small-muted">Search-ready</span></div><div id="entryPreview" class="entry-preview"></div></article>
       <aside class="right-stack">
-        <article class="panel compact-panel"><span class="panel-kicker">CURRENT BUILD</span><h3>PortalDB v0.3</h3><p>Verified-data foundation + Item Finder + NPC profiles + Quest Guide.</p><div class="meter"><span style="width:68%"></span></div><small>Next: fill Chapter 2 gaps, then expand enemy/location coverage</small></article>
+        <article class="panel compact-panel"><span class="panel-kicker">CURRENT BUILD</span><h3>PortalDB v0.3</h3><p>Item Finder + NPC profiles + Quest Guide + Crafting Calculator + Build Planner.</p><div class="meter"><span style="width:78%"></span></div><small>Preview/deployment milestone</small></article>
         <article class="panel compact-panel"><span class="panel-kicker">DATA POLICY</span><h3>Evidence first.</h3><div class="confidence-list"><span><i class="dot confirmed"></i> Official / in-game verified</span><span><i class="dot community"></i> Community verified</span><span><i class="dot unknown"></i> Unknown / awaiting verification</span></div></article>
       </aside>
     </section>
@@ -141,25 +93,20 @@
     <section class="section shell" id="tools">
       <div class="section-heading"><span class="panel-kicker">TOOLS</span><h2>Useful before flashy.</h2><p>PortalDB tools run in the browser while possible, keeping the project lightweight and compatible with free static hosting.</p></div>
       <div class="tool-grid">
-        <article class="tool-card"><span>01</span><h3>Item Finder</h3><p>Search items and inspect known sources, requirements, prices, drop rates, effects, and verification metadata.</p><b>V1 ACTIVE</b></article>
-        <article class="tool-card"><span>02</span><h3>Quest Guide</h3><p>Follow main-story chapters part by part with objectives, rewards, locations, and known related entities.</p><b>V1 ACTIVE</b></article>
-        <article class="tool-card"><span>03</span><h3>Build Planner</h3><p>Allocate stats, compare builds, and eventually share a build using a URL.</p><b>PLANNED</b></article>
+        <a class="tool-card tool-card-link" href="#item-finder"><span>01</span><h3>Item Finder</h3><p>Search items and inspect known sources, requirements, prices, drop rates, effects, and verification metadata.</p><b>V1 ACTIVE</b></a>
+        <a class="tool-card tool-card-link" href="#quest-guide"><span>02</span><h3>Quest Guide</h3><p>Follow main-story chapters part by part with objectives, rewards, locations, and known related entities.</p><b>V1 ACTIVE</b></a>
+        <a class="tool-card tool-card-link" href="crafting.html"><span>03</span><h3>Crafting Calculator</h3><p>Scale verified recipes and nested material totals. The current dataset intentionally stays empty until recipe evidence is captured.</p><b>V1 SHELL ACTIVE</b></a>
+        <a class="tool-card tool-card-link" href="build-planner.html"><span>04</span><h3>Build Planner</h3><p>Organize job, base stats, equipment, title, and skills without fabricating unknown conversion formulas.</p><b>V1 SHELL ACTIVE</b></a>
       </div>
     </section>
 
     <section class="section shell" id="guides">
       <div class="section-heading"><span class="panel-kicker">GUIDES</span><h2>Designed around player questions.</h2><p>Guides are generated from the same source-backed database rather than maintained as disconnected wiki text.</p></div>
-      <div class="guide-row">
-        <article><span>BEGINNER</span><strong>What should I do first?</strong></article>
-        <article><span>PROGRESSION</span><strong>What should I be doing next?</strong></article>
-        <article><span>BUILDS</span><strong>Where should my stats go?</strong></article>
-        <article><span>CRAFTING</span><strong>Where do I get this material?</strong></article>
-      </div>
+      <div class="guide-row"><article><span>BEGINNER</span><strong>What should I do first?</strong></article><article><span>PROGRESSION</span><strong>What should I be doing next?</strong></article><article><span>BUILDS</span><strong>Where should my stats go?</strong></article><article><span>CRAFTING</span><strong>Where do I get this material?</strong></article></div>
     </section>
   </main>
 
-  <footer class="footer shell"><div><strong>PORTALDB</strong><p>Unofficial community resource. Not affiliated with Roblox or The Portal's developers.</p></div><span>Data build v0.3</span></footer>
-
+  <footer class="footer shell"><div><strong>PORTALDB</strong><p>Unofficial community resource. Not affiliated with Roblox or The Portal's developers.</p></div><span>Preview build v0.3</span></footer>
   <dialog id="entryDialog"><button id="dialogClose" class="dialog-close">×</button><div id="dialogContent"></div></dialog>
   <script src="app.js"></script>
   <script src="quest-ui.js"></script>
