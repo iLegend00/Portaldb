@@ -1,0 +1,93 @@
+[
+  {
+    "id": "race-human",
+    "name": "Human",
+    "description": "Base Human race. Community documentation reports +2 STR and +2 VIT. Selected during the tutorial by choosing Milk.",
+    "tags": ["race", "human", "strength", "vitality", "str", "vit", "milk", "defender", "warrior"],
+    "stats": {"STR": 2, "VIT": 2},
+    "tutorialChoice": "Milk",
+    "variantChance": "90% base / 10% Corrupted Human",
+    "confidence": "Community verified",
+    "version": "Release v1.0",
+    "lastVerified": "2026-08-18",
+    "source": "Gamepur race guide, published 2026-08-04"
+  },
+  {
+    "id": "race-corrupted-human",
+    "name": "Corrupted Human",
+    "description": "Bonus Human variant. Community documentation reports +3 STR and +3 VIT, with a 10% chance when rolling the Human family.",
+    "tags": ["race", "corrupted human", "strength", "vitality", "str", "vit", "defender", "warrior", "bonus race"],
+    "stats": {"STR": 3, "VIT": 3},
+    "tutorialChoice": "Milk",
+    "variantChance": "10% within Human family",
+    "confidence": "Community verified",
+    "version": "Release v1.0",
+    "lastVerified": "2026-08-18",
+    "source": "Gamepur race guide, published 2026-08-04"
+  },
+  {
+    "id": "race-elf",
+    "name": "Elf",
+    "description": "Base Elf race. Community documentation reports +2 INT and +2 WIS. Selected during the tutorial by choosing Mushroom.",
+    "tags": ["race", "elf", "intelligence", "wisdom", "int", "wis", "mushroom", "enchanter", "cleric"],
+    "stats": {"INT": 2, "WIS": 2},
+    "tutorialChoice": "Mushroom",
+    "variantChance": "90% base / 10% High Elf",
+    "confidence": "Community verified",
+    "version": "Release v1.0",
+    "lastVerified": "2026-08-18",
+    "source": "Gamepur race guide, published 2026-08-04"
+  },
+  {
+    "id": "race-high-elf",
+    "name": "High Elf",
+    "description": "Bonus Elf variant. Community documentation reports +3 INT and +3 WIS, with a 10% chance when rolling the Elf family.",
+    "tags": ["race", "high elf", "intelligence", "wisdom", "int", "wis", "enchanter", "cleric", "bonus race"],
+    "stats": {"INT": 3, "WIS": 3},
+    "tutorialChoice": "Mushroom",
+    "variantChance": "10% within Elf family",
+    "confidence": "Community verified",
+    "version": "Release v1.0",
+    "lastVerified": "2026-08-18",
+    "source": "Gamepur race guide, published 2026-08-04"
+  },
+  {
+    "id": "race-beastmen-cat",
+    "name": "Beastmen — Cat",
+    "description": "Base Beastmen variant. Community documentation reports +2 AGI and +2 DEX. Beastmen are selected during the tutorial by choosing Meat.",
+    "tags": ["race", "beastmen", "cat", "agility", "dexterity", "agi", "dex", "meat", "warrior"],
+    "stats": {"AGI": 2, "DEX": 2},
+    "tutorialChoice": "Meat",
+    "variantChance": "Base Beastmen variant",
+    "confidence": "Community verified",
+    "version": "Release v1.0",
+    "lastVerified": "2026-08-18",
+    "source": "Gamepur race guide, published 2026-08-04"
+  },
+  {
+    "id": "race-beastmen-wolf",
+    "name": "Beastmen — Wolf",
+    "description": "Base Beastmen variant. Community documentation reports +2 AGI and +2 DEX. Beastmen are selected during the tutorial by choosing Meat.",
+    "tags": ["race", "beastmen", "wolf", "agility", "dexterity", "agi", "dex", "meat", "warrior"],
+    "stats": {"AGI": 2, "DEX": 2},
+    "tutorialChoice": "Meat",
+    "variantChance": "Base Beastmen variant",
+    "confidence": "Community verified",
+    "version": "Release v1.0",
+    "lastVerified": "2026-08-18",
+    "source": "Gamepur race guide, published 2026-08-04"
+  },
+  {
+    "id": "race-beastmen-fox",
+    "name": "Beastmen — Fox",
+    "description": "Bonus Beastmen variant. Community documentation reports +3 AGI and +2 DEX, with a 10% chance when rolling Beastmen.",
+    "tags": ["race", "beastmen", "fox", "agility", "dexterity", "agi", "dex", "warrior", "bonus race"],
+    "stats": {"AGI": 3, "DEX": 2},
+    "tutorialChoice": "Meat",
+    "variantChance": "10% within Beastmen family",
+    "confidence": "Community verified",
+    "version": "Release v1.0",
+    "lastVerified": "2026-08-18",
+    "source": "Gamepur race guide, published 2026-08-04"
+  }
+]
