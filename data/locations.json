@@ -1,0 +1,50 @@
+[
+  {
+    "id": "farm",
+    "name": "Farm",
+    "type": "Location",
+    "locationType": "Player/Home Area",
+    "description": "Starting/home location used throughout Chapter 1: Home. Farming tutorial objectives and the player's plot are located here.",
+    "relatedQuests": ["Chapter 1: Home"],
+    "relatedNPCs": ["Marta"],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "User-supplied in-game Main Quest screenshots"
+  },
+  {
+    "id": "dewdrop-village",
+    "name": "Dewdrop Village",
+    "type": "Location",
+    "locationType": "Village",
+    "description": "Village hub described by Theron as the safest corner of a wide world. Current verified service NPCs include Breda, Eren, Neria, Rendall, Theron, Arlette, Hogan, and Leaf.",
+    "npcs": ["Breda", "Eren", "Neria", "Rendall", "Theron", "Arlette", "Hogan", "Leaf"],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "User-supplied in-game NPC and Theron dialogue screenshots"
+  },
+  {
+    "id": "goblin-junkyard",
+    "name": "Goblin Junkyard",
+    "type": "Location",
+    "locationType": "Region",
+    "description": "Region referenced by Chapter 1: Home. The Scrap Fields are located within the Goblin Junkyard.",
+    "subLocations": ["Scrap Fields"],
+    "relatedQuests": ["Trial by Scrap"],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "User-supplied in-game Main Quest screenshots"
+  },
+  {
+    "id": "scrap-fields",
+    "name": "Scrap Fields",
+    "type": "Location",
+    "locationType": "Sub-area",
+    "parentLocation": "Goblin Junkyard",
+    "description": "Chapter 1 sends the player here to defeat Cog Crabs and collect Scrap Metal.",
+    "relatedEnemies": ["Cog Crab"],
+    "relatedQuests": ["Trial by Scrap"],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "User-supplied in-game Main Quest screenshots"
+  }
+]
