@@ -1,0 +1,11 @@
+[
+  {
+    "id": "demo-boss-01",
+    "name": "Demo Boss Entry",
+    "description": "Placeholder boss record. Real entries will require sourced information.",
+    "tags": ["boss", "enemy", "demo"],
+    "confidence": "Unverified placeholder",
+    "version": "Prototype",
+    "lastVerified": "Not verified"
+  }
+]
