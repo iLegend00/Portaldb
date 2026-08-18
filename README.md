@@ -4,23 +4,34 @@ An unofficial community companion and database for **The Portal** on Roblox.
 
 ## Current status
 
-PortalDB is currently in early prototype development. The approved visual direction is an original anime-fantasy field-guide aesthetic using purple, warm gold, magical glow, layered scenic backgrounds, and premium game-companion UI.
+PortalDB is now in an early **verified-data build** rather than a placeholder-only prototype.
 
-The current prototype includes:
+The approved visual direction is an original anime-fantasy field-guide aesthetic using purple, warm gold, magical glow, layered scenic backgrounds, and premium game-companion UI.
+
+The current build includes:
 
 - responsive homepage
-- universal search foundation
+- universal search across multiple structured datasets
 - category browsing
-- JSON-driven content
+- JSON-driven verified content
 - confidence / verification metadata
-- item, quest, NPC, and boss placeholder records
+- real item, NPC, quest, boss, race, job, location, code, mechanic, skill, and update records
+- Item Finder v1
 - no backend requirement
 
-## Important data policy
+## Data policy
 
-All records currently stored in `/data` are clearly marked demo placeholders.
+PortalDB does not treat guesses as facts.
 
-No placeholder should be treated as factual information about The Portal. Real entries will be added only after source-backed research and verification.
+Factual records should include, whenever possible:
+
+- source / evidence
+- verification confidence
+- game version or date context
+- last verified date
+- explicit unknown fields rather than inferred values
+
+Current evidence may come from official Discord posts, official game information, or direct in-game verification supplied by the project owner.
 
 ## Architecture
 
@@ -45,15 +56,15 @@ Then open:
 
 `http://localhost:8000`
 
-## Roadmap
+## Current roadmap
 
-1. Replace placeholder content with sourced Portal data.
-2. Add source metadata and last-verified dates to every factual entry.
-3. Build dedicated database pages.
-4. Build Item Finder as the first production tool.
-5. Add crafting calculator and build planner later.
+1. Continue normalizing and expanding verified Portal data.
+2. Improve Item Finder relationships between items, NPCs, enemies, locations, and quests.
+3. Build richer NPC and Quest database views.
+4. Add crafting calculator once recipe coverage is sufficient.
+5. Add build planner once enough class/stat/equipment data is verified.
 6. Replace the hero placeholder with original anime artwork based on the site owner's Roblox avatar.
-7. Deploy through a free static host.
+7. Deploy through a free static host when the data/UI milestone is ready.
 
 ## Cost target
 
