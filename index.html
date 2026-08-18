@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="PortalDB — an unofficial community companion for The Portal on Roblox." />
+  <title>PortalDB — The Portal Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-glow page-glow-a"></div>
+  <div class="page-glow page-glow-b"></div>
+
+  <header class="topbar shell">
+    <a class="brand" href="#top">
+      <span class="brand-emblem">✦</span>
+      <span class="brand-copy">
+        <strong>PORTAL<span>DB</span></strong>
+        <small>THE PORTAL COMPANION</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a class="active" href="#top">Home</a>
+      <a href="#database">Database</a>
+      <a href="#guides">Guides</a>
+      <a href="#tools">Tools</a>
+      <a href="#updates">Updates</a>
+    </nav>
+
+    <button class="round-btn" id="focusSearch" aria-label="Focus search">⌕</button>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-art">
+        <div class="moon"></div>
+        <div class="portal-ring ring-1"></div>
+        <div class="portal-ring ring-2"></div>
+        <div class="portal-core"></div>
+        <div class="mountain mountain-a"></div>
+        <div class="mountain mountain-b"></div>
+        <div class="city city-a"></div>
+        <div class="city city-b"></div>
+        <div class="hero-character-placeholder">
+          <div class="character-aura"></div>
+          <div class="character-card">
+            <span>YOUR AVATAR</span>
+            <small>Anime hero art goes here later</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div class="eyebrow">UNOFFICIAL COMMUNITY COMPANION</div>
+        <h1>Your journey.<br><em>Our knowledge.</em></h1>
+        <p>The fast, beautiful way to find items, quests, NPCs, bosses, professions, builds, and everything else players discover in <strong>The Portal</strong>.</p>
+
+        <div class="search-shell">
+          <span class="search-mark">⌕</span>
+          <input id="globalSearch" type="search" autocomplete="off" placeholder="Search items, quests, NPCs, bosses..." />
+          <button id="searchButton">Search</button>
+        </div>
+
+        <div class="popular-searches">
+          <span>Prototype:</span>
+          <button data-query="item">Items</button>
+          <button data-query="quest">Quests</button>
+          <button data-query="npc">NPCs</button>
+          <button data-query="boss">Bosses</button>
+        </div>
+
+        <div id="searchResults" class="search-results hidden"></div>
+      </div>
+    </section>
+
+    <section class="category-strip shell" id="database">
+      <button class="category-card" data-category="items"><span class="category-icon">⚔</span><strong>Items</strong><small>Weapons, armor, materials</small></button>
+      <button class="category-card" data-category="quests"><span class="category-icon">✎</span><strong>Quests</strong><small>Objectives and rewards</small></button>
+      <button class="category-card" data-category="npcs"><span class="category-icon">♙</span><strong>NPCs</strong><small>Merchants and trainers</small></button>
+      <button class="category-card" data-category="bosses"><span class="category-icon">♛</span><strong>Bosses</strong><small>Enemies and drops</small></button>
+      <button class="category-card" data-category="crafting"><span class="category-icon">⚒</span><strong>Crafting</strong><small>Recipes and materials</small></button>
+      <button class="category-card" data-category="builds"><span class="category-icon">✧</span><strong>Builds</strong><small>Plan stats and loadouts</small></button>
+    </section>
+
+    <section class="content-grid shell" id="updates">
+      <article class="panel latest-panel">
+        <div class="panel-heading"><div><span class="panel-kicker">LATEST</span><h2>Project updates</h2></div><span class="status-chip">v0.2 prototype</span></div>
+        <div class="timeline-item"><div class="timeline-icon">✦</div><div><strong>Anime-fantasy visual direction approved</strong><p>Purple, gold, parchment, glass panels, magical glow, and a more premium field-guide feel.</p></div></div>
+        <div class="timeline-item"><div class="timeline-icon">✓</div><div><strong>Static architecture retained</strong><p>No backend required yet. The site remains compatible with $0 hosting.</p></div></div>
+        <div class="timeline-item"><div class="timeline-icon">◇</div><div><strong>Game data still protected from guesswork</strong><p>All current records remain explicit placeholders until we add verified Portal information.</p></div></div>
+      </article>
+
+      <article class="panel featured-panel">
+        <div class="panel-heading"><div><span class="panel-kicker">DATABASE</span><h2>Structured entries</h2></div><span class="small-muted">Search-ready</span></div>
+        <div id="entryPreview" class="entry-preview"></div>
+      </article>
+
+      <aside class="right-stack">
+        <article class="panel compact-panel"><span class="panel-kicker">CURRENT BUILD</span><h3>PortalDB v0.2</h3><p>Visual foundation + static data system.</p><div class="meter"><span style="width:36%"></span></div><small>Next: real sourced Portal data</small></article>
+        <article class="panel compact-panel"><span class="panel-kicker">DATA POLICY</span><h3>Verified before published.</h3><div class="confidence-list"><span><i class="dot confirmed"></i> Confirmed</span><span><i class="dot community"></i> Community verified</span><span><i class="dot unknown"></i> Unverified</span></div></article>
+      </aside>
+    </section>
+
+    <section class="section shell" id="tools">
+      <div class="section-heading"><span class="panel-kicker">TOOLS</span><h2>Useful before flashy.</h2><p>The first tools will run locally in the browser, which keeps hosting simple and free.</p></div>
+      <div class="tool-grid">
+        <article class="tool-card"><span>01</span><h3>Item Finder</h3><p>Search an item and immediately see where it comes from, what it relates to, and how current the information is.</p><b>FIRST TARGET</b></article>
+        <article class="tool-card"><span>02</span><h3>Crafting Calculator</h3><p>Select a recipe and calculate the total material requirements, including nested components later.</p><b>PLANNED</b></article>
+        <article class="tool-card"><span>03</span><h3>Build Planner</h3><p>Allocate stats, compare builds, and eventually share a build using a URL.</p><b>PLANNED</b></article>
+      </div>
+    </section>
+
+    <section class="section shell" id="guides">
+      <div class="section-heading"><span class="panel-kicker">GUIDES</span><h2>Designed around player questions.</h2><p>Instead of generic wiki dumps, guides will answer specific gameplay problems quickly.</p></div>
+      <div class="guide-row">
+        <article><span>BEGINNER</span><strong>What should I do first?</strong></article>
+        <article><span>PROGRESSION</span><strong>What should I be doing next?</strong></article>
+        <article><span>BUILDS</span><strong>Where should my stats go?</strong></article>
+        <article><span>CRAFTING</span><strong>Where do I get this material?</strong></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell"><div><strong>PORTALDB</strong><p>Unofficial community resource. Not affiliated with Roblox or The Portal's developers.</p></div><span>Prototype build v0.2</span></footer>
+
+  <dialog id="entryDialog"><button id="dialogClose" class="dialog-close">×</button><div id="dialogContent"></div></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
