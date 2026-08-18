@@ -22,6 +22,17 @@
     ]
   },
   {
+    "id": "2026-07-30-combat-followup",
+    "title": "Combat Cone Follow-up — July 30, 2026",
+    "date": "2026-07-30",
+    "version": "Small update",
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab",
+    "highlights": [
+      "Attack cone widened from ±20° to ±45° for the next patch"
+    ]
+  },
+  {
     "id": "2026-07-30-patch",
     "title": "Patch Notes — July 30, 2026",
     "date": "2026-07-30",
@@ -65,6 +76,33 @@
       "Headgear added to the Codex",
       "Build Mode overlay added with invalid placements shown in red",
       "Fortune Clover, Bone Bite, Tinker's Goggles, and Plague Mask headgear added"
+    ]
+  },
+  {
+    "id": "v1.0.4",
+    "title": "Patch Notes — v1.0.4",
+    "date": "2026-08-06",
+    "version": "v1.0.4",
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab",
+    "highlights": [
+      "Fixed collision issues that could trap players during repeated Auto Attack near objects",
+      "Fixed ladder climbing during Baby Phase",
+      "Fixed various Greenhouse bugs",
+      "Skills cast without a valid target now consume 50% of normal mana cost"
+    ]
+  },
+  {
+    "id": "v1.0.5",
+    "title": "Patch Notes — v1.0.5",
+    "date": "2026-08-06",
+    "version": "v1.0.5",
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab",
+    "highlights": [
+      "Fixed Aqua Bloom skill glitch",
+      "Combat Mode changed to trigger when dealing or receiving damage",
+      "Some poles made slippery"
     ]
   },
   {
@@ -112,6 +150,20 @@
     ]
   },
   {
+    "id": "v1.1.7",
+    "title": "Patch Notes — v1.1.7",
+    "date": "2026-08-10",
+    "version": "v1.1.7",
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab",
+    "highlights": [
+      "Lycaros weekly schedule listed as Saturday 16:00 and 04:00 GMT+7",
+      "Body Slam, Tailwind, and Blade Rush listed as new skills",
+      "Identify system uses Magnifying Glasses dropped by Lycaros",
+      "Part-Time Jobs added for Breda, Eren, Neria, Leaf, Arlette, and Hogan while those NPCs are sleeping"
+    ]
+  },
+  {
     "id": "v1.1.8",
     "title": "Update & Patch Notes v1.1.8",
     "date": "2026-08-12",
@@ -127,6 +179,55 @@
       "Additional Quick Slots unlock after clearing Chapter 2",
       "Skill VFX Filter settings added: Self, Party, Everyone",
       "World Motion graphics toggle added"
+    ]
+  },
+  {
+    "id": "v1.1.9",
+    "title": "Patch Notes — v1.1.9",
+    "date": "2026-08-14",
+    "version": "v1.1.9",
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab",
+    "highlights": [
+      "Fixed Dual Wield elemental effects",
+      "Fixed Slider UI issues on PC and Mobile",
+      "Fixed SFX volume slider",
+      "Fixed skill-spam issue during Part-Time Jobs"
+    ]
+  },
+  {
+    "id": "v1.1.10",
+    "title": "Patch Notes — v1.1.10",
+    "date": "2026-08-14",
+    "version": "v1.1.10",
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab",
+    "highlights": [
+      "Junk King and Tin Tortoise can now drop Magnifying Glass",
+      "Claw Machine stuck protection guarantees 1 Goblin Coin when stuck with no reward",
+      "Claw Machine now displays reward probability chances",
+      "Claw Machine can be restocked",
+      "Server Hop filters added for All, Friends, and Filter by Name"
+    ]
+  },
+  {
+    "id": "v1.1.12",
+    "title": "Patch Notes — v1.1.12",
+    "date": null,
+    "dateNote": "Discord export showed only time 02:05; calendar date was not visible in the supplied text.",
+    "version": "v1.1.12",
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab",
+    "highlights": [
+      "Players can equip only one title at a time",
+      "Fixed false bans caused by physics flings",
+      "Auto Jump disabled",
+      "All attacks now trigger Combat Mode",
+      "Fortune Clover and Bone Bite made tradable",
+      "Fixed Resurrect target selection",
+      "Pet pathfinding fixed",
+      "Pet collision disabled",
+      "Cart collision disabled"
     ]
   }
 ]
