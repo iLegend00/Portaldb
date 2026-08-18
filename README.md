@@ -4,13 +4,14 @@ An unofficial community companion and database for **The Portal** on Roblox.
 
 ## Current status
 
-PortalDB is now in an early **verified-data build** rather than a placeholder-only prototype.
+PortalDB is now in an early **preview-ready verified-data build** rather than a placeholder-only prototype.
 
 The approved visual direction is an original anime-fantasy field-guide aesthetic using purple, warm gold, magical glow, layered scenic backgrounds, and premium game-companion UI.
 
 The current build includes:
 
 - responsive homepage
+- unified navigation between the homepage, Crafting Calculator, and Build Planner
 - universal search across multiple structured datasets
 - category browsing
 - JSON-driven verified content
@@ -22,6 +23,7 @@ The current build includes:
 - enemy / boss / location relationship coverage
 - Crafting Calculator v1 shell with quantity scaling, direct requirements, expandable nested requirements, currency-cost support, circular-reference protection, and a verified-empty state until recipe screenshots are captured
 - Build Planner v1 shell with job selection, six verified base-stat categories, known stat-effect relationships, equipment slots, one-title rule, skill slots, and non-fabricated planning snapshots
+- GitHub Pages deployment workflow
 - no backend requirement
 
 ## Data policy
@@ -70,15 +72,24 @@ Standalone tools:
 - `http://localhost:8000/crafting.html`
 - `http://localhost:8000/build-planner.html`
 
+## Deployment
+
+The repository now contains `.github/workflows/pages.yml` and `.nojekyll` for static GitHub Pages deployment from `main`.
+
+Expected project-site address after GitHub Pages is enabled for the repository:
+
+`https://ilegend00.github.io/Portaldb/`
+
+If the workflow reports that Pages is not enabled yet, open the repository's **Settings → Pages**, set **Source** to **GitHub Actions**, then re-run the `Deploy PortalDB to GitHub Pages` workflow. This is a one-time repository setting; the site remains compatible with the project's $0/month target.
+
 ## Current roadmap
 
 1. Fill the remaining Chapter 2 quest gaps when the missing in-game screenshots are available.
 2. Capture exact crafting recipes/material requirements and populate `data/crafting.json` only from verified evidence.
 3. Expand Build Planner data with verified titles, equipment coverage, skill data, and numerical stat formulas only when captured.
 4. Continue expanding enemy, boss, location, item, and NPC relationships.
-5. Integrate standalone tools more deeply into the main navigation.
-6. Replace the hero placeholder with original anime artwork based on the site owner's Roblox avatar.
-7. Deploy through a free static host when the data/UI milestone is ready.
+5. Replace the hero placeholder with original anime artwork based on the site owner's Roblox avatar.
+6. Continue UI polish based on real preview testing.
 
 ## Cost target
 
