@@ -1,5 +1,5 @@
-const collections = ["items","quests","npcs","bosses","races","jobs","codes","updates"];
-const labels = {items:"ITEM",quests:"QUEST",npcs:"NPC",bosses:"BOSS",races:"RACE",jobs:"JOB",codes:"CODE",updates:"UPDATE"};
+const collections = ["items","quests","npcs","bosses","races","jobs","locations","codes","updates"];
+const labels = {items:"ITEM",quests:"QUEST",npcs:"NPC",bosses:"BOSS",races:"RACE",jobs:"JOB",locations:"LOCATION",codes:"CODE",updates:"UPDATE"};
 let database = [];
 
 async function loadData(){
