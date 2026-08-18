@@ -76,11 +76,13 @@ Standalone tools:
 
 The repository now contains `.github/workflows/pages.yml` and `.nojekyll` for static GitHub Pages deployment from `main`.
 
-Expected project-site address after GitHub Pages is enabled for the repository:
+GitHub Pages source is configured for **GitHub Actions**.
+
+Expected project-site address after a successful deployment:
 
 `https://ilegend00.github.io/Portaldb/`
 
-If the workflow reports that Pages is not enabled yet, open the repository's **Settings → Pages**, set **Source** to **GitHub Actions**, then re-run the `Deploy PortalDB to GitHub Pages` workflow. This is a one-time repository setting; the site remains compatible with the project's $0/month target.
+The site remains compatible with the project's $0/month target.
 
 ## Current roadmap
 
