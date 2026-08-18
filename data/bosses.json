@@ -27,5 +27,29 @@
     "schedule": "Every Saturday at 04:00 GMT+7 and 16:00 GMT+7",
     "payoutLimit": "One Lycaros payout per player across all servers per weekly event schedule announcement.",
     "source": "Official Discord announcements, Swaroff [PRTL], 2026-08-09 and 2026-08-11"
+  },
+  {
+    "id": "junk-king",
+    "name": "Junk King",
+    "description": "Boss whose HP was increased to 1,050,000 in the July 30, 2026 patch. Known verified drops include Bone Bite and, as of v1.1.10, Magnifying Glass.",
+    "hp": 1050000,
+    "knownDrops": ["Bone Bite", "Magnifying Glass"],
+    "tags": ["boss", "junk king", "bone bite", "magnifying glass"],
+    "confidence": "Official confirmed",
+    "version": "Current through v1.1.10",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord 2026-07-30 patch, August 3 update, and v1.1.10 small update"
+  },
+  {
+    "id": "tin-tortoise",
+    "name": "Tin Tortoise",
+    "description": "Boss whose HP was increased to 525,000 in the July 30, 2026 patch. Known verified drops include Fortune Clover, Iron Hammer +3, and, as of v1.1.10, Magnifying Glass.",
+    "hp": 525000,
+    "knownDrops": ["Fortune Clover", "Iron Hammer +3", "Magnifying Glass"],
+    "tags": ["boss", "tin tortoise", "fortune clover", "iron hammer", "magnifying glass"],
+    "confidence": "Official confirmed + in-game verified drops",
+    "version": "Current through v1.1.10",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord 2026-07-30 patch, August 3 update, v1.1.10 small update, and player-supplied item tooltip screenshots"
   }
 ]
