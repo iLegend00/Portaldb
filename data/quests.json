@@ -8,181 +8,60 @@
     "endingLocation": "Farm",
     "partCount": 5,
     "parts": [
-      {
-        "part": 1,
-        "id": "main-ch1-p1-first-steps",
-        "name": "First Steps",
-        "locations": ["Farm"],
-        "objectives": [
-          "Find something to eat",
-          "Find something to test your strength on",
-          "Try out your new abilities",
-          "Take down the training dummy with your upgraded skill",
-          "Lock on and destroy the training dummy once more"
-        ],
-        "rewards": [
-          {"type": "currency", "name": "Tria", "amount": 800},
-          {"type": "item", "name": "Kettle Greaves", "amount": 1}
-        ]
-      },
-      {
-        "part": 2,
-        "id": "main-ch1-p2-martas-lessons",
-        "name": "Marta's Lessons",
-        "locations": ["Farm"],
-        "objectives": [
-          "Talk to Marta at home",
-          "Get a Hoe (from Leaf, or Rendall at night)",
-          "Get a Watering Can (from Leaf, or Rendall at night)"
-        ],
-        "rewards": [
-          {"type": "experience", "name": "EXP", "amount": 2700},
-          {"type": "currency", "name": "Tria", "amount": 200},
-          {"type": "item", "name": "Kettle Stompers", "amount": 1},
-          {"type": "item", "name": "Kettle Mitts", "amount": 1}
-        ]
-      },
-      {
-        "part": 3,
-        "id": "main-ch1-p3-working-the-land",
-        "name": "Working the Land",
-        "locations": ["Farm"],
-        "objectives": [
-          "Talk to Marta about farming",
-          "Till soil on your farm plot (5/5)",
-          "Plant wheat seeds (5/5)",
-          "Water your crops (5/5)",
-          "Harvest Wheat (5/5)"
-        ],
-        "rewards": [
-          {"type": "experience", "name": "EXP", "amount": 5000},
-          {"type": "currency", "name": "Tria", "amount": 300},
-          {"type": "item", "name": "Stat Reset Scroll", "amount": 3},
-          {"type": "item", "name": "Pot Armor", "amount": 1},
-          {"type": "creature", "name": "Punk Rooster", "amount": 1}
-        ]
-      },
-      {
-        "part": 4,
-        "id": "main-ch1-p4-trial-by-scrap",
-        "name": "Trial by Scrap",
-        "locations": ["Farm", "Scrap Fields", "Goblin Junkyard"],
-        "objectives": [
-          "Prepare your equipment",
-          "Go to Scrap Fields in Goblin Junkyard",
-          "Kill Cog Crabs and collect Scrap Metal (3/3)",
-          "Bring the Scrap Metal to Marta"
-        ],
-        "rewards": [
-          {"type": "experience", "name": "EXP", "amount": 800},
-          {"type": "currency", "name": "Tria", "amount": 400},
-          {"type": "item", "name": "Kettle Crown", "amount": 1}
-        ]
-      },
-      {
-        "part": 5,
-        "id": "main-ch1-p5-the-empty-house",
-        "name": "The Empty House",
-        "locations": ["Farm"],
-        "objectives": [
-          "Return home",
-          "Talk to the stranger at your plot",
-          "Clean up the wreckage (50/50)"
-        ],
-        "rewards": [
-          {"type": "experience", "name": "EXP", "amount": 1200},
-          {"type": "currency", "name": "Tria", "amount": 400},
-          {"type": "item", "name": "Animal Plot", "amount": 1},
-          {"type": "skill", "name": "Timber Charge I", "amount": 1}
-        ]
-      }
+      {"part":1,"id":"main-ch1-p1-first-steps","name":"First Steps","locations":["Farm"],"objectives":["Find something to eat","Find something to test your strength on","Try out your new abilities","Take down the training dummy with your upgraded skill","Lock on and destroy the training dummy once more"],"rewards":[{"type":"currency","name":"Tria","amount":800},{"type":"item","name":"Kettle Greaves","amount":1}]},
+      {"part":2,"id":"main-ch1-p2-martas-lessons","name":"Marta's Lessons","locations":["Farm"],"objectives":["Talk to Marta at home","Get a Hoe (from Leaf, or Rendall at night)","Get a Watering Can (from Leaf, or Rendall at night)"],"rewards":[{"type":"experience","name":"EXP","amount":2700},{"type":"currency","name":"Tria","amount":200},{"type":"item","name":"Kettle Stompers","amount":1},{"type":"item","name":"Kettle Mitts","amount":1}]},
+      {"part":3,"id":"main-ch1-p3-working-the-land","name":"Working the Land","locations":["Farm"],"objectives":["Talk to Marta about farming","Till soil on your farm plot (5/5)","Plant wheat seeds (5/5)","Water your crops (5/5)","Harvest Wheat (5/5)"],"rewards":[{"type":"experience","name":"EXP","amount":5000},{"type":"currency","name":"Tria","amount":300},{"type":"item","name":"Stat Reset Scroll","amount":3},{"type":"item","name":"Pot Armor","amount":1},{"type":"creature","name":"Punk Rooster","amount":1}]},
+      {"part":4,"id":"main-ch1-p4-trial-by-scrap","name":"Trial by Scrap","locations":["Farm","Scrap Fields","Goblin Junkyard"],"objectives":["Prepare your equipment","Go to Scrap Fields in Goblin Junkyard","Kill Cog Crabs and collect Scrap Metal (3/3)","Bring the Scrap Metal to Marta"],"rewards":[{"type":"experience","name":"EXP","amount":800},{"type":"currency","name":"Tria","amount":400},{"type":"item","name":"Kettle Crown","amount":1}]},
+      {"part":5,"id":"main-ch1-p5-the-empty-house","name":"The Empty House","locations":["Farm"],"objectives":["Return home","Talk to the stranger at your plot","Clean up the wreckage (50/50)"],"rewards":[{"type":"experience","name":"EXP","amount":1200},{"type":"currency","name":"Tria","amount":400},{"type":"item","name":"Animal Plot","amount":1},{"type":"skill","name":"Timber Charge I","amount":1}]}
     ],
-    "locationFlow": ["Farm", "Scrap Fields in Goblin Junkyard", "Farm"],
-    "relatedNPCs": ["Marta", "Leaf", "Rendall"],
-    "relatedEnemies": ["Cog Crab"],
-    "tags": ["main quest", "chapter 1", "home", "farm", "scrap fields", "goblin junkyard", "marta"],
-    "confidence": "In-game verified",
-    "version": "Current through 2026-08-18",
-    "lastVerified": "2026-08-18",
-    "source": "User-supplied in-game Main Quest screenshots on 2026-08-18"
+    "locationFlow":["Farm","Scrap Fields in Goblin Junkyard","Farm"],
+    "relatedNPCs":["Marta","Leaf","Rendall"],
+    "relatedEnemies":["Cog Crab"],
+    "tags":["main quest","chapter 1","home","farm","scrap fields","goblin junkyard","marta"],
+    "confidence":"In-game verified",
+    "version":"Current through 2026-08-18",
+    "lastVerified":"2026-08-18",
+    "source":"User-supplied in-game Main Quest screenshots on 2026-08-18"
   },
   {
-    "id": "main-ch2-stranger-in-the-village",
-    "name": "Chapter 2: Stranger in the Village",
-    "type": "Main Quest Chapter",
-    "chapter": 2,
-    "partCount": 4,
-    "parts": [
+    "id":"main-ch2-stranger-in-the-village",
+    "name":"Chapter 2: Stranger in the Village",
+    "type":"Main Quest Chapter",
+    "chapter":2,
+    "partCount":4,
+    "parts":[
       {
-        "part": 1,
-        "id": "main-ch2-p1-something-to-feed",
-        "name": "Something to Feed",
-        "dataStatus": "Awaiting screenshots",
-        "objectives": [],
-        "rewards": []
+        "part":1,
+        "id":"main-ch2-p1-something-to-feed",
+        "name":"Something to Feed",
+        "description":"The wreckage is cleared. The ground where the house stood looks bigger than it should. Theron said work is the best thing for today. Fine. Start with something that complains when it is hungry.",
+        "objectives":["Open Build mode and place your Animal Plot","Talk to Hogan the rancher","Buy a Chicken from Hogan","Buy a Hay Bundle (from Hogan, or Rendall at night)","Put your chicken in the Animal Plot","Feed your chicken"],
+        "rewards":[{"type":"experience","name":"EXP","amount":3000},{"type":"currency","name":"Tria","amount":500},{"type":"item","name":"Solite","amount":3}],
+        "relatedNPCs":["Hogan","Rendall"],
+        "verificationStatus":"In-game verified"
       },
       {
-        "part": 2,
-        "id": "main-ch2-p2-asking-around",
-        "name": "Asking Around",
-        "dataStatus": "Partial - screenshot begins mid-objective list",
-        "objectivesVisible": [
-          "Ask Leaf what grows this season",
-          "Check the season marker by your minimap"
-        ],
-        "rewards": [
-          {"type": "experience", "name": "EXP", "amount": 3500},
-          {"type": "currency", "name": "Tria", "amount": 500}
-        ]
+        "part":2,
+        "id":"main-ch2-p2-asking-around",
+        "name":"Asking Around",
+        "description":"The chicken is fed. The quiet comes back anyway. These folk have known this village longer than you have been alive. Someone saw something that night. Ask around. Keep the letter out of it.",
+        "objectives":["Ask Arlette about that night","Ask Breda about the attack","Ask Leaf what grows this season","Check the season marker by your minimap"],
+        "rewards":[{"type":"experience","name":"EXP","amount":3500},{"type":"currency","name":"Tria","amount":500}],
+        "relatedNPCs":["Arlette","Breda","Leaf"],
+        "verificationStatus":"In-game verified"
       },
       {
-        "part": 3,
-        "id": "main-ch2-p3-the-elders-guidance",
-        "name": "The Elder's Guidance",
-        "description": "Theron waves you in before you knock. Tea already poured. He asks his questions gently, and you answer all but one. The letter stays where it is. Then he says the word you needed: stronger.",
-        "objectives": [
-          "Visit Elder Theron",
-          "Ask Neria for a skill book",
-          "Buy your job's skill book from Neria",
-          "Learn the skill from your backpack",
-          "Place your new skill in a quick slot",
-          "Cast your new skill",
-          "Show Eren your weapon",
-          "Upgrade your weapon twice (2/2)"
-        ],
-        "rewards": [
-          {"type": "experience", "name": "EXP", "amount": 4500},
-          {"type": "currency", "name": "Tria", "amount": 500}
-        ],
-        "relatedNPCs": ["Theron", "Neria", "Eren"]
+        "part":3,"id":"main-ch2-p3-the-elders-guidance","name":"The Elder's Guidance","description":"Theron waves you in before you knock. Tea already poured. He asks his questions gently, and you answer all but one. The letter stays where it is. Then he says the word you needed: stronger.","objectives":["Visit Elder Theron","Ask Neria for a skill book","Buy your job's skill book from Neria","Learn the skill from your backpack","Place your new skill in a quick slot","Cast your new skill","Show Eren your weapon","Upgrade your weapon twice (2/2)"],"rewards":[{"type":"experience","name":"EXP","amount":4500},{"type":"currency","name":"Tria","amount":500}],"relatedNPCs":["Theron","Neria","Eren"],"verificationStatus":"In-game verified"
       },
       {
-        "part": 4,
-        "id": "main-ch2-p4-mind-whos-listening",
-        "name": "Mind Who's Listening",
-        "description": "A sharper blade, a new skill, a fed chicken. The village calls that healing. At night the tavern is warm and loud, and Rendall pours without being asked. You almost feel safe. Almost is worth something.",
-        "objectives": [
-          "Have supper at the tavern",
-          "Tell Theron you are ready",
-          "Take a bounty from the village quest board"
-        ],
-        "rewards": [
-          {"type": "experience", "name": "EXP", "amount": 5000},
-          {"type": "currency", "name": "Tria", "amount": 500}
-        ],
-        "relatedNPCs": ["Rendall", "Theron"]
+        "part":4,"id":"main-ch2-p4-mind-whos-listening","name":"Mind Who's Listening","description":"A sharper blade, a new skill, a fed chicken. The village calls that healing. At night the tavern is warm and loud, and Rendall pours without being asked. You almost feel safe. Almost is worth something.","objectives":["Have supper at the tavern","Tell Theron you are ready","Take a bounty from the village quest board"],"rewards":[{"type":"experience","name":"EXP","amount":5000},{"type":"currency","name":"Tria","amount":500}],"relatedNPCs":["Rendall","Theron"],"verificationStatus":"In-game verified"
       }
     ],
-    "futureChaptersShown": [
-      "Chapter 3: The Junkyard",
-      "Chapter 4: The Enchanted Forest",
-      "Chapter 5: The Castle",
-      "Chapter 6: Through the Portal"
-    ],
-    "confidence": "In-game verified where visible",
-    "dataStatus": "Partial - Part 1 and upper portion of Part 2 still needed",
-    "version": "Current through 2026-08-18",
-    "lastVerified": "2026-08-18",
-    "source": "User-supplied in-game Main Quest screenshots on 2026-08-18"
+    "futureChaptersShown":["Chapter 3: The Junkyard","Chapter 4: The Enchanted Forest","Chapter 5: The Castle","Chapter 6: Through the Portal"],
+    "confidence":"In-game verified",
+    "dataStatus":"Complete for all four currently available Chapter 2 parts shown in the quest menu",
+    "version":"Current through 2026-08-18",
+    "lastVerified":"2026-08-18",
+    "source":"User-supplied in-game Main Quest screenshots on 2026-08-18"
   }
 ]
