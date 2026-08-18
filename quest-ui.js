@@ -1,9 +1,12 @@
 let portalQuestChapters=[];
+let portalRelationshipEnhancerReady=false;
 
 async function initQuestUI(){
   const root=document.getElementById('questContent');
   if(!root) return;
   try{
+    await ensureEnemyData();
+    installRelationshipEnhancer();
     const res=await fetch('data/quests.json');
     if(!res.ok) throw new Error('quests.json unavailable');
     portalQuestChapters=(await res.json()).filter(q=>q.type==='Main Quest Chapter');
@@ -13,6 +16,103 @@ async function initQuestUI(){
     root.innerHTML='<div class="quest-empty">Quest data could not be loaded.</div>';
     console.error(err);
   }
+}
+
+async function ensureEnemyData(){
+  try{
+    const res=await fetch('data/enemies.json');
+    if(!res.ok) return;
+    const enemies=(await res.json()).map(row=>({...row,_collection:'enemies',_displayName:row.name||row.id}));
+    let attempts=0;
+    while((typeof database==='undefined' || !Array.isArray(database) || !database.length) && attempts<50){
+      await new Promise(resolve=>setTimeout(resolve,20));
+      attempts++;
+    }
+    if(typeof database!=='undefined' && Array.isArray(database)){
+      const existing=new Set(database.map(e=>`${e._collection}:${e.id}`));
+      enemies.forEach(enemy=>{if(!existing.has(`enemies:${enemy.id}`)) database.push(enemy)});
+      if(typeof collections!=='undefined' && Array.isArray(collections) && !collections.includes('enemies')) collections.push('enemies');
+      if(typeof labels!=='undefined') labels.enemies='ENEMY';
+      window.database=database;
+    }
+    if(typeof openEntry==='function') window.openEntry=openEntry;
+  }catch(err){
+    console.warn('Enemy relationship data unavailable',err);
+  }
+}
+
+function installRelationshipEnhancer(){
+  if(portalRelationshipEnhancerReady || typeof openEntry!=='function') return;
+  portalRelationshipEnhancerReady=true;
+  const originalOpenEntry=openEntry;
+  openEntry=function(entry){
+    originalOpenEntry(entry);
+    appendRelationshipPanel(entry);
+  };
+  window.openEntry=openEntry;
+  if(typeof database!=='undefined') window.database=database;
+}
+
+function appendRelationshipPanel(entry){
+  const host=document.querySelector('#dialogContent .dialog-body');
+  if(!host||!entry) return;
+  host.querySelector('.relationship-panel')?.remove();
+  const rows=[];
+  const links=[];
+
+  if(entry.hp!==undefined) rows.push(['HP',Number(entry.hp).toLocaleString()]);
+  if(entry.element) rows.push(['Element',entry.element]);
+  if(entry.schedule) rows.push(['Schedule',entry.schedule]);
+  if(entry.location) rows.push(['Location',entry.location]);
+  if(entry.parentLocation) rows.push(['Parent location',entry.parentLocation]);
+  if(entry.abilities?.length) rows.push(['Abilities',entry.abilities.join(' · ')]);
+  if(entry.shopName) rows.push(['Shop / Service',entry.shopName]);
+  if(entry.restock) rows.push(['Restock',entry.restock]);
+
+  normalizeDropLinks(entry.knownDrops).forEach(drop=>{
+    links.push({name:drop.name,label:`Drop: ${drop.name}${drop.chancePercent!==undefined?` · ${drop.chancePercent}%`:''}`});
+  });
+  (entry.relatedQuests||[]).forEach(name=>links.push({name,label:`Quest: ${name}`}));
+  (entry.relatedNPCs||entry.npcs||[]).forEach(name=>links.push({name,label:`NPC: ${name}`}));
+  (entry.relatedEnemies||[]).forEach(name=>links.push({name,label:`Enemy: ${name}`}));
+  (entry.locations||[]).forEach(name=>links.push({name,label:`Location: ${name}`}));
+  (entry.subLocations||[]).forEach(name=>links.push({name,label:`Sub-location: ${name}`}));
+  if(entry.parentLocation) links.push({name:entry.parentLocation,label:`Parent: ${entry.parentLocation}`});
+
+  if(!rows.length && !links.length) return;
+  const panel=document.createElement('section');
+  panel.className='relationship-panel';
+  panel.innerHTML=`<div class="relationship-title">CONNECTED DATA</div>
+    ${rows.length?`<div class="relationship-facts">${rows.map(([k,v])=>`<div><small>${escapeQuest(k)}</small><strong>${escapeQuest(v)}</strong></div>`).join('')}</div>`:''}
+    ${links.length?`<div class="relationship-links">${links.map((link,i)=>`<button data-rel-index="${i}">${escapeQuest(link.label)} ↗</button>`).join('')}</div>`:''}`;
+  host.appendChild(panel);
+  panel.querySelectorAll('[data-rel-index]').forEach(btn=>btn.addEventListener('click',()=>navigateToEntity(links[Number(btn.dataset.relIndex)].name)));
+}
+
+function normalizeDropLinks(value){
+  if(!Array.isArray(value)) return [];
+  return value.map(v=>typeof v==='string'?{name:v}:{name:v.item||v.name,chancePercent:v.chancePercent}).filter(v=>v.name);
+}
+
+function navigateToEntity(name){
+  const match=findPortalEntry(name);
+  if(match && typeof openEntry==='function'){
+    openEntry(match);
+    return;
+  }
+  const search=document.getElementById('globalSearch');
+  if(search){
+    document.getElementById('entryDialog')?.close();
+    search.value=name;
+    search.scrollIntoView({behavior:'smooth',block:'center'});
+    search.dispatchEvent(new Event('input'));
+  }
+}
+
+function findPortalEntry(name){
+  if(typeof database==='undefined'||!Array.isArray(database)) return null;
+  const q=String(name||'').toLowerCase();
+  return database.find(e=>String(e._displayName||e.name||'').toLowerCase()===q)||null;
 }
 
 function renderQuestTabs(){
@@ -33,7 +133,7 @@ function renderQuestChapter(id){
   const chapter=portalQuestChapters.find(q=>q.id===id);
   if(!root||!chapter) return;
   const partial=String(chapter.dataStatus||'').toLowerCase().includes('partial');
-  const flow=chapter.locationFlow?.length?`<div class="quest-flow"><strong>Location flow:</strong> ${chapter.locationFlow.map(escapeQuest).join(' → ')}</div>`:'';
+  const flow=chapter.locationFlow?.length?`<div class="quest-flow"><strong>Location flow:</strong><div class="quest-flow-links">${chapter.locationFlow.map((name,i)=>`${i?' <span>→</span> ':''}${linkButton(name,'Location')}`).join('')}</div></div>`:'';
   const related=[];
   (chapter.relatedNPCs||[]).forEach(n=>related.push(linkButton(n,'NPC')));
   (chapter.relatedEnemies||[]).forEach(n=>related.push(linkButton(n,'Enemy')));
@@ -55,6 +155,7 @@ function renderQuestPart(part){
   const locations=part.locations?.length?part.locations:[];
   const related=[];
   (part.relatedNPCs||[]).forEach(n=>related.push(linkButton(n,'NPC')));
+  (part.relatedEnemies||[]).forEach(n=>related.push(linkButton(n,'Enemy')));
   locations.forEach(n=>related.push(linkButton(n,'Location')));
   return `<article class="quest-part ${missing?'missing':''}">
     <div class="quest-part-header"><div class="quest-part-title"><span class="quest-part-number">${escapeQuest(part.part)}</span><div><h4>${escapeQuest(part.name)}</h4><small>${missing?'Awaiting screenshots':partial?'Partially verified':'Verified from screenshots'}</small></div></div>${part.dataStatus?`<span class="quest-chip ${missing||partial?'partial':''}">${escapeQuest(part.dataStatus)}</span>`:''}</div>
@@ -70,15 +171,7 @@ function linkButton(name,type){
 }
 
 function wireQuestLinks(root){
-  root.querySelectorAll('[data-quest-link]').forEach(btn=>btn.addEventListener('click',()=>{
-    const name=btn.dataset.questLink;
-    const match=window.database?.find?.(e=>String(e._displayName||'').toLowerCase()===String(name).toLowerCase());
-    if(match && typeof window.openEntry==='function') window.openEntry(match);
-    else{
-      const search=document.getElementById('globalSearch');
-      if(search){search.value=name;search.scrollIntoView({behavior:'smooth',block:'center'});search.dispatchEvent(new Event('input'));}
-    }
-  }));
+  root.querySelectorAll('[data-quest-link]').forEach(btn=>btn.addEventListener('click',()=>navigateToEntity(btn.dataset.questLink)));
 }
 
 function escapeQuest(v){return String(v??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;')}
