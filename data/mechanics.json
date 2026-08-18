@@ -1,5 +1,75 @@
 [
   {
+    "id": "combat-hit-rules",
+    "name": "Combat Hit Rules",
+    "description": "Within 10 studs, attacks are guaranteed to hit. Beyond 10 studs, real 3D distance including height is used. Attacks only hit targets within a ±20° forward attack cone, and large height differences cause attacks to miss.",
+    "tags": ["combat", "10 studs", "attack cone", "height", "hit rules"],
+    "confidence": "Official confirmed",
+    "version": "Combat System Update announced 2026-07-29",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates tab and combat-system infographic"
+  },
+  {
+    "id": "race-reroll-odds",
+    "name": "Race Reroll Odds",
+    "description": "Race Reroll odds were normalized to 33.33% per race in the July 28, 2026 patch.",
+    "tags": ["race reroll", "odds", "race"],
+    "confidence": "Official confirmed",
+    "version": "July 28, 2026 patch",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "item-trade-status",
+    "name": "Item Trade Status",
+    "description": "Every item displays whether it is Bound, Tradeable, or Free, indicating whether it can be traded or given away.",
+    "tags": ["items", "trade", "bound", "tradeable", "free"],
+    "confidence": "Official confirmed",
+    "version": "July 30, 2026 patch",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "world-loot-unlock",
+    "name": "World Loot Unlock",
+    "description": "World loot unlocks after completing Working the Land.",
+    "tags": ["world loot", "working the land", "progression"],
+    "confidence": "Official confirmed",
+    "version": "July 30, 2026 patch",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "monster-elements",
+    "name": "Monster Elemental Attributes",
+    "description": "Monsters have elemental attributes as part of the elemental combat system.",
+    "tags": ["elements", "monsters", "combat"],
+    "confidence": "Official confirmed",
+    "version": "August 3, 2026 patch",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "hp-mp-regeneration",
+    "name": "HP/MP Regeneration Formula",
+    "description": "Total Regen = Base Regen + Bonus Regen. Bonus Regen equals 0.2% of Max HP/MP and is capped at 3% of Max HP/MP. Regeneration runs at 50% in combat, 100% out of combat, and 150% while sitting.",
+    "tags": ["regen", "hp", "mp", "formula", "sitting", "combat"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.6",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "identify-system",
+    "name": "Identify System",
+    "description": "Magnifying Glasses can identify Shoes, Gloves, Bracelet, Necklace, Upper Headgear, Middle Headgear, and Lower Headgear. Magnifying Glasses are dropped by Lycaros.",
+    "tags": ["identify", "equipment", "magnifying glass", "lycaros"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.6",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord big-updates tab"
+  },
+  {
     "id": "gathering-macros",
     "name": "Gathering Macro Rules",
     "description": "Macros for woodcutting and mining are currently allowed. Auto-combat or auto-mob macros are prohibited and treated as rule violations.",
