@@ -25,11 +25,59 @@ PortalDB treats provenance as part of the data model. Real gameplay claims shoul
 - Mobile: **8 GB RAM + Snapdragon/Adreno**
 - PC: **quad-core, 8 GB RAM, GTX 1050 / Iris Xe+**
 
-## Secondary discovery source
+## Community source: Gamepur race guide — 2026-08-04
+
+URL: `https://www.gamepur.com/guides/best-race-to-pick-in-the-portal-roblox`
+
+Confidence assigned in PortalDB: **Community verified** pending official/developer confirmation or direct in-game capture.
+
+Structured claims currently admitted to the database:
+
+### Race families and tutorial choices
+- Human family — tutorial choice: **Milk**.
+- Elf family — tutorial choice: **Mushroom**.
+- Beastmen family — tutorial choice: **Meat**.
+
+### Reported racial bonuses
+- Human: **+2 STR, +2 VIT**.
+- Corrupted Human: **+3 STR, +3 VIT**.
+- Elf: **+2 INT, +2 WIS**.
+- High Elf: **+3 INT, +3 WIS**.
+- Beastmen Cat: **+2 AGI, +2 DEX**.
+- Beastmen Wolf: **+2 AGI, +2 DEX**.
+- Beastmen Fox: **+3 AGI, +2 DEX**.
+
+### Reported variant rates
+- The guide reports a **10%** chance for Corrupted Human within the Human family.
+- The guide reports a **10%** chance for High Elf within the Elf family.
+- The guide reports Fox as the **10%** bonus Beastmen variant.
+
+### Jobs/classes established by the source
+- Warrior
+- Defender
+- Enchanter
+- Cleric
+
+The guide associates Defender primarily with VIT/STR-oriented Human bonuses; Enchanter and Cleric with INT/WIS-oriented Elf bonuses; and Warrior with physical-attack stats including STR, AGI, and DEX. PortalDB currently treats these as community-documented relationships, not developer-authored formulas.
+
+### Race reroll mechanic
+The guide identifies the **Race Reroll Mirror** as the item used to reroll race and states that equipment whose requirements are no longer met can be unequipped after a race change. This mechanic is recorded here as a research lead but is not yet promoted into the item database pending an additional source or direct verification.
+
+## Secondary discovery source: Creator Exchange
+
+URL: `https://creatorexchange.io/roblox-game/9356969539/the-portal`
 
 Creator Exchange currently indexes the same experience as owned by The Box of Trolls Studio and links the official Roblox page. It is useful for discovery and change detection, but PortalDB should prefer official developer/Roblox sources whenever available.
 
 As of 2026-08-18, Creator Exchange also displays a code entry for `2KLIKES` with a Job Change Mask reward. This is **not yet promoted to PortalDB confirmed gameplay data** because the source is secondary; it should be verified in-game or against an official developer channel first.
+
+## Secondary code-index lead — 2026-08-18
+
+A current third-party code index reports multiple historical/current codes, including `1KLIKES`, `2KLIKES`, `RELEASE`, `THROUGHTHEPORTAL`, `100LIKES`, `500LIKES`, `MBG`, `WELCOMEBETA`, `400LIKES`, `300LIKES`, and `200LIKES`, with rewards such as race rerolls, stat resets, a Job Change Mask, gathering tools, gliders, food, accessories, and a pet ticket.
+
+These are **research leads only**. PortalDB will not publish them as active codes until their current status is corroborated by an official channel, current in-game redemption, or multiple independent current sources.
+
+Source: `https://rbxfits.com/game-codes/the-portal`
 
 ## Discord intake
 
