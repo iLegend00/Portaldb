@@ -1,0 +1,25 @@
+{
+  "baseStats": [
+    {"id":"STR","name":"STR","effects":["P.ATK"]},
+    {"id":"VIT","name":"VIT","effects":["Max HP","DEF","HP/s"]},
+    {"id":"AGI","name":"AGI","effects":["Move Spd","Atk Spd","Crit Rate"]},
+    {"id":"DEX","name":"DEX","effects":["Crit Rate/Dmg","Cast Spd"]},
+    {"id":"INT","name":"INT","effects":["Max MP","M.ATK","MP/s"]},
+    {"id":"WIS","name":"WIS","effects":["MDEF","M.ATK","MP/s"]}
+  ],
+  "combatStatFields": [
+    "Max HP","Max MP","HP/s","MP/s","DEF","MDEF","P.ATK","M.ATK","Crit Rate","Crit Dmg","Dmg Up","Ign DEF","Atk Spd","Cast Spd","Move Spd","Block","Race","Element ATK","Element DEF","Small (%)","Medium (%)","Large (%)","Undead (%)","Formless (%)","Plant (%)","Brute (%)"
+  ],
+  "equipmentSlots": ["Weapon","Shield / Off-hand","Armor","Gloves","Shoes","Bracelet","Necklace","Upper Headgear","Middle Headgear","Lower Headgear"],
+  "titleSlots": 1,
+  "skillSlots": 8,
+  "rules": {
+    "titleEquipLimit": 1,
+    "statFormulaStatus": "Unknown",
+    "derivedStatCalculation": false,
+    "note": "PortalDB currently knows which base stats affect which displayed combat-stat categories, but not the numerical conversion formulas. The planner must not fabricate derived values."
+  },
+  "confidence": "In-game verified",
+  "lastVerified": "2026-08-18",
+  "source": "Player-supplied Character menu screenshots plus official v1.1.12 title-system update"
+}
