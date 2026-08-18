@@ -2,6 +2,7 @@ const collections = ["items","quests","npcs","bosses","races","jobs","locations"
 const labels = {items:"ITEM",quests:"QUEST",npcs:"NPC",bosses:"BOSS",races:"RACE",jobs:"JOB",locations:"LOCATION",codes:"CODE",updates:"UPDATE",skills:"SKILL",mechanics:"MECHANIC",patches:"PATCH"};
 let database = [];
 let itemEntries = [];
+let npcEntries = [];
 
 async function loadData(){
   const sets = await Promise.all(collections.map(async name=>{
@@ -16,6 +17,7 @@ async function loadData(){
   }));
   database = sets.flat();
   itemEntries = database.filter(entry=>entry._collection==="items" && !String(entry.id||"").startsWith("demo-"));
+  npcEntries = database.filter(entry=>entry._collection==="npcs" && !String(entry.id||"").startsWith("demo-"));
   renderPreview();
   initItemFinder();
 }
@@ -275,7 +277,91 @@ function initItemFinder(){
   filterItems();
 }
 
-function openEntry(entry){
+function npcShopCategories(entry){
+  return [
+    ...(entry.shopCategories||[]),
+    ...(entry.weaponCategories||[]),
+    ...(entry.armorCategories||[])
+  ];
+}
+
+function itemsLinkedToNpc(entry){
+  const name=String(entry.name||entry._displayName||"").toLowerCase();
+  return itemEntries.filter(item=>normalizeObtain(item.obtain).some(o=>String(o.source||"").toLowerCase()===name));
+}
+
+function questReferencesNpc(quest,npcName){
+  const q=String(npcName||"").toLowerCase();
+  if(!q) return false;
+  if((quest.relatedNPCs||[]).some(n=>String(n).toLowerCase()===q)) return true;
+  return (quest.parts||[]).some(part=>{
+    if((part.relatedNPCs||[]).some(n=>String(n).toLowerCase()===q)) return true;
+    return (part.objectives||[]).some(o=>String(o).toLowerCase().includes(q));
+  });
+}
+
+function questsLinkedToNpc(entry){
+  return database.filter(q=>q._collection==="quests" && questReferencesNpc(q,entry.name||entry._displayName));
+}
+
+function renderLinkPills(entries,kind){
+  if(!entries.length) return `<span class="npc-none">None recorded yet.</span>`;
+  return entries.map((entry,i)=>`<button class="npc-link-pill" data-dialog-link-kind="${kind}" data-dialog-link-index="${i}">${escapeHtml(entry._displayName||entry.name)}</button>`).join("");
+}
+
+function renderNpcDetail(entry){
+  const categories=npcShopCategories(entry);
+  const linkedItems=itemsLinkedToNpc(entry);
+  const linkedQuests=questsLinkedToNpc(entry);
+  const location=entry.location||entry.serviceLocation||"Dewdrop Village";
+  const restock=entry.restockIntervalMinutes?`${entry.restockIntervalMinutes} minutes`:"Not recorded";
+  const partTime=String(entry.tags||[]).toLowerCase().includes("part-time job")?"Confirmed":"Not recorded";
+  const serviceRows=(entry.services||[]).map(s=>{
+    const bits=[...(s.inputs||[]),...(s.categories||[])];
+    if(s.costField) bits.push("Cost field");
+    return `<div class="npc-service-row"><strong>${escapeHtml(s.name)}</strong>${bits.length?`<span>${escapeHtml(bits.join(" · "))}</span>`:""}</div>`;
+  }).join("");
+  const dialogue=(entry.dialogueOptions||[]).map(line=>`<li>${escapeHtml(line)}</li>`).join("");
+  const facts=entry.dialogueFacts?Object.entries(entry.dialogueFacts).map(([k,v])=>{
+    const value=Array.isArray(v)?v.join(", "):v;
+    return `<div class="npc-fact"><small>${escapeHtml(prettyKey(k))}</small><span>${escapeHtml(value)}</span></div>`;
+  }).join(""):"";
+
+  return `<div class="dialog-body npc-detail">
+    <div class="type">NPC · VERIFIED PROFILE</div>
+    <div class="npc-title-row"><div><h2>${escapeHtml(entry._displayName)}</h2><p>${escapeHtml(entry.profession||"NPC")}${entry.shopName?` · ${escapeHtml(entry.shopName)}`:""}</p></div><span class="npc-confidence">${escapeHtml(entry.confidence||"Verification pending")}</span></div>
+    <p class="npc-summary">${escapeHtml(getDescription(entry))}</p>
+    <div class="meta-grid npc-meta-grid">
+      <div class="meta-box"><small>ROLE</small><strong>${escapeHtml(entry.profession||"Not recorded")}</strong></div>
+      <div class="meta-box"><small>LOCATION / SERVICE</small><strong>${escapeHtml(location)}</strong></div>
+      <div class="meta-box"><small>HOURS</small><strong>${escapeHtml(entry.openHours||entry.availability||"Not recorded")}</strong></div>
+      <div class="meta-box"><small>RESTOCK</small><strong>${escapeHtml(restock)}</strong></div>
+      <div class="meta-box"><small>PART-TIME JOB</small><strong>${escapeHtml(partTime)}</strong></div>
+      <div class="meta-box"><small>LAST VERIFIED</small><strong>${escapeHtml(entry.lastVerified||"Unknown")}</strong></div>
+    </div>
+    ${categories.length?`<section class="npc-section"><div class="npc-section-head"><strong>Shop categories</strong><span>${categories.length} categories</span></div><div class="npc-chip-row">${categories.map(c=>`<span>${escapeHtml(c)}</span>`).join("")}</div></section>`:""}
+    ${serviceRows?`<section class="npc-section"><div class="npc-section-head"><strong>Services</strong></div>${serviceRows}</section>`:""}
+    ${dialogue?`<section class="npc-section"><div class="npc-section-head"><strong>Dialogue options</strong></div><ol class="npc-dialogue-list">${dialogue}</ol></section>`:""}
+    ${facts?`<section class="npc-section"><div class="npc-section-head"><strong>Verified dialogue facts</strong></div><div class="npc-facts">${facts}</div></section>`:""}
+    <section class="npc-section"><div class="npc-section-head"><strong>Known items</strong><span>Linked from Item Finder</span></div><div class="npc-link-row">${renderLinkPills(linkedItems,"item")}</div></section>
+    <section class="npc-section"><div class="npc-section-head"><strong>Related quests</strong><span>Linked from quest records</span></div><div class="npc-link-row">${renderLinkPills(linkedQuests,"quest")}</div></section>
+    <div class="npc-source-box"><small>SOURCE / EVIDENCE</small><span>${escapeHtml(entry.source||"No source note recorded")}</span></div>
+  </div>`;
+}
+
+function bindNpcDialogLinks(entry){
+  const dialog=document.getElementById("dialogContent");
+  if(!dialog) return;
+  const linkedItems=itemsLinkedToNpc(entry);
+  const linkedQuests=questsLinkedToNpc(entry);
+  dialog.querySelectorAll("[data-dialog-link-kind]").forEach(btn=>btn.addEventListener("click",()=>{
+    const list=btn.dataset.dialogLinkKind==="item"?linkedItems:linkedQuests;
+    const target=list[Number(btn.dataset.dialogLinkIndex)];
+    if(target) openEntry(target);
+  }));
+}
+
+function renderGenericDetail(entry){
   const details = [];
   if(entry.stats) details.push(`<div class="meta-box"><small>STATS</small><strong>${formatStats(entry.stats)}</strong></div>`);
   if(entry.effects) details.push(`<div class="meta-box"><small>EFFECTS</small><strong>${formatEffects(entry.effects)}</strong></div>`);
@@ -288,11 +374,11 @@ function openEntry(entry){
   if(entry.buyTria!==undefined || entry.sellTria!==undefined) details.push(`<div class="meta-box"><small>VALUE</small><strong>${escapeHtml(itemPriceText(entry))}</strong></div>`);
   if(entry.requirements) details.push(`<div class="meta-box"><small>REQUIREMENTS</small><strong>${escapeHtml(itemRequirementText(entry))}</strong></div>`);
   const sources=normalizeObtain(entry.obtain);
-  const sourceBlock=sources.length?`<div class="entry-obtain"><strong>Acquisition</strong>${sources.map(s=>`<div>${escapeHtml(sourceLabel(s))}</div>`).join("")}</div>`:"";
-  const dialog=document.getElementById("dialogContent");
-  if(!dialog) return;
-  dialog.innerHTML=`
-    <div class="dialog-body">
+  const sourceBlock=sources.length?`<div class="entry-obtain"><strong>Acquisition</strong>${sources.map((s,i)=>{
+    const linked=findLinkedEntry(s.source);
+    return `<button class="entry-source-link ${linked?"is-linked":""}" data-generic-source="${i}">${escapeHtml(sourceLabel(s))}${linked?" ↗":""}</button>`;
+  }).join("")}</div>`:"";
+  return `<div class="dialog-body">
       <div class="type">${labels[entry._collection]||"ENTRY"}</div>
       <h2>${escapeHtml(entry._displayName)}</h2>
       <p>${escapeHtml(getDescription(entry))}</p>
@@ -307,9 +393,27 @@ function openEntry(entry){
       ${entry.notes ? `<p class="entry-source"><strong>Notes:</strong> ${escapeHtml(entry.notes)}</p>` : ""}
       ${entry.source ? `<p class="entry-source"><strong>Source:</strong> ${escapeHtml(entry.source)}</p>` : ""}
     </div>`;
+}
+
+function openEntry(entry){
+  const dialog=document.getElementById("dialogContent");
+  if(!dialog) return;
+  if(entry._collection==="npcs"){
+    dialog.innerHTML=renderNpcDetail(entry);
+    bindNpcDialogLinks(entry);
+  }else{
+    dialog.innerHTML=renderGenericDetail(entry);
+    const sources=normalizeObtain(entry.obtain);
+    dialog.querySelectorAll("[data-generic-source]").forEach(btn=>btn.addEventListener("click",()=>{
+      const source=sources[Number(btn.dataset.genericSource)];
+      const linked=findLinkedEntry(source?.source);
+      if(linked) openEntry(linked);
+    }));
+  }
   document.getElementById("entryDialog")?.showModal();
   results?.classList.add("hidden");
 }
+
 document.getElementById("dialogClose")?.addEventListener("click",()=>document.getElementById("entryDialog")?.close());
 
 document.addEventListener("keydown",e=>{
