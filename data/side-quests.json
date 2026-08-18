@@ -1,0 +1,19 @@
+[
+  {
+    "id":"side-daily-crab-cleanup",
+    "name":"Crab Cleanup",
+    "type":"Daily Quest",
+    "description":"Cog Crabs keep pinching the scrap piles. Pinch back, with a weapon.",
+    "objectives":["Defeat Cog Crabs (15/15)"],
+    "rewards":[{"type":"experience","name":"EXP","amount":300},{"type":"currency","name":"Tria","amount":320},{"type":"item","name":"Goblin Coin","amount":1}],
+    "statusShown":"Completed",
+    "confidence":"In-game verified",
+    "lastVerified":"2026-08-18",
+    "source":"User-supplied Side Quest menu screenshot on 2026-08-18"
+  },
+  {"id":"side-daily-harvest-day","name":"Harvest Day","type":"Daily Quest","detailsStatus":"Name only captured","confidence":"In-game verified","lastVerified":"2026-08-18","source":"User-supplied Side Quest menu screenshot on 2026-08-18"},
+  {"id":"side-daily-timber-time","name":"Timber Time","type":"Daily Quest","detailsStatus":"Name only captured","confidence":"In-game verified","lastVerified":"2026-08-18","source":"User-supplied Side Quest menu screenshot on 2026-08-18"},
+  {"id":"side-weekly-junkyard-purge","name":"Junkyard Purge","type":"Weekly Quest","detailsStatus":"Name only captured","confidence":"In-game verified","lastVerified":"2026-08-18","source":"User-supplied Side Quest menu screenshot on 2026-08-18"},
+  {"id":"side-weekly-lumber-run","name":"Lumber Run","type":"Weekly Quest","detailsStatus":"Name only captured","confidence":"In-game verified","lastVerified":"2026-08-18","source":"User-supplied Side Quest menu screenshot on 2026-08-18"},
+  {"id":"side-weekly-quarry-duty","name":"Quarry Duty","type":"Weekly Quest","progressShown":"90/120","detailsStatus":"Name and progress only captured","confidence":"In-game verified","lastVerified":"2026-08-18","source":"User-supplied Side Quest menu screenshot on 2026-08-18"}
+]
