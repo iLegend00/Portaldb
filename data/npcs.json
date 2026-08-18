@@ -19,12 +19,37 @@
   {
     "id": "eren",
     "name": "Eren",
-    "description": "NPC confirmed to offer a Part-Time Job while sleeping.",
-    "tags": ["npc", "part-time job", "eren"],
-    "confidence": "Official confirmed",
-    "version": "v1.1.7",
+    "profession": "Forgemaster",
+    "description": "Forgemaster NPC at Iron and Ember who handles equipment upgrading, crafting, Spirit Stone infusion, and equipment identification. He is also officially confirmed to offer a Part-Time Job while sleeping.",
+    "serviceLocation": "Iron and Ember",
+    "openHours": "6 AM - 1 AM",
+    "dialogueOptions": ["Upgrade Equipment", "Craft Equipment", "Infuse Spirit Stone", "Identify Equipment", "Thanks, I'll get going."],
+    "services": [
+      {
+        "name": "Upgrade Equipment",
+        "inputs": ["Equipment", "Material"],
+        "costField": true
+      },
+      {
+        "name": "Craft Equipment",
+        "categories": ["Weapons", "Armor"]
+      },
+      {
+        "name": "Infuse Spirit Stone",
+        "inputs": ["Equipment", "Material"],
+        "costField": true
+      },
+      {
+        "name": "Identify Equipment",
+        "inputs": ["Equipment", "Material"],
+        "costField": true
+      }
+    ],
+    "tags": ["npc", "forgemaster", "iron and ember", "upgrade", "crafting", "spirit stone", "identify", "equipment", "part-time job", "eren"],
+    "confidence": "Official confirmed + in-game verified",
+    "version": "Current through 2026-08-18",
     "lastVerified": "2026-08-18",
-    "source": "Official Discord small-updates v1.1.7"
+    "source": "Official Discord small-updates v1.1.7 + user-supplied in-game screenshots on 2026-08-18"
   },
   {
     "id": "neria",
