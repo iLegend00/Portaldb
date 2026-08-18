@@ -90,12 +90,18 @@
   {
     "id": "leaf",
     "name": "Leaf",
-    "description": "NPC confirmed to offer a Part-Time Job while sleeping.",
-    "tags": ["npc", "part-time job", "leaf"],
-    "confidence": "Official confirmed",
-    "version": "v1.1.7",
+    "profession": "Gardener",
+    "description": "Gardener NPC who runs Seed & Soil Harvest. Her dialogue offers seed and farm-tool buying/selling, and her shop carries seeds, cooking-related goods, and tools. She is also officially confirmed to offer a Part-Time Job while sleeping.",
+    "shopName": "Seed & Soil Harvest",
+    "openHours": "5 AM - 12 AM",
+    "restockIntervalMinutes": 5,
+    "dialogueOptions": ["Buy / Sell Seeds", "Buy / Sell Farm Tools", "Thanks, I'll get going."],
+    "shopCategories": ["Seed", "Cooking", "Tool"],
+    "tags": ["npc", "gardener", "seed and soil harvest", "shop", "seed", "cooking", "farm tools", "tool", "part-time job", "leaf"],
+    "confidence": "Official confirmed + in-game verified",
+    "version": "Current through 2026-08-18",
     "lastVerified": "2026-08-18",
-    "source": "Official Discord small-updates v1.1.7"
+    "source": "Official Discord small-updates v1.1.7 + user-supplied in-game screenshots on 2026-08-18"
   },
   {
     "id": "arlette",
