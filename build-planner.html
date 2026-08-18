@@ -3,18 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="PortalDB Build Planner for The Portal on Roblox." />
   <title>PortalDB — Build Planner</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="site-nav.css" />
   <link rel="stylesheet" href="build-planner.css" />
 </head>
 <body>
+  <div class="page-glow page-glow-a"></div>
+  <div class="page-glow page-glow-b"></div>
+
+  <header class="topbar shell tool-topbar">
+    <a class="brand tool-page-brand" href="index.html">
+      <span class="brand-emblem">✦</span>
+      <span class="brand-copy"><strong>PORTAL<span>DB</span></strong><small>BUILD PLANNER</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="index.html#item-finder">Item Finder</a>
+      <a href="index.html#quest-guide">Quests</a>
+      <a href="crafting.html">Crafting</a>
+      <a class="active" href="build-planner.html">Build Planner</a>
+    </nav>
+  </header>
+
   <main class="planner-page shell">
     <div class="planner-top">
       <div class="planner-title"><span class="panel-kicker">BUILD PLANNER V1</span><h1>Plan the build. Don’t fake the math.</h1><p>Use the verified character-menu schema to organize stats, equipment, skills, and job choice. PortalDB currently knows which base attributes affect which combat-stat categories, but not the exact conversion formulas, so derived totals are intentionally not fabricated.</p></div>
-      <a class="planner-back" href="index.html">← Back to PortalDB</a>
     </div>
 
     <div class="planner-grid">
