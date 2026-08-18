@@ -1,0 +1,22 @@
+{
+  "menuTitle":"Achievements",
+  "progressShown":"21/101",
+  "categories":[
+    {
+      "name":"Combat",
+      "progressShown":"4/14",
+      "entries":[
+        {"name":"It Moved First","status":"Completed","progress":"1/1"},
+        {"name":"Bonk Enthusiast","status":"Completed","progress":"100/100"},
+        {"name":"Walking Hazard","status":"Completed","progress":"1000/1000"},
+        {"name":"Apex Predator","progress":"1030/10000"},
+        {"name":"Extinction","progress":"1030/100000"},
+        {"name":"Trash Royalty","progress":"0/1"}
+      ]
+    }
+  ],
+  "confidence":"In-game verified",
+  "scopeNote":"Only the visible portion of the Achievement menu was captured; do not treat this as a complete achievement list.",
+  "lastVerified":"2026-08-18",
+  "source":"User-supplied Achievement menu screenshot on 2026-08-18"
+}
