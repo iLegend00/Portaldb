@@ -2,12 +2,12 @@
   {
     "id": "combat-hit-rules",
     "name": "Combat Hit Rules",
-    "description": "Within 10 studs, attacks are guaranteed to hit. Beyond 10 studs, real 3D distance including height is used. Attacks only hit targets within a ±20° forward attack cone, and large height differences cause attacks to miss.",
+    "description": "Within 10 studs, attacks are guaranteed to hit. Beyond 10 studs, real 3D distance including height is used. Attacks only hit targets within a ±45° forward attack cone, and large height differences cause attacks to miss. The cone was widened from ±20° in a follow-up small update on July 30, 2026.",
     "tags": ["combat", "10 studs", "attack cone", "height", "hit rules"],
     "confidence": "Official confirmed",
-    "version": "Combat System Update announced 2026-07-29",
+    "version": "Current after 2026-07-30 small update",
     "lastVerified": "2026-08-18",
-    "source": "Official Discord big-updates tab and combat-system infographic"
+    "source": "Official Discord big-updates combat announcement plus small-updates follow-up dated 2026-07-30"
   },
   {
     "id": "race-reroll-odds",
@@ -62,12 +62,92 @@
   {
     "id": "identify-system",
     "name": "Identify System",
-    "description": "Magnifying Glasses can identify Shoes, Gloves, Bracelet, Necklace, Upper Headgear, Middle Headgear, and Lower Headgear. Magnifying Glasses are dropped by Lycaros.",
-    "tags": ["identify", "equipment", "magnifying glass", "lycaros"],
+    "description": "Magnifying Glasses can identify Shoes, Gloves, Bracelet, Necklace, Upper Headgear, Middle Headgear, and Lower Headgear. Magnifying Glasses were introduced as Lycaros drops and, as of v1.1.10, can also drop from Junk King and Tin Tortoise.",
+    "tags": ["identify", "equipment", "magnifying glass", "lycaros", "junk king", "tin tortoise"],
     "confidence": "Official confirmed",
-    "version": "v1.1.6",
+    "version": "Current through v1.1.10",
     "lastVerified": "2026-08-18",
-    "source": "Official Discord big-updates tab"
+    "source": "Official Discord big-updates v1.1.6 and small-updates v1.1.10"
+  },
+  {
+    "id": "invalid-target-mana",
+    "name": "Invalid Target Mana Cost",
+    "description": "Casting a skill without a valid target consumes 50% of the skill's normal mana cost rather than the full amount.",
+    "tags": ["mana", "skills", "targeting", "combat"],
+    "confidence": "Official confirmed",
+    "version": "v1.0.4",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.0.4"
+  },
+  {
+    "id": "combat-mode-trigger",
+    "name": "Combat Mode Trigger",
+    "description": "As of v1.1.12, all attacks trigger Combat Mode. Earlier v1.0.5 behavior triggered Combat Mode when dealing or receiving damage.",
+    "tags": ["combat mode", "attacks", "damage"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.12",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.0.5 and v1.1.12"
+  },
+  {
+    "id": "part-time-jobs",
+    "name": "Part-Time Jobs",
+    "description": "Part-Time Jobs can be performed with selected NPCs while they are sleeping. Confirmed NPCs: Breda, Eren, Neria, Leaf, Arlette, and Hogan.",
+    "tags": ["part-time jobs", "npc", "breda", "eren", "neria", "leaf", "arlette", "hogan"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.7",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.1.7"
+  },
+  {
+    "id": "claw-machine-protection",
+    "name": "Claw Machine Stuck Protection",
+    "description": "As of v1.1.10, if the Claw Machine gets stuck and gives no reward, the player is guaranteed 1 Goblin Coin. Reward probabilities are displayed and the machine can be restocked.",
+    "tags": ["claw machine", "goblin coin", "drop chance", "restock"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.10",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.1.10"
+  },
+  {
+    "id": "server-hop-filters",
+    "name": "Server Hop Filters",
+    "description": "Server Hop supports All, Friends, and Filter by Name options.",
+    "tags": ["server hop", "friends", "server name", "filter"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.10",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.1.10"
+  },
+  {
+    "id": "title-limit",
+    "name": "Title Equip Limit",
+    "description": "Players can equip only one title at a time.",
+    "tags": ["titles", "title system"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.12",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.1.12"
+  },
+  {
+    "id": "auto-jump",
+    "name": "Auto Jump",
+    "description": "Auto Jump is disabled as of v1.1.12.",
+    "tags": ["auto jump", "movement"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.12",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.1.12"
+  },
+  {
+    "id": "pet-collision",
+    "name": "Pet Collision",
+    "description": "Pet collision is disabled as of v1.1.12 to prevent pets from getting in the way. Pet pathfinding toward targets was also fixed in this patch.",
+    "tags": ["pets", "collision", "pathfinding"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.12",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.1.12"
   },
   {
     "id": "gathering-macros",
