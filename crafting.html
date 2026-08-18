@@ -9,14 +9,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="site-nav.css" />
   <link rel="stylesheet" href="crafting-ui.css" />
 </head>
 <body>
   <div class="page-glow page-glow-a"></div>
   <div class="page-glow page-glow-b"></div>
+
+  <header class="topbar shell tool-topbar">
+    <a class="brand tool-page-brand" href="index.html">
+      <span class="brand-emblem">✦</span>
+      <span class="brand-copy"><strong>PORTAL<span>DB</span></strong><small>CRAFTING CALCULATOR</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="index.html#item-finder">Item Finder</a>
+      <a href="index.html#quest-guide">Quests</a>
+      <a class="active" href="crafting.html">Crafting</a>
+      <a href="build-planner.html">Build Planner</a>
+    </nav>
+  </header>
+
   <main class="craft-page">
     <div class="craft-shell">
-      <div class="craft-top"><a class="brand" href="index.html"><span class="brand-emblem">✦</span><span class="brand-copy"><strong>PORTAL<span>DB</span></strong><small>CRAFTING CALCULATOR</small></span></a><a class="craft-back" href="index.html">← Back to PortalDB</a></div>
       <section class="craft-card">
         <div class="craft-head">
           <div><span class="panel-kicker">CRAFTING CALCULATOR V1</span><h1>Plan the craft before you farm.</h1><p>Choose a verified recipe and PortalDB will scale ingredients and costs for the quantity you want. Nested components are supported when those recipes are also verified. Unknown data stays unknown.</p></div>
