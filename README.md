@@ -21,6 +21,7 @@ The current build includes:
 - Main Quest Guide v1 with chapter/part progression, objectives, rewards, location flow, and explicit verification gaps
 - enemy / boss / location relationship coverage
 - Crafting Calculator v1 shell with quantity scaling, direct requirements, expandable nested requirements, currency-cost support, circular-reference protection, and a verified-empty state until recipe screenshots are captured
+- Build Planner v1 shell with job selection, six verified base-stat categories, known stat-effect relationships, equipment slots, one-title rule, skill slots, and non-fabricated planning snapshots
 - no backend requirement
 
 ## Data policy
@@ -38,6 +39,8 @@ Factual records should include, whenever possible:
 Current evidence may come from official Discord posts, official game information, or direct in-game verification supplied by the project owner.
 
 The Crafting Calculator follows the same policy: `data/crafting.json` intentionally remains empty until exact recipes, material quantities, costs, and requirements are verified.
+
+The Build Planner also follows the same rule: PortalDB currently knows which base attributes affect which combat-stat categories, but it does not calculate unverified numerical conversion formulas or derived combat totals.
 
 ## Architecture
 
@@ -62,17 +65,18 @@ Then open:
 
 `http://localhost:8000`
 
-The standalone Crafting Calculator shell is available at:
+Standalone tools:
 
-`http://localhost:8000/crafting.html`
+- `http://localhost:8000/crafting.html`
+- `http://localhost:8000/build-planner.html`
 
 ## Current roadmap
 
 1. Fill the remaining Chapter 2 quest gaps when the missing in-game screenshots are available.
 2. Capture exact crafting recipes/material requirements and populate `data/crafting.json` only from verified evidence.
-3. Continue expanding enemy, boss, location, item, and NPC relationships.
-4. Integrate the Crafting Calculator more deeply into the main navigation once verified recipes exist.
-5. Add build planner once enough class/stat/equipment data is verified.
+3. Expand Build Planner data with verified titles, equipment coverage, skill data, and numerical stat formulas only when captured.
+4. Continue expanding enemy, boss, location, item, and NPC relationships.
+5. Integrate standalone tools more deeply into the main navigation.
 6. Replace the hero placeholder with original anime artwork based on the site owner's Roblox avatar.
 7. Deploy through a free static host when the data/UI milestone is ready.
 
