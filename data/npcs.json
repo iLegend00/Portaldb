@@ -25,25 +25,10 @@
     "openHours": "6 AM - 1 AM",
     "dialogueOptions": ["Upgrade Equipment", "Craft Equipment", "Infuse Spirit Stone", "Identify Equipment", "Thanks, I'll get going."],
     "services": [
-      {
-        "name": "Upgrade Equipment",
-        "inputs": ["Equipment", "Material"],
-        "costField": true
-      },
-      {
-        "name": "Craft Equipment",
-        "categories": ["Weapons", "Armor"]
-      },
-      {
-        "name": "Infuse Spirit Stone",
-        "inputs": ["Equipment", "Material"],
-        "costField": true
-      },
-      {
-        "name": "Identify Equipment",
-        "inputs": ["Equipment", "Material"],
-        "costField": true
-      }
+      {"name": "Upgrade Equipment", "inputs": ["Equipment", "Material"], "costField": true},
+      {"name": "Craft Equipment", "categories": ["Weapons", "Armor"]},
+      {"name": "Infuse Spirit Stone", "inputs": ["Equipment", "Material"], "costField": true},
+      {"name": "Identify Equipment", "inputs": ["Equipment", "Material"], "costField": true}
     ],
     "tags": ["npc", "forgemaster", "iron and ember", "upgrade", "crafting", "spirit stone", "identify", "equipment", "part-time job", "eren"],
     "confidence": "Official confirmed + in-game verified",
@@ -77,6 +62,26 @@
     "dialogueOptions": ["Buy / Sell Goods", "Closing my tab."],
     "shopCategories": ["Tool", "Seed", "Scroll", "HP Food", "MP Food", "Cooking", "Feed"],
     "tags": ["npc", "bartender", "shop", "general goods", "tool", "seed", "scroll", "hp food", "mp food", "cooking", "feed", "rendall"],
+    "confidence": "In-game verified",
+    "version": "Current through 2026-08-18",
+    "lastVerified": "2026-08-18",
+    "source": "User-supplied in-game screenshots on 2026-08-18"
+  },
+  {
+    "id": "theron",
+    "name": "Theron",
+    "profession": "Village Elder",
+    "description": "Village Elder of Dewdrop who acts as an information and lore NPC. His dialogue introduces Dewdrop Village, points the player toward important locals, comments on portal stories, and confirms that he knew the player's family.",
+    "location": "Dewdrop Village",
+    "availability": "Elder House is never closed",
+    "dialogueOptions": ["Where am I? What is this place?", "Who should I talk to in the village?", "I keep hearing strange stories. Portals, conspiracies...", "You knew my family?", "Thanks, I'll head off."],
+    "dialogueFacts": {
+      "locationIntro": "Dewdrop Village is described as the safest corner of a wide world; Theron advises staying to the lit paths until ready for the wild patches.",
+      "localReferrals": ["Breda", "Arlette", "Leaf", "the elders"],
+      "portalRumors": "Theron dismisses the village's portal stories as ghost stories and shapes in the dark, though his response suggests familiarity with the rumors.",
+      "familyConnection": "Theron says he knew the player's family well, names Veren as someone who repaired his fence, and says the player's mother bargained like a soldier."
+    },
+    "tags": ["npc", "village elder", "dewdrop", "dewdrop village", "lore", "information", "portals", "family", "theron"],
     "confidence": "In-game verified",
     "version": "Current through 2026-08-18",
     "lastVerified": "2026-08-18",
