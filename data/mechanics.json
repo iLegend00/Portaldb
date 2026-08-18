@@ -1,0 +1,52 @@
+[
+  {
+    "id": "gathering-macros",
+    "name": "Gathering Macro Rules",
+    "description": "Macros for woodcutting and mining are currently allowed. Auto-combat or auto-mob macros are prohibited and treated as rule violations.",
+    "tags": ["rules", "macro", "woodcutting", "mining", "combat"],
+    "confidence": "Official confirmed",
+    "version": "2026-08-07 policy",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord announcement by Swaroff [PRTL], 2026-08-07"
+  },
+  {
+    "id": "greenhouse",
+    "name": "Greenhouse",
+    "description": "Craftable at the Workbench. Each plot normally supports 1 Greenhouse; the Season 1 Premium Pass grants one additional permanent Greenhouse slot.",
+    "tags": ["greenhouse", "homestead", "workbench", "premium pass"],
+    "confidence": "Official confirmed",
+    "version": "August 5, 2026 patch",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord announcements by Swaroff [PRTL], 2026-08-04 and 2026-08-05"
+  },
+  {
+    "id": "quick-slots-chapter-2",
+    "name": "Additional Quick Slots",
+    "description": "Additional Quick Slots unlock after clearing Chapter 2.",
+    "tags": ["quick slot", "chapter 2", "progression"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.8",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord patch notes v1.1.8, 2026-08-12"
+  },
+  {
+    "id": "skill-vfx-filter",
+    "name": "Skill VFX Filter",
+    "description": "Graphics setting controlling whose skill effects are displayed. Options: Self, Party, Everyone.",
+    "tags": ["graphics", "vfx", "settings"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.8",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord patch notes v1.1.8, 2026-08-12"
+  },
+  {
+    "id": "world-motion",
+    "name": "World Motion",
+    "description": "Graphics toggle that can reduce environmental movement for a smoother, less distracting experience.",
+    "tags": ["graphics", "settings", "world motion"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.8",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord patch notes v1.1.8, 2026-08-12"
+  }
+]
