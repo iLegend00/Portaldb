@@ -1,0 +1,23 @@
+{
+  "menuTitle":"NPCs",
+  "metCountShown":"9 met",
+  "visibleArea":{
+    "name":"Dewdrop",
+    "progressShown":"8/8",
+    "visibleNPCs":["Arlette","Breda","Eren","Hogan","Leaf","Neria"]
+  },
+  "selectedNPC":{
+    "name":"Breda",
+    "role":"Blacksmith",
+    "scheduleShown":[
+      {"time":"05:00 - 06:00","activity":"At her desk in the blacksmith, doing the sales ledger."},
+      {"time":"06:00 - 01:00","activity":"At the Iron and Ember display table, selling weapons and armor."}
+    ],
+    "unknownScheduleRowsVisible":true
+  },
+  "areaTabsShown":["Dewdrop","Farm"],
+  "confidence":"In-game verified",
+  "scopeNote":"This records only what is visible in the supplied NPC reference screenshot. The Dewdrop progress counter shows 8/8, but only six NPC cards are visible in this viewport.",
+  "lastVerified":"2026-08-18",
+  "source":"User-supplied NPC menu screenshot on 2026-08-18"
+}
