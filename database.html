@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="PortalDB database hub for The Portal on Roblox." />
+  <title>PortalDB — Database</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="site-pages.css" />
+</head>
+<body>
+  <div class="page-glow page-glow-a"></div><div class="page-glow page-glow-b"></div>
+  <header class="topbar shell"><a class="brand" href="index.html"><span class="brand-emblem">✦</span><span class="brand-copy"><strong>PORTAL<span>DB</span></strong><small>THE PORTAL COMPANION</small></span></a><nav class="main-nav"><a href="index.html">Home</a><a class="active" href="database.html">Database</a><a href="item-finder.html">Item Finder</a><a href="quests.html">Quests</a><a href="tools.html">Tools</a></nav></header>
+  <main class="page-shell shell">
+    <section class="page-hero"><span class="panel-kicker">DATABASE HUB</span><h1>Browse the world by category.</h1><p>PortalDB stores verified information as connected records instead of disconnected wiki pages. Search everything at once, or jump into a category when you already know what kind of information you need.</p></section>
+    <div class="search-shell page-search"><span class="search-mark">⌕</span><input id="globalSearch" type="search" autocomplete="off" placeholder="Search NPCs, bosses, locations, races, skills, codes..." /><button id="searchButton">Search</button></div><div id="searchResults" class="search-results hidden"></div>
+    <section class="database-grid">
+      <a class="page-card" href="item-finder.html"><span>ITEMS</span><h3>Items</h3><p>Weapons, tools, materials, consumables, headgear and known acquisition sources.</p></a>
+      <a class="page-card" href="quests.html"><span>QUESTS</span><h3>Quests</h3><p>Main-story progression, objectives, rewards and verification gaps.</p></a>
+      <button class="page-card" data-category="npcs"><span>NPCS</span><h3>NPCs</h3><p>Merchants, services, schedules, shop categories and dialogue-backed facts.</p></button>
+      <button class="page-card" data-category="bosses"><span>BOSSES</span><h3>Bosses</h3><p>Known boss stats, mechanics, drops, schedules and event relationships.</p></button>
+      <button class="page-card" data-category="locations"><span>LOCATIONS</span><h3>Locations</h3><p>Villages, regions, sub-areas, service locations and quest relationships.</p></button>
+      <button class="page-card" data-category="races"><span>RACES</span><h3>Races</h3><p>Known race records with evidence level clearly separated from official facts.</p></button>
+      <button class="page-card" data-category="jobs"><span>JOBS</span><h3>Jobs</h3><p>Warrior, Defender, Enchanter and Cleric records and known role context.</p></button>
+      <button class="page-card" data-category="skills"><span>SKILLS</span><h3>Skills</h3><p>Verified skill records, costs, cooldowns, scaling notes and patch changes.</p></button>
+      <button class="page-card" data-category="mechanics"><span>MECHANICS</span><h3>Mechanics</h3><p>Combat, regeneration, account systems, anti-cheat and gameplay rules.</p></button>
+      <button class="page-card" data-category="codes"><span>CODES</span><h3>Codes</h3><p>Officially published redemption codes with current-status uncertainty preserved.</p></button>
+      <button class="page-card" data-category="patches"><span>PATCHES</span><h3>Patch History</h3><p>Versioned changes retained so current and superseded mechanics stay distinguishable.</p></button>
+      <button class="page-card" data-category="updates"><span>UPDATES</span><h3>Updates</h3><p>Major official update records and feature additions.</p></button>
+    </section>
+  </main>
+  <dialog id="entryDialog"><button id="dialogClose" class="dialog-close">×</button><div id="dialogContent"></div></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
