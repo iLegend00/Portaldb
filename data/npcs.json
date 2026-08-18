@@ -2,12 +2,19 @@
   {
     "id": "breda",
     "name": "Breda",
-    "description": "NPC confirmed to offer a Part-Time Job while sleeping.",
-    "tags": ["npc", "part-time job", "breda"],
-    "confidence": "Official confirmed",
-    "version": "v1.1.7",
+    "profession": "Blacksmith",
+    "description": "Blacksmith NPC. Her dialogue identifies her shop as Iron and Ember and offers weapon and armor buying/selling. She is also officially confirmed to offer a Part-Time Job while sleeping.",
+    "shopName": "Iron and Ember",
+    "openHours": "6 AM - 1 AM",
+    "restockIntervalMinutes": 15,
+    "dialogueOptions": ["Buy / Sell Weapons", "Buy / Sell Armor", "Thanks, I'll get going."],
+    "weaponCategories": ["Sword", "Staff", "Blunt", "Dagger"],
+    "armorCategories": ["Armor", "Shield", "Gloves", "Shoes", "Accessory", "Clothing"],
+    "tags": ["npc", "blacksmith", "shop", "weapons", "armor", "part-time job", "breda"],
+    "confidence": "Official confirmed + in-game verified",
+    "version": "Current through 2026-08-18",
     "lastVerified": "2026-08-18",
-    "source": "Official Discord small-updates v1.1.7"
+    "source": "Official Discord small-updates v1.1.7 + user-supplied in-game screenshots on 2026-08-18"
   },
   {
     "id": "eren",
