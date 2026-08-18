@@ -1,5 +1,73 @@
 [
   {
+    "id": "2026-07-28-patch",
+    "title": "Patch Notes — July 28, 2026",
+    "date": "2026-07-28",
+    "version": "Unnumbered announcement",
+    "confidence": "Official confirmed",
+    "source": "Official Discord big-updates tab",
+    "highlights": [
+      "Upgrade VFX added for +8, +9, and +10 equipment",
+      "NPC and Goblin death animations added without ragdoll for better FPS",
+      "Tutorial steps added for targeting and spell casting",
+      "Scrap Metal tutorial quest requirement reduced from 5 to 3",
+      "Chicken Pet bonus granted after Tutorial Chapter 1 Part 3 with an equip tutorial step",
+      "Aurora Wave mana cost per projectile increased by 1.5x",
+      "Race Reroll odds normalized to 33.33% per race",
+      "Item drops no longer use physics",
+      "Damage Contest UI now requires that the player dealt damage and the monster is within render distance",
+      "Upgrade cosmetic effect setting changed to a Show/Hide toggle",
+      "Premium Shop, Purchase History, Redeemed Codes, Mail, Play Time, Daily Login, Liked Players, Social Likes, and Settings made account-bound",
+      "Dewdrop optimized with roughly 4 million triangles removed"
+    ]
+  },
+  {
+    "id": "2026-07-30-patch",
+    "title": "Patch Notes — July 30, 2026",
+    "date": "2026-07-30",
+    "version": "Unnumbered announcement",
+    "confidence": "Official confirmed",
+    "source": "Official Discord big-updates tab",
+    "highlights": [
+      "Chapter 2 released",
+      "Items now display Bound, Tradeable, or Free status",
+      "Aurora Wave reworked: no channeling, charge-up behavior, more bolts, higher damage, explosion around target",
+      "Blade Circuit gained more slashes and more damage",
+      "Timber Charge damage increased, hit behavior fixed, and it stuns non-demihumans for 1 second",
+      "Bosses and mini-bosses can no longer be knocked around",
+      "Bash stun and slow duration increased",
+      "Heal now scales with Magic Attack",
+      "Mana Shield blocks crowd control except Cripple",
+      "Long-range attacks against targets far above or below now miss",
+      "Junk King HP increased from 35,000 to 1,050,000",
+      "Tin Tortoise HP increased from 37,500 to 525,000",
+      "Junk King and Tin Tortoise accessory drops made about 25% more common and spirit stones about 2.5x more common",
+      "Spirit stone effects can trigger every 1 second instead of every 3 seconds",
+      "Build Mode placement grid added",
+      "World loot unlocks after completing Working the Land",
+      "Quest NPCs can no longer be attacked",
+      "Anti-cheat began pulling back speed, jump, and fly exploits"
+    ]
+  },
+  {
+    "id": "2026-08-03-patch",
+    "title": "Patch Notes — August 3, 2026",
+    "date": "2026-08-03",
+    "version": "Unnumbered announcement",
+    "confidence": "Official confirmed",
+    "source": "Official Discord big-updates tab",
+    "highlights": [
+      "Stuck monsters return to spawn after 2 seconds and are invulnerable while returning",
+      "New Enchanter skill Aqua Bloom added as Water-element magic",
+      "Premium Pass added",
+      "New Door decoration recipe added",
+      "Monsters gained elemental attributes",
+      "Headgear added to the Codex",
+      "Build Mode overlay added with invalid placements shown in red",
+      "Fortune Clover, Bone Bite, Tinker's Goggles, and Plague Mask headgear added"
+    ]
+  },
+  {
     "id": "2026-08-05-patch",
     "title": "Patch Notes — August 5, 2026",
     "date": "2026-08-05",
@@ -18,6 +86,29 @@
       "Party/Solo Top 1-3 Damage tracking fixed for quests and Codex",
       "Swimming-stuck issue fixed",
       "Second-door usability issue fixed"
+    ]
+  },
+  {
+    "id": "v1.1.6",
+    "title": "Patch Notes — v1.1.6",
+    "date": "2026-08-09",
+    "version": "v1.1.6",
+    "confidence": "Official confirmed",
+    "source": "Official Discord big-updates tab",
+    "highlights": [
+      "Lycaros added as a Weekly World Boss",
+      "HP/MP regeneration formula changed to Base Regen + Bonus Regen",
+      "Bonus Regen equals 0.2% of Max HP/MP and is capped at 3% of Max HP/MP",
+      "Regeneration multipliers: 50% in combat, 100% out of combat, 150% while sitting",
+      "Body Slam added for Defender",
+      "Tailwind added for Enchanter",
+      "Blade Rush added for Warrior",
+      "Doombell added for Cleric",
+      "Whirlwind changed to scale with DEF instead of PATK and scaling increased from 100% to 400%",
+      "Aqua Bloom damage formula fixed and rebalanced",
+      "Dewdrop Ore Nodes increased from 20 to 35",
+      "Identify system added for Shoes, Gloves, Bracelet, Necklace, and Upper/Middle/Lower Headgear",
+      "Magnifying Glasses used for Identify are dropped by Lycaros"
     ]
   },
   {
