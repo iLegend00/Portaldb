@@ -1,0 +1,41 @@
+[
+  {
+    "id": "2026-08-05-patch",
+    "title": "Patch Notes — August 5, 2026",
+    "date": "2026-08-05",
+    "version": "Unnumbered announcement",
+    "confidence": "Official confirmed",
+    "source": "Official Discord announcement by Swaroff [PRTL]",
+    "highlights": [
+      "Greenhouse became craftable at the Workbench",
+      "Maximum 1 Greenhouse per plot by default",
+      "Season 1 Premium Pass grants +1 additional permanent Greenhouse slot",
+      "Level 20 players received 1 Ultimate Skillbook as compensation",
+      "Goblin Claw Machine Ultimate Skillbook changed from Untradeable to Tradeable",
+      "Fish and Food assets were reworked",
+      "Boss Quest removed from Battle Pass Quest and EXP moved to Mini Boss Quest",
+      "Battle Pass +1 Level option (+3000 EXP) added for 15 Robux",
+      "Party/Solo Top 1-3 Damage tracking fixed for quests and Codex",
+      "Swimming-stuck issue fixed",
+      "Second-door usability issue fixed"
+    ]
+  },
+  {
+    "id": "v1.1.8",
+    "title": "Update & Patch Notes v1.1.8",
+    "date": "2026-08-12",
+    "version": "v1.1.8",
+    "confidence": "Official confirmed",
+    "source": "Official Discord announcement by Swaroff [PRTL]",
+    "highlights": [
+      "Lycaros Prize Pool UI fixes",
+      "Forge UI fixes",
+      "Player interaction now only triggers while sheathed",
+      "Timber Charge grants CC immunity during use; deferred CC applies afterward",
+      "Timber Charge vs Timber Charge remains an exception",
+      "Additional Quick Slots unlock after clearing Chapter 2",
+      "Skill VFX Filter settings added: Self, Party, Everyone",
+      "World Motion graphics toggle added"
+    ]
+  }
+]
