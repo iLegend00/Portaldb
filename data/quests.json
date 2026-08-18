@@ -105,5 +105,84 @@
     "version": "Current through 2026-08-18",
     "lastVerified": "2026-08-18",
     "source": "User-supplied in-game Main Quest screenshots on 2026-08-18"
+  },
+  {
+    "id": "main-ch2-stranger-in-the-village",
+    "name": "Chapter 2: Stranger in the Village",
+    "type": "Main Quest Chapter",
+    "chapter": 2,
+    "partCount": 4,
+    "parts": [
+      {
+        "part": 1,
+        "id": "main-ch2-p1-something-to-feed",
+        "name": "Something to Feed",
+        "dataStatus": "Awaiting screenshots",
+        "objectives": [],
+        "rewards": []
+      },
+      {
+        "part": 2,
+        "id": "main-ch2-p2-asking-around",
+        "name": "Asking Around",
+        "dataStatus": "Partial - screenshot begins mid-objective list",
+        "objectivesVisible": [
+          "Ask Leaf what grows this season",
+          "Check the season marker by your minimap"
+        ],
+        "rewards": [
+          {"type": "experience", "name": "EXP", "amount": 3500},
+          {"type": "currency", "name": "Tria", "amount": 500}
+        ]
+      },
+      {
+        "part": 3,
+        "id": "main-ch2-p3-the-elders-guidance",
+        "name": "The Elder's Guidance",
+        "description": "Theron waves you in before you knock. Tea already poured. He asks his questions gently, and you answer all but one. The letter stays where it is. Then he says the word you needed: stronger.",
+        "objectives": [
+          "Visit Elder Theron",
+          "Ask Neria for a skill book",
+          "Buy your job's skill book from Neria",
+          "Learn the skill from your backpack",
+          "Place your new skill in a quick slot",
+          "Cast your new skill",
+          "Show Eren your weapon",
+          "Upgrade your weapon twice (2/2)"
+        ],
+        "rewards": [
+          {"type": "experience", "name": "EXP", "amount": 4500},
+          {"type": "currency", "name": "Tria", "amount": 500}
+        ],
+        "relatedNPCs": ["Theron", "Neria", "Eren"]
+      },
+      {
+        "part": 4,
+        "id": "main-ch2-p4-mind-whos-listening",
+        "name": "Mind Who's Listening",
+        "description": "A sharper blade, a new skill, a fed chicken. The village calls that healing. At night the tavern is warm and loud, and Rendall pours without being asked. You almost feel safe. Almost is worth something.",
+        "objectives": [
+          "Have supper at the tavern",
+          "Tell Theron you are ready",
+          "Take a bounty from the village quest board"
+        ],
+        "rewards": [
+          {"type": "experience", "name": "EXP", "amount": 5000},
+          {"type": "currency", "name": "Tria", "amount": 500}
+        ],
+        "relatedNPCs": ["Rendall", "Theron"]
+      }
+    ],
+    "futureChaptersShown": [
+      "Chapter 3: The Junkyard",
+      "Chapter 4: The Enchanted Forest",
+      "Chapter 5: The Castle",
+      "Chapter 6: Through the Portal"
+    ],
+    "confidence": "In-game verified where visible",
+    "dataStatus": "Partial - Part 1 and upper portion of Part 2 still needed",
+    "version": "Current through 2026-08-18",
+    "lastVerified": "2026-08-18",
+    "source": "User-supplied in-game Main Quest screenshots on 2026-08-18"
   }
 ]
