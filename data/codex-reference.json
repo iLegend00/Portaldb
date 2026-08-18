@@ -1,0 +1,28 @@
+{
+  "menuTitle":"Codex",
+  "tabsShown":["Weapon","Armor","Tool"],
+  "visibleSection":{
+    "tab":"Weapon",
+    "groups":[
+      {
+        "name":"1H Dagger",
+        "progressShown":"1/4",
+        "visibleEntries":[
+          {"name":null,"status":"Unknown / undiscovered"},
+          {"name":"Amethyst Dirk","status":"Discovered"},
+          {"name":null,"status":"Unknown / undiscovered"},
+          {"name":null,"status":"Unknown / undiscovered"}
+        ]
+      },
+      {
+        "name":"1H Sword",
+        "progressShown":"1/4",
+        "visibleEntries":[]
+      }
+    ]
+  },
+  "confidence":"In-game verified",
+  "scopeNote":"This records only the visible Codex structure and labels from the supplied screenshot, not the complete Codex contents.",
+  "lastVerified":"2026-08-18",
+  "source":"User-supplied Codex menu screenshot on 2026-08-18"
+}
