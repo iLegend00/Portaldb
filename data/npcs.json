@@ -100,12 +100,18 @@
   {
     "id": "arlette",
     "name": "Arlette",
-    "description": "NPC confirmed to offer a Part-Time Job while sleeping.",
-    "tags": ["npc", "part-time job", "arlette"],
-    "confidence": "Official confirmed",
-    "version": "v1.1.7",
+    "profession": "Merchant",
+    "description": "Merchant NPC who runs Journey Pack Supplies. Her dialogue offers tool and material buying/selling, and her shop carries tools, bags, scrolls, HP food, and MP food. She is also officially confirmed to offer a Part-Time Job while sleeping.",
+    "shopName": "Journey Pack Supplies",
+    "openHours": "6 AM - 1 AM",
+    "restockIntervalMinutes": 5,
+    "dialogueOptions": ["Buy / Sell Tools", "Buy / Sell Materials", "Thanks, I'll get going."],
+    "shopCategories": ["Tool", "Bag", "Scroll", "HP Food", "MP Food"],
+    "tags": ["npc", "merchant", "journey pack supplies", "shop", "tool", "bag", "scroll", "hp food", "mp food", "part-time job", "arlette"],
+    "confidence": "Official confirmed + in-game verified",
+    "version": "Current through 2026-08-18",
     "lastVerified": "2026-08-18",
-    "source": "Official Discord small-updates v1.1.7"
+    "source": "Official Discord small-updates v1.1.7 + user-supplied in-game screenshots on 2026-08-18"
   },
   {
     "id": "hogan",
