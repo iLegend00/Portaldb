@@ -1,0 +1,234 @@
+[
+  {
+    "id": "patch-2026-07-28",
+    "name": "Patch Notes — 2026-07-28",
+    "type": "Patch Notes",
+    "date": "2026-07-28",
+    "version": null,
+    "description": "Official Discord patch covering upgrade VFX, tutorial changes, balance, account-bound systems, fixes, and performance work.",
+    "highlights": [
+      "Upgrade VFX added for +8, +9, +10 equipment",
+      "Death animations added for NPCs and Goblins without ragdoll",
+      "Tutorial added targeting and spell-casting steps",
+      "Scrap Metal quest requirement reduced from 5 to 3",
+      "Chicken Pet bonus granted after Tutorial Ch1 P3 with an equip tutorial step",
+      "Aurora Wave mana cost per projectile increased 1.5x",
+      "Race Reroll odds normalized to 33.33% per race",
+      "Item drops no longer use physics",
+      "Dewdrop optimized with 4M triangles removed"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "combat-update-2026-07-29",
+    "name": "Combat System Update",
+    "type": "Combat System Update",
+    "date": "2026-07-29",
+    "description": "Official combat rules announcement for a subsequent patch.",
+    "rules": {
+      "guaranteedHitWithinStuds": 10,
+      "distanceBeyondStudsUses3D": 10,
+      "attackConeDegreesAtAnnouncement": 20,
+      "largeHeightDifferenceMisses": true
+    },
+    "notes": "A small-update post later changed the planned attack cone from ±20° to ±45° before the patch was applied.",
+    "confidence": "Official confirmed",
+    "source": "Official Discord big-updates tab + supplied combat-system infographic"
+  },
+  {
+    "id": "combat-cone-change-2026-07-30",
+    "name": "Combat Attack Cone Revision",
+    "type": "Small Update",
+    "date": "2026-07-30",
+    "description": "Planned attack cone widened from ±20° to ±45° for the next combat patch.",
+    "changes": [{"system":"Attack Cone","before":"±20°","after":"±45°"}],
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab"
+  },
+  {
+    "id": "patch-2026-07-30",
+    "name": "Patch Notes — 2026-07-30",
+    "type": "Patch Notes",
+    "date": "2026-07-30",
+    "description": "Chapter 2 release plus skill, balance, quality-of-life, fix, and anti-cheat changes.",
+    "highlights": [
+      "Chapter 2 released",
+      "Every item now displays whether it is bound, tradeable, or free",
+      "Aurora Wave reworked",
+      "Blade Circuit damage and slash count increased",
+      "Timber Charge damage increased and gained a 1-second stun against non-demihumans",
+      "Bash stun and slow increased",
+      "Heal now scales with Magic ATK",
+      "Mana Shield blocks crowd control except Cripple",
+      "Junk King HP increased from 35,000 to 1,050,000",
+      "Tin Tortoise HP increased from 37,500 to 525,000",
+      "Junk King and Tin Tortoise accessory drops about 25% more common",
+      "Spirit Stones about 2.5x more common from Junk King and Tin Tortoise",
+      "Spirit Stone effects can trigger every 1 second instead of every 3 seconds",
+      "World loot unlocks after Working the Land",
+      "Build Mode placement grid added"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "patch-2026-08-03",
+    "name": "Patch Notes — 2026-08-03",
+    "type": "Patch Notes",
+    "date": "2026-08-03",
+    "description": "AI, bug-fix, Premium Pass, elemental-system, headgear, and build-mode update.",
+    "highlights": [
+      "Stuck monsters return to spawn after 2 seconds and remain invulnerable until reset",
+      "New Enchanter skill: Aqua Bloom (Water Element Magic)",
+      "Premium Pass added",
+      "New decoration recipe: Door",
+      "Monsters now have elemental attributes",
+      "Headgear added to Codex",
+      "Build Mode invalid placement overlay added",
+      "Fortune Clover, Bone Bite, Tinker's Goggles, and Plague Mask added"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "patch-v1-0-4",
+    "name": "Patch Notes — v1.0.4",
+    "type": "Small Update",
+    "date": "2026-08-06",
+    "version": "v1.0.4",
+    "description": "Collision, ladder, Greenhouse, and invalid-target mana-cost fixes.",
+    "highlights": [
+      "Fixed collision issues that could trap players during repeated Auto Attack",
+      "Baby Phase players can climb ladders",
+      "Fixed various Greenhouse bugs",
+      "Casting without a valid target now consumes 50% of normal mana cost"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab"
+  },
+  {
+    "id": "patch-v1-0-5",
+    "name": "Patch Notes — v1.0.5",
+    "type": "Small Update",
+    "date": "2026-08-06",
+    "version": "v1.0.5",
+    "description": "Aqua Bloom, Combat Mode, and slippery-pole changes.",
+    "highlights": [
+      "Fixed Aqua Bloom glitch",
+      "Combat Mode now triggers when dealing or receiving damage",
+      "Some poles are now slippery"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab"
+  },
+  {
+    "id": "patch-v1-1-6",
+    "name": "Patch Notes — v1.1.6",
+    "type": "Patch Notes",
+    "date": "2026-08-09",
+    "version": "v1.1.6",
+    "description": "Introduced Lycaros, Identify, regeneration changes, new skills, and other combat/world updates.",
+    "highlights": [
+      "Lycaros added as a Weekly World Boss",
+      "Magnifying Glass introduced for Identify",
+      "HP/MP regeneration formula updated",
+      "In-combat regen is 50%, out-of-combat 100%, sitting 150%",
+      "Body Slam added for Defender / Earth",
+      "Tailwind added for Enchanter / Wind",
+      "Blade Rush added for Warrior / Neutral",
+      "Doombell added for Cleric / Fire",
+      "Whirlwind now scales with DEF and scaling increased from 100% to 400%",
+      "Dewdrop Ore Nodes increased from 20 to 35"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord big-updates tab"
+  },
+  {
+    "id": "patch-v1-1-7",
+    "name": "Patch Notes — v1.1.7",
+    "type": "Small Update",
+    "date": "2026-08-10",
+    "version": "v1.1.7",
+    "description": "Lycaros schedule, new skills, Identify reminder, and Part-Time Jobs.",
+    "highlights": [
+      "Lycaros schedule listed as Saturday 16:00 and 04:00 GMT+7",
+      "Part-Time Jobs added for Breda, Eren, Neria, Leaf, Arlette, and Hogan"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab"
+  },
+  {
+    "id": "patch-v1-1-8",
+    "name": "Patch Notes — v1.1.8",
+    "type": "Small Update",
+    "date": "2026-08-12",
+    "version": "v1.1.8",
+    "description": "Lycaros/Forge fixes, player-interaction change, Timber Charge change, extra quick slots, and graphics settings.",
+    "highlights": [
+      "Player interaction can only be triggered while sheathed",
+      "Timber Charge grants CC immunity while active, with queued CC continuing afterward except Timber Charge vs Timber Charge",
+      "Additional Quick Slots unlock after clearing Chapter 2",
+      "Skill VFX Filter added with Self, Party, and Everyone options",
+      "World Motion graphics toggle added"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab"
+  },
+  {
+    "id": "patch-v1-1-9",
+    "name": "Patch Notes — v1.1.9",
+    "type": "Small Update",
+    "date": "2026-08-14",
+    "version": "v1.1.9",
+    "description": "Dual Wield element, slider UI, SFX slider, and Part-Time Job fixes.",
+    "highlights": [
+      "Fixed Dual Wield elemental effects",
+      "Fixed slider UI on PC and Mobile",
+      "Fixed SFX volume slider",
+      "Fixed skill-spam issue during Part-Time Jobs"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab"
+  },
+  {
+    "id": "patch-v1-1-10",
+    "name": "Patch Notes — v1.1.10",
+    "type": "Small Update",
+    "date": "2026-08-14",
+    "version": "v1.1.10",
+    "description": "Magnifying Glass monster drops, Claw Machine improvements, and Server Hop filters.",
+    "highlights": [
+      "Junk King and Tin Tortoise can drop Magnifying Glass",
+      "Claw Machine stuck protection guarantees 1 Goblin Coin when no reward is received",
+      "Claw Machine displays reward probabilities",
+      "Claw Machine can be restocked",
+      "Server Hop filters added for All, Friends, and server-name search"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab"
+  },
+  {
+    "id": "patch-v1-1-12",
+    "name": "Patch Notes — v1.1.12",
+    "type": "Small Update",
+    "date": "2026-08-18",
+    "version": "v1.1.12",
+    "postedTimeLocal": "02:05",
+    "description": "Combat, pet, title, collision, and item-tradability improvements.",
+    "highlights": [
+      "Only one title can be equipped at a time",
+      "Fixed fling-related false bans",
+      "Auto Jump disabled",
+      "All attacks now trigger Combat Mode",
+      "Fortune Clover and Bone Bite are tradable",
+      "Fixed Resurrect target selection",
+      "Pet pathfinding improved",
+      "Pet collision disabled",
+      "Cart collision disabled"
+    ],
+    "notes": "Discord displayed only the time because the post was made on the same local date the user supplied it; date normalized to 2026-08-18 using the user's timezone.",
+    "confidence": "Official confirmed",
+    "source": "Official Discord small-updates tab"
+  }
+]
