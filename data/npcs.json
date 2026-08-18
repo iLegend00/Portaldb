@@ -1,0 +1,11 @@
+[
+  {
+    "id": "demo-npc-01",
+    "name": "Demo NPC Entry",
+    "description": "Placeholder NPC record for testing structured search.",
+    "tags": ["npc", "demo"],
+    "confidence": "Unverified placeholder",
+    "version": "Prototype",
+    "lastVerified": "Not verified"
+  }
+]
