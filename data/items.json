@@ -1,0 +1,20 @@
+[
+  {
+    "id": "demo-item-01",
+    "name": "Demo Weapon Entry",
+    "description": "Placeholder weapon used only to test PortalDB search and UI.",
+    "tags": ["item", "weapon", "demo"],
+    "confidence": "Unverified placeholder",
+    "version": "Prototype",
+    "lastVerified": "Not verified"
+  },
+  {
+    "id": "demo-item-02",
+    "name": "Demo Material Entry",
+    "description": "Placeholder material record used only for layout testing.",
+    "tags": ["item", "material", "demo"],
+    "confidence": "Unverified placeholder",
+    "version": "Prototype",
+    "lastVerified": "Not verified"
+  }
+]
