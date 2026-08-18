@@ -1,5 +1,5 @@
-const collections = ["items","quests","npcs","bosses"];
-const labels = {items:"ITEM",quests:"QUEST",npcs:"NPC",bosses:"BOSS"};
+const collections = ["items","quests","npcs","bosses","races","jobs"];
+const labels = {items:"ITEM",quests:"QUEST",npcs:"NPC",bosses:"BOSS",races:"RACE",jobs:"JOB"};
 let database = [];
 
 async function loadData(){
@@ -14,9 +14,11 @@ async function loadData(){
 
 function renderPreview(){
   const box=document.getElementById("entryPreview");
-  box.innerHTML=database.slice(0,4).map((entry,i)=>`
+  const realEntries = database.filter(entry => !String(entry.id || "").startsWith("demo-"));
+  const previewEntries = (realEntries.length ? realEntries : database).slice(0,4);
+  box.innerHTML=previewEntries.map((entry,i)=>`
     <button class="preview-row" data-preview="${i}">
-      <span class="preview-icon">${["⚔","✎","♙","♛"][i]||"✦"}</span>
+      <span class="preview-icon">${["✦","◇","♙","⚔"][i]||"✦"}</span>
       <span>
         <strong>${escapeHtml(entry.name)}</strong>
         <small>${escapeHtml(entry.description)}</small>
@@ -24,14 +26,15 @@ function renderPreview(){
       <span class="preview-tag">${labels[entry._collection]}</span>
     </button>
   `).join("");
-  box.querySelectorAll("[data-preview]").forEach((btn,i)=>btn.addEventListener("click",()=>openEntry(database[i])));
+  box.querySelectorAll("[data-preview]").forEach((btn,i)=>btn.addEventListener("click",()=>openEntry(previewEntries[i])));
 }
 
 function search(query){
   const q=query.trim().toLowerCase();
   if(!q)return [];
   return database.map(entry=>{
-    const hay=[entry.name,entry.description,...(entry.tags||[])].join(" ").toLowerCase();
+    const extra = [entry.tutorialChoice, entry.variantChance, entry.source, ...Object.keys(entry.stats||{}), ...Object.values(entry.stats||{}).map(String)];
+    const hay=[entry.name,entry.description,...(entry.tags||[]),...extra].filter(Boolean).join(" ").toLowerCase();
     let score=0;
     if(entry.name.toLowerCase()===q)score+=100;
     if(entry.name.toLowerCase().startsWith(q))score+=40;
@@ -46,7 +49,7 @@ const results=document.getElementById("searchResults");
 
 function showResults(rows){
   if(!rows.length){
-    results.innerHTML=`<div class="result-row"><span><strong>No matches yet.</strong><small>Only placeholder records exist in v0.2.</small></span></div>`;
+    results.innerHTML=`<div class="result-row"><span><strong>No matches yet.</strong><small>PortalDB is still being populated with verified data.</small></span></div>`;
     results.classList.remove("hidden");
     return;
   }
@@ -85,7 +88,16 @@ document.querySelectorAll("[data-category]").forEach(btn=>btn.addEventListener("
   }
 }));
 
+function formatStats(stats){
+  if(!stats || !Object.keys(stats).length) return "";
+  return Object.entries(stats).map(([key,value])=>`${escapeHtml(key)} +${escapeHtml(value)}`).join(" · ");
+}
+
 function openEntry(entry){
+  const details = [];
+  if(entry.stats) details.push(`<div class="meta-box"><small>STATS</small><strong>${formatStats(entry.stats)}</strong></div>`);
+  if(entry.tutorialChoice) details.push(`<div class="meta-box"><small>TUTORIAL CHOICE</small><strong>${escapeHtml(entry.tutorialChoice)}</strong></div>`);
+  if(entry.variantChance) details.push(`<div class="meta-box"><small>VARIANT RATE</small><strong>${escapeHtml(entry.variantChance)}</strong></div>`);
   document.getElementById("dialogContent").innerHTML=`
     <div class="dialog-body">
       <div class="type">${labels[entry._collection]}</div>
@@ -95,7 +107,9 @@ function openEntry(entry){
         <div class="meta-box"><small>CONFIDENCE</small><strong>${escapeHtml(entry.confidence)}</strong></div>
         <div class="meta-box"><small>VERSION</small><strong>${escapeHtml(entry.version)}</strong></div>
         <div class="meta-box"><small>LAST VERIFIED</small><strong>${escapeHtml(entry.lastVerified)}</strong></div>
+        ${details.join("")}
       </div>
+      ${entry.source ? `<p class="entry-source"><strong>Source:</strong> ${escapeHtml(entry.source)}</p>` : ""}
     </div>`;
   document.getElementById("entryDialog").showModal();
   results.classList.add("hidden");
