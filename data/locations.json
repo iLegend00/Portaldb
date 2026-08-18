@@ -18,9 +18,58 @@
     "locationType": "Village",
     "description": "Village hub described by Theron as the safest corner of a wide world. Current verified service NPCs include Breda, Eren, Neria, Rendall, Theron, Arlette, Hogan, and Leaf.",
     "npcs": ["Breda", "Eren", "Neria", "Rendall", "Theron", "Arlette", "Hogan", "Leaf"],
+    "subLocations": ["Iron and Ember", "Journey Pack Supplies", "Hooves & Horns Livestock", "Seed & Soil Harvest"],
     "confidence": "In-game verified",
     "lastVerified": "2026-08-18",
     "source": "User-supplied in-game NPC and Theron dialogue screenshots"
+  },
+  {
+    "id": "iron-and-ember",
+    "name": "Iron and Ember",
+    "type": "Location",
+    "locationType": "Shop / Service",
+    "parentLocation": "Dewdrop Village",
+    "description": "Blacksmith and forging location associated with Breda and Eren.",
+    "relatedNPCs": ["Breda", "Eren"],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "User-supplied in-game NPC screenshots"
+  },
+  {
+    "id": "journey-pack-supplies",
+    "name": "Journey Pack Supplies",
+    "type": "Location",
+    "locationType": "Shop",
+    "parentLocation": "Dewdrop Village",
+    "description": "Arlette's merchant shop for tools, bags, scrolls, and food categories.",
+    "relatedNPCs": ["Arlette"],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "User-supplied in-game Arlette screenshots"
+  },
+  {
+    "id": "hooves-and-horns-livestock",
+    "name": "Hooves & Horns Livestock",
+    "type": "Location",
+    "locationType": "Shop",
+    "parentLocation": "Dewdrop Village",
+    "description": "Hogan's livestock shop covering livestock, feed, cooking, farm, tool, and mount categories.",
+    "relatedNPCs": ["Hogan"],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "User-supplied in-game Hogan screenshots"
+  },
+  {
+    "id": "seed-and-soil-harvest",
+    "name": "Seed & Soil Harvest",
+    "type": "Location",
+    "locationType": "Shop",
+    "parentLocation": "Dewdrop Village",
+    "description": "Leaf's gardening shop covering seed, cooking, and tool categories.",
+    "relatedNPCs": ["Leaf"],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "User-supplied in-game Leaf screenshots"
   },
   {
     "id": "goblin-junkyard",
@@ -46,5 +95,16 @@
     "confidence": "In-game verified",
     "lastVerified": "2026-08-18",
     "source": "User-supplied in-game Main Quest screenshots"
+  },
+  {
+    "id": "dewdrop-castle",
+    "name": "Dewdrop Castle",
+    "type": "Location",
+    "locationType": "Landmark / Area",
+    "description": "Official Lycaros event information places The Hunt portal in front of Dewdrop Castle.",
+    "relatedBosses": ["Lycaros"],
+    "confidence": "Official confirmed",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord Lycaros event information"
   }
 ]
