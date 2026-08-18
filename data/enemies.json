@@ -1,0 +1,94 @@
+[
+  {
+    "id": "cog-crab",
+    "name": "Cog Crab",
+    "type": "Enemy",
+    "description": "Enemy encountered for Chapter 1: Trial by Scrap. The quest requires defeating Cog Crabs and collecting 3 Scrap Metal in the Scrap Fields.",
+    "locations": ["Scrap Fields"],
+    "relatedQuests": ["Trial by Scrap"],
+    "tags": ["enemy", "cog crab", "scrap fields", "scrap metal", "trial by scrap"],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "User-supplied in-game Main Quest screenshots"
+  },
+  {
+    "id": "kettle-beetle",
+    "name": "Kettle Beetle",
+    "type": "Enemy",
+    "description": "Verified as an acquisition source for Iron Hammer +3.",
+    "knownDrops": [{"item":"Iron Hammer +3","chancePercent":0.18}],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied Iron Hammer +3 tooltip screenshot"
+  },
+  {
+    "id": "barrel-champion",
+    "name": "Barrel Champion",
+    "type": "Enemy",
+    "description": "Verified as an acquisition source for Sword Mastery II.",
+    "knownDrops": [{"item":"Sword Mastery II","chancePercent":3.16}],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied Sword Mastery II tooltip screenshots"
+  },
+  {
+    "id": "critter-goblin",
+    "name": "Critter Goblin",
+    "type": "Enemy",
+    "description": "Verified as an acquisition source for Sword Mastery II and Carp.",
+    "knownDrops": [{"item":"Sword Mastery II","chancePercent":0.75},{"item":"Carp","chancePercent":1.49}],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied item tooltip screenshots"
+  },
+  {
+    "id": "buckethead-goblin",
+    "name": "Buckethead Goblin",
+    "type": "Enemy",
+    "description": "Verified as an acquisition source for Sword Mastery II.",
+    "knownDrops": [{"item":"Sword Mastery II","chancePercent":0.75}],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied Sword Mastery II tooltip screenshots"
+  },
+  {
+    "id": "scarecrow-goblin",
+    "name": "Scarecrow Goblin",
+    "type": "Enemy",
+    "description": "Verified as an acquisition source for Sword Mastery II.",
+    "knownDrops": [{"item":"Sword Mastery II","chancePercent":0.52}],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied Sword Mastery II tooltip screenshots"
+  },
+  {
+    "id": "spore-deer",
+    "name": "Spore Deer",
+    "type": "Enemy",
+    "description": "Verified as an acquisition source for Raw Meat and Wood.",
+    "knownDrops": [{"item":"Raw Meat","chancePercent":17.27},{"item":"Wood","chancePercent":31.88}],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied item tooltip screenshots"
+  },
+  {
+    "id": "cup-snail",
+    "name": "Cup Snail",
+    "type": "Enemy",
+    "description": "Verified as an acquisition source for Raw Meat.",
+    "knownDrops": [{"item":"Raw Meat","chancePercent":17.27}],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied Raw Meat tooltip screenshots"
+  },
+  {
+    "id": "patch-hound",
+    "name": "Patch Hound",
+    "type": "Enemy",
+    "description": "Verified as an acquisition source for Wood.",
+    "knownDrops": [{"item":"Wood","chancePercent":24.42}],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied Wood tooltip screenshots"
+  }
+]
