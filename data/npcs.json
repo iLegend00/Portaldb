@@ -1,11 +1,62 @@
 [
   {
-    "id": "demo-npc-01",
-    "name": "Demo NPC Entry",
-    "description": "Placeholder NPC record for testing structured search.",
-    "tags": ["npc", "demo"],
-    "confidence": "Unverified placeholder",
-    "version": "Prototype",
-    "lastVerified": "Not verified"
+    "id": "breda",
+    "name": "Breda",
+    "description": "NPC confirmed to offer a Part-Time Job while sleeping.",
+    "tags": ["npc", "part-time job", "breda"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.7",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.1.7"
+  },
+  {
+    "id": "eren",
+    "name": "Eren",
+    "description": "NPC confirmed to offer a Part-Time Job while sleeping.",
+    "tags": ["npc", "part-time job", "eren"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.7",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.1.7"
+  },
+  {
+    "id": "neria",
+    "name": "Neria",
+    "description": "NPC confirmed to offer a Part-Time Job while sleeping.",
+    "tags": ["npc", "part-time job", "neria"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.7",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.1.7"
+  },
+  {
+    "id": "leaf",
+    "name": "Leaf",
+    "description": "NPC confirmed to offer a Part-Time Job while sleeping.",
+    "tags": ["npc", "part-time job", "leaf"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.7",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.1.7"
+  },
+  {
+    "id": "arlette",
+    "name": "Arlette",
+    "description": "NPC confirmed to offer a Part-Time Job while sleeping.",
+    "tags": ["npc", "part-time job", "arlette"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.7",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.1.7"
+  },
+  {
+    "id": "hogan",
+    "name": "Hogan",
+    "description": "NPC confirmed to offer a Part-Time Job while sleeping.",
+    "tags": ["npc", "part-time job", "hogan"],
+    "confidence": "Official confirmed",
+    "version": "v1.1.7",
+    "lastVerified": "2026-08-18",
+    "source": "Official Discord small-updates v1.1.7"
   }
 ]
