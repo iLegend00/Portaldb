@@ -64,5 +64,162 @@
     "version": "Current through v1.1.10",
     "lastVerified": "2026-08-18",
     "source": "Official Discord big-updates v1.1.6 and small-updates v1.1.10"
+  },
+  {
+    "id": "iron-hammer-plus-3",
+    "name": "Iron Hammer +3",
+    "category": "Equipment",
+    "subtype": ["Weapon", "Blunt", "2H", "RightHand"],
+    "status": "Free",
+    "stats": {"physicalATK": 25, "attackSpeedMultiplier": -0.10},
+    "description": "A two-handed iron hammer. Originally for breaking doors. Still is, mostly.",
+    "buyTria": 2450,
+    "sellTria": 91,
+    "requirements": {"VIT": 17},
+    "obtain": [
+      {"type":"drop","source":"Tin Tortoise","chancePercent":3.93},
+      {"type":"drop","source":"Kettle Beetle","chancePercent":0.18},
+      {"type":"shop","source":"Breda"}
+    ],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied in-game tooltip screenshots"
+  },
+  {
+    "id": "axe",
+    "name": "Axe",
+    "category": "Equipment",
+    "subtype": ["Tool", "RightHand"],
+    "status": "Free",
+    "description": "A woodcutter's axe. The blade's worn, but it still bites into a trunk.",
+    "buyTria": 350,
+    "sellTria": 13,
+    "obtain": [{"type":"shop","source":"Arlette"}],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied in-game tooltip screenshots"
+  },
+  {
+    "id": "fresh-milk",
+    "name": "Fresh Milk",
+    "category": "Consumable",
+    "subtype": ["MPFood"],
+    "status": "Free",
+    "effects": {"restoreMP": 35, "cooldownSeconds": 2},
+    "description": "Milk still warm from the cow. Restores a bit of mana.",
+    "buyTria": 70,
+    "sellTria": 2,
+    "obtain": [
+      {"type":"shop","source":"Arlette"},
+      {"type":"shop","source":"Rendall"}
+    ],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied in-game tooltip screenshots",
+    "notes": "Tooltip showed additional colored numeric modifiers next to buy/sell values; their meaning is not yet documented, so only the base Tria values are stored."
+  },
+  {
+    "id": "sword-mastery-ii",
+    "name": "Sword Mastery II",
+    "category": "Consumable",
+    "subtype": ["SkillBook"],
+    "status": "Free",
+    "skill": {
+      "type": "Passive",
+      "job": "Mastery",
+      "scaling": "STR",
+      "damagePercentByLevel": [15,17,19,20,22,24],
+      "requiredSTRByLevel": [21,24,27,30,33,36]
+    },
+    "description": "Increases damage when wielding swords.",
+    "buyTria": 2450,
+    "sellTria": 91,
+    "obtain": [
+      {"type":"drop","source":"Barrel Champion","chancePercent":3.16},
+      {"type":"drop","source":"Critter Goblin","chancePercent":0.75},
+      {"type":"drop","source":"Buckethead Goblin","chancePercent":0.75},
+      {"type":"drop","source":"Scarecrow Goblin","chancePercent":0.52},
+      {"type":"shop","source":"Neria"}
+    ],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied in-game tooltip screenshots"
+  },
+  {
+    "id": "stat-reset-scroll",
+    "name": "Stat Reset Scroll",
+    "category": "Consumable",
+    "subtype": ["Scroll"],
+    "status": "Untradeable",
+    "description": "Resets allocated stats. Unwind every allocated stat point back into your pool. A clean slate in parchment.",
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied in-game tooltip screenshot"
+  },
+  {
+    "id": "raw-meat",
+    "name": "Raw Meat",
+    "category": "Material",
+    "subtype": ["CookingIngredient"],
+    "status": "Free",
+    "description": "Cut from a fresh kill. Cook it first, unless you like a fever.",
+    "buyTria": 15,
+    "sellTria": 5,
+    "obtain": [
+      {"type":"drop","source":"Spore Deer","chancePercent":17.27},
+      {"type":"drop","source":"Cup Snail","chancePercent":17.27},
+      {"type":"shop","source":"Hogan"},
+      {"type":"shop","source":"Rendall"}
+    ],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied in-game tooltip screenshots"
+  },
+  {
+    "id": "aurorite",
+    "name": "Aurorite",
+    "category": "Material",
+    "subtype": ["EnhancementStone"],
+    "status": "Free",
+    "description": "A premium enhancement crystal. Bosses rarely part with one.",
+    "sellTria": 20,
+    "obtain": [{"type":"drop","source":"Any monster"}],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied in-game tooltip screenshots"
+  },
+  {
+    "id": "wood",
+    "name": "Wood",
+    "category": "Material",
+    "subtype": ["Craftwork"],
+    "status": "Free",
+    "description": "Plain cut lumber. Still green in the middle if you cut it fresh.",
+    "sellTria": 1,
+    "obtain": [
+      {"type":"drop","source":"Spore Deer","chancePercent":31.88},
+      {"type":"drop","source":"Patch Hound","chancePercent":24.42},
+      {"type":"gather","source":"Tree","chancePercent":100.0}
+    ],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied in-game tooltip screenshots"
+  },
+  {
+    "id": "carp",
+    "name": "Carp",
+    "category": "Material",
+    "subtype": ["Harvest"],
+    "status": "Free",
+    "description": "Chunky river resident with the personality of a rock and the flavor of 'pretty good actually.'",
+    "sellTria": 10,
+    "obtain": [
+      {"type":"drop","source":"Critter Goblin","chancePercent":1.49},
+      {"type":"fishing","source":"River","time":"Day","weather":["Drizzle","Dry","Heavy Rain","Rain","Snow"]},
+      {"type":"fishing","source":"River","time":"Night","weather":["Drizzle","Dry","Heavy Rain","Rain","Snow"]}
+    ],
+    "confidence": "In-game verified",
+    "lastVerified": "2026-08-18",
+    "source": "Player-supplied in-game tooltip screenshots"
   }
 ]
