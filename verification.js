@@ -81,8 +81,12 @@
   }
   document.addEventListener('click',event=>{const button=event.target.closest('[data-verification]');if(button){event.stopPropagation();open(button)}else if(activeMarker&&!event.target.closest('#verificationPopover'))close()});
   document.addEventListener('pointerover',event=>{const button=event.target.closest('[data-verification]');if(button&&matchMedia('(hover:hover)').matches)open(button)});
-  document.addEventListener('focusin',event=>{const button=event.target.closest('[data-verification]');if(button)open(button)});
-  document.addEventListener('keydown',event=>{if(event.key==='Escape')close()});
+  document.addEventListener('focus',event=>{const button=event.target.closest?.('[data-verification]');if(button)open(button)},true);
+  document.addEventListener('keydown',event=>{
+    const button=event.target.closest?.('[data-verification]');
+    if(button&&(event.key==='Enter'||event.key===' ')){event.preventDefault();open(button);return}
+    if(event.key==='Escape')close();
+  });
   window.addEventListener('resize',close);
   document.addEventListener('DOMContentLoaded',installLegendControl);
   window.PortalVerification={states,typeFor,metadata,marker,close};
