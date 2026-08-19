@@ -1,5 +1,127 @@
-.field-card{height:205px;padding-inline:10px}.field-visual{width:100%;height:116px;flex:0 0 116px;margin:0 0 2px;padding:5px 4px 0;display:grid;place-items:center;overflow:visible;border:0;background:transparent}.field-visual img{width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:100%;display:block;object-fit:contain;object-position:center center}.field-card:nth-child(1) .field-visual img{transform:scale(.96)}.field-card:nth-child(2) .field-visual img{transform:scale(.94)}.field-card:nth-child(3) .field-visual img{transform:scale(.96);object-position:center 42%}.field-card:nth-child(4) .field-visual img{transform:scale(.94);object-position:center 45%}.field-card:nth-child(5) .field-visual img{transform:scale(.94)}.field-card:nth-child(6) .field-visual img{transform:scale(.91)}.field-card:nth-child(7) .field-visual img{transform:scale(.93)}.field-card b{min-width:68px;padding:5px 13px;border:1px solid #e1b75f;background:linear-gradient(180deg,#176da6 0%,#0a4c80 48%,#073c69 100%);box-shadow:inset 0 1px rgba(255,255,255,.22),inset 0 -2px rgba(4,34,59,.32),0 2px 0 #714a20;color:#fff3ce}
-@media(max-width:1280px) and (min-width:981px){.field-visual{height:108px;flex-basis:108px}.field-card{height:198px}}
-@media(max-width:980px){.field-visual{height:104px;flex-basis:104px}.field-card{height:194px}}
-@media(max-width:700px){.field-visual{height:94px;flex-basis:94px;padding-top:3px}.field-card{height:184px}.field-card b{padding:4px 11px}}
+/* Shared production presentation for all seven homepage category cards. */
+.category-deck .field-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 1086 / 1448;
+  height: auto !important;
+  min-height: 0;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: url("assets/home/category-card-frame.webp") center / 100% 100% no-repeat;
+  color: #392d22;
+  text-align: center;
+  box-shadow: none;
+  filter: drop-shadow(0 5px 5px rgba(35, 24, 13, .32));
+  transition: transform .18s ease, filter .18s ease;
+}
+
+.category-deck .field-card::before,
+.category-deck .field-card::after {
+  content: none;
+}
+
+.category-deck .field-card:hover,
+.category-deck .field-card:focus-visible {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 9px 8px rgba(35, 24, 13, .4)) drop-shadow(0 0 5px rgba(219, 176, 92, .3));
+}
+
+.category-deck .field-card:focus-visible {
+  outline: 3px solid #f4d184;
+  outline-offset: 3px;
+}
+
+.category-deck .field-visual {
+  position: absolute;
+  top: 6.2%;
+  right: 10%;
+  left: 10%;
+  width: auto;
+  height: 50.5%;
+  margin: 0;
+  padding: 1% 2% 0;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+
+.category-deck .field-visual img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 3px 2px rgba(52, 35, 18, .22));
+}
+
+.category-deck .field-card:nth-child(1) .field-visual img { transform: scale(.95); }
+.category-deck .field-card:nth-child(2) .field-visual img { transform: scale(.94); }
+.category-deck .field-card:nth-child(3) .field-visual img { transform: scale(.95); }
+.category-deck .field-card:nth-child(4) .field-visual img { transform: scale(.93); }
+.category-deck .field-card:nth-child(5) .field-visual img { transform: scale(.94); }
+.category-deck .field-card:nth-child(6) .field-visual img { transform: scale(.91); }
+.category-deck .field-card:nth-child(7) .field-visual img { transform: scale(.94); }
+
+.category-deck .field-card strong {
+  position: absolute;
+  top: 61.5%;
+  right: 9%;
+  left: 9%;
+  color: #2f2a25;
+  font: 700 clamp(14px, 1.05vw, 18px) / 1 Cinzel, serif;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+  text-shadow: 0 1px rgba(255, 249, 224, .85);
+}
+
+.category-deck .field-card small {
+  position: absolute;
+  top: 69.5%;
+  right: 10%;
+  left: 10%;
+  min-height: 0;
+  margin: 0;
+  color: #594a3a;
+  font: 600 clamp(8px, .58vw, 10px) / 1.35 Inter, sans-serif;
+}
+
+.category-deck .field-card b {
+  position: absolute;
+  right: 15%;
+  bottom: 7.2%;
+  left: 15%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #fff0ca;
+  font: 700 clamp(8px, .55vw, 10px) / 1 Cinzel, serif;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px #143a58;
+}
+
+@media (max-width: 700px) {
+  .category-deck .field-card {
+    filter: drop-shadow(0 4px 4px rgba(35, 24, 13, .28));
+  }
+
+  .category-deck .field-card strong {
+    font-size: clamp(13px, 4vw, 16px);
+  }
+
+  .category-deck .field-card small {
+    font-size: clamp(7.5px, 2.3vw, 9px);
+  }
+
+  .category-deck .field-card b {
+    font-size: clamp(8px, 2.35vw, 9px);
+  }
+}
 
