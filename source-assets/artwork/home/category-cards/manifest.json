@@ -1,0 +1,30 @@
+{
+  "bosses.png": {
+    "bytes": 2358551,
+    "sha256": "8f4b7dca8863afdad9b4d6158ae6be5ab93d1da997fb16f1010d3a27bb5acbec"
+  },
+  "builds.png": {
+    "bytes": 1876220,
+    "sha256": "8dec4fba4af1de38fe17618ac3975ecb89d388dd5eb2bc084f7c52cba55f41d1"
+  },
+  "crafting.png": {
+    "bytes": 1717036,
+    "sha256": "50c1d171891a449d9a29d093ea2d35c0b8229797e8fab81e8aceb035a5cc6a87"
+  },
+  "items.png": {
+    "bytes": 1679656,
+    "sha256": "13fe70212ae40562b508677728a4899fd889a0db058b64f0589e59afb54ac583"
+  },
+  "locations.png": {
+    "bytes": 2193091,
+    "sha256": "2315fc436dd02eec6864adea3d7abd2dfdea1d4c4dcaa2ad983fd0bae99d671b"
+  },
+  "npcs.png": {
+    "bytes": 2094757,
+    "sha256": "88539fe3d1ff485048893f2ff23b482191fea64aa930cac98132600fb805d153"
+  },
+  "quests.png": {
+    "bytes": 1982841,
+    "sha256": "d92620c7f92fdd89f7512993626e10b7c18a0d357ad82b75150def32db5a6de2"
+  }
+}
