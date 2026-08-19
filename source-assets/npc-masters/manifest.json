@@ -1,0 +1,74 @@
+[
+  {
+    "name": "arlette",
+    "filename": "arlette.png",
+    "width": 1122,
+    "height": 1402,
+    "mode": "RGBA",
+    "bytes": 1911322,
+    "sha256": "63e46dcb64c6369191f8211781cabe541b307364f9f18d4ef2929f67ee28725a"
+  },
+  {
+    "name": "breda",
+    "filename": "breda.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "bytes": 1897124,
+    "sha256": "ae9b8de347bf7572c77318bc75a17514dc94389d38f63a1897f6fdd635c3f0c0"
+  },
+  {
+    "name": "eren",
+    "filename": "eren.png",
+    "width": 1122,
+    "height": 1402,
+    "mode": "RGBA",
+    "bytes": 2668123,
+    "sha256": "b6324c803d5fb2b57ad82f48a518421d6c5f8c3c75292acdfce79a374afca01f"
+  },
+  {
+    "name": "hogan",
+    "filename": "hogan.png",
+    "width": 1122,
+    "height": 1402,
+    "mode": "RGBA",
+    "bytes": 2427766,
+    "sha256": "1ff45c1c38ff35fd2d14966d8d4de58bd1a15250fc640239d64fdbe324a11e81"
+  },
+  {
+    "name": "leaf",
+    "filename": "leaf.png",
+    "width": 1122,
+    "height": 1402,
+    "mode": "RGBA",
+    "bytes": 2203249,
+    "sha256": "be148973a9407727c9e2b57604a6f95fe4c02b65407f91f27cc5de2ce77408fc"
+  },
+  {
+    "name": "neria",
+    "filename": "neria.png",
+    "width": 1122,
+    "height": 1402,
+    "mode": "RGBA",
+    "bytes": 2220361,
+    "sha256": "ba6e3f05866f6a057e5b851f9dbd9a66f9f14a897ad2d5cce215974664f2c423"
+  },
+  {
+    "name": "rendall",
+    "filename": "rendall.png",
+    "width": 1122,
+    "height": 1402,
+    "mode": "RGBA",
+    "bytes": 2177705,
+    "sha256": "c5d16be83513dc9b19874d403eee1d5db4de0a0c7a344bb65e9760481d3ea8e9"
+  },
+  {
+    "name": "theron",
+    "filename": "theron.png",
+    "width": 1198,
+    "height": 1313,
+    "mode": "RGBA",
+    "bytes": 2358503,
+    "sha256": "da6dcf42dce67de164aeb79194bc3f9804aeae2c74bc6942aedb6a8e6a4dde59"
+  }
+]
