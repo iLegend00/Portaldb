@@ -23,6 +23,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Rebuild Breda portrait asset
+        run: |
+          mkdir -p assets/npcs
+          cat npc-art-data/breda/*.b64 | tr -d '\n\r ' | base64 --decode > assets/npcs/breda.webp
+          test -s assets/npcs/breda.webp
+          test "$(wc -c < assets/npcs/breda.webp)" -gt 30000
+          file assets/npcs/breda.webp
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site
