@@ -32,7 +32,17 @@ jobs:
           file assets/npcs/breda.webp
       - name: Rebuild Arlette portrait asset
         run: |
-          cat npc-art-data/arlette/final-*.b64 | tr -d '\n\r ' | base64 --decode > assets/npcs/arlette.webp
+          cat \
+            npc-art-data/arlette/final-00.b64 \
+            npc-art-data/arlette/final-01.b64 \
+            npc-art-data/arlette/repair-02a.b64 \
+            npc-art-data/arlette/repair-02b.b64 \
+            npc-art-data/arlette/final-03.b64 \
+            npc-art-data/arlette/final-04.b64 \
+            npc-art-data/arlette/repair-05a.b64 \
+            npc-art-data/arlette/repair-05b.b64 \
+            npc-art-data/arlette/final-06.b64 \
+            | tr -d '\n\r ' | base64 --decode > assets/npcs/arlette.webp
           test -s assets/npcs/arlette.webp
           test "$(wc -c < assets/npcs/arlette.webp)" -eq 47334
           test "$(head -c 4 assets/npcs/arlette.webp)" = "RIFF"
