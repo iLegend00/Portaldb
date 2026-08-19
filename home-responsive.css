@@ -1,0 +1,2 @@
+.fantasy-hero:has(.search-results:not(.hidden)){z-index:12}@media(max-width:700px){.fantasy-home .hero-copy{padding-left:0}}
+
