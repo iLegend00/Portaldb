@@ -5,7 +5,8 @@
     community:{label:'Community verified',icon:'◇◇'},
     unverified:{label:'Unverified',icon:'?'}
   };
-  let activeMarker=null;
+  let activeMarker=null,interactionMode=null,closeTimer=null,lastPointerType='',lastPointerAt=0;
+  const hoverQuery=matchMedia('(hover:hover) and (pointer:fine)');
   const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');
   function typeFor(value){
     const text=String(value||'').toLowerCase();
@@ -29,7 +30,7 @@
   function marker(record={},overrides={}){
     const meta=metadata(record,overrides),state=states[meta.type]||states.unverified;
     const encoded=encodeURIComponent(JSON.stringify(meta));
-    return `<button type="button" class="verification-marker verification-${meta.type}" data-verification="${encoded}" aria-label="${esc(state.label)}. Verification details available." aria-expanded="false"><span class="verification-seal" aria-hidden="true">${state.icon}</span></button>`;
+    return `<button type="button" class="verification-marker verification-${meta.type}" data-verification="${encoded}" aria-label="${esc(state.label)}. Verification details available." aria-controls="verificationPopover" aria-expanded="false"><span class="verification-seal" aria-hidden="true">${state.icon}</span></button>`;
   }
   function rows(meta){
     const state=states[meta.type]||states.unverified;
@@ -51,17 +52,32 @@
   }
   function popover(){
     let node=document.getElementById('verificationPopover');
-    if(!node){node=document.createElement('div');node.id='verificationPopover';node.className='verification-popover';node.setAttribute('role','status');node.hidden=true;document.body.appendChild(node)}
+    if(!node){node=document.createElement('div');node.id='verificationPopover';node.className='verification-popover';node.setAttribute('role','status');node.setAttribute('popover','manual');node.hidden=true;document.body.appendChild(node)}
     return node;
   }
-  function close(){
-    const node=popover();node.hidden=true;activeMarker?.setAttribute('aria-expanded','false');activeMarker=null;
+  function cancelClose(){if(closeTimer){clearTimeout(closeTimer);closeTimer=null}}
+  function showPopoverNode(node,button){
+    const host=button.closest('dialog[open]')||document.body;
+    if(node.parentElement!==host)host.appendChild(node);
+    node.hidden=false;
+    if(typeof node.showPopover==='function'&&!node.matches(':popover-open'))node.showPopover();
   }
-  function open(button){
-    if(activeMarker===button)return;
+  function hidePopoverNode(node){
+    if(typeof node.hidePopover==='function'&&node.matches(':popover-open'))node.hidePopover();
+    node.hidden=true;
+  }
+  function close(){
+    cancelClose();const node=popover();hidePopoverNode(node);activeMarker?.setAttribute('aria-expanded','false');activeMarker=null;interactionMode=null;
+  }
+  function scheduleClose(){
+    cancelClose();closeTimer=setTimeout(()=>{const node=popover();if(!activeMarker?.matches(':hover')&&!node.matches(':hover'))close()},140);
+  }
+  function open(button,mode){
+    cancelClose();
+    if(activeMarker===button){interactionMode=mode||interactionMode;return}
     close();
     let meta;try{meta=JSON.parse(decodeURIComponent(button.dataset.verification))}catch{return}
-    const node=popover();node.innerHTML=rows(meta);node.hidden=false;button.setAttribute('aria-expanded','true');activeMarker=button;
+    const node=popover();node.innerHTML=rows(meta);showPopoverNode(node,button);button.setAttribute('aria-expanded','true');activeMarker=button;interactionMode=mode;
     const rect=button.getBoundingClientRect(),width=Math.min(270,window.innerWidth-24),left=Math.max(12,Math.min(window.innerWidth-width-12,rect.left+rect.width/2-width/2));
     node.style.width=`${width}px`;node.style.left=`${left}px`;node.style.top=`${Math.max(12,Math.min(window.innerHeight-node.offsetHeight-12,rect.bottom+8))}px`;
   }
@@ -79,15 +95,39 @@
     if(document.querySelector('[data-verification-legend]')) return;
     const button=document.createElement('button');button.type='button';button.className='verification-legend-trigger';button.dataset.verificationLegend='';button.textContent='Verification';button.addEventListener('click',()=>legend().showModal());host.appendChild(button);
   }
-  document.addEventListener('click',event=>{const button=event.target.closest('[data-verification]');if(button){event.stopPropagation();open(button)}else if(activeMarker&&!event.target.closest('#verificationPopover'))close()});
-  document.addEventListener('pointerover',event=>{const button=event.target.closest('[data-verification]');if(button&&matchMedia('(hover:hover)').matches)open(button)});
-  document.addEventListener('focus',event=>{const button=event.target.closest?.('[data-verification]');if(button)open(button)},true);
+  document.addEventListener('pointerdown',event=>{lastPointerType=event.pointerType;lastPointerAt=Date.now()});
+  document.addEventListener('pointerover',event=>{
+    if(!hoverQuery.matches)return;
+    const button=event.target.closest('[data-verification]');
+    if(button)open(button,'hover');
+    if(event.target.closest('#verificationPopover'))cancelClose();
+  });
+  document.addEventListener('pointerout',event=>{
+    if(!hoverQuery.matches||interactionMode!=='hover')return;
+    const fromButton=event.target.closest('[data-verification]'),fromPopover=event.target.closest('#verificationPopover');
+    const to=event.relatedTarget;
+    if(fromButton===activeMarker&&!to?.closest?.('#verificationPopover')&&!to?.closest?.('[data-verification]'))scheduleClose();
+    if(fromPopover&&!to?.closest?.('#verificationPopover')&&to?.closest?.('[data-verification]')!==activeMarker)scheduleClose();
+  });
+  document.addEventListener('click',event=>{
+    const button=event.target.closest('[data-verification]');
+    if(button){event.stopPropagation();if(!hoverQuery.matches&&activeMarker===button&&interactionMode==='tap')close();else open(button,hoverQuery.matches?'hover':'tap');return}
+    if(activeMarker&&!event.target.closest('#verificationPopover'))close();
+  });
+  document.addEventListener('focus',event=>{
+    const button=event.target.closest?.('[data-verification]');
+    if(button&&!(Date.now()-lastPointerAt<500&&lastPointerType))open(button,'focus');
+  },true);
+  document.addEventListener('focusout',event=>{
+    if(interactionMode!=='focus'||event.target!==activeMarker)return;
+    if(!event.relatedTarget?.closest?.('#verificationPopover'))scheduleClose();
+  });
   document.addEventListener('keydown',event=>{
     const button=event.target.closest?.('[data-verification]');
-    if(button&&(event.key==='Enter'||event.key===' ')){event.preventDefault();open(button);return}
+    if(button&&(event.key==='Enter'||event.key===' ')){event.preventDefault();open(button,'focus');return}
     if(event.key==='Escape')close();
   });
-  window.addEventListener('resize',close);
+  window.addEventListener('resize',close);hoverQuery.addEventListener?.('change',close);
   document.addEventListener('DOMContentLoaded',installLegendControl);
   window.PortalVerification={states,typeFor,metadata,marker,close};
 })();
