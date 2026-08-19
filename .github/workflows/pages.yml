@@ -31,11 +31,14 @@ jobs:
           test "$(wc -c < assets/npcs/breda.webp)" -gt 30000
           test "$(head -c 4 assets/npcs/breda.webp)" = "RIFF"
           test "$(dd if=assets/npcs/breda.webp bs=1 skip=8 count=4 2>/dev/null)" = "WEBP"
-      - name: Validate Arlette portrait asset
+      - name: Validate direct portrait assets
         run: |
-          test -s assets/npcs/arlette.webp
-          test "$(head -c 4 assets/npcs/arlette.webp)" = "RIFF"
-          test "$(dd if=assets/npcs/arlette.webp bs=1 skip=8 count=4 2>/dev/null)" = "WEBP"
+          for portrait in arlette eren hogan leaf neria rendall theron; do
+            asset="assets/npcs/${portrait}.webp"
+            test -s "$asset"
+            test "$(head -c 4 "$asset")" = "RIFF"
+            test "$(dd if="$asset" bs=1 skip=8 count=4 2>/dev/null)" = "WEBP"
+          done
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site
