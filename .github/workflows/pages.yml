@@ -29,24 +29,15 @@ jobs:
           cat npc-art-data/breda/*.b64 | tr -d '\n\r ' | base64 --decode > assets/npcs/breda.webp
           test -s assets/npcs/breda.webp
           test "$(wc -c < assets/npcs/breda.webp)" -gt 30000
-          file assets/npcs/breda.webp
+          test "$(head -c 4 assets/npcs/breda.webp)" = "RIFF"
+          test "$(dd if=assets/npcs/breda.webp bs=1 skip=8 count=4 2>/dev/null)" = "WEBP"
       - name: Rebuild Arlette portrait asset
         run: |
-          cat \
-            npc-art-data/arlette/final-00.b64 \
-            npc-art-data/arlette/final-01.b64 \
-            npc-art-data/arlette/repair-02a.b64 \
-            npc-art-data/arlette/repair-02b.b64 \
-            npc-art-data/arlette/final-03.b64 \
-            npc-art-data/arlette/final-04.b64 \
-            npc-art-data/arlette/repair-05a.b64 \
-            npc-art-data/arlette/repair-05b.b64 \
-            npc-art-data/arlette/final-06.b64 \
-            | tr -d '\n\r ' | base64 --decode > assets/npcs/arlette.webp
+          cat npc-art-data/arlette/clean-*.b64 | tr -d '\n\r ' | base64 --decode > assets/npcs/arlette.webp
           test -s assets/npcs/arlette.webp
-          test "$(wc -c < assets/npcs/arlette.webp)" -eq 47334
+          test "$(wc -c < assets/npcs/arlette.webp)" -eq 46266
           test "$(head -c 4 assets/npcs/arlette.webp)" = "RIFF"
-          file assets/npcs/arlette.webp
+          test "$(dd if=assets/npcs/arlette.webp bs=1 skip=8 count=4 2>/dev/null)" = "WEBP"
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site
