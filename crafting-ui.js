@@ -67,7 +67,7 @@ function renderRecipe(recipe,qty){
       ${recipe.station?craftLine('Station',recipe.station):''}
       ${recipe.location?craftLine('Location',recipe.location):''}
       ${recipe.category?craftLine('Category',recipe.category):''}
-      <div class="craft-meta">${recipe.confidence?`<span>${esc(recipe.confidence)}</span>`:''}${recipe.lastVerified?`<span>Verified ${esc(recipe.lastVerified)}</span>`:''}${recipe.version?`<span>${esc(recipe.version)}</span>`:''}</div>
+      <div class="craft-meta">${window.PortalVerification?.marker(recipe)||''}</div>
     </section>
   </div>${recipe.notes?`<div class="craft-note">${esc(recipe.notes)}</div>`:''}`;
 }
@@ -96,3 +96,4 @@ document.getElementById('craftRecipe')?.addEventListener('change',renderCraftSta
 document.getElementById('craftQuantity')?.addEventListener('input',renderCraftState);
 document.getElementById('craftReset')?.addEventListener('click',()=>{const s=document.getElementById('craftRecipe');const q=document.getElementById('craftQuantity');if(s)s.value='';if(q)q.value='1';renderCraftState();});
 document.addEventListener('DOMContentLoaded',initCrafting);
+

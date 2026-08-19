@@ -164,6 +164,10 @@ function sourceLabel(source){
   return `${type}: ${source.source||"Unknown"}${chance}${time}${weather}`;
 }
 
+function verificationMarker(entry,overrides){
+  return window.PortalVerification?.marker(entry,overrides)||"";
+}
+
 function renderObtainSources(entry){
   const sources=normalizeObtain(entry.obtain);
   if(!sources.length) return `<div class="item-empty">No acquisition source recorded yet.</div>`;
@@ -217,7 +221,7 @@ function renderItemCards(rows){
       ${req?`<div class="finder-line"><b>Requires</b><span>${escapeHtml(req)}</span></div>`:""}
       ${prices?`<div class="finder-line"><b>Value</b><span>${escapeHtml(prices)}</span></div>`:""}
       <div class="finder-sources"><b>Where to get it</b>${renderObtainSources(item)}</div>
-      <div class="finder-card-footer"><span>${escapeHtml(item.confidence||"Verification pending")}</span><span>Verified ${escapeHtml(item.lastVerified||"unknown")}</span><button data-open-item="${i}">Full details</button></div>
+      <div class="finder-card-footer">${verificationMarker(item)}<button data-open-item="${i}">Full details</button></div>
     </article>`;
   }).join("");
 
@@ -328,8 +332,8 @@ function renderNpcDetail(entry){
   }).join(""):"";
 
   return `<div class="dialog-body npc-detail">
-    <div class="type">NPC · VERIFIED PROFILE</div>
-    <div class="npc-title-row"><div><h2>${escapeHtml(entry._displayName)}</h2><p>${escapeHtml(entry.profession||"NPC")}${entry.shopName?` · ${escapeHtml(entry.shopName)}`:""}</p></div><span class="npc-confidence">${escapeHtml(entry.confidence||"Verification pending")}</span></div>
+    <div class="type">NPC PROFILE</div>
+    <div class="npc-title-row"><div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div><p>${escapeHtml(entry.profession||"NPC")}${entry.shopName?` · ${escapeHtml(entry.shopName)}`:""}</p></div></div>
     <p class="npc-summary">${escapeHtml(getDescription(entry))}</p>
     <div class="meta-grid npc-meta-grid">
       <div class="meta-box"><small>ROLE</small><strong>${escapeHtml(entry.profession||"Not recorded")}</strong></div>
@@ -337,15 +341,13 @@ function renderNpcDetail(entry){
       <div class="meta-box"><small>HOURS</small><strong>${escapeHtml(entry.openHours||entry.availability||"Not recorded")}</strong></div>
       <div class="meta-box"><small>RESTOCK</small><strong>${escapeHtml(restock)}</strong></div>
       <div class="meta-box"><small>PART-TIME JOB</small><strong>${escapeHtml(partTime)}</strong></div>
-      <div class="meta-box"><small>LAST VERIFIED</small><strong>${escapeHtml(entry.lastVerified||"Unknown")}</strong></div>
     </div>
     ${categories.length?`<section class="npc-section"><div class="npc-section-head"><strong>Shop categories</strong><span>${categories.length} categories</span></div><div class="npc-chip-row">${categories.map(c=>`<span>${escapeHtml(c)}</span>`).join("")}</div></section>`:""}
     ${serviceRows?`<section class="npc-section"><div class="npc-section-head"><strong>Services</strong></div>${serviceRows}</section>`:""}
     ${dialogue?`<section class="npc-section"><div class="npc-section-head"><strong>Dialogue options</strong></div><ol class="npc-dialogue-list">${dialogue}</ol></section>`:""}
-    ${facts?`<section class="npc-section"><div class="npc-section-head"><strong>Verified dialogue facts</strong></div><div class="npc-facts">${facts}</div></section>`:""}
+    ${facts?`<section class="npc-section"><div class="npc-section-head"><strong>Dialogue facts</strong></div><div class="npc-facts">${facts}</div></section>`:""}
     <section class="npc-section"><div class="npc-section-head"><strong>Known items</strong><span>Linked from Item Finder</span></div><div class="npc-link-row">${renderLinkPills(linkedItems,"item")}</div></section>
     <section class="npc-section"><div class="npc-section-head"><strong>Related quests</strong><span>Linked from quest records</span></div><div class="npc-link-row">${renderLinkPills(linkedQuests,"quest")}</div></section>
-    <div class="npc-source-box"><small>SOURCE / EVIDENCE</small><span>${escapeHtml(entry.source||"No source note recorded")}</span></div>
   </div>`;
 }
 
@@ -380,18 +382,14 @@ function renderGenericDetail(entry){
   }).join("")}</div>`:"";
   return `<div class="dialog-body">
       <div class="type">${labels[entry._collection]||"ENTRY"}</div>
-      <h2>${escapeHtml(entry._displayName)}</h2>
+      <div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div>
       <p>${escapeHtml(getDescription(entry))}</p>
       <div class="meta-grid">
-        ${entry.confidence ? `<div class="meta-box"><small>CONFIDENCE</small><strong>${escapeHtml(entry.confidence)}</strong></div>` : ""}
-        ${entry.version ? `<div class="meta-box"><small>VERSION</small><strong>${escapeHtml(entry.version)}</strong></div>` : ""}
-        ${entry.lastVerified ? `<div class="meta-box"><small>LAST VERIFIED</small><strong>${escapeHtml(entry.lastVerified)}</strong></div>` : ""}
         ${details.join("")}
       </div>
       ${sourceBlock}
       ${entry.highlights?.length ? `<p class="entry-source"><strong>Highlights:</strong> ${escapeHtml(entry.highlights.join(" • "))}</p>` : ""}
       ${entry.notes ? `<p class="entry-source"><strong>Notes:</strong> ${escapeHtml(entry.notes)}</p>` : ""}
-      ${entry.source ? `<p class="entry-source"><strong>Source:</strong> ${escapeHtml(entry.source)}</p>` : ""}
     </div>`;
 }
 
@@ -429,3 +427,4 @@ function escapeHtml(v){
 }
 
 loadData().catch(console.error);
+

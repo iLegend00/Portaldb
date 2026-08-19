@@ -68,7 +68,7 @@ function renderImpact(){
 }
 
 function renderVerification(){
-  document.getElementById('plannerVerification').textContent=`${plannerSchema.confidence} · Last verified ${plannerSchema.lastVerified} · Derived stat formulas: ${plannerSchema.rules.derivedStatCalculation?'enabled':'not verified'}`;
+  document.getElementById('plannerVerification').innerHTML=`${window.PortalVerification?.marker(plannerSchema)||''}${plannerSchema.rules.derivedStatCalculation?'':'<span>Derived stat formulas are not verified.</span>'}`;
 }
 
 function snapshot(){
@@ -83,3 +83,4 @@ document.getElementById('makeSnapshot')?.addEventListener('click',snapshot);
 document.getElementById('resetPlanner')?.addEventListener('click',()=>location.reload());
 function esc(v){return String(v??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;')}
 loadPlanner().catch(err=>{document.getElementById('plannerSnapshot').textContent='Build Planner data could not be loaded.';console.error(err)});
+
