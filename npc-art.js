@@ -1,5 +1,5 @@
 window.PORTALDB_NPC_ART = {
-  arlette: "assets/npcs/arlette.webp?v=20260819-arlette-1",
+  arlette: "assets/npcs/arlette.webp?v=20260819-arlette-clean-2",
   breda: "assets/npcs/breda.webp?v=20260818-3",
   eren: "assets/npcs/eren.webp?v=20260818-3",
   hogan: "assets/npcs/hogan.webp?v=20260818-3",
