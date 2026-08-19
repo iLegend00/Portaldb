@@ -30,6 +30,13 @@ jobs:
           test -s assets/npcs/breda.webp
           test "$(wc -c < assets/npcs/breda.webp)" -gt 30000
           file assets/npcs/breda.webp
+      - name: Rebuild Arlette portrait asset
+        run: |
+          cat npc-art-data/arlette/final-*.b64 | tr -d '\n\r ' | base64 --decode > assets/npcs/arlette.webp
+          test -s assets/npcs/arlette.webp
+          test "$(wc -c < assets/npcs/arlette.webp)" -eq 47334
+          test "$(head -c 4 assets/npcs/arlette.webp)" = "RIFF"
+          file assets/npcs/arlette.webp
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site
