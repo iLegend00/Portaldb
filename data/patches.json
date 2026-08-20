@@ -249,6 +249,22 @@
       "Maximum Damage Up cap increased from 100% to 120%",
       "Network transmission improvements reduce unnecessary data usage and improve overall network performance"
     ]
+  },
+  {
+    "id": "2026-08-20-guild-arcane-defense-rewards",
+    "title": "Guild & Arcane Defense — Reward System",
+    "date": "2026-08-20",
+    "version": "v1.2.13 supplemental announcement",
+    "confidence": "Official confirmed",
+    "source": "Official Discord announcement by Swaroff [PRTL], 2026-08-20",
+    "highlights": [
+      "The Guild Leader must start Arcane Defense manually",
+      "Offering 10 Materials grants 300 Guild EXP and 1 Guild Coin",
+      "Every 1,000 Tria contributed each day grants 300 Guild EXP and 1 Guild Coin",
+      "Each completed Arcane Defense wave grants 300 Guild EXP, 1 Guild Coin, wave-specific Tria, and a wave-specific additional reward",
+      "Each Guild member qualified for Lycaros rewards grants 300 Guild EXP to the Guild reward context",
+      "Players can donate decorations to the Guild and use them collaboratively to build the Guild Base",
+      "The official Arcane Defense chart documents rewards for waves 1–50"
+    ]
   }
 ]
-

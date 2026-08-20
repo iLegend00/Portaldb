@@ -7,7 +7,7 @@ let npcEntries = [];
 async function loadData(){
   const sets = await Promise.all(collections.map(async name=>{
     try{
-      const res = await fetch(`data/${name}.json?v=20260820-patch-1`);
+      const res = await fetch(`data/${name}.json?v=20260820-guild-rewards-1`);
       if(!res.ok) return [];
       const rows = await res.json();
       return rows.map(row=>({...row,_collection:name,_displayName:row.name||row.code||row.version||row.id}));
@@ -427,4 +427,3 @@ function escapeHtml(v){
 }
 
 loadData().catch(console.error);
-

@@ -207,17 +207,104 @@
   {
     "id": "guild-system",
     "name": "Guild System",
-    "description": "Guilds are created through Rendall for 499 Robux. Guilds begin with capacity for 15 members and can be upgraded to a maximum of 30. Arcane Defense is available every Friday and must be started by the Guild Leader.",
-    "tags": ["guild", "guild system", "Rendall", "Arcane Defense", "guild leader", "guild capacity", "499 Robux"],
+    "description": "Guilds are created through Rendall for 499 Robux. Guilds begin with capacity for 15 members and can be upgraded to a maximum of 30. Arcane Defense is available every Friday and must be started manually by the Guild Leader. Guild activities award Guild EXP and Guild Coins, and donated decorations can be used collaboratively to build the Guild Base.",
+    "tags": ["guild", "guild system", "guild reward system", "Rendall", "Arcane Defense", "guild leader", "guild capacity", "499 Robux", "Guild EXP", "Guild Coin", "Guild Base", "Materials", "Tria contribution", "Lycaros qualified member", "decorations"],
     "creationNpc": "Rendall",
     "creationCost": {"amount": 499, "currency": "Robux"},
     "startingMemberCapacity": 15,
     "maximumUpgradedCapacity": 30,
-    "arcaneDefense": {"availability": "Every Friday", "startedBy": "Guild Leader"},
+    "arcaneDefense": {"availability": "Every Friday", "startedBy": "Guild Leader", "manualStart": true},
+    "activityRewards": {
+      "materialOffering": {
+        "requirement": {"materials": 10},
+        "rewards": {"guildExp": 300, "guildCoin": 1}
+      },
+      "dailyTriaContribution": {
+        "requirement": {"tria": 1000, "wording": "Every 1,000 Tria contributed each day"},
+        "rewards": {"guildExp": 300, "guildCoin": 1}
+      },
+      "arcaneDefenseWave": {
+        "requirement": "Each completed Arcane Defense wave",
+        "rewards": {"guildExp": 300, "guildCoin": 1, "tria": "Wave-specific", "additionalReward": "Wave-specific"}
+      },
+      "lycarosQualifiedMember": {
+        "requirement": "Each Guild member qualified for Lycaros rewards",
+        "rewards": {"guildExp": 300}
+      }
+    },
+    "guildBase": {
+      "decorationDonations": true,
+      "use": "Donated decorations can be used to build the Guild Base together with fellow Guild members."
+    },
     "confidence": "Official confirmed",
     "version": "v1.2.13",
     "lastVerified": "2026-08-20",
-    "source": "Official Discord big-update announcement by Swaroff [PRTL], 2026-08-20"
+    "source": "Official Discord big-update announcement and Guild reward-system announcement by Swaroff [PRTL], 2026-08-20"
+  },
+  {
+    "id": "arcane-defense-rewards",
+    "name": "Arcane Defense Wave Rewards",
+    "description": "Official Arcane Defense reward chart for waves 1–50. Every completed wave grants 300 Guild EXP, 1 Guild Coin, the listed Tria, and the listed additional reward.",
+    "tags": ["Arcane Defense", "Guild Reward System", "Guild Coin", "Guild EXP", "wave rewards", "Tria", "Simple Bread", "Fresh Milk", "Solite", "Lumite", "Stat Reset", "River Snack", "Aurorite", "Race Reroll", "Junkcore", "Hearty Stew", "Enchanted Wood", "Berry Smoothie", "Mystic Essence", "Ancient Heartwood", "Briar Vine", "Living Bark", "Glowing Moss", "Memory Sap", "Enchanted Bark", "Fossillized Amber", "Gourmet Roast", "Mana Cake", "River King Feast", "Pants Warden", "Shirt Warden"],
+    "startedBy": "Guild Leader",
+    "manualStart": true,
+    "perWaveBaseRewards": {"guildExp": 300, "guildCoin": 1},
+    "waves": [
+      {"wave": 1, "tria": 100, "reward": "Simple Bread"},
+      {"wave": 2, "tria": 103, "reward": "Fresh Milk"},
+      {"wave": 3, "tria": 106, "reward": "Solite"},
+      {"wave": 4, "tria": 109, "reward": "Lumite"},
+      {"wave": 5, "tria": 112, "reward": "Stat Reset"},
+      {"wave": 6, "tria": 116, "reward": "River Snack"},
+      {"wave": 7, "tria": 119, "reward": "Solite"},
+      {"wave": 8, "tria": 123, "reward": "Lumite"},
+      {"wave": 9, "tria": 127, "reward": "Aurorite"},
+      {"wave": 10, "tria": 656, "reward": "Race Reroll"},
+      {"wave": 11, "tria": 135, "reward": "Simple Bread"},
+      {"wave": 12, "tria": 139, "reward": "Fresh Milk"},
+      {"wave": 13, "tria": 143, "reward": "Solite"},
+      {"wave": 14, "tria": 148, "reward": "Lumite"},
+      {"wave": 15, "tria": 152, "reward": "Race Reroll"},
+      {"wave": 16, "tria": 157, "reward": "River Snack"},
+      {"wave": 17, "tria": 162, "reward": "Solite"},
+      {"wave": 18, "tria": 167, "reward": "Lumite"},
+      {"wave": 19, "tria": 172, "reward": "Aurorite"},
+      {"wave": 20, "tria": 888, "reward": "Junkcore"},
+      {"wave": 21, "tria": 183, "reward": "Hearty Stew"},
+      {"wave": 22, "tria": 188, "reward": "Enchanted Wood"},
+      {"wave": 23, "tria": 194, "reward": "Berry Smoothie"},
+      {"wave": 24, "tria": 200, "reward": "Mystic Essence"},
+      {"wave": 25, "tria": 206, "reward": "Race Reroll"},
+      {"wave": 26, "tria": 213, "reward": "Ancient Heartwood"},
+      {"wave": 27, "tria": 219, "reward": "Lumite"},
+      {"wave": 28, "tria": 226, "reward": "Briar Vine"},
+      {"wave": 29, "tria": 233, "reward": "Aurorite"},
+      {"wave": 30, "tria": 1202, "reward": "Living Bark"},
+      {"wave": 31, "tria": 247, "reward": "Hearty Stew"},
+      {"wave": 32, "tria": 255, "reward": "Glowing Moss"},
+      {"wave": 33, "tria": 263, "reward": "Berry Smoothie"},
+      {"wave": 34, "tria": 271, "reward": "Memory Sap"},
+      {"wave": 35, "tria": 279, "reward": "Race Reroll"},
+      {"wave": 36, "tria": 288, "reward": "Enchanted Bark"},
+      {"wave": 37, "tria": 297, "reward": "Stat Reset"},
+      {"wave": 38, "tria": 306, "reward": "Lumite"},
+      {"wave": 39, "tria": 315, "reward": "Aurorite"},
+      {"wave": 40, "tria": 1627, "reward": "Fossillized Amber"},
+      {"wave": 41, "tria": 335, "reward": "Gourmet Roast"},
+      {"wave": 42, "tria": 345, "reward": "Mana Cake"},
+      {"wave": 43, "tria": 356, "reward": "River King Feast"},
+      {"wave": 44, "tria": 367, "reward": "Aurorite"},
+      {"wave": 45, "tria": 378, "reward": "Pants Warden"},
+      {"wave": 46, "tria": 390, "reward": "Gourmet Roast"},
+      {"wave": 47, "tria": 402, "reward": "Mana Cake"},
+      {"wave": 48, "tria": 414, "reward": "River King Feast"},
+      {"wave": 49, "tria": 427, "reward": "Aurorite"},
+      {"wave": 50, "tria": 2202, "reward": "Shirt Warden"}
+    ],
+    "confidence": "Official confirmed",
+    "version": "v1.2.13",
+    "lastVerified": "2026-08-20",
+    "source": "Official Discord announcement by Swaroff [PRTL], 2026-08-20"
   },
   {
     "id": "damage-up-cap",
@@ -232,4 +319,3 @@
     "source": "Official Discord big-update announcement by Swaroff [PRTL], 2026-08-20"
   }
 ]
-
