@@ -62,12 +62,12 @@
   {
     "id": "identify-system",
     "name": "Identify System",
-    "description": "Magnifying Glasses can identify Shoes, Gloves, Bracelet, Necklace, Upper Headgear, Middle Headgear, and Lower Headgear. Magnifying Glasses were introduced as Lycaros drops and, as of v1.1.10, can also drop from Junk King and Tin Tortoise.",
-    "tags": ["identify", "equipment", "magnifying glass", "lycaros", "junk king", "tin tortoise"],
+    "description": "Magnifying Glasses can identify Shoes, Gloves, Bracelet, Necklace, Upper Headgear, Middle Headgear, and Lower Headgear. Magnifying Glasses were introduced as Lycaros drops, can drop from Junk King and Tin Tortoise, and were added to the Claw Machine prize pool in v1.2.13.",
+    "tags": ["identify", "equipment", "magnifying glass", "lycaros", "junk king", "tin tortoise", "claw machine"],
     "confidence": "Official confirmed",
-    "version": "Current through v1.1.10",
-    "lastVerified": "2026-08-18",
-    "source": "Official Discord big-updates v1.1.6 and small-updates v1.1.10"
+    "version": "Current through v1.2.13",
+    "lastVerified": "2026-08-20",
+    "source": "Official Discord big-updates v1.1.6, small-updates v1.1.10, and big-update v1.2.13"
   },
   {
     "id": "invalid-target-mana",
@@ -101,13 +101,13 @@
   },
   {
     "id": "claw-machine-protection",
-    "name": "Claw Machine Stuck Protection",
-    "description": "As of v1.1.10, if the Claw Machine gets stuck and gives no reward, the player is guaranteed 1 Goblin Coin. Reward probabilities are displayed and the machine can be restocked.",
-    "tags": ["claw machine", "goblin coin", "drop chance", "restock"],
+    "name": "Claw Machine",
+    "description": "If the Claw Machine gets stuck and gives no reward, the player is guaranteed 1 Goblin Coin. Reward probabilities are displayed, the machine can be restocked, and Magnifying Glass was added to the prize pool in v1.2.13.",
+    "tags": ["claw machine", "goblin coin", "drop chance", "restock", "magnifying glass"],
     "confidence": "Official confirmed",
-    "version": "v1.1.10",
-    "lastVerified": "2026-08-18",
-    "source": "Official Discord small-updates v1.1.10"
+    "version": "Current through v1.2.13",
+    "lastVerified": "2026-08-20",
+    "source": "Official Discord small-updates v1.1.10 and big-update v1.2.13"
   },
   {
     "id": "server-hop-filters",
@@ -148,6 +148,36 @@
     "version": "v1.1.12",
     "lastVerified": "2026-08-18",
     "source": "Official Discord small-updates v1.1.12"
+  },
+  {
+    "id": "guild-system",
+    "name": "Guild System",
+    "description": "Guilds opened in v1.2.13. Players create a Guild through Rendall for 499 Robux. Guilds start with 15 member slots and can be upgraded to 30. Arcane Defense is available every Friday and must be started by the Guild Leader.",
+    "tags": ["guild", "guild system", "rendall", "499 robux", "arcane defense", "guild leader", "guild members"],
+    "confidence": "Official confirmed",
+    "version": "v1.2.13",
+    "lastVerified": "2026-08-20",
+    "source": "Official Discord big-update v1.2.13 by Swaroff [PRTL], 2026-08-20"
+  },
+  {
+    "id": "damage-up-cap",
+    "name": "Damage Up Cap",
+    "description": "The maximum Damage Up cap increased from 100% to 120% in v1.2.13.",
+    "tags": ["damage up", "damage", "cap", "balance"],
+    "confidence": "Official confirmed",
+    "version": "v1.2.13",
+    "lastVerified": "2026-08-20",
+    "source": "Official Discord big-update v1.2.13 by Swaroff [PRTL], 2026-08-20"
+  },
+  {
+    "id": "network-data-optimization",
+    "name": "Network Data Optimization",
+    "description": "v1.2.13 reduced the amount of network data being transmitted to improve network performance and reduce unnecessary data usage.",
+    "tags": ["performance", "network", "data usage", "optimization"],
+    "confidence": "Official confirmed",
+    "version": "v1.2.13",
+    "lastVerified": "2026-08-20",
+    "source": "Official Discord big-update v1.2.13 by Swaroff [PRTL], 2026-08-20"
   },
   {
     "id": "gathering-macros",
