@@ -9,7 +9,7 @@ PortalDB treats provenance as part of the data model. Real gameplay claims shoul
 3. **Community** — credible player-discovered information that has not been officially confirmed.
 4. **Unverified** — leads and claims that must not be presented as fact.
 
-## Confirmed baseline — 2026-08-18
+## Confirmed baseline — 2026-08-20
 
 ### Official Roblox experience
 - Title: **The Portal [MMORPG]**
@@ -24,6 +24,36 @@ PortalDB treats provenance as part of the data model. Real gameplay claims shoul
 ### Current stated minimum device guidance
 - Mobile: **8 GB RAM + Snapdragon/Adreno**
 - PC: **quad-core, 8 GB RAM, GTX 1050 / Iris Xe+**
+
+## Official Discord big-update — v1.2.13 — 2026-08-20
+
+Source supplied by the site owner from the official Discord `big-update` channel. Post author: **Swaroff [PRTL]**. Discord displayed time: **15:30** in the site owner's local display timezone.
+
+Confirmed claims admitted to PortalDB:
+
+### Guild System
+- Guilds are officially open.
+- Guild creation is handled through **Rendall**.
+- Guild creation costs **499 Robux**.
+- Guilds start with **15 members** capacity.
+- Guild capacity can be upgraded to **30 members**.
+- **Arcane Defense** is available every **Friday**.
+- The **Guild Leader** must start Arcane Defense.
+
+### Lycaros — Weekly World Boss
+- The Event Calendar displays Lycaros' schedule in the player's **local time**.
+- Qualified fighters receive **2× Magnifying Glass**, **3× Goblin Coin**, **3,500 Tria**, and **300 Guild EXP**.
+- Base Prize Pool increased from **6 to 10 prizes**.
+- Additional Magnifying Glass rewards tied to Top 3 damage contribution are **5 / 3 / 2** for Top 1 / Top 2 / Top 3 respectively and are randomly distributed among party members.
+
+### Claw Machine
+- **Magnifying Glass** was added to the prize pool.
+
+### Balance
+- Maximum **Damage Up** cap increased from **100% to 120%**.
+
+### Performance
+- Network data transmission was reduced to improve network performance and reduce unnecessary data usage.
 
 ## Community source: Gamepur race guide — 2026-08-04
 
