@@ -230,5 +230,28 @@
     "notes": "Discord displayed only the time because the post was made on the same local date the user supplied it; date normalized to 2026-08-18 using the user's timezone.",
     "confidence": "Official confirmed",
     "source": "Official Discord small-updates tab"
+  },
+  {
+    "id": "patch-v1-2-13",
+    "name": "Patch Notes — v1.2.13",
+    "type": "Patch Notes",
+    "date": "2026-08-20",
+    "version": "v1.2.13",
+    "description": "Guilds, Lycaros rewards, Claw Machine updates, Damage Up cap changes, and network improvements.",
+    "highlights": [
+      "Guild System opened through Rendall; creation costs 499 Robux",
+      "Guild capacity starts at 15 members and can be upgraded to 30",
+      "Arcane Defense is available every Friday and must be started by the Guild Leader",
+      "Lycaros' Event Calendar schedule is displayed in the player's local time",
+      "Qualified Lycaros fighters receive 2 Magnifying Glass, 3 Goblin Coin, 3,500 Tria, and 300 Guild EXP",
+      "Lycaros base Prize Pool increased from 6 to 10",
+      "Top damage contributors receive additional Magnifying Glass: first 5, second 3, third 2; randomly distributed among party members",
+      "Magnifying Glass added to the Claw Machine prize pool",
+      "Maximum Damage Up increased from 100% to 120%",
+      "Reduced unnecessary network data transmission to improve network performance and data usage"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord big-update announcement by Swaroff [PRTL], 2026-08-20"
   }
 ]
+

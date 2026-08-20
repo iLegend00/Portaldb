@@ -233,23 +233,22 @@
     "id": "v1.2.13",
     "title": "Patch Notes — v1.2.13",
     "date": "2026-08-20",
-    "postedTimeLocal": "15:30",
-    "timestampContext": "Time copied from the site owner's Discord display and should not be interpreted as the developer's timezone.",
     "version": "v1.2.13",
     "confidence": "Official confirmed",
-    "source": "Official Discord big-update channel, post by Swaroff [PRTL]",
+    "source": "Official Discord big-update announcement by Swaroff [PRTL], 2026-08-20",
     "highlights": [
-      "Guild System opened officially",
-      "Guilds can be created through Rendall for 499 Robux",
-      "Guilds start with 15 member capacity and can be upgraded to 30 members",
+      "Guild System opened",
+      "Guilds are created through Rendall for 499 Robux",
+      "Guilds start with capacity for 15 members and can be upgraded to a maximum of 30",
       "Arcane Defense is available every Friday and must be started by the Guild Leader",
-      "Event Calendar now displays Lycaros' schedule in the player's local time",
-      "Qualified Lycaros fighters now receive 2 Magnifying Glass, 3 Goblin Coin, 3,500 Tria, and 300 Guild EXP",
-      "Lycaros base Prize Pool increased from 6 to 10 prizes",
-      "Top 1, Top 2, and Top 3 damage contributors grant 5, 3, and 2 additional Magnifying Glass rewards respectively, randomly distributed among party members",
+      "The Event Calendar displays Lycaros' schedule in the player's local time",
+      "Qualified Lycaros fighters receive 2 Magnifying Glass, 3 Goblin Coin, 3,500 Tria, and 300 Guild EXP",
+      "Lycaros base Prize Pool increased from 6 prizes to 10 prizes",
+      "Top 1, Top 2, and Top 3 damage contributors receive 5, 3, and 2 additional Magnifying Glass respectively, randomly distributed among party members",
       "Magnifying Glass added to the Claw Machine prize pool",
       "Maximum Damage Up cap increased from 100% to 120%",
-      "Network data transmission reduced to improve network performance and reduce unnecessary data usage"
+      "Network transmission improvements reduce unnecessary data usage and improve overall network performance"
     ]
   }
 ]
+

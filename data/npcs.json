@@ -56,19 +56,23 @@
     "id": "rendall",
     "name": "Rendall",
     "profession": "Bartender",
-    "description": "Bartender and general-goods vendor. His shop carries tools, seeds, scrolls, food, cooking-related goods, and feed. As of v1.2.13, players also create Guilds through Rendall for 499 Robux.",
+    "description": "Bartender and general-goods vendor. His dialogue invites the player to buy or sell goods, and his shop carries tools, seeds, scrolls, food, cooking-related goods, and feed. As of v1.2.13, Guilds are created through Rendall for 499 Robux.",
     "openHours": "14:00 - 07:00",
     "restockIntervalMinutes": 5,
     "dialogueOptions": ["Buy / Sell Goods", "Closing my tab."],
     "shopCategories": ["Tool", "Seed", "Scroll", "HP Food", "MP Food", "Cooking", "Feed"],
     "services": [
-      {"name": "Create Guild", "cost": "499 Robux", "version": "v1.2.13"}
+      {"name": "Create Guild", "cost": 499, "currency": "Robux", "confidence": "Official confirmed", "version": "v1.2.13", "lastVerified": "2026-08-20", "source": "Official Discord big-update announcement by Swaroff [PRTL], 2026-08-20"}
     ],
-    "tags": ["npc", "bartender", "shop", "general goods", "tool", "seed", "scroll", "hp food", "mp food", "cooking", "feed", "guild", "guild creation", "rendall"],
-    "confidence": "Official confirmed + in-game verified",
-    "version": "Current through v1.2.13",
-    "lastVerified": "2026-08-20",
-    "source": "Official Discord big-update v1.2.13 by Swaroff [PRTL] + user-supplied in-game screenshots on 2026-08-18"
+    "tags": ["npc", "bartender", "shop", "general goods", "tool", "seed", "scroll", "hp food", "mp food", "cooking", "feed", "rendall", "guild", "guild creation", "create guild"],
+    "confidence": "In-game verified",
+    "version": "Current through 2026-08-18",
+    "lastVerified": "2026-08-18",
+    "source": "User-supplied in-game screenshots on 2026-08-18",
+    "provenanceGroups": {
+      "bartenderShop": {"confidence": "In-game verified", "lastVerified": "2026-08-18", "source": "User-supplied in-game screenshots on 2026-08-18"},
+      "guildCreationService": {"confidence": "Official confirmed", "version": "v1.2.13", "lastVerified": "2026-08-20", "source": "Official Discord big-update announcement by Swaroff [PRTL], 2026-08-20"}
+    }
   },
   {
     "id": "theron",
@@ -139,3 +143,4 @@
     "source": "Official Discord small-updates v1.1.7 + user-supplied in-game screenshots on 2026-08-18"
   }
 ]
+
