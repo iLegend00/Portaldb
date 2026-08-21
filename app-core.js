@@ -1,8 +1,13 @@
 const collections = ["items","quests","npcs","bosses","races","jobs","locations","codes","updates","skills","mechanics","patches"];
-const labels = {items:"ITEM",quests:"QUEST",npcs:"NPC",bosses:"BOSS",races:"RACE",jobs:"JOB",locations:"LOCATION",codes:"CODE",updates:"UPDATE",skills:"SKILL",mechanics:"MECHANIC",patches:"PATCH"};
+const labels = {items:"ITEM",quests:"QUEST",npcs:"NPC",bosses:"BOSS",races:"RACE",jobs:"JOB",locations:"LOCATION",codes:"CODE",updates:"UPDATE",skills:"SKILL",mechanics:"MECHANIC",patches:"PATCH",pages:"GUIDE"};
 let database = [];
 let itemEntries = [];
 let npcEntries = [];
+const canonicalPages = [{
+  id:"guilds-page",name:"Guilds & Arcane Defense",_displayName:"Guilds & Arcane Defense",_collection:"pages",href:"guilds.html",
+  description:"Guild creation, Guild rewards, Guild Base information, and all documented Arcane Defense wave rewards.",
+  tags:["Guild","Guilds","Guild System","Guild Coin","Guild EXP","Guild Base","Guild Leader","Guild Rewards","Guild Reward System","Arcane Defense","Arcane Defense Rewards","Wave Rewards","Rendall Guild","Guild Creation","Material Offering","Tria Contribution","Simple Bread","Race Reroll","Junkcore","Living Bark","Fossillized Amber","Pants Warden","Shirt Warden"]
+}];
 
 async function loadData(){
   const sets = await Promise.all(collections.map(async name=>{
@@ -15,7 +20,7 @@ async function loadData(){
       return [];
     }
   }));
-  database = sets.flat();
+  database = [...sets.flat(),...canonicalPages];
   itemEntries = database.filter(entry=>entry._collection==="items" && !String(entry.id||"").startsWith("demo-"));
   npcEntries = database.filter(entry=>entry._collection==="npcs" && !String(entry.id||"").startsWith("demo-"));
   renderPreview();
@@ -47,7 +52,7 @@ function renderPreview(){
 function search(query){
   const q=query.trim().toLowerCase();
   if(!q)return [];
-  return database.map(entry=>{
+  return database.filter(entry=>!['guild-system','arcane-defense-rewards'].includes(entry.id)).map(entry=>{
     const rewards=(entry.rewards||[]).flatMap(r=>[r.name,r.item,String(r.amount||r.quantity||"")]);
     const highlights=entry.highlights||[];
     const obtain=normalizeObtain(entry.obtain).flatMap(o=>[o.type,o.source,String(o.chancePercent||""),o.time,...(o.weather||[])]);
@@ -394,6 +399,7 @@ function renderGenericDetail(entry){
 }
 
 function openEntry(entry){
+  if(entry.href){window.location.href=entry.href;return}
   const dialog=document.getElementById("dialogContent");
   if(!dialog) return;
   if(entry._collection==="npcs"){

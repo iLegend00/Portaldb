@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="PortalDB guide to Guild creation, Guild rewards, Guild Bases, and Arcane Defense wave rewards." />
+  <title>PortalDB — Guilds &amp; Arcane Defense</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="site-nav.css" /><link rel="stylesheet" href="verification.css?v=20260819-3" /><link rel="stylesheet" href="fantasy-theme.css?v=20260819-1" /><link rel="stylesheet" href="guilds.css?v=20260820-1" />
+</head>
+<body>
+  <div class="page-glow page-glow-a"></div><div class="page-glow page-glow-b"></div>
+  <header class="topbar shell"><a class="brand" href="index.html"><span class="brand-emblem">✦</span><span class="brand-copy"><strong>PORTAL<span>DB</span></strong><small>THE PORTAL COMPANION</small></span></a><nav class="main-nav" aria-label="Primary"><a href="index.html">Home</a><a href="database.html">Database</a><a href="item-finder.html">Item Finder</a><a href="quests.html">Quests</a><a href="tools.html">Tools</a></nav></header>
+  <main class="guild-page shell">
+    <section class="guild-hero charter-panel">
+      <div><span class="panel-kicker">GUILD CHARTER &amp; DEFENSE LEDGER</span><div class="verification-heading"><h1>Guilds &amp; Arcane Defense</h1><span id="guildVerification"></span></div><p>Guild creation, activity rewards, Guild Base information, and all documented Arcane Defense wave rewards.</p></div>
+      <div class="guild-seal" aria-hidden="true">✦</div>
+    </section>
+    <div id="guildLoading" class="guild-loading">Opening the Guild ledger…</div>
+    <div id="guildContent" hidden>
+      <section class="guild-section charter-panel" aria-labelledby="creationTitle"><div class="section-heading"><span>01</span><div><small>FOUNDING CHARTER</small><h2 id="creationTitle">Guild Creation</h2></div></div><div id="creationGrid" class="charter-grid"></div></section>
+      <section class="guild-section charter-panel" aria-labelledby="activityTitle"><div class="section-heading"><span>02</span><div><small>GUILD LEDGER</small><h2 id="activityTitle">Guild Activity Rewards</h2></div></div><div id="activityGrid" class="reward-grid"></div></section>
+      <section class="guild-section charter-panel guild-base" aria-labelledby="baseTitle"><div class="section-heading"><span>03</span><div><small>SHARED HOLDINGS</small><h2 id="baseTitle">Guild Base</h2></div></div><div id="baseContent"></div></section>
+      <section class="guild-section charter-panel" aria-labelledby="defenseTitle"><div class="section-heading"><span>04</span><div><small>FRIDAY DEFENSE</small><h2 id="defenseTitle">Arcane Defense</h2></div></div><div id="defenseOverview" class="defense-overview"></div></section>
+      <section class="guild-section charter-panel reward-ledger" aria-labelledby="ledgerTitle"><div class="ledger-head"><div class="section-heading"><span>05</span><div><small>WAVES 1–50</small><h2 id="ledgerTitle">Arcane Defense Rewards</h2></div></div><label class="wave-filter"><span>Filter ledger</span><input id="waveFilter" type="search" autocomplete="off" placeholder="Wave or reward name" /></label></div><div class="table-wrap"><table><thead><tr><th scope="col">Wave</th><th scope="col">Tria</th><th scope="col">Additional Reward</th></tr></thead><tbody id="waveRows"></tbody></table></div><p id="waveEmpty" class="wave-empty" hidden>No wave rewards match that filter.</p></section>
+      <section class="guild-section charter-panel" aria-labelledby="lycarosTitle"><div class="section-heading"><span>06</span><div><small>RELATED ACTIVITY</small><h2 id="lycarosTitle">Lycaros Connection</h2></div></div><div id="lycarosContent" class="lycaros-grid"></div></section>
+      <p class="guild-source">Official Discord announcements by Swaroff [PRTL], 2026-08-20.</p>
+    </div>
+  </main>
+  <script src="verification.js?v=20260819-3"></script><script src="guilds.js?v=20260820-1"></script>
+</body>
+</html>
