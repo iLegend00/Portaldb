@@ -1,16 +1,20 @@
-# PortalDB Layout Spacing
+# PortalDB — Layout Spacing Guidelines
 
-**Status:** Active  
-**Scope:** Site-wide panel spacing, section transitions, and responsive vertical rhythm  
+**Status:** Active Guidance  
+**Scope:** Site-wide design consideration, applied per composition  
 **Last Updated:** 2026-08-25
 
-## Principle
+## Core principle
 
-Judge spacing by visible content and artwork, not only by an element's CSS box. PortalDB uses transparent decorative assets whose canvas bounds can extend beyond the visible frame. A numerically large margin may therefore produce a small visible gap, while adjacent boxes can still look far apart because their meaningful pixels sit inside those boxes.
+**Spacing is composition-specific. Use visual judgment first.**
 
-## Review widths
+PortalDB does not use one rigid spacing formula, mandatory margin scale, or universal panel gap. Tune each page according to the visible relationship between its components, including artwork shape, transparent image bounds, panel hierarchy, content density, responsive breakpoint, and intentional visual grouping.
 
-Review layout changes at approximately 1440 px desktop, 900 px tablet, and 390 px mobile. At each width, check the full sequence of visible panels. Confirm there is no horizontal overflow, clipped content, content hidden beneath sticky navigation, or oversized empty tail after the last meaningful panel.
+Shared values or CSS variables may be useful implementation conveniences. They are not authoritative when a composition needs different spacing.
+
+## Responsive review
+
+Evaluate desktop, tablet, and mobile independently. Approximate widths such as 1440 px, 900 px, and 390 px are useful review contexts, not spacing specifications. At each breakpoint, inspect the complete visible composition and confirm there is no horizontal overflow, clipped content, content hidden beneath sticky navigation, accidental crowding, or oversized empty tail after the last meaningful panel.
 
 ## Visible-content geometry
 
@@ -21,28 +25,41 @@ When decorative art contains transparency:
 3. Keep artwork and live content in the same coordinate system.
 4. Document any non-obvious offset beside the CSS rule that depends on it.
 
-The homepage category deck, walkthrough CTA, and information board intentionally use measured offsets because their visible frames do not fill their image canvases. Do not normalize those values by comparing DOM rectangles alone.
+Decorative artwork may require measured offsets because its visible frame does not fill its image canvas. Do not normalize those values by comparing DOM rectangles alone. Add a concise CSS comment when an unusual offset compensates for artwork geometry.
 
-## Spacing rules
+## Implementation guidance
 
-- Prefer one parent margin or padding value for a section transition.
-- Avoid chains of compensating negative margins across multiple descendants.
-- Scale spacing across breakpoints with `clamp()` or a targeted media rule when the visual relationship changes.
-- Do not use `min-height: 100vh` below a persistent page header unless the header height is subtracted; otherwise the page gains a guaranteed empty tail.
-- Let content density determine panel height. Do not add blank height merely to equalize neighboring panels.
-- Sticky controls must leave anchor targets and headings visible when navigation settles.
+- Prefer a clear parent margin or padding adjustment when one section transition needs tuning.
+- Avoid unexplained chains of negative margins, transforms, or descendant offsets.
+- Use `clamp()`, variables, or targeted media rules when they suit the composition; none is required as a universal system.
+- Account for persistent headers when viewport-based minimum heights would otherwise create an accidental empty tail.
+- Let content density inform panel height instead of adding blank height merely to equalize unrelated panels.
+- Keep sticky controls from obscuring anchor targets and headings.
+- Avoid both accidental huge voids and accidental crowding, while preserving deliberate breathing room and grouping.
 
-## Homepage exceptions
+## Page-specific spacing is normal
 
-The homepage is an artwork-led composition. Its desktop deck-to-CTA and CTA-to-board margins compensate for transparent decorative canvas space. The information-board-to-About transition also compensates for the board's lower transparent canvas bounds. These are intentional measured offsets, not a general spacing pattern.
+Page-specific spacing is expected and is not an exception to a global formula:
 
-Tablet and mobile hide the desktop information-board art and use normal-flow panels, so their spacing uses ordinary positive margins instead of desktop compensation.
+- Homepage artwork-led panels may require custom offsets based on visible asset bounds.
+- Walkthrough parchment and long-form content may use a more generous reading rhythm.
+- Database and card interfaces may use denser spacing to support scanning.
+- Tool pages may prioritize functional grouping around controls and results.
+- Long-form guide pages may need additional breathing room between major chapters.
+
+Tune the homepage independently according to the visible relationship between the category deck, walkthrough CTA, information board, and About PortalDB. Its artwork compensation must not become a rule for other pages. Desktop and responsive homepage compositions may also need different strategies when decorative art is hidden or simplified.
 
 ## Change checklist
 
-- Compare before and after at all three review widths.
+- Compare before and after in representative desktop, tablet, and mobile contexts.
 - Measure DOM rectangles and visible artwork edges when transparency is involved.
 - Verify the first content panel does not feel detached from the header or hero.
-- Verify repeated panels use consistent gaps unless hierarchy calls for a larger transition.
+- Verify repeated panels feel intentionally grouped; identical gaps are not required when hierarchy calls for a different relationship.
 - Verify the final panel has a deliberate path to the footer or page end without a large empty void.
 - Record new artwork-specific compensation in feature documentation or an adjacent CSS comment.
+
+## Design decisions
+
+### 2026-08-25 — Spacing is composition-specific
+
+PortalDB does not enforce a universal panel-gap or vertical-rhythm formula. Spacing is tuned per page and per component based on visible artwork, hierarchy, and responsive behavior. Site-wide guidance exists to prevent accidental dead space and geometry mistakes, not to dictate identical spacing everywhere.

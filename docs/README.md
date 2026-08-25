@@ -11,7 +11,7 @@ Major rules that apply across PortalDB live under [`standards/`](standards/READM
 - [Provenance UX](standards/provenance-ux.md) — how source information appears without becoming product branding.
 - [Data Integrity](standards/data-integrity.md) — how unknown, conflicting, historical, and screenshot-derived facts are handled.
 - [Artwork Pipeline](standards/artwork-pipeline.md) — canonical masters, optimized production derivatives, transparency, and predictable asset paths.
-- [Layout Spacing](standards/layout-spacing.md) — visible-content geometry, transparent-art compensation, responsive rhythm, and section-transition review.
+- [Layout Spacing Guidelines](standards/layout-spacing.md) — guidance for evaluating visual spacing and artwork geometry on a per-composition basis.
 
 ## Feature architecture
 
