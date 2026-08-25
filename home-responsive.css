@@ -1,5 +1,24 @@
 .fantasy-hero:has(.search-results:not(.hidden)){z-index:12}
 
+/* Soft, artwork-neutral separation for the live hero copy. */
+.hero-copy .eyebrow{
+  text-shadow:
+    0 0 3px rgba(255,255,255,.55),
+    0 0 7px rgba(255,255,255,.22);
+}
+.hero-copy h1{
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.82),
+    0 0 4px rgba(255,255,255,.58),
+    0 0 10px rgba(255,255,255,.28);
+}
+.hero-copy>p{
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.78),
+    0 0 4px rgba(255,255,255,.48),
+    0 0 8px rgba(255,255,255,.20);
+}
+
 /* Reclaim the decorative wood canvas below each surface so the three homepage props read as one stack. */
 @media(min-width:981px){
   .category-deck-shell{margin-top:88px}
