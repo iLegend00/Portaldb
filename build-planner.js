@@ -62,20 +62,20 @@ function renderSkills(){
 function renderImpact(){
   const root=document.getElementById('impactList');
   const active=plannerSchema.baseStats.filter(s=>plannerState.stats[s.id]>0);
-  const impacts=active.map(s=>`<div class="impact"><b>${esc(s.id)} +${plannerState.stats[s.id]}</b><span>Known affected categories: ${s.effects.map(esc).join(', ')}. Exact numerical conversion is not yet verified.</span></div>`);
-  const equipped=Object.entries(plannerState.equipment).filter(([,v])=>v).map(([slot,name])=>`<div class="impact"><b>${esc(slot)} — ${esc(name)}</b><span>Equipment selected. Only item stats already stored in PortalDB should be treated as verified.</span></div>`);
-  root.innerHTML=(impacts.length||equipped.length)?impacts.concat(equipped).join(''):'<div class="planner-note">Allocate stats or equip verified items to build a planning snapshot. PortalDB will show relationships, not fabricated derived-stat totals.</div>';
+  const impacts=active.map(s=>`<div class="impact"><b>${esc(s.id)} +${plannerState.stats[s.id]}</b><span>Known affected categories: ${s.effects.map(esc).join(', ')}. Exact numerical conversion is not documented.</span></div>`);
+  const equipped=Object.entries(plannerState.equipment).filter(([,v])=>v).map(([slot,name])=>`<div class="impact"><b>${esc(slot)} — ${esc(name)}</b><span>Equipment selected. The snapshot uses only item stats currently stored in PortalDB.</span></div>`);
+  root.innerHTML=(impacts.length||equipped.length)?impacts.concat(equipped).join(''):'<div class="planner-note">Allocate stats or equip items to build a planning snapshot. PortalDB will show relationships, not fabricated derived-stat totals.</div>';
 }
 
 function renderVerification(){
-  document.getElementById('plannerVerification').innerHTML=`${window.PortalVerification?.marker(plannerSchema)||''}${plannerSchema.rules.derivedStatCalculation?'':'<span>Derived stat formulas are not verified.</span>'}`;
+  document.getElementById('plannerVerification').innerHTML=`${window.PortalVerification?.marker(plannerSchema)||''}${plannerSchema.rules.derivedStatCalculation?'':'<span>Exact derived-stat formulas are not documented.</span>'}`;
 }
 
 function snapshot(){
   const lines=[`Job: ${plannerState.job||'Not selected'}`,'Stats: '+Object.entries(plannerState.stats).map(([k,v])=>`${k} ${v}`).join(' · ')];
   const eq=Object.entries(plannerState.equipment).filter(([,v])=>v);lines.push('Equipment: '+(eq.length?eq.map(([k,v])=>`${k}: ${v}`).join(' | '):'None'));
   const skills=plannerState.skills.filter(Boolean);lines.push('Skills: '+(skills.length?skills.join(', '):'None'));
-  lines.push('Note: This snapshot does not calculate unverified derived combat values.');
+  lines.push('Note: This snapshot does not calculate derived combat values without documented formulas.');
   document.getElementById('plannerSnapshot').textContent=lines.join('\n');
 }
 
@@ -83,4 +83,5 @@ document.getElementById('makeSnapshot')?.addEventListener('click',snapshot);
 document.getElementById('resetPlanner')?.addEventListener('click',()=>location.reload());
 function esc(v){return String(v??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;')}
 loadPlanner().catch(err=>{document.getElementById('plannerSnapshot').textContent='Build Planner data could not be loaded.';console.error(err)});
+
 

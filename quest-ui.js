@@ -139,7 +139,7 @@ function renderQuestChapter(id){
   (chapter.relatedEnemies||[]).forEach(n=>related.push(linkButton(n,'Enemy')));
   root.innerHTML=`<div class="quest-chapter">
     <div class="quest-chapter-head">
-      <div><span class="panel-kicker">MAIN QUEST · CHAPTER ${escapeQuest(chapter.chapter)}</span><div class="verification-heading"><h3>${escapeQuest(chapter.name)}</h3>${questVerificationMarker(chapter)}</div><div class="quest-meta-line">${partial?'<span class="quest-chip partial">PARTIAL DATA</span>':''}${chapter.startingLocation?`<span class="quest-chip">Starts: ${escapeQuest(chapter.startingLocation)}</span>`:''}${chapter.endingLocation?`<span class="quest-chip">Ends: ${escapeQuest(chapter.endingLocation)}</span>`:''}<span class="quest-chip">${escapeQuest(chapter.partCount||chapter.parts?.length||0)} parts</span></div>${flow}${related.length?`<div class="quest-links">${related.join('')}</div>`:''}</div>
+      <div><span class="panel-kicker">MAIN QUEST · CHAPTER ${escapeQuest(chapter.chapter)}</span><h3>${escapeQuest(chapter.name)}</h3><div class="quest-meta-line">${partial?'<span class="quest-chip partial">DETAILS IN PROGRESS</span>':''}${chapter.startingLocation?`<span class="quest-chip">Starts: ${escapeQuest(chapter.startingLocation)}</span>`:''}${chapter.endingLocation?`<span class="quest-chip">Ends: ${escapeQuest(chapter.endingLocation)}</span>`:''}<span class="quest-chip">${escapeQuest(chapter.partCount||chapter.parts?.length||0)} parts</span></div>${flow}${related.length?`<div class="quest-links">${related.join('')}</div>`:''}</div>
     </div>
     <div class="quest-parts">${(chapter.parts||[]).map(part=>renderQuestPart(part,chapter)).join('')}</div>
     ${chapter.futureChaptersShown?.length?`<div class="future-chapters"><strong>Shown in game as Coming Soon</strong><div class="future-list">${chapter.futureChaptersShown.map(x=>`<span>${escapeQuest(x)}</span>`).join('')}</div></div>`:''}
@@ -157,7 +157,7 @@ function renderQuestPart(part,chapter){
   (part.relatedEnemies||[]).forEach(n=>related.push(linkButton(n,'Enemy')));
   locations.forEach(n=>related.push(linkButton(n,'Location')));
   return `<article class="quest-part ${missing?'missing':''}">
-    <div class="quest-part-header"><div class="quest-part-title"><span class="quest-part-number">${escapeQuest(part.part)}</span><div><div class="verification-heading"><h4>${escapeQuest(part.name)}</h4>${questVerificationMarker(chapter,missing||partial?{type:'unverified',method:part.dataStatus||'Incomplete capture'}:{})}</div><small>${missing?'Awaiting screenshots':partial?'Partially verified':'Captured in game'}</small></div></div>${part.dataStatus?`<span class="quest-chip ${missing||partial?'partial':''}">${escapeQuest(part.dataStatus)}</span>`:''}</div>
+    <div class="quest-part-header"><div class="quest-part-title"><span class="quest-part-number">${escapeQuest(part.part)}</span><div><div class="verification-heading"><h4>${escapeQuest(part.name)}</h4>${missing?'':questVerificationMarker(chapter)}</div><small>${missing?'Details not documented yet':partial?'Additional details in progress':'Documented quest step'}</small></div></div>${part.dataStatus?`<span class="quest-chip ${missing||partial?'partial':''}">${missing||partial?'DETAILS IN PROGRESS':'DOCUMENTED'}</span>`:''}</div>
     <div class="quest-part-body">
       <div class="quest-block"><strong>Objectives</strong>${objectives.length?`<div class="quest-objectives">${objectives.map(o=>`<div class="quest-objective">${escapeQuest(o)}</div>`).join('')}</div>`:`<div class="quest-note">Objectives are not stored yet. PortalDB is intentionally leaving this blank until the missing in-game screenshots are supplied.</div>`}${part.description?`<div class="quest-note" style="margin-top:12px;border-style:solid;border-color:rgba(255,255,255,.07);color:#bdb0c2">${escapeQuest(part.description)}</div>`:''}</div>
       <div class="quest-block"><strong>Rewards</strong>${part.rewards?.length?`<div class="quest-rewards">${part.rewards.map(r=>`<span class="quest-reward">${escapeQuest(r.amount||r.quantity||1)}× ${escapeQuest(r.name||r.item||r.type)}</span>`).join('')}</div>`:`<div class="quest-note">Rewards are not stored yet.</div>`}${related.length?`<div class="quest-links">${related.join('')}</div>`:''}</div>
@@ -181,4 +181,5 @@ function escapeQuest(v){return String(v??'').replaceAll('&','&amp;').replaceAll(
 function escapeQuestAttr(v){return escapeQuest(v)}
 
 document.addEventListener('DOMContentLoaded',initQuestUI);
+
 

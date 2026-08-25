@@ -9,7 +9,7 @@ async function initCrafting(){
     craftRecipes=await res.json();
     renderRecipeOptions();
     renderCraftState();
-    if(status) status.textContent=craftRecipes.length?`${craftRecipes.length} verified recipes`:'0 verified recipes';
+    if(status) status.textContent=`${craftRecipes.length} ${craftRecipes.length===1?'recipe':'recipes'}`;
   }catch(err){
     if(status) status.textContent='Crafting data unavailable';
     document.getElementById('craftContent').innerHTML='<div class="craft-empty"><strong>Crafting data could not be loaded.</strong><p>The calculator is built to fail closed rather than display guessed recipe information.</p></div>';
@@ -21,12 +21,12 @@ function renderRecipeOptions(){
   const selector=document.getElementById('craftRecipe');
   if(!selector) return;
   if(!craftRecipes.length){
-    selector.innerHTML='<option value="">No verified recipes yet</option>';
+    selector.innerHTML='<option value="">No recipes documented yet</option>';
     selector.disabled=true;
     return;
   }
   selector.disabled=false;
-  selector.innerHTML='<option value="">Choose a verified recipe…</option>'+craftRecipes.map(r=>`<option value="${escAttr(r.id)}">${esc(r.name||r.outputItem)}</option>`).join('');
+  selector.innerHTML='<option value="">Choose a recipe…</option>'+craftRecipes.map(r=>`<option value="${escAttr(r.id)}">${esc(r.name||r.outputItem)}</option>`).join('');
 }
 
 function getQuantity(){
@@ -39,11 +39,11 @@ function renderCraftState(){
   const id=document.getElementById('craftRecipe')?.value;
   if(!root) return;
   if(!craftRecipes.length){
-    root.innerHTML='<div class="craft-empty"><strong>Calculator ready. Recipes still need verification.</strong><p>We have verified that Eren provides Craft Equipment at Iron and Ember with Weapons and Armor categories, but exact recipe ingredients, quantities, costs, and unlock requirements have not yet been captured. PortalDB will not fabricate them.</p></div>';
+    root.innerHTML='<div class="craft-empty"><strong>Calculator ready. Recipes are still being documented.</strong><p>Eren provides Craft Equipment at Iron and Ember with Weapons and Armor categories, but exact recipe ingredients, quantities, costs, and unlock requirements have not yet been captured. PortalDB will not fabricate them.</p></div>';
     return;
   }
   if(!id){
-    root.innerHTML='<div class="craft-empty"><strong>Select a verified recipe.</strong><p>Direct and expanded material totals will appear here.</p></div>';
+    root.innerHTML='<div class="craft-empty"><strong>Select a recipe.</strong><p>Direct and expanded material totals will appear here.</p></div>';
     return;
   }
   const recipe=craftRecipes.find(r=>r.id===id);
@@ -96,4 +96,5 @@ document.getElementById('craftRecipe')?.addEventListener('change',renderCraftSta
 document.getElementById('craftQuantity')?.addEventListener('input',renderCraftState);
 document.getElementById('craftReset')?.addEventListener('click',()=>{const s=document.getElementById('craftRecipe');const q=document.getElementById('craftQuantity');if(s)s.value='';if(q)q.value='1';renderCraftState();});
 document.addEventListener('DOMContentLoaded',initCrafting);
+
 

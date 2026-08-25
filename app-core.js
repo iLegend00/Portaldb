@@ -74,7 +74,7 @@ const results=document.getElementById("searchResults");
 function showResults(rows){
   if(!results) return;
   if(!rows.length){
-    results.innerHTML=`<div class="result-row"><span><strong>No matches yet.</strong><small>PortalDB is still being populated with verified data.</small></span></div>`;
+    results.innerHTML=`<div class="result-row"><span><strong>No matches yet.</strong><small>PortalDB is still being expanded.</small></span></div>`;
     results.classList.remove("hidden");
     return;
   }
@@ -207,7 +207,7 @@ function renderItemCards(rows){
   if(!box) return;
   if(count) count.textContent=`${rows.length} ${rows.length===1?"item":"items"}`;
   if(!rows.length){
-    box.innerHTML=`<div class="finder-empty"><strong>No matching verified items yet.</strong><span>Try a broader search or another category.</span></div>`;
+    box.innerHTML=`<div class="finder-empty"><strong>No matching items found.</strong><span>Try a broader search or another category.</span></div>`;
     return;
   }
   box.innerHTML=rows.map((item,i)=>{
@@ -387,7 +387,7 @@ function renderGenericDetail(entry){
   }).join("")}</div>`:"";
   return `<div class="dialog-body">
       <div class="type">${labels[entry._collection]||"ENTRY"}</div>
-      <div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div>
+      <div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${entry._collection==="items"?"":verificationMarker(entry)}</div>
       <p>${escapeHtml(getDescription(entry))}</p>
       <div class="meta-grid">
         ${details.join("")}
@@ -433,3 +433,4 @@ function escapeHtml(v){
 }
 
 loadData().catch(console.error);
+

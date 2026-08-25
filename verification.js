@@ -30,7 +30,7 @@
   function marker(record={},overrides={}){
     const meta=metadata(record,overrides),state=states[meta.type]||states.unverified;
     const encoded=encodeURIComponent(JSON.stringify(meta));
-    return `<button type="button" class="verification-marker verification-${meta.type}" data-verification="${encoded}" aria-label="${esc(state.label)}. Verification details available." aria-controls="verificationPopover" aria-expanded="false"><span class="verification-seal" aria-hidden="true">${state.icon}</span></button>`;
+    return `<button type="button" class="verification-marker verification-${meta.type}" data-verification="${encoded}" aria-label="Source details available" aria-controls="verificationPopover" aria-expanded="false"><span class="verification-seal" aria-hidden="true">${state.icon}</span></button>`;
   }
   function rows(meta){
     const state=states[meta.type]||states.unverified;
@@ -131,4 +131,5 @@
   document.addEventListener('DOMContentLoaded',installLegendControl);
   window.PortalVerification={states,typeFor,metadata,marker,close};
 })();
+
 

@@ -5,6 +5,9 @@ PortalDB stores gameplay facts as structured records with provenance so search, 
 ## Verification metadata
 Every record should include `confidence`, `source`, `lastVerified`, and `version`/`gameVersion` when applicable. Use `dataStatus` for incomplete records and `notes` for ambiguity. Preferred confidence labels: Official confirmed; Official confirmed + in-game verified; In-game verified; Community verified; Unverified.
 
+## Provenance UX
+Detailed provenance remains part of the internal data model, but normal pages should present PortalDB as a game companion rather than advertise verification status. The homepage contains one concise explanation of the source symbols, and the subtle footer **Verification** control remains the site-wide reference point. A small marker should normally represent the largest logical record that shares one provenance source, such as one item, NPC, quest part, boss, skill, mechanic, or guide chapter. Add another marker only when a materially different source applies to a distinct factual subsection and the distinction helps the reader. Do not repeat markers on individual stats, objectives, rewards, or rows covered by the record-level marker. Desktop markers open on hover or keyboard focus; mobile markers open on tap. Raw confidence labels belong in the provenance popover or legend, not ordinary page copy. Unknown or incomplete information should use natural states such as “Unknown,” “Not documented yet,” or “Guide in progress,” without uncertainty-symbol spam.
+
 ## Items
 Core fields: `id`, `name`, `category`, `subtype[]`, `status`, `description`, `stats{}`, `effects{}`, `requirements{}`, `buyTria`, `sellTria`, `obtain[]`, relationship arrays, and verification metadata. Obtain methods may include drop, shop, gather, fishing, crafting, quest, pass, or code. Never infer missing drop rates or rarity.
 
@@ -42,3 +45,4 @@ Base attributes shown by the game: STR → P.ATK; VIT → Max HP, DEF, HP/s; AGI
 
 ## Relationship rule
 Use exact names initially, then migrate to stable IDs as datasets mature. Features should be generated from relationships in data rather than manually duplicated prose.
+
