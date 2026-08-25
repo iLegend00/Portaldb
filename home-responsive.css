@@ -1,10 +1,10 @@
 .fantasy-hero:has(.search-results:not(.hidden)){z-index:12}
 
-/* Desktop offsets follow the visible artwork edges, not the transparent/overflowing section boxes. */
+/* Reclaim the decorative wood canvas below each surface so the three homepage props read as one stack. */
 @media(min-width:981px){
   .category-deck-shell{margin-top:88px}
-  .homepage-walkthrough-cta{margin-top:clamp(80px,calc(16.67% - 126px),144px)}
-  .homepage-info-board{margin-top:clamp(77px,calc(8.8vw - 12px),128px)}
+  .homepage-walkthrough-cta{z-index:9;margin-top:clamp(24px,3.3vw,52px)}
+  .homepage-info-board{z-index:10;margin-top:clamp(28px,4vw,64px)}
 }
 
 @media(max-width:700px){.fantasy-home .hero-copy{padding-left:0}}
