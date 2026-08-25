@@ -7,6 +7,6 @@ This directory contains active rules that apply across the entire PortalDB site 
 - [Provenance UX](provenance-ux.md)
 - [Data Integrity](data-integrity.md)
 - [Artwork Pipeline](artwork-pipeline.md)
+- [Layout Spacing](layout-spacing.md)
 
 Return to the [master documentation index](../README.md).
-

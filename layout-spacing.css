@@ -1,0 +1,29 @@
+/* Site-wide rhythm rules. See docs/standards/layout-spacing.md. */
+.page-shell {
+  padding-block: clamp(36px, 3.75vw, 54px) clamp(64px, 6.25vw, 90px);
+}
+
+/* Avoid adding a second full viewport below the persistent page header. */
+.craft-page,
+.planner-page {
+  min-height: calc(100vh - 88px);
+}
+
+.future-chapters {
+  margin-top: clamp(44px, 5vw, 72px);
+  padding-top: clamp(30px, 3vw, 42px);
+}
+
+@media (max-width: 650px) {
+  .walkthrough-hero {
+    padding-inline: 16px;
+  }
+
+  .walkthrough-hero > div {
+    min-width: 0;
+  }
+
+  .walkthrough-hero h1 {
+    font-size: clamp(29px, 9vw, 40px);
+  }
+}

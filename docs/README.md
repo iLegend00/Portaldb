@@ -11,6 +11,7 @@ Major rules that apply across PortalDB live under [`standards/`](standards/READM
 - [Provenance UX](standards/provenance-ux.md) — how source information appears without becoming product branding.
 - [Data Integrity](standards/data-integrity.md) — how unknown, conflicting, historical, and screenshot-derived facts are handled.
 - [Artwork Pipeline](standards/artwork-pipeline.md) — canonical masters, optimized production derivatives, transparency, and predictable asset paths.
+- [Layout Spacing](standards/layout-spacing.md) — visible-content geometry, transparent-art compensation, responsive rhythm, and section-transition review.
 
 ## Feature architecture
 
@@ -30,4 +31,3 @@ Feature-specific UX and implementation decisions live under [`features/`](featur
 Folder-specific rules may live beside the files they govern. These local documents supplement the standards above and should remain discoverable from their working directory. For example, [`source-assets/artwork/README.md`](../source-assets/artwork/README.md) defines handling rules for canonical artwork masters.
 
 When standards overlap, apply the more specific rule without weakening the site-wide data-integrity or provenance requirements. If a task explicitly changes a permanent decision, update the relevant document in the same change.
-
