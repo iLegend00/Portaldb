@@ -66,9 +66,10 @@ The first interface should contain:
 - currency-cost summary
 - expandable nested components
 - links to Item Finder for every known ingredient
-- recipe verification badge and last-verified date
-- empty-state notice when no verified recipes exist
+- one subtle record-level provenance marker for the selected recipe, following the [Provenance UX Standard](standards/provenance-ux.md)
+- a natural empty state when no recipe data has been documented
 
 ## Publishing rule
 
 Do not populate `data/crafting.json` with guessed or placeholder recipes. It is acceptable for the Crafting Calculator to launch with a polished empty state explaining that recipe capture is still in progress.
+
