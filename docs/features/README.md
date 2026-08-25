@@ -5,6 +5,7 @@ This directory records durable architecture and UX decisions for major PortalDB 
 ## Current features
 
 - [Full Walkthrough Architecture](walkthrough.md)
+- [Homepage Information Architecture](homepage.md)
 
 Return to the [master documentation index](../README.md).
 

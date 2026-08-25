@@ -17,6 +17,7 @@ Major rules that apply across PortalDB live under [`standards/`](standards/READM
 Feature-specific UX and implementation decisions live under [`features/`](features/README.md):
 
 - [Full Walkthrough Architecture](features/walkthrough.md) — navigation, responsive field-guide layout, data sources, future chapter growth, and artwork hooks.
+- [Homepage Information Architecture](features/homepage.md) — player-intent quick access, section ordering, modular card art, and temporary destinations.
 
 ## Data and evidence
 
