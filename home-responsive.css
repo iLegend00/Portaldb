@@ -1,2 +1,11 @@
-.fantasy-hero:has(.search-results:not(.hidden)){z-index:12}@media(max-width:700px){.fantasy-home .hero-copy{padding-left:0}}
+.fantasy-hero:has(.search-results:not(.hidden)){z-index:12}
+
+/* Desktop offsets follow the visible artwork edges, not the transparent/overflowing section boxes. */
+@media(min-width:981px){
+  .category-deck-shell{margin-top:88px}
+  .homepage-walkthrough-cta{margin-top:clamp(80px,calc(16.67% - 126px),144px)}
+  .homepage-info-board{margin-top:clamp(77px,calc(8.8vw - 12px),128px)}
+}
+
+@media(max-width:700px){.fantasy-home .hero-copy{padding-left:0}}
 
