@@ -1,28 +1,9 @@
 .fantasy-hero:has(.search-results:not(.hidden)){z-index:12}
 
-/* Localized white mist behind the live copy; it stops before the search UI. */
 .hero-copy-text{
-  position:relative;
-  z-index:0;
-  isolation:isolate;
   width:760px;
   max-width:100%;
 }
-.hero-text-haze{
-  position:absolute;
-  z-index:0;
-  top:76%;
-  left:-50px;
-  width:calc(100% + 100px);
-  height:auto;
-  display:block;
-  pointer-events:none;
-  opacity:1;
-  transform:translateY(-50%) scaleY(1.7);
-  user-select:none;
-}
-.hero-copy-text h1,
-.hero-copy-text>p{position:relative;z-index:1}
 .hero-copy-text h1{
   width:100%;
   margin:0;
@@ -30,21 +11,18 @@
   font:700 clamp(44px,3.7vw,58px)/.98 Cinzel,serif;
   letter-spacing:-.04em;
   text-transform:uppercase;
-  text-shadow:0 1px rgba(255,255,255,.45);
 }
 .hero-copy-text .hero-subtitle{
   margin:14px 0 0;
   color:#0a4f91;
   font:600 20px/1.25 Cinzel,serif;
   letter-spacing:-.015em;
-  text-shadow:none;
 }
 .hero-copy-text .hero-support{
   margin:8px 0 0;
   color:#30343a;
   font:500 14px/1.45 Inter,sans-serif;
   letter-spacing:.01em;
-  text-shadow:none;
 }
 
 /* Reclaim the decorative wood canvas below each surface so the three homepage props read as one stack. */
@@ -54,38 +32,10 @@
   .homepage-info-board{z-index:10;margin-top:clamp(28px,4vw,64px)}
 }
 
-@media(min-width:701px) and (max-width:980px){
-  .hero-text-haze{top:78%;left:-34px;width:calc(100% + 68px);transform:translateY(-50%) scaleY(1.75)}
-}
-
-/* Temporary diagnostic: render the raw hero haze asset in normal document flow. */
-.hero-haze-test {
-  width: min(900px, 90vw);
-  margin: 56px auto;
-  padding: 20px;
-  border: 1px solid rgba(199, 167, 88, 0.55);
-  background: #173a50;
-}
-
-.hero-haze-test img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-}
-
 @media(max-width:700px){
   .fantasy-home .hero-copy{padding-left:0}
   .hero-copy-text h1{font-size:clamp(34px,10vw,42px);line-height:1}
   .hero-copy-text .hero-subtitle{margin-top:11px;font-size:17px;line-height:1.3}
   .hero-copy-text .hero-support{margin-top:7px;font-size:12px;line-height:1.4}
-  .hero-text-haze{
-    top:76%;
-    left:-10px;
-    width:calc(100% + 20px);
-    max-width:none;
-    opacity:1;
-    transform:translateY(-50%) scaleY(2.3);
-  }
 }
 
