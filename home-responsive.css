@@ -1,5 +1,18 @@
 .fantasy-hero:has(.search-results:not(.hidden)){z-index:12}
 
+.hero-haze-layer{
+  position:absolute;
+  z-index:1;
+  top:35px;
+  left:5%;
+  width:820px;
+  height:250px;
+  display:block;
+  object-fit:fill;
+  pointer-events:none;
+  user-select:none;
+}
+
 .hero-copy-text{
   width:760px;
   max-width:100%;
@@ -32,7 +45,22 @@
   .homepage-info-board{z-index:10;margin-top:clamp(28px,4vw,64px)}
 }
 
+@media(min-width:701px) and (max-width:980px){
+  .hero-haze-layer{
+    top:42px;
+    left:3%;
+    width:min(760px,94%);
+    height:245px;
+  }
+}
+
 @media(max-width:700px){
+  .hero-haze-layer{
+    top:286px;
+    left:2%;
+    width:96%;
+    height:180px;
+  }
   .fantasy-home .hero-copy{padding-left:0}
   .hero-copy-text h1{font-size:clamp(34px,10vw,42px);line-height:1}
   .hero-copy-text .hero-subtitle{margin-top:11px;font-size:17px;line-height:1.3}
