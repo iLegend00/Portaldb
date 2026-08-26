@@ -11,14 +11,14 @@
 .hero-text-haze{
   position:absolute;
   z-index:0;
-  top:50%;
+  top:58%;
   left:-50px;
   width:calc(100% + 100px);
   height:auto;
   display:block;
   pointer-events:none;
   opacity:.94;
-  transform:translateY(-50%);
+  transform:translateY(-50%) scaleY(1.12);
   user-select:none;
 }
 .hero-copy-text h1,
@@ -55,7 +55,7 @@
 }
 
 @media(min-width:701px) and (max-width:980px){
-  .hero-text-haze{left:-34px;width:calc(100% + 68px)}
+  .hero-text-haze{top:60%;left:-34px;width:calc(100% + 68px);transform:translateY(-50%) scaleY(1.16)}
 }
 
 @media(max-width:700px){
@@ -64,11 +64,12 @@
   .hero-copy-text .hero-subtitle{margin-top:11px;font-size:17px;line-height:1.3}
   .hero-copy-text .hero-support{margin-top:7px;font-size:12px;line-height:1.4}
   .hero-text-haze{
+    top:58%;
     left:-10px;
     width:calc(100% + 20px);
     max-width:none;
     opacity:.92;
-    transform:translateY(-50%) scaleY(1.28);
+    transform:translateY(-50%) scaleY(1.5);
   }
 }
 
