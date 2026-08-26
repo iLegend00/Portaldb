@@ -8,18 +8,18 @@
   width:760px;
   max-width:100%;
 }
-.hero-copy-text::before{
-  content:"";
+.hero-text-haze{
   position:absolute;
-  z-index:-1;
+  z-index:0;
   top:50%;
   left:-50px;
   width:calc(100% + 100px);
-  aspect-ratio:2172/724;
+  height:auto;
+  display:block;
   pointer-events:none;
-  background:url('assets/home/hero-text-haze.webp?v=20260826-1') center/100% 100% no-repeat;
   opacity:.94;
   transform:translateY(-50%);
+  user-select:none;
 }
 .hero-copy-text h1,
 .hero-copy-text>p{position:relative;z-index:1}
@@ -55,7 +55,7 @@
 }
 
 @media(min-width:701px) and (max-width:980px){
-  .hero-copy-text::before{left:-34px;width:calc(100% + 68px)}
+  .hero-text-haze{left:-34px;width:calc(100% + 68px)}
 }
 
 @media(max-width:700px){
@@ -63,7 +63,7 @@
   .hero-copy-text h1{font-size:clamp(34px,10vw,42px);line-height:1}
   .hero-copy-text .hero-subtitle{margin-top:11px;font-size:17px;line-height:1.3}
   .hero-copy-text .hero-support{margin-top:7px;font-size:12px;line-height:1.4}
-  .hero-copy-text::before{
+  .hero-text-haze{
     left:-10px;
     width:calc(100% + 20px);
     max-width:none;
