@@ -23,7 +23,7 @@
         .slice(0,3);
 
       container.innerHTML=latest.map(entry=>{
-        const content=`<span class="portaldb-update-meta"><b>PORTALDB</b><time datetime="${escapeHtml(entry.date)}">${escapeHtml(formatDate(entry.date))}</time></span><strong>${escapeHtml(entry.title)}</strong><p>${escapeHtml(entry.description)}</p>`;
+        const content=`<span class="portaldb-update-heading"><b>PORTALDB</b><strong>${escapeHtml(entry.title)}</strong></span><p>${escapeHtml(entry.description)}</p><time datetime="${escapeHtml(entry.date)}">${escapeHtml(formatDate(entry.date))}</time>`;
         return entry.href
           ? `<a class="portaldb-update-note" href="${escapeHtml(entry.href)}">${content}</a>`
           : `<div class="portaldb-update-note">${content}</div>`;

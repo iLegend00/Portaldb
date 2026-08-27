@@ -35,7 +35,7 @@ function renderPreview(){
   const box=document.getElementById("entryPreview");
   if(!box) return;
   const realEntries = database.filter(entry => !String(entry.id || "").startsWith("demo-"));
-  const previewEntries = (realEntries.length ? realEntries : database).slice(0,4);
+  const previewEntries = (realEntries.length ? realEntries : database).slice(0,3);
   box.innerHTML=previewEntries.map((entry,i)=>`
     <button class="preview-row" data-preview="${i}">
       <span class="preview-icon">${["✦","◇","♙","⚔"][i]||"✦"}</span>
@@ -433,4 +433,3 @@ function escapeHtml(v){
 }
 
 loadData().catch(console.error);
-
