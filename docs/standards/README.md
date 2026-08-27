@@ -8,6 +8,6 @@ This directory contains active standards and design guidance for the PortalDB si
 - [Data Integrity](data-integrity.md)
 - [Artwork Pipeline](artwork-pipeline.md)
 - [Layout Spacing Guidelines](layout-spacing.md) — per-composition visual-spacing and artwork-geometry guidance, not a universal gap formula.
-- [Global Navigation](global-navigation.md) — the three-link primary navigation, Home behavior, and section active states.
+- [Global Navigation](global-navigation.md) — the four-link primary navigation, linked-brand behavior, and section active states.
 
 Return to the [master documentation index](../README.md).
