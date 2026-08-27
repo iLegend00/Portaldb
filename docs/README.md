@@ -12,6 +12,7 @@ Major rules that apply across PortalDB live under [`standards/`](standards/READM
 - [Data Integrity](standards/data-integrity.md) — how unknown, conflicting, historical, and screenshot-derived facts are handled.
 - [Artwork Pipeline](standards/artwork-pipeline.md) — canonical masters, optimized production derivatives, transparency, and predictable asset paths.
 - [Layout Spacing Guidelines](standards/layout-spacing.md) — guidance for evaluating visual spacing and artwork geometry on a per-composition basis.
+- [Global Navigation](standards/global-navigation.md) — the site-wide Database / Walkthrough / Tools navigation and Home behavior.
 
 ## Feature architecture
 
