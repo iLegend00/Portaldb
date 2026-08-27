@@ -1,0 +1,13 @@
+[
+  {
+    "title": "Global navigation standardized",
+    "description": "Home, Database, Walkthrough, and Tools now appear consistently across PortalDB.",
+    "date": "2026-08-27"
+  },
+  {
+    "title": "Complete walkthrough added",
+    "description": "PortalDB now includes a dedicated, scalable full-game progression guide.",
+    "date": "2026-08-24",
+    "href": "walkthrough.html"
+  }
+]
