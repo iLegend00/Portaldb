@@ -73,7 +73,7 @@ Use `data/quests.json` as the primary progression backbone. Supporting context m
 - races; and
 - skills.
 
-The walkthrough should synthesize these relationships into practical progression guidance rather than render a database dump. Quest objectives and rewards remain ordered as stored. Unknown routes, recommendations, formulas, and optimization claims stay unpublished or use natural “coming soon” states.
+The walkthrough should synthesize these relationships into practical progression guidance rather than render a database dump. Quest objectives and rewards remain ordered as stored. Unsupported routes, recommendations, formulas, and optimization claims stay unpublished.
 
 ## Provenance
 
@@ -83,11 +83,7 @@ Follow the [Provenance UX Standard](../standards/provenance-ux.md). Use selectiv
 - verified objectives; or
 - expanding with verified information.
 
-Use normal guide states instead:
-
-- Guide in Progress;
-- More guidance coming soon; or
-- Currently documented through Chapter 2.
+Describe current coverage directly, such as **Chapters 1–2**, without adding placeholder chapters or progress-state filler.
 
 The walkthrough also follows the [Data Integrity Standard](../standards/data-integrity.md): no missing recommendation or progression step may be inferred merely to make the guide appear complete.
 
@@ -112,5 +108,4 @@ Artwork must follow the [Artwork Pipeline Standard](../standards/artwork-pipelin
 - `walkthrough.html` owns the accessible page structure and navigation hooks.
 - `walkthrough.js` renders documented progression from structured data and maintains stable chapter/part anchors.
 - `walkthrough.css` owns the responsive field-guide surface, sticky navigation, callouts, and future artwork layers.
-- Chapters beyond the currently documented sequence remain explicitly marked as guide content in progress.
-
+- Only currently published chapters appear in the walkthrough index and navigation.

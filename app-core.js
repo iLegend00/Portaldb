@@ -12,7 +12,7 @@ const canonicalPages = [{
 async function loadData(){
   const sets = await Promise.all(collections.map(async name=>{
     try{
-      const res = await fetch(`data/${name}.json?v=20260820-guild-rewards-1`);
+      const res = await fetch(`data/${name}.json?v=20260828-two-state-provenance-1`);
       if(!res.ok) return [];
       const rows = await res.json();
       return rows.map(row=>({...row,_collection:name,_displayName:row.name||row.code||row.version||row.id}));
@@ -168,7 +168,7 @@ function sourceLabel(source){
   const chance=source.chancePercent!==undefined?` · ${source.chancePercent}%`:"";
   const time=source.time?` · ${source.time}`:"";
   const weather=source.weather?.length?` · ${source.weather.join(", ")}`:"";
-  return `${type}: ${source.source||"Unknown"}${chance}${time}${weather}`;
+  return source.source?`${type}: ${source.source}${chance}${time}${weather}`:`${type}${chance}${time}${weather}`;
 }
 
 function verificationMarker(entry,overrides){
@@ -177,7 +177,7 @@ function verificationMarker(entry,overrides){
 
 function renderObtainSources(entry){
   const sources=normalizeObtain(entry.obtain);
-  if(!sources.length) return `<div class="item-empty">No acquisition source recorded yet.</div>`;
+  if(!sources.length) return "";
   return sources.map((source,i)=>{
     const linked=findLinkedEntry(source.source);
     return `<button class="finder-source ${linked?"is-linked":""}" data-source-index="${i}">
@@ -222,7 +222,7 @@ function renderItemCards(rows){
         <div><span class="finder-kicker">${escapeHtml(itemTypeText(item))}</span><h3>${escapeHtml(item.name)}</h3></div>
         ${item.status?`<span class="finder-status">${escapeHtml(item.status)}</span>`:""}
       </div>
-      <p>${escapeHtml(item.description||"No description recorded yet.")}</p>
+      ${item.description?`<p>${escapeHtml(item.description)}</p>`:""}
       ${statLine?`<div class="finder-line"><b>Stats</b><span>${statLine}</span></div>`:""}
       ${effectLine?`<div class="finder-line"><b>Effects</b><span>${effectLine}</span></div>`:""}
       ${req?`<div class="finder-line"><b>Requires</b><span>${escapeHtml(req)}</span></div>`:""}

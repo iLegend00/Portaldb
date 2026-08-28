@@ -9,7 +9,7 @@ This directory is the durable reference for PortalDB architecture, product stand
 Major rules that apply across PortalDB live under [`standards/`](standards/README.md):
 
 - [Provenance UX](standards/provenance-ux.md) — how source information appears without becoming product branding.
-- [Data Integrity](standards/data-integrity.md) — how unknown, conflicting, historical, and screenshot-derived facts are handled.
+- [Data Integrity](standards/data-integrity.md) — how reliable, conflicting, historical, and screenshot-derived facts are handled.
 - [Artwork Pipeline](standards/artwork-pipeline.md) — canonical masters, optimized production derivatives, transparency, and predictable asset paths.
 - [Layout Spacing Guidelines](standards/layout-spacing.md) — guidance for evaluating visual spacing and artwork geometry on a per-composition basis.
 - [Global Navigation](standards/global-navigation.md) — the site-wide Home / Database / Walkthrough / Tools navigation and linked-brand behavior.

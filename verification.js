@@ -1,9 +1,7 @@
 (()=>{
   const states={
     official:{label:'Official confirmed',icon:'✦'},
-    ingame:{label:'In-game verified',icon:'✓'},
-    community:{label:'Community verified',icon:'◇◇'},
-    unverified:{label:'Unverified',icon:'?'}
+    community:{label:'Community verified',icon:'✓'}
   };
   let activeMarker=null,interactionMode=null,closeTimer=null,lastPointerType='',lastPointerAt=0;
   const hoverQuery=matchMedia('(hover:hover) and (pointer:fine)');
@@ -11,9 +9,8 @@
   function typeFor(value){
     const text=String(value||'').toLowerCase();
     if(text.includes('official')) return 'official';
-    if(text.includes('in-game')||text.includes('firsthand')) return 'ingame';
-    if(text.includes('community')) return 'community';
-    return 'unverified';
+    if(['community','in-game','ingame','firsthand','gameplay observation','player testing','reproducible testing','community testing'].some(term=>text.includes(term))) return 'community';
+    return null;
   }
   function metadata(record={},overrides={}){
     const confidence=overrides.confidence??record.confidence??record.dataStatus??'';
@@ -28,14 +25,18 @@
     };
   }
   function marker(record={},overrides={}){
-    const meta=metadata(record,overrides),state=states[meta.type]||states.unverified;
+    const meta=metadata(record,overrides),state=states[meta.type];
+    if(!state) return '';
     const encoded=encodeURIComponent(JSON.stringify(meta));
     return `<button type="button" class="verification-marker verification-${meta.type}" data-verification="${encoded}" aria-label="Source details available" aria-controls="verificationPopover" aria-expanded="false"><span class="verification-seal" aria-hidden="true">${state.icon}</span></button>`;
   }
   function rows(meta){
-    const state=states[meta.type]||states.unverified;
+    const state=states[meta.type];
+    if(!state) return '';
+    const method=String(meta.method||'');
+    const classificationOnly=typeFor(method)===meta.type&&/(official|community|in-game|ingame|firsthand).*verified|officially published/i.test(method);
     const values=[
-      ['Method',meta.method&&meta.method!==state.label?meta.method:null],
+      ['Method',method&&method!==state.label&&!classificationOnly?method:null],
       ['Source',meta.source],
       ['Verified',formatDate(meta.verifiedDate)],
       ['Version',meta.gameVersion],

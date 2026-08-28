@@ -15,9 +15,8 @@
   "skillSlots": 8,
   "rules": {
     "titleEquipLimit": 1,
-    "statFormulaStatus": "Unknown",
     "derivedStatCalculation": false,
-    "note": "PortalDB currently knows which base stats affect which displayed combat-stat categories, but not the numerical conversion formulas. The planner must not fabricate derived values."
+    "note": "The planner presents the captured relationships between base stats and displayed combat-stat categories without calculating derived values."
   },
   "confidence": "In-game verified",
   "lastVerified": "2026-08-18",

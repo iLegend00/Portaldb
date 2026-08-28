@@ -21,7 +21,7 @@ function renderRecipeOptions(){
   const selector=document.getElementById('craftRecipe');
   if(!selector) return;
   if(!craftRecipes.length){
-    selector.innerHTML='<option value="">No recipes documented yet</option>';
+    selector.innerHTML='<option value="">No published recipes</option>';
     selector.disabled=true;
     return;
   }
@@ -39,7 +39,7 @@ function renderCraftState(){
   const id=document.getElementById('craftRecipe')?.value;
   if(!root) return;
   if(!craftRecipes.length){
-    root.innerHTML='<div class="craft-empty"><strong>Calculator ready. Recipes are still being documented.</strong><p>Eren provides Craft Equipment at Iron and Ember with Weapons and Armor categories, but exact recipe ingredients, quantities, costs, and unlock requirements have not yet been captured. PortalDB will not fabricate them.</p></div>';
+    root.innerHTML='<div class="craft-empty"><strong>No recipes are currently published in PortalDB.</strong><p>The calculator will display only source-backed recipe records.</p></div>';
     return;
   }
   if(!id){
@@ -59,9 +59,9 @@ function renderRecipe(recipe,qty){
   const totals=expandRequirements(recipe,crafts,new Set());
   const costs=(recipe.currencyCosts||[]).map(c=>({currency:c.currency,amount:(Number(c.amount)||0)*crafts}));
   root.innerHTML=`<div class="craft-grid">
-    <section class="craft-panel"><h3>Direct requirements</h3>${direct.length?direct.map(x=>craftLine(x.item,x.quantity)).join(''):'<div class="craft-note">No direct requirements recorded.</div>'}</section>
-    <section class="craft-panel"><h3>Total expanded requirements</h3>${totals.length?totals.map(x=>craftLine(x.item,x.quantity)).join(''):'<div class="craft-note">No expandable materials recorded.</div>'}</section>
-    <section class="craft-panel"><h3>Crafting cost</h3>${costs.length?costs.map(x=>craftLine(x.currency,x.amount)).join(''):'<div class="craft-note">No currency cost recorded.</div>'}</section>
+    ${direct.length?`<section class="craft-panel"><h3>Direct requirements</h3>${direct.map(x=>craftLine(x.item,x.quantity)).join('')}</section>`:''}
+    ${totals.length?`<section class="craft-panel"><h3>Total expanded requirements</h3>${totals.map(x=>craftLine(x.item,x.quantity)).join('')}</section>`:''}
+    ${costs.length?`<section class="craft-panel"><h3>Crafting cost</h3>${costs.map(x=>craftLine(x.currency,x.amount)).join('')}</section>`:''}
     <section class="craft-panel"><h3>Recipe details</h3>
       ${craftLine('Output',`${crafts*outputPerCraft}× ${recipe.outputItem||recipe.name}`)}
       ${recipe.station?craftLine('Station',recipe.station):''}
@@ -96,5 +96,4 @@ document.getElementById('craftRecipe')?.addEventListener('change',renderCraftSta
 document.getElementById('craftQuantity')?.addEventListener('input',renderCraftState);
 document.getElementById('craftReset')?.addEventListener('click',()=>{const s=document.getElementById('craftRecipe');const q=document.getElementById('craftQuantity');if(s)s.value='';if(q)q.value='1';renderCraftState();});
 document.addEventListener('DOMContentLoaded',initCrafting);
-
 

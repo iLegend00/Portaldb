@@ -8,10 +8,7 @@
         "name":"1H Dagger",
         "progressShown":"1/4",
         "visibleEntries":[
-          {"name":null,"status":"Unknown / undiscovered"},
-          {"name":"Amethyst Dirk","status":"Discovered"},
-          {"name":null,"status":"Unknown / undiscovered"},
-          {"name":null,"status":"Unknown / undiscovered"}
+          {"name":"Amethyst Dirk","status":"Discovered"}
         ]
       },
       {

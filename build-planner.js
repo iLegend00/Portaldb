@@ -3,10 +3,10 @@ const plannerState={job:'',stats:{STR:0,VIT:0,AGI:0,DEX:0,INT:0,WIS:0},equipment
 
 async function loadPlanner(){
   const [schema,jobs,items,skills]=await Promise.all([
-    fetch('data/build-planner-schema.json').then(r=>r.json()),
-    fetch('data/jobs.json').then(r=>r.json()),
-    fetch('data/items.json').then(r=>r.json()),
-    fetch('data/skills.json').then(r=>r.json()).catch(()=>[])
+    fetch('data/build-planner-schema.json?v=20260828-two-state-provenance-1').then(r=>r.json()),
+    fetch('data/jobs.json?v=20260828-two-state-provenance-1').then(r=>r.json()),
+    fetch('data/items.json?v=20260828-two-state-provenance-1').then(r=>r.json()),
+    fetch('data/skills.json?v=20260828-two-state-provenance-1').then(r=>r.json()).catch(()=>[])
   ]);
   plannerSchema=schema;plannerJobs=jobs;plannerItems=items;plannerSkills=skills;
   renderJobSelect();renderStats();renderEquipment();renderSkills();renderImpact();renderVerification();
@@ -62,20 +62,20 @@ function renderSkills(){
 function renderImpact(){
   const root=document.getElementById('impactList');
   const active=plannerSchema.baseStats.filter(s=>plannerState.stats[s.id]>0);
-  const impacts=active.map(s=>`<div class="impact"><b>${esc(s.id)} +${plannerState.stats[s.id]}</b><span>Known affected categories: ${s.effects.map(esc).join(', ')}. Exact numerical conversion is not documented.</span></div>`);
+  const impacts=active.map(s=>`<div class="impact"><b>${esc(s.id)} +${plannerState.stats[s.id]}</b><span>Affected categories: ${s.effects.map(esc).join(', ')}.</span></div>`);
   const equipped=Object.entries(plannerState.equipment).filter(([,v])=>v).map(([slot,name])=>`<div class="impact"><b>${esc(slot)} — ${esc(name)}</b><span>Equipment selected. The snapshot uses only item stats currently stored in PortalDB.</span></div>`);
   root.innerHTML=(impacts.length||equipped.length)?impacts.concat(equipped).join(''):'<div class="planner-note">Allocate stats or equip items to build a planning snapshot. PortalDB will show relationships, not fabricated derived-stat totals.</div>';
 }
 
 function renderVerification(){
-  document.getElementById('plannerVerification').innerHTML=`${window.PortalVerification?.marker(plannerSchema)||''}${plannerSchema.rules.derivedStatCalculation?'':'<span>Exact derived-stat formulas are not documented.</span>'}`;
+  document.getElementById('plannerVerification').innerHTML=window.PortalVerification?.marker(plannerSchema)||'';
 }
 
 function snapshot(){
   const lines=[`Job: ${plannerState.job||'Not selected'}`,'Stats: '+Object.entries(plannerState.stats).map(([k,v])=>`${k} ${v}`).join(' · ')];
   const eq=Object.entries(plannerState.equipment).filter(([,v])=>v);lines.push('Equipment: '+(eq.length?eq.map(([k,v])=>`${k}: ${v}`).join(' | '):'None'));
   const skills=plannerState.skills.filter(Boolean);lines.push('Skills: '+(skills.length?skills.join(', '):'None'));
-  lines.push('Note: This snapshot does not calculate derived combat values without documented formulas.');
+  lines.push('Note: This snapshot presents recorded selections and stat relationships without calculating derived combat values.');
   document.getElementById('plannerSnapshot').textContent=lines.join('\n');
 }
 
@@ -83,5 +83,4 @@ document.getElementById('makeSnapshot')?.addEventListener('click',snapshot);
 document.getElementById('resetPlanner')?.addEventListener('click',()=>location.reload());
 function esc(v){return String(v??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;')}
 loadPlanner().catch(err=>{document.getElementById('plannerSnapshot').textContent='Build Planner data could not be loaded.';console.error(err)});
-
 

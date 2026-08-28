@@ -4,11 +4,11 @@
 
 Build the calculator from the same source-backed database used by the rest of PortalDB. The calculator must never infer recipe ingredients, quantities, costs, unlock requirements, or crafting stations.
 
-## Current verified state
+## Current source-backed state
 
-PortalDB currently has in-game verification that Eren provides a **Craft Equipment** service at Iron and Ember, with visible **Weapons** and **Armor** craft categories. Exact recipe rows and material requirements have not yet been captured.
+Community evidence establishes that Eren provides a **Craft Equipment** service at Iron and Ember, with visible **Weapons** and **Armor** craft categories. Exact recipe rows and material requirements have not yet been captured.
 
-Therefore the calculator UI can be built around this schema, but production recipe results must remain empty until recipes are verified from in-game screenshots or another reliable source.
+Therefore the calculator UI can be built around this schema, but only complete, source-backed recipes may be published.
 
 ## Recipe record
 
@@ -29,7 +29,7 @@ Therefore the calculator UI can be built around this schema, but production reci
   ],
   "unlockRequirements": [],
   "notes": "",
-  "confidence": "In-game verified",
+  "confidence": "Community verified",
   "version": "",
   "lastVerified": "2026-08-18",
   "source": ""
@@ -44,7 +44,7 @@ Therefore the calculator UI can be built around this schema, but production reci
 4. If an ingredient is itself a verified craftable item, the player may expand it into nested requirements.
 5. Nested expansion must detect circular recipe references and stop safely.
 6. The calculator must distinguish **direct requirements** from **total expanded requirements**.
-7. Unknown recipe fields remain visibly unknown rather than assumed.
+7. Incomplete recipe records remain unpublished rather than assumed.
 8. Every result retains recipe verification metadata.
 
 ## Relationship rules
@@ -67,9 +67,8 @@ The first interface should contain:
 - expandable nested components
 - links to Item Finder for every known ingredient
 - one subtle record-level provenance marker for the selected recipe, following the [Provenance UX Standard](standards/provenance-ux.md)
-- a natural empty state when no recipe data has been documented
+- a natural empty state when no recipes are published
 
 ## Publishing rule
 
-Do not populate `data/crafting.json` with guessed or placeholder recipes. It is acceptable for the Crafting Calculator to launch with a polished empty state explaining that recipe capture is still in progress.
-
+Do not populate `data/crafting.json` with guessed, partial, or placeholder recipes. The Crafting Calculator may launch with a concise empty state stating that no recipes are currently published.

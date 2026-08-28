@@ -1,13 +1,13 @@
 # PortalDB Source Ledger
 
-PortalDB treats provenance as part of the data model. Real gameplay claims should be traceable to a source and labeled by confidence.
+PortalDB treats provenance as part of the data model. Published gameplay claims should be traceable to reliable evidence.
 
 ## Source hierarchy
 
-1. **Official** — Roblox experience page, developer posts, official Discord announcements/developer messages.
-2. **Corroborated** — independently verified gameplay evidence or multiple reliable community sources.
-3. **Community** — credible player-discovered information that has not been officially confirmed.
-4. **Unverified** — leads and claims that must not be presented as fact.
+1. **Official Confirmed** — Roblox experience page, developer posts, official Discord announcements/developer messages.
+2. **Community Verified** — reliable non-official evidence such as firsthand gameplay, reproducible testing, screenshots, video, or corroborated community sources.
+
+Research leads are retained in the ledger but are not published as factual records.
 
 ## Confirmed baseline — 2026-08-20
 
@@ -59,7 +59,7 @@ Confirmed claims admitted to PortalDB:
 
 URL: `https://www.gamepur.com/guides/best-race-to-pick-in-the-portal-roblox`
 
-Confidence assigned in PortalDB: **Community verified** pending official/developer confirmation or direct in-game capture.
+Confidence assigned in PortalDB: **Community Verified**, based on the cited source.
 
 Structured claims currently admitted to the database:
 
@@ -91,7 +91,7 @@ Structured claims currently admitted to the database:
 The guide associates Defender primarily with VIT/STR-oriented Human bonuses; Enchanter and Cleric with INT/WIS-oriented Elf bonuses; and Warrior with physical-attack stats including STR, AGI, and DEX. PortalDB currently treats these as community-documented relationships, not developer-authored formulas.
 
 ### Race reroll mechanic
-The guide identifies the **Race Reroll Mirror** as the item used to reroll race and states that equipment whose requirements are no longer met can be unequipped after a race change. This mechanic is recorded here as a research lead but is not yet promoted into the item database pending an additional source or direct verification.
+The guide identifies the **Race Reroll Mirror** as the item used to reroll race and states that equipment whose requirements are no longer met can be unequipped after a race change. This mechanic remains research material and is not published in the item database.
 
 ## Secondary discovery source: Creator Exchange
 
@@ -99,7 +99,7 @@ URL: `https://creatorexchange.io/roblox-game/9356969539/the-portal`
 
 Creator Exchange currently indexes the same experience as owned by The Box of Trolls Studio and links the official Roblox page. It is useful for discovery and change detection, but PortalDB should prefer official developer/Roblox sources whenever available.
 
-As of 2026-08-18, Creator Exchange also displays a code entry for `2KLIKES` with a Job Change Mask reward. This is **not yet promoted to PortalDB confirmed gameplay data** because the source is secondary; it should be verified in-game or against an official developer channel first.
+As of 2026-08-18, Creator Exchange also displays a code entry for `2KLIKES` with a Job Change Mask reward. This remains research material and is not published as gameplay data.
 
 ## Secondary code-index lead — 2026-08-18
 
@@ -115,4 +115,4 @@ The official Discord is a high-priority source, but ChatGPT currently cannot bro
 
 ## Data rule
 
-Do not convert a claim into a normal PortalDB entry merely because it appears in a guide, video, Reddit post, or search result. Record the source first, assign confidence, and distinguish exact confirmed values from estimates or community observations.
+Publish only claims supported by reliable evidence. Record the source first, preserve evidence scope and conflicts internally, and distinguish exact values from estimates or community observations. Research leads remain unpublished.

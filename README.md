@@ -23,7 +23,7 @@ The current build includes:
 - real item, NPC, quest, boss, race, job, location, code, mechanic, skill, enemy, and update records
 - Item Finder v1
 - richer NPC profile rendering and item/NPC relationships
-- Main Quest Guide v1 with chapter/part progression, objectives, rewards, location flow, and explicit documentation gaps
+- Main Quest Guide v1 with published chapter/part progression, objectives, rewards, and location flow
 - enemy / boss / location relationship coverage
 - Crafting Calculator v1 shell with quantity scaling, direct requirements, expandable nested requirements, currency-cost support, circular-reference protection, and an intentional empty state until recipe details are captured
 - Build Planner v1 shell with job selection, six documented base-stat categories, known stat-effect relationships, equipment slots, one-title rule, skill slots, and non-fabricated planning snapshots
@@ -40,7 +40,7 @@ Factual records should include, whenever possible:
 - verification confidence
 - game version or date context
 - last verified date
-- explicit unknown fields rather than inferred values
+- omission of unsupported factual fields rather than inferred or placeholder values
 
 Current evidence may come from official Discord posts, official game information, or direct in-game captures supplied by the project owner.
 
@@ -103,4 +103,3 @@ The site remains compatible with the project's $0/month target.
 ## Disclaimer
 
 PortalDB is an unofficial fan/community resource and is not affiliated with Roblox Corporation or the developers of The Portal.
-

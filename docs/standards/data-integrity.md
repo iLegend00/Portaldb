@@ -2,12 +2,13 @@
 
 **Status:** Active  
 **Scope:** Entire site and all structured game data  
-**Last Updated:** 2026-08-24
+**Last Updated:** 2026-08-28
 
 ## Core Rules
 
 - Do not guess missing game facts.
-- Unknown information remains explicitly unknown.
+- Publish factual information only when the available evidence is reliable enough to present it as true.
+- Omit unsupported claims and unavailable factual fields or sections instead of filling them with uncertainty labels.
 - Do not invent drop rates, formulas, stats, requirements, locations, rewards, mechanics, recipes, or progression advice.
 - Prefer structured relationships over duplicated prose.
 - Preserve source and provenance metadata.
@@ -20,7 +21,7 @@
 
 ## Applying Evidence
 
-Record the narrowest claim supported by the source. Keep ambiguous wording, incomplete captures, version boundaries, and conflicting reports in structured metadata or notes rather than converting them into unwarranted certainty. A polished interface must never imply facts the data does not contain.
+Record the narrowest claim supported by the source. Keep ambiguous wording, incomplete captures, version boundaries, and conflicting reports in structured metadata or notes rather than converting them into unwarranted certainty or visible filler. A polished interface must never imply facts the data does not contain.
 
 Relationship arrays should link records where the connection is established. Do not manually duplicate the same fact across unrelated records when one structured relationship can power search, details, and future tools.
 
@@ -30,4 +31,3 @@ Relationship arrays should link records where the connection is established. Do 
 - [Provenance UX Standard](provenance-ux.md)
 - [Character Menu Reference](../character-menu-reference.md)
 - [Crafting Calculator Specification](../crafting-calculator-spec.md)
-
