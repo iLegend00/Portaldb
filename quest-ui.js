@@ -138,7 +138,7 @@ function renderQuestChapter(id){
   (chapter.relatedEnemies||[]).forEach(n=>related.push(linkButton(n,'Enemy')));
   root.innerHTML=`<div class="quest-chapter">
     <div class="quest-chapter-head">
-      <div><span class="panel-kicker">MAIN QUEST · CHAPTER ${escapeQuest(chapter.chapter)}</span><h3>${escapeQuest(chapter.name)}</h3><div class="quest-meta-line">${chapter.startingLocation?`<span class="quest-chip">Starts: ${escapeQuest(chapter.startingLocation)}</span>`:''}${chapter.endingLocation?`<span class="quest-chip">Ends: ${escapeQuest(chapter.endingLocation)}</span>`:''}<span class="quest-chip">${escapeQuest(chapter.partCount||chapter.parts?.length||0)} parts</span></div>${flow}${related.length?`<div class="quest-links">${related.join('')}</div>`:''}</div>
+      <div><span class="panel-kicker">MAIN QUEST · CHAPTER ${escapeQuest(chapter.chapter)}</span><div class="verification-heading"><h3>${escapeQuest(chapter.name)}</h3>${questVerificationMarker(chapter)}</div><div class="quest-meta-line">${chapter.startingLocation?`<span class="quest-chip">Starts: ${escapeQuest(chapter.startingLocation)}</span>`:''}${chapter.endingLocation?`<span class="quest-chip">Ends: ${escapeQuest(chapter.endingLocation)}</span>`:''}<span class="quest-chip">${escapeQuest(chapter.partCount||chapter.parts?.length||0)} parts</span></div>${flow}${related.length?`<div class="quest-links">${related.join('')}</div>`:''}</div>
     </div>
     <div class="quest-parts">${(chapter.parts||[]).map(part=>renderQuestPart(part,chapter)).join('')}</div>
   </div>`;
@@ -154,7 +154,7 @@ function renderQuestPart(part,chapter){
   (part.relatedEnemies||[]).forEach(n=>related.push(linkButton(n,'Enemy')));
   locations.forEach(n=>related.push(linkButton(n,'Location')));
   return `<article class="quest-part">
-    <div class="quest-part-header"><div class="quest-part-title"><span class="quest-part-number">${escapeQuest(part.part)}</span><div><div class="verification-heading"><h4>${escapeQuest(part.name)}</h4>${questVerificationMarker(chapter)}</div><small>Quest step</small></div></div></div>
+    <div class="quest-part-header"><div class="quest-part-title"><span class="quest-part-number">${escapeQuest(part.part)}</span><div><h4>${escapeQuest(part.name)}</h4><small>Quest step</small></div></div></div>
     <div class="quest-part-body">
       <div class="quest-block"><strong>Objectives</strong><div class="quest-objectives">${objectives.map(o=>`<div class="quest-objective">${escapeQuest(o)}</div>`).join('')}</div>${part.description?`<div class="quest-note" style="margin-top:12px;border-style:solid;border-color:rgba(255,255,255,.07);color:#bdb0c2">${escapeQuest(part.description)}</div>`:''}</div>
       <div class="quest-block"><strong>Rewards</strong><div class="quest-rewards">${part.rewards.map(r=>`<span class="quest-reward">${escapeQuest(r.amount||r.quantity||1)}× ${escapeQuest(r.name||r.item||r.type)}</span>`).join('')}</div>${related.length?`<div class="quest-links">${related.join('')}</div>`:''}</div>

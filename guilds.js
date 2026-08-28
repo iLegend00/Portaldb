@@ -6,7 +6,7 @@
   let waves=[];
   function activityCard(title,item){
     const requirement=typeof item.requirement==='string'?item.requirement:item.requirement.materials?`Offer ${item.requirement.materials} Materials`:item.requirement.wording;
-    return `<article class="reward-card"><small>CONFIRMED ACTIVITY</small><h3>${esc(title)}</h3><dl><dt>Requirement</dt><dd>${esc(requirement)}</dd><dt>Rewards</dt><dd class="reward-pills">${Object.entries(item.rewards).map(([key,value])=>`<span>${rewardValue(key,value)}</span>`).join('')}</dd></dl></article>`;
+    return `<article class="reward-card"><small>GUILD ACTIVITY</small><h3>${esc(title)}</h3><dl><dt>Requirement</dt><dd>${esc(requirement)}</dd><dt>Rewards</dt><dd class="reward-pills">${Object.entries(item.rewards).map(([key,value])=>`<span>${rewardValue(key,value)}</span>`).join('')}</dd></dl></article>`;
   }
   function renderWaves(query=''){
     const q=query.trim().toLowerCase();

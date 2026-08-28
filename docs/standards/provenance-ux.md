@@ -30,14 +30,40 @@ There is no Unverified classification, no Unknown provenance classification, no 
 
 Do not use uncertainty placeholders as a substitute for reliable information. Do not create empty factual fields simply to display a missing value. Omit unsupported claims and unavailable factual sections until reliable information is ready.
 
-## Selective Marker Placement
+## Provenance Granularity
 
-- Most content does not need a provenance marker.
-- Use a marker only where source context materially helps the reader.
-- One marker covers the largest logical factual unit sharing the same provenance.
-- Database records generally need at most one marker near their primary heading.
-- Multiple markers are appropriate only for materially different sources attached to distinct factual sections.
-- Do not repeat markers beside every sentence, stat, card, field, or row.
+PortalDB uses the minimum amount of visible provenance necessary to communicate source context clearly. A marker is not a badge of quality and must not be attached to every factual detail. The default is no visible provenance marker. Add one only when knowing the source classification materially helps the user understand or trust the information.
+
+### Largest Logical Scope
+
+One marker covers the largest logical unit whose contents share the same provenance. That unit may be an entire page, walkthrough chapter, quest, database record, mechanic section, table, or grouped dataset. Subordinate content inherits the parent marker visually unless a subsection has materially different provenance.
+
+When neighboring facts share provenance, promote the marker to the nearest meaningful shared heading instead of repeating it on child elements. For example, a quest-level marker covers its objectives, rewards, NPCs, and locations.
+
+If an entire page or major feature has one consistent provenance source, a single page-level or introductory marker may be sufficient. Do not add narrower markers merely because the system supports them.
+
+### Mixed Provenance
+
+Multiple markers are appropriate only when logical sections have materially different provenance and that distinction helps the reader. For example, community-tested boss behavior and official patch changes may each have their own marker.
+
+### Routine Content
+
+Do not add markers to every walkthrough objective, quest task, reward, stat row, table cell, NPC name, location name, list item, navigation element, button label, child heading, or repeated fact already covered by a nearby marker.
+
+Avoid repeated visible phrases such as **Verified**, **Community Verified**, **Official Confirmed**, **Confirmed**, **Verified information**, and **Verified data** in normal page copy. The selective symbol and optional source-details popover are sufficient.
+
+### Decision Test
+
+Before adding or retaining a marker, ask:
+
+1. Does the user benefit from knowing the source classification here?
+2. Is this information already covered by a parent marker?
+3. Could one marker at a higher logical level cover these facts?
+4. Does this section have different provenance from surrounding content?
+
+If the answer to the first question is no, remove the marker. If the second or third answer is yes, remove the redundant child marker. Keep a separate marker only when the fourth answer is yes and the distinction is useful.
+
+When in doubt, use fewer markers. PortalDB should feel like a game companion first and a provenance system second.
 
 ## Interaction Behavior
 

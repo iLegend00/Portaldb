@@ -316,7 +316,7 @@ function questsLinkedToNpc(entry){
 }
 
 function renderLinkPills(entries,kind){
-  if(!entries.length) return `<span class="npc-none">None recorded yet.</span>`;
+  if(!entries.length) return "";
   return entries.map((entry,i)=>`<button class="npc-link-pill" data-dialog-link-kind="${kind}" data-dialog-link-index="${i}">${escapeHtml(entry._displayName||entry.name)}</button>`).join("");
 }
 
@@ -325,8 +325,8 @@ function renderNpcDetail(entry){
   const linkedItems=itemsLinkedToNpc(entry);
   const linkedQuests=questsLinkedToNpc(entry);
   const location=entry.location||entry.serviceLocation||"Dewdrop Village";
-  const restock=entry.restockIntervalMinutes?`${entry.restockIntervalMinutes} minutes`:"Not recorded";
-  const partTime=String(entry.tags||[]).toLowerCase().includes("part-time job")?"Confirmed":"Not recorded";
+  const restock=entry.restockIntervalMinutes?`${entry.restockIntervalMinutes} minutes`:"";
+  const partTime=String(entry.tags||[]).toLowerCase().includes("part-time job")?"Available":"";
   const serviceRows=(entry.services||[]).map(s=>{
     const bits=[...(s.inputs||[]),...(s.categories||[])];
     if(s.costField) bits.push("Cost field");
@@ -343,11 +343,11 @@ function renderNpcDetail(entry){
     <div class="npc-title-row"><div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div><p>${escapeHtml(entry.profession||"NPC")}${entry.shopName?` · ${escapeHtml(entry.shopName)}`:""}</p></div></div>
     <p class="npc-summary">${escapeHtml(getDescription(entry))}</p>
     <div class="meta-grid npc-meta-grid">
-      <div class="meta-box"><small>ROLE</small><strong>${escapeHtml(entry.profession||"Not recorded")}</strong></div>
+      ${entry.profession?`<div class="meta-box"><small>ROLE</small><strong>${escapeHtml(entry.profession)}</strong></div>`:""}
       <div class="meta-box"><small>LOCATION / SERVICE</small><strong>${escapeHtml(location)}</strong></div>
-      <div class="meta-box"><small>HOURS</small><strong>${escapeHtml(entry.openHours||entry.availability||"Not recorded")}</strong></div>
-      <div class="meta-box"><small>RESTOCK</small><strong>${escapeHtml(restock)}</strong></div>
-      <div class="meta-box"><small>PART-TIME JOB</small><strong>${escapeHtml(partTime)}</strong></div>
+      ${entry.openHours||entry.availability?`<div class="meta-box"><small>HOURS</small><strong>${escapeHtml(entry.openHours||entry.availability)}</strong></div>`:""}
+      ${restock?`<div class="meta-box"><small>RESTOCK</small><strong>${escapeHtml(restock)}</strong></div>`:""}
+      ${partTime?`<div class="meta-box"><small>PART-TIME JOB</small><strong>${escapeHtml(partTime)}</strong></div>`:""}
     </div>
     ${categories.length?`<section class="npc-section"><div class="npc-section-head"><strong>Shop categories</strong><span>${categories.length} categories</span></div><div class="npc-chip-row">${categories.map(c=>`<span>${escapeHtml(c)}</span>`).join("")}</div></section>`:""}
     ${serviceRows?`<section class="npc-section"><div class="npc-section-head"><strong>Services</strong></div>${serviceRows}</section>`:""}
