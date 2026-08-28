@@ -24,6 +24,7 @@ async function loadData(){
   itemEntries = database.filter(entry=>entry._collection==="items" && !String(entry.id||"").startsWith("demo-"));
   npcEntries = database.filter(entry=>entry._collection==="npcs" && !String(entry.id||"").startsWith("demo-"));
   initItemFinder();
+  applyInitialDatabaseCategory();
 }
 
 function getDescription(entry){
@@ -82,17 +83,21 @@ document.querySelectorAll("[data-query]").forEach(btn=>btn.addEventListener("cli
   input.focus();
 }));
 
-document.querySelectorAll("[data-category]").forEach(btn=>btn.addEventListener("click",()=>{
-  const cat=btn.dataset.category;
+const categoryButtons=[...document.querySelectorAll("[data-category]")];
+const supportedCategoryKeys=new Set(categoryButtons.map(btn=>btn.dataset.category));
+
+function activateDatabaseCategory(cat,{syncUrl=false,focusSearch=true}={}){
+  if(!supportedCategoryKeys.has(cat)) return false;
   if(cat==="items"){
     document.getElementById("item-finder")?.scrollIntoView({behavior:"smooth"});
     document.getElementById("itemFinderSearch")?.focus();
-    return;
-  }
-  if(collections.includes(cat)){
+  } else if(collections.includes(cat)){
     const rows=database.filter(x=>x._collection===cat);
     showResults(rows);
-    if(input){input.value=cat.replace(/s$/,'');input.focus();}
+    if(input){
+      input.value=cat.replace(/s$/,'');
+      if(focusSearch) input.focus();
+    }
   } else {
     if(input) input.value="";
     if(results){
@@ -100,6 +105,22 @@ document.querySelectorAll("[data-category]").forEach(btn=>btn.addEventListener("
       results.classList.remove("hidden");
     }
   }
+  if(syncUrl){
+    const url=new URL(window.location.href);
+    url.searchParams.set("category",cat);
+    window.history.pushState({},"",url);
+  }
+  return true;
+}
+
+function applyInitialDatabaseCategory(){
+  if(!categoryButtons.length) return;
+  const category=new URLSearchParams(window.location.search).get("category");
+  if(category) activateDatabaseCategory(category,{focusSearch:false});
+}
+
+categoryButtons.forEach(btn=>btn.addEventListener("click",()=>{
+  activateDatabaseCategory(btn.dataset.category,{syncUrl:true});
 }));
 
 function normalizeObtain(value){
