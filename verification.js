@@ -81,20 +81,6 @@
     const rect=button.getBoundingClientRect(),width=Math.min(270,window.innerWidth-24),left=Math.max(12,Math.min(window.innerWidth-width-12,rect.left+rect.width/2-width/2));
     node.style.width=`${width}px`;node.style.left=`${left}px`;node.style.top=`${Math.max(12,Math.min(window.innerHeight-node.offsetHeight-12,rect.bottom+8))}px`;
   }
-  function legend(){
-    let dialog=document.getElementById('verificationLegend');
-    if(!dialog){
-      dialog=document.createElement('dialog');dialog.id='verificationLegend';dialog.className='verification-legend';
-      dialog.innerHTML=`<button class="verification-legend-close" type="button" aria-label="Close verification legend">×</button><span class="panel-kicker">PORTALDB PROVENANCE</span><h2>Verification</h2><p>Hover, focus, or tap a verification seal to inspect its source details.</p><div class="verification-legend-list">${Object.entries(states).map(([type,state])=>`<div><span class="verification-seal verification-${type}" aria-hidden="true">${state.icon}</span><strong>${state.label}</strong></div>`).join('')}</div>`;
-      document.body.appendChild(dialog);dialog.querySelector('.verification-legend-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
-    }
-    return dialog;
-  }
-  function installLegendControl(){
-    const host=document.querySelector('.footer')||document.querySelector('main')||document.body;
-    if(document.querySelector('[data-verification-legend]')) return;
-    const button=document.createElement('button');button.type='button';button.className='verification-legend-trigger';button.dataset.verificationLegend='';button.textContent='Verification';button.addEventListener('click',()=>legend().showModal());host.appendChild(button);
-  }
   document.addEventListener('pointerdown',event=>{lastPointerType=event.pointerType;lastPointerAt=Date.now()});
   document.addEventListener('pointerover',event=>{
     if(!hoverQuery.matches)return;
@@ -128,8 +114,6 @@
     if(event.key==='Escape')close();
   });
   window.addEventListener('resize',close);hoverQuery.addEventListener?.('change',close);
-  document.addEventListener('DOMContentLoaded',installLegendControl);
   window.PortalVerification={states,typeFor,metadata,marker,close};
 })();
-
 

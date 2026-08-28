@@ -2,7 +2,7 @@
 
 **Status:** Active  
 **Scope:** Entire site  
-**Last Updated:** 2026-08-24
+**Last Updated:** 2026-08-28
 
 ## Purpose
 
@@ -12,8 +12,8 @@ Internal provenance data must remain detailed. Preserve fields such as `confiden
 
 ## Mandatory Rules
 
-1. The homepage may contain one small provenance explanation or legend.
-2. The existing site-wide footer **Verification** control is approved and must remain subtle, closed by default, and available throughout the site.
+1. The homepage may contain one small provenance explanation.
+2. The site-wide provenance legend is displayed directly in the footer and remains visually secondary to PortalDB branding.
 3. Normal content pages must not repeatedly advertise wording such as “Verified,” “In-game verified,” “Official confirmed,” “Community verified,” “Verified data,” “Verified record,” or “Verified information.”
 4. Raw confidence labels ordinarily belong only inside provenance popovers or the legend, not in normal page copy.
 5. Small provenance symbols may be used when their source context helps the reader.
@@ -24,7 +24,7 @@ Internal provenance data must remain detailed. Preserve fields such as `confiden
 ## Allowed Exceptions
 
 - The homepage's single concise source-symbol explanation.
-- The site-wide footer **Verification** control and its legend.
+- The compact, always-visible site-wide footer provenance legend.
 - Popovers opened by an explicit hover, focus, or tap interaction.
 - A second marker for a materially different source attached to a distinct factual subsection, when that distinction is useful to the reader.
 - Necessary factual context where the source classification itself is the subject being discussed.
@@ -77,7 +77,7 @@ An incomplete field does not automatically need a visible provenance marker.
 - **Mobile/touch:** tapping a marker reveals its provenance details; tapping again or outside dismisses it.
 - Marker controls use a concise accessible label such as “Source details available.”
 - A popover may show method/classification, source, verification date, game version, reference, and notes.
-- The footer legend remains unobtrusive and is never permanently open.
+- The provenance legend is displayed directly in the footer; there is no separate Verification modal or control.
 
 ## Do Not
 
@@ -87,7 +87,7 @@ An incomplete field does not automatically need a visible provenance marker.
 - Add large verification banners, confidence chips, or permanent source panels.
 - Place symbols beside every subordinate fact covered by one record.
 - Add uncertainty markers automatically for every missing field.
-- Duplicate the footer control elsewhere or enlarge it into a primary action.
+- Duplicate or enlarge the footer legend into a primary action.
 
 ## Examples
 
@@ -114,5 +114,8 @@ An incomplete field does not automatically need a visible provenance marker.
 
 ### 2026-08-24 — Provenance is supporting UX, not branding
 
-PortalDB maintains detailed evidence internally but does not advertise verification throughout normal content. The homepage explanation and footer Verification control are approved exceptions. Markers remain subtle and selective.
+PortalDB maintains detailed evidence internally but does not advertise verification throughout normal content. The homepage explanation and direct footer provenance legend are approved exceptions. The legend is supporting UX rather than PortalDB branding, while record-level markers remain subtle, selective, and available on hover, focus, or tap.
 
+### 2026-08-28 — Provenance legend moved into the footer
+
+The four-state provenance legend is always visible in the site footer. The former Verification button and modal are retired; record-level markers continue to expose source details on hover, focus, or tap.
