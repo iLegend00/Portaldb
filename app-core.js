@@ -23,30 +23,11 @@ async function loadData(){
   database = [...sets.flat(),...canonicalPages];
   itemEntries = database.filter(entry=>entry._collection==="items" && !String(entry.id||"").startsWith("demo-"));
   npcEntries = database.filter(entry=>entry._collection==="npcs" && !String(entry.id||"").startsWith("demo-"));
-  renderPreview();
   initItemFinder();
 }
 
 function getDescription(entry){
   return entry.description || entry.notes || entry.status || `${labels[entry._collection] || "ENTRY"} record`;
-}
-
-function renderPreview(){
-  const box=document.getElementById("entryPreview");
-  if(!box) return;
-  const realEntries = database.filter(entry => !String(entry.id || "").startsWith("demo-"));
-  const previewEntries = (realEntries.length ? realEntries : database).slice(0,3);
-  box.innerHTML=previewEntries.map((entry,i)=>`
-    <button class="preview-row" data-preview="${i}">
-      <span class="preview-icon">${["✦","◇","♙","⚔"][i]||"✦"}</span>
-      <span>
-        <strong>${escapeHtml(entry._displayName)}</strong>
-        <small>${escapeHtml(getDescription(entry))}</small>
-      </span>
-      <span class="preview-tag">${labels[entry._collection]||"ENTRY"}</span>
-    </button>
-  `).join("");
-  box.querySelectorAll("[data-preview]").forEach((btn,i)=>btn.addEventListener("click",()=>openEntry(previewEntries[i])));
 }
 
 function search(query){
