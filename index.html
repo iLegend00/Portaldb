@@ -7,7 +7,7 @@
   <title>PortalDB — The Portal Companion</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260819-fantasy-3" /><link rel="stylesheet" href="site-nav.css?v=20260827-global-nav-1" /><link rel="stylesheet" href="site-pages.css?v=20260819-fantasy-3" /><link rel="stylesheet" href="fantasy-theme.css?v=20260819-1" /><link rel="stylesheet" href="home-fantasy.css?v=20260828-featured-pages-1" /><link rel="stylesheet" href="home-responsive.css?v=20260826-independent-haze-1" /><link rel="stylesheet" href="home-category-art.css?v=20260819-4" />
+  <link rel="stylesheet" href="styles.css?v=20260819-fantasy-3" /><link rel="stylesheet" href="site-nav.css?v=20260827-global-nav-1" /><link rel="stylesheet" href="site-pages.css?v=20260819-fantasy-3" /><link rel="stylesheet" href="fantasy-theme.css?v=20260819-1" /><link rel="stylesheet" href="home-fantasy.css?v=20260828-new-here-1" /><link rel="stylesheet" href="home-responsive.css?v=20260826-independent-haze-1" /><link rel="stylesheet" href="home-category-art.css?v=20260819-4" />
   <link rel="stylesheet" href="layout-spacing.css?v=20260825-1" />
 </head>
 <body class="fantasy-home">
@@ -28,6 +28,7 @@
         </div>
         <div class="search-shell"><span class="search-mark">⌕</span><input id="globalSearch" type="search" autocomplete="off" placeholder="Search items, quests, NPCs, bosses..." /><button id="searchButton">Search <span aria-hidden="true">✦</span></button></div>
         <div class="popular-searches"><span>Popular searches:</span><button data-query="Breda">Breda</button><button data-query="Lycaros">Lycaros</button><button data-query="Dewdrop Village">Dewdrop Village</button><button data-query="10KLIKES">10KLIKES</button></div>
+        <a class="hero-onboarding-cue" href="#begin-adventure"><span class="hero-onboarding-symbol" aria-hidden="true">✦</span><strong>New here?</strong><span>Start your adventure ↓</span></a>
         <div id="searchResults" class="search-results hidden"></div>
       </div>
     </section>
@@ -46,7 +47,7 @@
       </div>
     </section>
 
-    <section class="homepage-walkthrough-cta shell" aria-label="PortalDB game walkthrough">
+    <section class="homepage-walkthrough-cta shell" id="begin-adventure" aria-label="PortalDB game walkthrough">
       <div class="homepage-walkthrough-cta-art">
         <img src="assets/home/portaldb-walkthrough-cta.webp?v=20260824-2" alt="PortalDB complete game walkthrough" />
         <a class="homepage-walkthrough-button" href="walkthrough.html" aria-label="Start the PortalDB complete game walkthrough">Start Walkthrough</a>
