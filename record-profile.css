@@ -1,26 +1,76 @@
-dialog.record-profile-dialog{width:min(780px,calc(100% - 30px));max-height:88vh;overflow:auto}
-.record-profile{padding:32px;color:var(--text)}
-.record-profile-header{padding-bottom:18px;border-bottom:1px solid var(--line)}
-.record-profile-header h2{margin:8px 0;color:var(--text);font-size:32px}
-.record-profile-summary{max-width:68ch;margin:10px 0 0;color:var(--muted);line-height:1.7}
-.record-profile-section{margin-top:22px}
-.record-profile-section>h3{margin:0 0 12px;font-size:19px}
-.record-profile-subsection+.record-profile-subsection{margin-top:16px}
-.record-profile-subsection>h4{margin:0 0 9px;color:var(--gold2);font:600 10px/1.3 Cinzel,serif;letter-spacing:.08em;text-transform:uppercase}
-.record-profile-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
-.record-profile-fact{padding:11px;border:1px solid var(--line);border-radius:8px;background:var(--panel2)}
-.record-profile-fact small{display:block;margin-bottom:5px;color:var(--muted);font-size:8px;letter-spacing:.1em;text-transform:uppercase}
-.record-profile-fact strong{font:600 11px/1.45 Inter,sans-serif}
-.record-profile-list{margin:0;padding-left:20px;color:var(--muted);font-size:11px;line-height:1.65}
-.record-profile-list li+li{margin-top:5px}
+:root{--record-navy:#123f68;--record-navy-deep:#082f59;--record-gold:#a77a34;--record-gold-soft:#d2b36f;--record-parchment:#fff9e9;--record-parchment-deep:#f1e1bc;--record-ink:#292720;--record-muted:#665d50;--record-line:rgba(151,109,47,.34)}
+dialog.record-profile-dialog{width:min(860px,calc(100% - 36px));max-height:min(88vh,900px);overflow:auto;border:1px solid #a87d3f;border-radius:16px;background:linear-gradient(145deg,#fffbed 0%,#f4e5c4 100%);box-shadow:0 28px 80px rgba(7,31,52,.32),inset 0 0 0 4px rgba(255,255,255,.34)}
+.record-profile-dialog .dialog-close{position:sticky;z-index:5;float:right;top:12px;right:12px;margin:12px 12px -46px 0;border-color:#b58b49;background:var(--record-navy);color:#fff4d4;box-shadow:0 4px 12px rgba(7,38,65,.2);transition:background-color .18s,border-color .18s,box-shadow .18s,color .18s}
+.record-profile-dialog .dialog-close:hover{background:#185b8e;border-color:#d2ad63;box-shadow:0 5px 16px rgba(7,38,65,.28)}
+.record-profile-dialog .dialog-close:focus-visible{outline:3px solid #087cb8;outline-offset:3px}
+.record-profile{padding:38px 42px 44px;color:var(--record-ink);font-family:Inter,sans-serif}
+.record-profile-header{position:relative;padding:4px 56px 26px 0;border-bottom:1px solid var(--record-line)}
+.record-profile-header:after{content:"";position:absolute;bottom:-1px;left:0;width:88px;height:2px;background:linear-gradient(90deg,var(--record-gold),transparent)}
+.record-profile .type{color:var(--record-gold);font:700 10px/1.2 Cinzel,serif;letter-spacing:.16em}
+.record-profile-header .verification-heading{justify-content:flex-start;align-items:center;gap:10px;margin-top:7px}
+.record-profile-header h2{min-width:0;margin:0;color:var(--record-navy-deep);font:700 clamp(32px,5vw,48px)/1.06 Cinzel,serif;letter-spacing:-.035em;overflow-wrap:anywhere}
+.record-profile-summary{max-width:68ch;margin:16px 0 0;color:var(--record-muted);font:400 13px/1.75 Inter,sans-serif}
+.record-profile-section{margin-top:26px}
+.record-profile-section>h3{display:flex;align-items:center;gap:12px;margin:0 0 14px;color:var(--record-navy-deep);font:700 20px/1.25 Cinzel,serif;letter-spacing:-.015em}
+.record-profile-section>h3:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,rgba(167,122,52,.72),transparent)}
+.record-profile-subsection+.record-profile-subsection{margin-top:20px}
+.record-profile-subsection>h4{margin:0 0 10px;color:#896126;font:700 10px/1.35 Cinzel,serif;letter-spacing:.12em;text-transform:uppercase}
+.record-profile-facts{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;overflow:hidden;border:1px solid #c3a269;border-radius:9px;background:var(--record-line)}
+.record-profile-fact{grid-column:span 2;min-width:0;padding:13px 15px;background:rgba(255,252,240,.94)}
+.record-profile-facts:has(.record-profile-fact:only-child){width:min(100%,280px);grid-template-columns:minmax(0,280px)}
+.record-profile-facts:has(.record-profile-fact:only-child) .record-profile-fact{grid-column:auto}
+.record-profile-facts:has(.record-profile-fact:nth-child(2):last-child){width:min(100%,520px);grid-template-columns:repeat(2,minmax(0,260px))}
+.record-profile-facts:has(.record-profile-fact:nth-child(2):last-child) .record-profile-fact{grid-column:auto}
+.record-profile-facts:has(.record-profile-fact:nth-child(4):last-child) .record-profile-fact{grid-column:span 3}
+.record-profile-facts:has(.record-profile-fact:nth-child(5):last-child) .record-profile-fact:nth-last-child(-n+2){grid-column:span 3}
+.record-profile-fact small{display:block;margin-bottom:6px;color:#916a2f;font:700 8px/1.25 Cinzel,serif;letter-spacing:.11em;text-transform:uppercase}
+.record-profile-fact strong{display:block;color:var(--record-navy-deep);font:650 12px/1.45 Inter,sans-serif;overflow-wrap:anywhere}
+.record-profile-list{display:grid;gap:0;margin:0;padding:0;list-style:none;border-top:1px solid rgba(156,119,59,.25)}
+.record-profile-list li{position:relative;padding:10px 12px 10px 30px;border-bottom:1px solid rgba(156,119,59,.27);background:rgba(255,252,240,.38);color:var(--record-ink);font:500 11px/1.55 Inter,sans-serif;overflow-wrap:anywhere}
+.record-profile-list li:before{content:"✦";position:absolute;left:11px;top:10px;color:#a27635;font-size:8px;line-height:1.9}
+.record-profile-combat .record-profile-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border:0}
+.record-profile-combat .record-profile-list li{padding:10px 12px;border:1px solid #cfb57e;border-radius:6px;background:rgba(255,251,238,.72);color:var(--record-navy-deep);font-weight:650}
+.record-profile-combat .record-profile-list li:before{display:none}
 .record-profile-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.record-profile-link,.record-profile-label{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--text);font-size:11px;text-align:left}
-.record-profile-link b{color:var(--gold2);font-size:8px;text-transform:uppercase}
-.record-profile-link:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
-.record-reward-list,.record-profile-detail-list,.record-wave-list{display:grid;gap:7px;margin:0}
-.record-reward-list>div,.record-profile-detail-list>div,.record-wave-list>div{display:flex;justify-content:space-between;gap:16px;padding:9px 11px;border-bottom:1px solid var(--line)}
-.record-profile-detail-list dt{color:var(--muted);font-size:10px}.record-profile-detail-list dd{margin:0;font-size:11px;font-weight:600;text-align:right}
-.record-reward-list span,.record-wave-list span{color:var(--muted);font-size:10px}.record-reward-list strong,.record-wave-list strong{font:600 11px Inter,sans-serif}
-.record-mechanic-groups{display:grid;gap:9px}.record-mechanic-groups article{padding:12px;border:1px solid var(--line);border-radius:8px}.record-mechanic-groups article>p{margin:5px 0;font-size:10px}
-@media(max-width:600px){dialog.record-profile-dialog{width:calc(100% - 20px);max-height:92vh}.record-profile{padding:26px 18px}.record-profile-facts,.record-profile-links{grid-template-columns:1fr}.record-reward-list>div,.record-profile-detail-list>div,.record-wave-list>div{align-items:flex-start}.record-wave-list>div{flex-direction:column;gap:3px}}
+.record-profile-link,.record-profile-label{display:flex;align-items:center;justify-content:space-between;gap:14px;min-width:0;padding:12px 14px;border:1px solid #b9985e;border-radius:7px;background:#fffaf0;color:var(--record-navy-deep);font:650 11px/1.45 Inter,sans-serif;text-align:left;overflow-wrap:anywhere}
+.record-profile-link{cursor:pointer;box-shadow:0 3px 8px rgba(75,52,23,.06);transition:background-color .18s,border-color .18s,box-shadow .18s,color .18s}
+.record-profile-link b{flex:none;color:#956a2d;font:700 8px/1.2 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.record-profile-link:hover{border-color:#8f641f;background:#fffdf6;box-shadow:0 5px 14px rgba(66,49,25,.13)}
+.record-profile-link:focus-visible{outline:3px solid #087cb8;outline-offset:2px}
+.record-profile-label{justify-content:flex-start;border-color:rgba(173,140,84,.46);background:rgba(255,250,240,.48);color:var(--record-muted);box-shadow:none}
+.record-reward-list,.record-profile-detail-list,.record-wave-list{display:grid;gap:0;margin:0;overflow:hidden;border:1px solid #c8aa71;border-radius:7px;background:rgba(255,252,240,.6)}
+.record-reward-list>div,.record-profile-detail-list>div,.record-wave-list>div{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:10px 13px;border-bottom:1px solid rgba(156,119,59,.28)}
+.record-reward-list>div:last-child,.record-profile-detail-list>div:last-child,.record-wave-list>div:last-child{border-bottom:0}
+.record-profile-detail-list dt,.record-reward-list span,.record-wave-list span{min-width:0;color:var(--record-muted);font:500 11px/1.5 Inter,sans-serif;overflow-wrap:anywhere}
+.record-profile-detail-list dd{margin:0;color:var(--record-navy-deep);font:650 11px/1.45 Inter,sans-serif;text-align:right;overflow-wrap:anywhere}
+.record-reward-list strong,.record-wave-list strong{flex:none;color:var(--record-navy-deep);font:700 12px/1.4 Inter,sans-serif;white-space:nowrap}
+.record-profile-rewards{padding:18px;border:1px solid rgba(171,129,62,.42);border-radius:9px;background:rgba(255,249,231,.48)}
+.record-profile-rewards>h3{margin-bottom:16px}
+.record-mechanic-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.record-mechanic-groups article{min-width:0;padding:14px;border:1px solid #cfb57e;border-radius:7px;background:rgba(255,251,238,.62)}
+.record-mechanic-groups article>strong{color:var(--record-navy-deep);font:700 12px/1.35 Cinzel,serif}
+.record-mechanic-groups article>p{margin:6px 0 10px;color:var(--record-muted);font:500 11px/1.55 Inter,sans-serif}
+.record-profile-patches .record-profile-list li,.record-profile-updates .record-profile-list li{padding:11px 13px 11px 37px}
+.record-profile-patches .record-profile-list li:before,.record-profile-updates .record-profile-list li:before{content:"—";left:14px;top:9px;color:var(--record-gold);font:700 11px Cinzel,serif}
+.record-profile-codes .record-profile-header h2{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:clamp(30px,5vw,43px);letter-spacing:.03em}
+.record-profile-jobs{max-width:720px}
+@media(max-width:760px){
+  dialog.record-profile-dialog{width:min(100% - 20px,860px);max-height:92vh;border-radius:13px}
+  .record-profile{padding:28px 20px 32px}
+  .record-profile-header{padding-right:42px;padding-bottom:22px}
+  .record-profile-header h2{font-size:clamp(28px,9vw,40px)}
+  .record-profile-facts,.record-profile-facts:has(.record-profile-fact:only-child),.record-profile-facts:has(.record-profile-fact:nth-child(2):last-child){width:100%;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .record-profile-fact,.record-profile-facts:has(.record-profile-fact:nth-child(4):last-child) .record-profile-fact,.record-profile-facts:has(.record-profile-fact:nth-child(5):last-child) .record-profile-fact:nth-last-child(-n+2){grid-column:auto}
+  .record-profile-combat .record-profile-list,.record-profile-links,.record-mechanic-groups{grid-template-columns:1fr}
+}
+@media(max-width:420px){
+  .record-profile{padding:25px 16px 28px}
+  .record-profile-section>h3{font-size:18px}
+  .record-profile-facts,.record-profile-facts:has(.record-profile-fact:only-child),.record-profile-facts:has(.record-profile-fact:nth-child(2):last-child){grid-template-columns:1fr}
+  .record-profile-fact{grid-column:auto}
+  .record-reward-list>div,.record-profile-detail-list>div,.record-wave-list>div{align-items:flex-start;gap:12px}
+  .record-wave-list>div{flex-direction:column;gap:3px}
+  .record-profile-rewards{padding:14px}
+}
+@media(prefers-reduced-motion:reduce){.record-profile-dialog .dialog-close,.record-profile-link{transition:none}}
 

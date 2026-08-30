@@ -489,6 +489,13 @@ function renderRewardEntries(rewards){
   return `<div class="record-reward-list">${rewards.map(reward=>`<div><span>${escapeHtml(reward.name||reward.item)}</span><strong>×${escapeHtml(displayNumber(reward.amount||reward.quantity||1))}</strong></div>`).join("")}</div>`;
 }
 
+function rankLabel(rank){
+  const value=Number(rank);
+  const mod100=value%100;
+  const suffix=mod100>=11&&mod100<=13?"th":value%10===1?"st":value%10===2?"nd":value%10===3?"rd":"th";
+  return `${value}${suffix} Place`;
+}
+
 function renderSimpleFacts(object){
   if(!object) return "";
   const rows=Object.entries(object).filter(([,value])=>["string","number","boolean"].includes(typeof value));
@@ -504,8 +511,8 @@ function renderBossDetail(entry){
   if(entry.knownDrops?.length) rewardParts.push(`<div class="record-profile-subsection"><h4>Known Drops</h4>${renderLinkedNames(entry.knownDrops)}</div>`);
   if(entry.possiblePrizes?.length) rewardParts.push(`<div class="record-profile-subsection"><h4>Possible Prizes</h4>${renderTextList(entry.possiblePrizes)}</div>`);
   if(entry.participationRewards) rewardParts.push(`<div class="record-profile-subsection"><h4>Participation Rewards</h4>${renderRewardMap(entry.participationRewards)}</div>`);
-  if(entry.topDamageRewards) rewardParts.push(`<div class="record-profile-subsection"><h4>Top Damage Rewards</h4>${renderRewardMap(Object.fromEntries(Object.entries(entry.topDamageRewards).map(([rank,value])=>[`Rank ${rank}`,value])))}</div>`);
-  if(entry.additionalTopDamageMagnifyingGlassRewards) rewardParts.push(`<div class="record-profile-subsection"><h4>Additional Magnifying Glass Rewards</h4>${renderRewardMap(Object.fromEntries(Object.entries(entry.additionalTopDamageMagnifyingGlassRewards).map(([rank,value])=>[`Rank ${rank}`,value])))}</div>`);
+  if(entry.topDamageRewards) rewardParts.push(`<div class="record-profile-subsection"><h4>Top Damage Rewards</h4>${renderRewardMap(Object.fromEntries(Object.entries(entry.topDamageRewards).map(([rank,value])=>[rankLabel(rank),value])))}</div>`);
+  if(entry.additionalTopDamageMagnifyingGlassRewards) rewardParts.push(`<div class="record-profile-subsection"><h4>Additional Magnifying Glass Rewards</h4>${renderRewardMap(Object.fromEntries(Object.entries(entry.additionalTopDamageMagnifyingGlassRewards).map(([rank,value])=>[rankLabel(rank),value])))}</div>`);
   const eventFacts={minimumPlayersForAutoSpawn:entry.minimumPlayersForAutoSpawn,prizeThresholdDamage:entry.prizeThresholdDamage,participationDamage:entry.participationDamage,basePrizePool:entry.basePrizePool,previousBasePrizePool:entry.previousBasePrizePool,maxPrizes:entry.maxPrizes,rewardDelivery:entry.rewardDelivery,normalDrops:entry.normalDrops,dropsExp:entry.dropsExp,dropsTria:entry.dropsTria};
   const eventNotes=[entry.eventCalendarDisplay,entry.disconnectPersistence,entry.payoutLimit,entry.topDamageMagnifyingGlassDistribution].filter(Boolean);
   const eventBody=`${renderSimpleFacts(eventFacts)}${entry.countsFor?.length?`<div class="record-profile-subsection"><h4>Counts For</h4>${renderTextList(entry.countsFor)}</div>`:""}${eventNotes.length?renderTextList(eventNotes):""}`;
