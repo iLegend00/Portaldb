@@ -105,7 +105,7 @@ function renderDatabaseCategory(cat){
   if(databaseBrowserTitle) databaseBrowserTitle.textContent=databaseCategoryTitles[cat]||cat;
   if(databaseBrowserDescription) databaseBrowserDescription.textContent=databaseCategoryDescriptions[cat]||"";
   if(databaseBrowserCount) databaseBrowserCount.textContent=`${rows.length} ${rows.length===1?"record":"records"}`;
-  databaseBrowserResults.innerHTML=rows.map((entry,index)=>`<button type="button" class="database-record" data-database-record="${index}"><span>${escapeHtml(labels[entry._collection]||"ENTRY")}</span><strong>${escapeHtml(entry._displayName)}</strong><small>${escapeHtml(getDescription(entry))}</small></button>`).join("");
+  databaseBrowserResults.innerHTML=rows.map((entry,index)=>`<button type="button" class="database-record" data-database-record="${index}"><span>${escapeHtml(labels[entry._collection]||"ENTRY")}</span><strong>${escapeHtml(entry._displayName)}</strong><small>${escapeHtml(getDescription(entry))}</small><b class="database-record-action">View details →</b></button>`).join("");
   databaseBrowserResults.querySelectorAll("[data-database-record]").forEach((btn,index)=>btn.addEventListener("click",()=>openEntry(rows[index])));
   databaseBrowser.classList.remove("hidden");
 }
