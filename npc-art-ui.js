@@ -1,2 +1,25 @@
-(()=>{const keyFor=name=>String(name||'').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');function apply(){const detail=document.querySelector('#dialogContent .npc-detail');if(!detail||detail.querySelector('.npc-portrait-block'))return;const name=detail.querySelector('h2')?.textContent?.trim();if(!name)return;const key=keyFor(name);const art=window.PORTALDB_NPC_ART?.[key];if(!art)return;const block=document.createElement('section');block.className='npc-portrait-block';block.innerHTML=`<div class="npc-portrait-frame"><img src="${art}" alt="PortalDB illustrated interpretation of ${name}"></div><div class="npc-portrait-copy"><small>PORTALDB CHARACTER ART</small><strong>${name}</strong><p>Original PortalDB illustration inspired by the NPC's in-game appearance and role.</p><em>Fan-made interpretation — not official game artwork.</em></div>`;const title=detail.querySelector('.npc-title-row');if(title)title.before(block);else detail.prepend(block)}const target=document.getElementById('dialogContent');if(target){new MutationObserver(apply).observe(target,{childList:true,subtree:true});apply()}})();
+(()=>{
+  const keyFor=name=>String(name||"").trim().toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+
+  function apply(){
+    const profile=document.querySelector("#dialogContent .npc-profile");
+    if(!profile) return;
+    const portrait=profile.querySelector(".npc-profile-portrait");
+    if(!portrait||portrait.querySelector("img")) return;
+    const name=profile.querySelector("h2")?.textContent?.trim();
+    const art=window.PORTALDB_NPC_ART?.[keyFor(name)];
+    if(!art){profile.classList.add("npc-profile-no-art");return;}
+
+    const image=document.createElement("img");
+    image.src=art;
+    image.alt=`Fan illustration of ${name}`;
+    const attribution=document.createElement("small");
+    attribution.className="npc-profile-art-note";
+    attribution.textContent="PortalDB fan illustration";
+    portrait.append(image,attribution);
+  }
+
+  const target=document.getElementById("dialogContent");
+  if(target){new MutationObserver(apply).observe(target,{childList:true,subtree:true});apply();}
+})();
 

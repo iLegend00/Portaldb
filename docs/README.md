@@ -21,6 +21,7 @@ Feature-specific UX and implementation decisions live under [`features/`](featur
 - [Full Walkthrough Architecture](features/walkthrough.md) — navigation, responsive field-guide layout, data sources, future chapter growth, and artwork hooks.
 - [Homepage Information Architecture](features/homepage.md) — player-intent quick access, section ordering, modular card art, and temporary destinations.
 - [Database Architecture](features/database.md) — grouped category browsing, dedicated search and browse regions, and deep-link/history behavior.
+- [NPC Profile Architecture](features/npc-profiles.md) — conditional profile sections, factual-field omission, supporting portrait art, and linked content behavior.
 
 ## Data and evidence
 
@@ -33,3 +34,4 @@ Feature-specific UX and implementation decisions live under [`features/`](featur
 Folder-specific rules may live beside the files they govern. These local documents supplement the standards above and should remain discoverable from their working directory. For example, [`source-assets/artwork/README.md`](../source-assets/artwork/README.md) defines handling rules for canonical artwork masters.
 
 When standards overlap, apply the more specific rule without weakening the site-wide data-integrity or provenance requirements. If a task explicitly changes a permanent decision, update the relevant document in the same change.
+

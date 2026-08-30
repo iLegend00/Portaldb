@@ -365,37 +365,44 @@ function renderNpcDetail(entry){
   const categories=npcShopCategories(entry);
   const linkedItems=itemsLinkedToNpc(entry);
   const linkedQuests=questsLinkedToNpc(entry);
-  const location=entry.location||entry.serviceLocation||"Dewdrop Village";
+  const location=entry.location||entry.serviceLocation||"";
   const restock=entry.restockIntervalMinutes?`${entry.restockIntervalMinutes} minutes`:"";
-  const partTime=String(entry.tags||[]).toLowerCase().includes("part-time job")?"Available":"";
+  const partTime=(entry.tags||[]).some(tag=>String(tag).toLowerCase()==="part-time job")?"Available":"";
+  const quickInfo=[
+    entry.profession?`<div class="meta-box"><small>ROLE</small><strong>${escapeHtml(entry.profession)}</strong></div>`:"",
+    location?`<div class="meta-box"><small>LOCATION / SERVICE</small><strong>${escapeHtml(location)}</strong></div>`:"",
+    entry.openHours||entry.availability?`<div class="meta-box"><small>HOURS</small><strong>${escapeHtml(entry.openHours||entry.availability)}</strong></div>`:"",
+    restock?`<div class="meta-box"><small>RESTOCK</small><strong>${escapeHtml(restock)}</strong></div>`:"",
+    partTime?`<div class="meta-box"><small>PART-TIME JOB</small><strong>${escapeHtml(partTime)}</strong></div>`:""
+  ].filter(Boolean).join("");
   const serviceRows=(entry.services||[]).map(s=>{
-    const bits=[...(s.inputs||[]),...(s.categories||[])];
-    if(s.costField) bits.push("Cost field");
-    return `<div class="npc-service-row"><strong>${escapeHtml(s.name)}</strong>${bits.length?`<span>${escapeHtml(bits.join(" · "))}</span>`:""}</div>`;
+    const details=[];
+    if(s.inputs?.length) details.push(`Inputs: ${s.inputs.join(", ")}`);
+    if(s.categories?.length) details.push(`Categories: ${s.categories.join(", ")}`);
+    if(s.cost!==undefined&&s.cost!==null) details.push(`Cost: ${s.cost}${s.currency?` ${s.currency}`:""}`);
+    const distinctProvenance=s.confidence&&String(s.confidence)!==String(entry.confidence)?verificationMarker(s):"";
+    return `<div class="npc-service-row"><div class="verification-heading"><strong>${escapeHtml(s.name)}</strong>${distinctProvenance}</div>${details.length?`<span>${escapeHtml(details.join(" · "))}</span>`:""}</div>`;
   }).join("");
   const dialogue=(entry.dialogueOptions||[]).map(line=>`<li>${escapeHtml(line)}</li>`).join("");
+  const factLabels={locationIntro:"Location",localReferrals:"Local Referrals",portalRumors:"Portal Rumors",familyConnection:"Family Connection"};
   const facts=entry.dialogueFacts?Object.entries(entry.dialogueFacts).map(([k,v])=>{
     const value=Array.isArray(v)?v.join(", "):v;
-    return `<div class="npc-fact"><small>${escapeHtml(prettyKey(k))}</small><span>${escapeHtml(value)}</span></div>`;
+    return `<div class="npc-fact"><small>${escapeHtml(factLabels[k]||prettyKey(k))}</small><span>${escapeHtml(value)}</span></div>`;
   }).join(""):"";
+  const shopServices=categories.length||serviceRows;
+  const dialogueInformation=dialogue||facts;
+  const connections=linkedItems.length||linkedQuests.length;
 
-  return `<div class="dialog-body npc-detail">
+  return `<div class="dialog-body npc-detail npc-profile">
     <div class="type">NPC PROFILE</div>
-    <div class="npc-title-row"><div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div><p>${escapeHtml(entry.profession||"NPC")}${entry.shopName?` · ${escapeHtml(entry.shopName)}`:""}</p></div></div>
-    <p class="npc-summary">${escapeHtml(getDescription(entry))}</p>
-    <div class="meta-grid npc-meta-grid">
-      ${entry.profession?`<div class="meta-box"><small>ROLE</small><strong>${escapeHtml(entry.profession)}</strong></div>`:""}
-      <div class="meta-box"><small>LOCATION / SERVICE</small><strong>${escapeHtml(location)}</strong></div>
-      ${entry.openHours||entry.availability?`<div class="meta-box"><small>HOURS</small><strong>${escapeHtml(entry.openHours||entry.availability)}</strong></div>`:""}
-      ${restock?`<div class="meta-box"><small>RESTOCK</small><strong>${escapeHtml(restock)}</strong></div>`:""}
-      ${partTime?`<div class="meta-box"><small>PART-TIME JOB</small><strong>${escapeHtml(partTime)}</strong></div>`:""}
-    </div>
-    ${categories.length?`<section class="npc-section"><div class="npc-section-head"><strong>Shop categories</strong><span>${categories.length} categories</span></div><div class="npc-chip-row">${categories.map(c=>`<span>${escapeHtml(c)}</span>`).join("")}</div></section>`:""}
-    ${serviceRows?`<section class="npc-section"><div class="npc-section-head"><strong>Services</strong></div>${serviceRows}</section>`:""}
-    ${dialogue?`<section class="npc-section"><div class="npc-section-head"><strong>Dialogue options</strong></div><ol class="npc-dialogue-list">${dialogue}</ol></section>`:""}
-    ${facts?`<section class="npc-section"><div class="npc-section-head"><strong>Dialogue facts</strong></div><div class="npc-facts">${facts}</div></section>`:""}
-    <section class="npc-section"><div class="npc-section-head"><strong>Known items</strong><span>Linked from Item Finder</span></div><div class="npc-link-row">${renderLinkPills(linkedItems,"item")}</div></section>
-    <section class="npc-section"><div class="npc-section-head"><strong>Related quests</strong><span>Linked from quest records</span></div><div class="npc-link-row">${renderLinkPills(linkedQuests,"quest")}</div></section>
+    <header class="npc-profile-identity">
+      <div class="npc-profile-portrait" aria-label="NPC portrait"></div>
+      <div class="npc-profile-identity-copy"><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div>${entry.profession?`<p class="npc-profile-role">${escapeHtml(entry.profession)}</p>`:""}${entry.shopName?`<p class="npc-profile-service-name">${escapeHtml(entry.shopName)}</p>`:""}${entry.description?`<p class="npc-profile-summary">${escapeHtml(entry.description)}</p>`:""}</div>
+    </header>
+    ${quickInfo?`<section class="npc-profile-section npc-profile-quick-info"><h3>Quick Info</h3><div class="meta-grid npc-meta-grid">${quickInfo}</div></section>`:""}
+    ${shopServices?`<section class="npc-profile-section npc-profile-services"><h3>Shop / Services</h3>${categories.length?`<div class="npc-profile-subsection"><h4>Shop Categories</h4><div class="npc-chip-row">${categories.map(c=>`<span>${escapeHtml(c)}</span>`).join("")}</div></div>`:""}${serviceRows?`<div class="npc-profile-subsection"><h4>Services</h4>${serviceRows}</div>`:""}</section>`:""}
+    ${dialogueInformation?`<section class="npc-profile-section npc-profile-dialogue"><h3>Dialogue &amp; Information</h3>${dialogue?`<div class="npc-profile-subsection"><h4>Dialogue Options</h4><ol class="npc-dialogue-list">${dialogue}</ol></div>`:""}${facts?`<div class="npc-profile-subsection"><h4>Documented Facts</h4><div class="npc-facts">${facts}</div></div>`:""}</section>`:""}
+    ${connections?`<section class="npc-profile-section npc-profile-connections"><h3>Connected Content</h3>${linkedItems.length?`<div class="npc-profile-subsection"><h4>Known Items</h4><div class="npc-link-row">${renderLinkPills(linkedItems,"item")}</div></div>`:""}${linkedQuests.length?`<div class="npc-profile-subsection"><h4>Related Quests</h4><div class="npc-link-row">${renderLinkPills(linkedQuests,"quest")}</div></div>`:""}</section>`:""}
   </div>`;
 }
 
@@ -459,7 +466,7 @@ function openEntry(entry){
   }
   const entryDialog=document.getElementById("entryDialog");
   if(isDatabasePage&&!entryDialog?.open&&document.activeElement instanceof HTMLElement) databaseDialogTrigger=document.activeElement;
-  entryDialog?.showModal();
+  if(entryDialog&&!entryDialog.open) entryDialog.showModal();
   results?.classList.add("hidden");
 }
 
@@ -486,3 +493,4 @@ function escapeHtml(v){
 }
 
 loadData().catch(console.error);
+

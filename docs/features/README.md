@@ -7,5 +7,7 @@ This directory records durable architecture and UX decisions for major PortalDB 
 - [Full Walkthrough Architecture](walkthrough.md)
 - [Homepage Information Architecture](homepage.md)
 - [Database Architecture](database.md)
+- [NPC Profile Architecture](npc-profiles.md)
 
 Return to the [master documentation index](../README.md).
+
