@@ -358,7 +358,7 @@ function questsLinkedToNpc(entry){
 
 function renderLinkPills(entries,kind){
   if(!entries.length) return "";
-  return entries.map((entry,i)=>`<button class="npc-link-pill" data-dialog-link-kind="${kind}" data-dialog-link-index="${i}">${escapeHtml(entry._displayName||entry.name)}</button>`).join("");
+  return entries.map((entry,i)=>`<button class="npc-link-card" data-dialog-link-kind="${kind}" data-dialog-link-index="${i}"><span>${escapeHtml(entry._displayName||entry.name)}</span><b aria-hidden="true">Open ↗</b></button>`).join("");
 }
 
 function renderNpcDetail(entry){
@@ -377,9 +377,9 @@ function renderNpcDetail(entry){
   ].filter(Boolean).join("");
   const serviceRows=(entry.services||[]).map(s=>{
     const details=[];
-    if(s.inputs?.length) details.push(`Inputs: ${s.inputs.join(", ")}`);
-    if(s.categories?.length) details.push(`Categories: ${s.categories.join(", ")}`);
-    if(s.cost!==undefined&&s.cost!==null) details.push(`Cost: ${s.cost}${s.currency?` ${s.currency}`:""}`);
+    if(s.inputs?.length) details.push(s.inputs.join(" · "));
+    if(s.categories?.length) details.push(s.categories.join(" · "));
+    if(s.cost!==undefined&&s.cost!==null) details.push(`${s.cost}${s.currency?` ${s.currency}`:""}`);
     const distinctProvenance=s.confidence&&String(s.confidence)!==String(entry.confidence)?verificationMarker(s):"";
     return `<div class="npc-service-row"><div class="verification-heading"><strong>${escapeHtml(s.name)}</strong>${distinctProvenance}</div>${details.length?`<span>${escapeHtml(details.join(" · "))}</span>`:""}</div>`;
   }).join("");
@@ -394,10 +394,9 @@ function renderNpcDetail(entry){
   const connections=linkedItems.length||linkedQuests.length;
 
   return `<div class="dialog-body npc-detail npc-profile">
-    <div class="type">NPC PROFILE</div>
     <header class="npc-profile-identity">
       <div class="npc-profile-portrait" aria-label="NPC portrait"></div>
-      <div class="npc-profile-identity-copy"><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div>${entry.profession?`<p class="npc-profile-role">${escapeHtml(entry.profession)}</p>`:""}${entry.shopName?`<p class="npc-profile-service-name">${escapeHtml(entry.shopName)}</p>`:""}${entry.description?`<p class="npc-profile-summary">${escapeHtml(entry.description)}</p>`:""}</div>
+      <div class="npc-profile-identity-copy"><div class="type">NPC PROFILE</div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div>${entry.profession?`<p class="npc-profile-role">${escapeHtml(entry.profession)}</p>`:""}${entry.shopName?`<p class="npc-profile-service-name">${escapeHtml(entry.shopName)}</p>`:""}${entry.description?`<p class="npc-profile-summary">${escapeHtml(entry.description)}</p>`:""}</div>
     </header>
     ${quickInfo?`<section class="npc-profile-section npc-profile-quick-info"><h3>Quick Info</h3><div class="meta-grid npc-meta-grid">${quickInfo}</div></section>`:""}
     ${shopServices?`<section class="npc-profile-section npc-profile-services"><h3>Shop / Services</h3>${categories.length?`<div class="npc-profile-subsection"><h4>Shop Categories</h4><div class="npc-chip-row">${categories.map(c=>`<span>${escapeHtml(c)}</span>`).join("")}</div></div>`:""}${serviceRows?`<div class="npc-profile-subsection"><h4>Services</h4>${serviceRows}</div>`:""}</section>`:""}
@@ -452,6 +451,8 @@ function openEntry(entry){
   if(entry.href){window.location.href=entry.href;return}
   const dialog=document.getElementById("dialogContent");
   if(!dialog) return;
+  const entryDialog=document.getElementById("entryDialog");
+  entryDialog?.classList.toggle("npc-profile-dialog",entry._collection==="npcs");
   if(entry._collection==="npcs"){
     dialog.innerHTML=renderNpcDetail(entry);
     bindNpcDialogLinks(entry);
@@ -464,7 +465,6 @@ function openEntry(entry){
       if(linked) openEntry(linked);
     }));
   }
-  const entryDialog=document.getElementById("entryDialog");
   if(isDatabasePage&&!entryDialog?.open&&document.activeElement instanceof HTMLElement) databaseDialogTrigger=document.activeElement;
   if(entryDialog&&!entryDialog.open) entryDialog.showModal();
   results?.classList.add("hidden");
