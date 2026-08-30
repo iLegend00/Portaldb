@@ -53,7 +53,6 @@ dialog.record-profile-dialog{width:min(860px,calc(100% - 36px));max-height:min(8
 .record-profile-patches .record-profile-list li,.record-profile-updates .record-profile-list li{padding:11px 13px 11px 37px}
 .record-profile-patches .record-profile-list li:before,.record-profile-updates .record-profile-list li:before{content:"—";left:14px;top:9px;color:var(--record-gold);font:700 11px Cinzel,serif}
 .record-profile-codes .record-profile-header h2{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:clamp(30px,5vw,43px);letter-spacing:.03em}
-.record-profile-jobs{max-width:720px}
 @media(max-width:760px){
   dialog.record-profile-dialog{width:min(100% - 20px,860px);max-height:92vh;border-radius:13px}
   .record-profile{padding:28px 20px 32px}

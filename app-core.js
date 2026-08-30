@@ -442,7 +442,7 @@ function displayNumber(value){
 }
 
 function recordLabel(key){
-  const names={hp:"HP",class:"Job / Class",locationType:"Type",parentLocation:"Parent Location",durationMinutes:"Duration",minimumPlayersForAutoSpawn:"Minimum Players",prizeThresholdDamage:"Prize Threshold",participationDamage:"Participation Threshold",rewardDelivery:"Reward Delivery",disconnectPersistence:"Reconnect Behavior",eventCalendarDisplay:"Event Calendar",normalDrops:"Normal Drops",dropsExp:"EXP Drops",dropsTria:"Tria Drops",basePrizePool:"Base Prize Pool",previousBasePrizePool:"Previous Prize Pool",maxPrizes:"Maximum Prizes",guildExp:"Guild EXP",guildCoin:"Guild Coin",postedDate:"Published",tutorialChoice:"Tutorial Choice",variantChance:"Variant Chance",startingMemberCapacity:"Starting Capacity",maximumUpgradedCapacity:"Maximum Capacity",maximumPercent:"Current Maximum",previousMaximumPercent:"Previous Maximum"};
+  const names={hp:"HP",class:"Job / Class",locationType:"Type",parentLocation:"Parent Location",durationMinutes:"Duration",minimumPlayersForAutoSpawn:"Minimum Players",prizeThresholdDamage:"Prize Threshold",participationDamage:"Participation Threshold",rewardDelivery:"Reward Delivery",disconnectPersistence:"Reconnect Behavior",eventCalendarDisplay:"Event Calendar",normalDrops:"Normal Drops",dropsExp:"EXP Drops",dropsTria:"Tria Drops",basePrizePool:"Base Prize Pool",previousBasePrizePool:"Previous Prize Pool",maxPrizes:"Maximum Prizes",guildExp:"Guild EXP",guildCoin:"Guild Coin",postedDate:"Published",tutorialChoice:"Tutorial Choice",variantChance:"Variant Chance",startingMemberCapacity:"Starting Capacity",maximumUpgradedCapacity:"Maximum Capacity",maximumPercent:"Current Maximum",previousMaximumPercent:"Previous Maximum",arcaneDefenseWave:"Arcane Defense Wave",guaranteedHitWithinStuds:"Guaranteed Hit Range",distanceBeyondStudsUses3D:"3D Distance Begins After",attackConeDegreesAtAnnouncement:"Attack Cone at Announcement",largeHeightDifferenceMisses:"Large Height Difference Misses"};
   return names[key]||prettyKey(key);
 }
 
@@ -486,7 +486,7 @@ function renderRewardMap(rewards){
 
 function renderRewardEntries(rewards){
   if(!rewards?.length) return "";
-  return `<div class="record-reward-list">${rewards.map(reward=>`<div><span>${escapeHtml(reward.name||reward.item)}</span><strong>×${escapeHtml(displayNumber(reward.amount||reward.quantity||1))}</strong></div>`).join("")}</div>`;
+  return `<div class="record-reward-list">${rewards.map(reward=>`<div><span>${escapeHtml(reward.name||reward.item)}</span><strong>×${escapeHtml(displayNumber(reward.amount??reward.quantity??1))}</strong></div>`).join("")}</div>`;
 }
 
 function rankLabel(rank){
@@ -537,12 +537,12 @@ function renderLocationDetail(entry){
 }
 
 function renderMechanicDetail(entry){
-  const quickItems=[["Version",entry.version],["Creation NPC",entry.creationNpc],["Creation Cost",entry.creationCost?`${displayNumber(entry.creationCost.amount)} ${entry.creationCost.currency}`:""],["Starting Capacity",entry.startingMemberCapacity],["Maximum Capacity",entry.maximumUpgradedCapacity],["Current Maximum",entry.maximumPercent!==undefined?`${entry.maximumPercent}%`:""],["Previous Maximum",entry.previousMaximumPercent!==undefined?`${entry.previousMaximumPercent}%`:""]];
+  const quickItems=[["Version",entry.version],["Creation NPC",entry.creationNpc],["Creation Cost",entry.creationCost?`${displayNumber(entry.creationCost.amount)} ${entry.creationCost.currency}`:""],["Starting Capacity",entry.startingMemberCapacity],["Maximum Capacity",entry.maximumUpgradedCapacity],["Current Maximum",entry.maximumPercent!==undefined?`${entry.maximumPercent}%`:""],["Previous Maximum",entry.previousMaximumPercent!==undefined?`${entry.previousMaximumPercent}%`:""],["Started By",entry.startedBy],["Manual Start",entry.manualStart===true?"Required":entry.manualStart===false?"Not required":""]];
   if(entry.arcaneDefense){quickItems.push(["Availability",entry.arcaneDefense.availability],["Started By",entry.arcaneDefense.startedBy],["Manual Start",entry.arcaneDefense.manualStart?"Required":""])}
   const parts=[];
   if(entry.prizePoolAdditions?.length) parts.push(`<div class="record-profile-subsection"><h4>Prize Pool Additions</h4>${renderTextList(entry.prizePoolAdditions.map(item=>`${item.item} — ${item.version}`))}</div>`);
   if(entry.history?.length) parts.push(`<div class="record-profile-subsection"><h4>History</h4>${renderTextList(entry.history.map(item=>`${item.version}: ${item.facts.join(" · ")}`))}</div>`);
-  if(entry.activityRewards) parts.push(`<div class="record-profile-subsection"><h4>Activity Rewards</h4><div class="record-mechanic-groups">${Object.entries(entry.activityRewards).map(([key,value])=>`<article><strong>${escapeHtml(recordLabel(key))}</strong><p>${escapeHtml(typeof value.requirement==="string"?value.requirement:Object.entries(value.requirement||{}).map(([k,v])=>`${recordLabel(k)}: ${displayNumber(v)}`).join(" · "))}</p>${renderRewardMap(value.rewards)}</article>`).join("")}</div></div>`);
+  if(entry.activityRewards) parts.push(`<div class="record-profile-subsection"><h4>Activity Rewards</h4><div class="record-mechanic-groups">${Object.entries(entry.activityRewards).map(([key,value])=>{const requirement=typeof value.requirement==="string"?value.requirement:value.requirement?.wording||Object.entries(value.requirement||{}).map(([k,v])=>`${recordLabel(k)}: ${displayNumber(v)}`).join(" · ");return `<article><strong>${escapeHtml(recordLabel(key))}</strong><p>${escapeHtml(requirement)}</p>${renderRewardMap(value.rewards)}</article>`}).join("")}</div></div>`);
   if(entry.guildBase?.use) parts.push(`<div class="record-profile-subsection"><h4>Guild Base</h4>${renderTextList([entry.guildBase.use])}</div>`);
   if(entry.perWaveBaseRewards) parts.push(`<div class="record-profile-subsection"><h4>Per-Wave Base Rewards</h4>${renderRewardMap(entry.perWaveBaseRewards)}</div>`);
   if(entry.waves?.length) parts.push(`<div class="record-profile-subsection"><h4>Wave Rewards</h4><div class="record-wave-list">${entry.waves.map(wave=>`<div><strong>Wave ${escapeHtml(wave.wave)}</strong><span>${escapeHtml(displayNumber(wave.tria))} Tria · ${escapeHtml(wave.reward)}</span></div>`).join("")}</div></div>`);
@@ -560,7 +560,7 @@ function renderPatchDetail(entry){
 function renderUpdateDetail(entry){
   const changes=entry.changes?.map(change=>Object.entries(change).map(([key,value])=>`${recordLabel(key)}: ${value}`).join(" · "))||[];
   const details=entry.highlights?.length?entry.highlights:changes;
-  const body=`${renderTextList(details)}${renderSimpleFacts(entry.rules)}${entry.notes?renderTextList([entry.notes]):""}`;
+  const body=`${renderTextList(details)}${renderSimpleFacts(entry.rules)}`;
   return `${renderRecordHeader(entry)}${renderRecordQuickInfo([["Type",entry.type],["Version",entry.version],["Date",entry.date]])}${renderRecordSection("Update Details",body)}`;
 }
 
@@ -604,6 +604,7 @@ function openEntry(entry){
   const dialog=document.getElementById("dialogContent");
   if(!dialog) return;
   const entryDialog=document.getElementById("entryDialog");
+  const replacingOpenDialog=Boolean(entryDialog?.open);
   entryDialog?.classList.toggle("npc-profile-dialog",entry._collection==="npcs");
   entryDialog?.classList.toggle("record-profile-dialog",recordProfileCollections.has(entry._collection));
   if(entry._collection==="npcs"){
@@ -626,6 +627,7 @@ function openEntry(entry){
     databaseDialogTrigger=document.activeElement.closest(".search-results")?input:document.activeElement;
   }
   if(entryDialog&&!entryDialog.open) entryDialog.showModal();
+  else if(replacingOpenDialog) document.getElementById("dialogClose")?.focus();
   results?.classList.add("hidden");
 }
 

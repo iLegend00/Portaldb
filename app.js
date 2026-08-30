@@ -9,12 +9,12 @@
   document.head.appendChild(npcProfileCss);
   const recordProfileCss=document.createElement('link');
   recordProfileCss.rel='stylesheet';
-  recordProfileCss.href='record-profile.css?v=20260830-record-profile-pass2-1';
+  recordProfileCss.href='record-profile.css?v=20260830-record-profile-pass3-1';
   document.head.appendChild(recordProfileCss);
   const verificationCss=document.createElement('link');
   verificationCss.rel='stylesheet';
   verificationCss.href='verification.css?v=20260828-two-state-provenance-1';
   document.head.appendChild(verificationCss);
-  document.write('<script src="verification.js?v=20260828-two-state-provenance-1"><\/script><script src="npc-art.js?v=20260819-all-npcs-1"><\/script><script src="app-core.js?v=20260830-record-profile-pass2-1"><\/script>');
+  document.write('<script src="verification.js?v=20260828-two-state-provenance-1"><\/script><script src="npc-art.js?v=20260819-all-npcs-1"><\/script><script src="app-core.js?v=20260830-record-profile-pass3-1"><\/script>');
 })();
 
