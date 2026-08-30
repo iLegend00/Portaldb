@@ -1,5 +1,4 @@
 .npc-profile-portrait img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;image-rendering:auto}
 .npc-profile-art-note{display:block;color:#76684f;font:500 9px/1.3 Inter,sans-serif;letter-spacing:.04em;text-align:center}
-.npc-profile-no-art .npc-profile-portrait{display:none}
-.npc-profile-no-art .npc-profile-identity{grid-template-columns:1fr}
+.npc-profile-identity.npc-profile-no-art{grid-template-columns:1fr}
 

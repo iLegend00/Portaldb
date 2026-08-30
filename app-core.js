@@ -330,11 +330,28 @@ function initItemFinder(){
 }
 
 function npcShopCategories(entry){
+  const seen=new Set();
   return [
     ...(entry.shopCategories||[]),
     ...(entry.weaponCategories||[]),
     ...(entry.armorCategories||[])
-  ];
+  ].filter(category=>{
+    const key=String(category).trim().toLowerCase();
+    if(!key||seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function npcArtKey(name){
+  return String(name||"").trim().toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+}
+
+function renderNpcPortrait(entry){
+  const name=entry._displayName||entry.name||"NPC";
+  const art=window.PORTALDB_NPC_ART?.[npcArtKey(name)];
+  if(!art) return "";
+  return `<div class="npc-profile-portrait"><img src="${escapeHtml(art)}" alt="Illustration of ${escapeHtml(name)}"><small class="npc-profile-art-note">PortalDB fan illustration</small></div>`;
 }
 
 function itemsLinkedToNpc(entry){
@@ -392,10 +409,11 @@ function renderNpcDetail(entry){
   const shopServices=categories.length||serviceRows;
   const dialogueInformation=dialogue||facts;
   const connections=linkedItems.length||linkedQuests.length;
+  const portrait=renderNpcPortrait(entry);
 
   return `<div class="dialog-body npc-detail npc-profile">
-    <header class="npc-profile-identity">
-      <div class="npc-profile-portrait" aria-label="NPC portrait"></div>
+    <header class="npc-profile-identity ${portrait?"":"npc-profile-no-art"}">
+      ${portrait}
       <div class="npc-profile-identity-copy"><div class="type">NPC PROFILE</div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div>${entry.profession?`<p class="npc-profile-role">${escapeHtml(entry.profession)}</p>`:""}${entry.shopName?`<p class="npc-profile-service-name">${escapeHtml(entry.shopName)}</p>`:""}${entry.description?`<p class="npc-profile-summary">${escapeHtml(entry.description)}</p>`:""}</div>
     </header>
     ${quickInfo?`<section class="npc-profile-section npc-profile-quick-info"><h3>Quick Info</h3><div class="meta-grid npc-meta-grid">${quickInfo}</div></section>`:""}
@@ -465,7 +483,9 @@ function openEntry(entry){
       if(linked) openEntry(linked);
     }));
   }
-  if(isDatabasePage&&!entryDialog?.open&&document.activeElement instanceof HTMLElement) databaseDialogTrigger=document.activeElement;
+  if(isDatabasePage&&!entryDialog?.open&&document.activeElement instanceof HTMLElement){
+    databaseDialogTrigger=document.activeElement.closest(".search-results")?input:document.activeElement;
+  }
   if(entryDialog&&!entryDialog.open) entryDialog.showModal();
   results?.classList.add("hidden");
 }
