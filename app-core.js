@@ -118,6 +118,20 @@ function renderDatabaseCategory(cat){
   databaseBrowser.classList.remove("hidden");
 }
 
+function revealDatabaseBrowserIfNeeded(){
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    if(!databaseBrowser) return;
+    const rect=databaseBrowser.getBoundingClientRect();
+    const viewportHeight=window.innerHeight||document.documentElement.clientHeight;
+    const visibleHeight=Math.max(0,Math.min(rect.bottom,viewportHeight)-Math.max(rect.top,0));
+    const referenceHeight=Math.min(rect.height,viewportHeight);
+    const substantiallyVisible=referenceHeight>0&&visibleHeight>=Math.min(280,referenceHeight*.45);
+    if(substantiallyVisible) return;
+    const reducedMotion=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+    databaseBrowser.scrollIntoView({behavior:reducedMotion?"auto":"smooth",block:"start"});
+  }));
+}
+
 function activateDatabaseCategory(cat,{syncUrl=false,reveal=false}={}){
   if(!supportedCategoryKeys.has(cat)){
     resetDatabaseBrowser();
@@ -130,10 +144,7 @@ function activateDatabaseCategory(cat,{syncUrl=false,reveal=false}={}){
     url.searchParams.set("category",cat);
     window.history.pushState({category:cat},"",url);
   }
-  if(reveal && window.matchMedia("(max-width:700px)").matches){
-    const reducedMotion=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-    requestAnimationFrame(()=>databaseBrowser?.scrollIntoView({behavior:reducedMotion?"auto":"smooth",block:"start"}));
-  }
+  if(reveal) revealDatabaseBrowserIfNeeded();
   return true;
 }
 

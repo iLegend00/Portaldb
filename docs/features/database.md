@@ -1,7 +1,7 @@
 # Database Architecture
 
 **Status:** Active  
-**Scope:** `database.html`, `app-core.js`, and `site-pages.css`  
+**Scope:** `database.html`, `database.css`, `site-pages.css`, `app.js`, and `app-core.js`  
 **Last updated:** 2026-08-30
 
 The Database page has two independent discovery paths. Global search renders only in the search-results region. Category selection renders only in the dedicated category browser beneath the category index; it never writes a category name into search or reuses the search-results region.
