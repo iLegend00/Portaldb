@@ -52,11 +52,13 @@ function search(query){
 
 const input=document.getElementById("globalSearch");
 const results=document.getElementById("searchResults");
+const isDatabasePage=Boolean(document.getElementById("databaseBrowser"));
+let databaseDialogTrigger=null;
 
 function showResults(rows){
   if(!results) return;
   if(!rows.length){
-    results.innerHTML=`<div class="result-row"><span><strong>No matches yet.</strong><small>PortalDB is still being expanded.</small></span></div>`;
+    results.innerHTML=isDatabasePage?`<div class="result-row"><span><strong>No matches.</strong></span></div>`:`<div class="result-row"><span><strong>No matches yet.</strong><small>PortalDB is still being expanded.</small></span></div>`;
     results.classList.remove("hidden");
     return;
   }
@@ -70,9 +72,15 @@ function showResults(rows){
   results.querySelectorAll("[data-result]").forEach((btn,i)=>btn.addEventListener("click",()=>openEntry(rows[i])));
 }
 
+function hideSearchResults(){
+  if(!results) return;
+  results.innerHTML="";
+  results.classList.add("hidden");
+}
+
 if(input){
-  input.addEventListener("input",()=>showResults(search(input.value)));
-  document.getElementById("searchButton")?.addEventListener("click",()=>showResults(search(input.value)));
+  input.addEventListener("input",()=>isDatabasePage&&!input.value.trim()?hideSearchResults():showResults(search(input.value)));
+  document.getElementById("searchButton")?.addEventListener("click",()=>isDatabasePage&&!input.value.trim()?hideSearchResults():showResults(search(input.value)));
   document.getElementById("focusSearch")?.addEventListener("click",()=>input.focus());
 }
 
@@ -94,7 +102,7 @@ const databaseCategoryTitles={npcs:"NPCs",bosses:"Bosses",locations:"Locations",
 const databaseCategoryDescriptions={npcs:"Merchants, services, shops, quest relationships, and other NPC information.",bosses:"Encounters, mechanics, drops, schedules, and related content.",locations:"Villages, regions, sub-areas, services, and related content.",races:"Races, variants, stat bonuses, and character information.",jobs:"Warrior, Defender, Enchanter, Cleric, and related job information.",skills:"Skills, costs, cooldowns, effects, and related mechanics.",mechanics:"Combat, regeneration, account systems, and gameplay rules.",codes:"Published redemption codes and their rewards.",patches:"Versioned patch notes and gameplay changes.",updates:"Major game updates and feature additions."};
 
 function resetDatabaseBrowser(){
-  categoryButtons.forEach(btn=>{btn.classList.remove("is-active");btn.removeAttribute("aria-current");});
+  categoryButtons.forEach(btn=>{btn.classList.remove("is-active");btn.setAttribute("aria-pressed","false");});
   databaseBrowser?.classList.add("hidden");
   if(databaseBrowserResults) databaseBrowserResults.innerHTML="";
 }
@@ -104,23 +112,27 @@ function renderDatabaseCategory(cat){
   const rows=database.filter(entry=>entry._collection===cat);
   if(databaseBrowserTitle) databaseBrowserTitle.textContent=databaseCategoryTitles[cat]||cat;
   if(databaseBrowserDescription) databaseBrowserDescription.textContent=databaseCategoryDescriptions[cat]||"";
-  if(databaseBrowserCount) databaseBrowserCount.textContent=`${rows.length} ${rows.length===1?"record":"records"}`;
-  databaseBrowserResults.innerHTML=rows.map((entry,index)=>`<button type="button" class="database-record" data-database-record="${index}"><span>${escapeHtml(labels[entry._collection]||"ENTRY")}</span><strong>${escapeHtml(entry._displayName)}</strong><small>${escapeHtml(getDescription(entry))}</small><b class="database-record-action">View details →</b></button>`).join("");
+  if(databaseBrowserCount){databaseBrowserCount.textContent=rows.length?`${rows.length} ${rows.length===1?"record":"records"}`:"";databaseBrowserCount.classList.toggle("hidden",!rows.length);}
+  databaseBrowserResults.innerHTML=rows.length?rows.map((entry,index)=>`<button type="button" class="database-record" data-database-record="${index}"><span>${escapeHtml(labels[entry._collection]||"ENTRY")}</span><strong>${escapeHtml(entry._displayName)}</strong><small>${escapeHtml(getDescription(entry))}</small><b class="database-record-action">View details →</b></button>`).join(""):`<p class="database-empty-state">No entries available.</p>`;
   databaseBrowserResults.querySelectorAll("[data-database-record]").forEach((btn,index)=>btn.addEventListener("click",()=>openEntry(rows[index])));
   databaseBrowser.classList.remove("hidden");
 }
 
-function activateDatabaseCategory(cat,{syncUrl=false}={}){
+function activateDatabaseCategory(cat,{syncUrl=false,reveal=false}={}){
   if(!supportedCategoryKeys.has(cat)){
     resetDatabaseBrowser();
     return false;
   }
-  categoryButtons.forEach(btn=>{const active=btn.dataset.category===cat;btn.classList.toggle("is-active",active);if(active)btn.setAttribute("aria-current","true");else btn.removeAttribute("aria-current");});
+  categoryButtons.forEach(btn=>{const active=btn.dataset.category===cat;btn.classList.toggle("is-active",active);btn.setAttribute("aria-pressed",String(active));});
   renderDatabaseCategory(cat);
   if(syncUrl){
     const url=new URL(window.location.href);
     url.searchParams.set("category",cat);
     window.history.pushState({category:cat},"",url);
+  }
+  if(reveal && window.matchMedia("(max-width:700px)").matches){
+    const reducedMotion=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+    requestAnimationFrame(()=>databaseBrowser?.scrollIntoView({behavior:reducedMotion?"auto":"smooth",block:"start"}));
   }
   return true;
 }
@@ -132,7 +144,7 @@ function applyInitialDatabaseCategory(){
 }
 
 categoryButtons.forEach(btn=>btn.addEventListener("click",()=>{
-  activateDatabaseCategory(btn.dataset.category,{syncUrl:true});
+  activateDatabaseCategory(btn.dataset.category,{syncUrl:true,reveal:true});
 }));
 
 window.addEventListener("popstate",()=>{
@@ -434,15 +446,25 @@ function openEntry(entry){
       if(linked) openEntry(linked);
     }));
   }
-  document.getElementById("entryDialog")?.showModal();
+  const entryDialog=document.getElementById("entryDialog");
+  if(isDatabasePage&&!entryDialog?.open&&document.activeElement instanceof HTMLElement) databaseDialogTrigger=document.activeElement;
+  entryDialog?.showModal();
   results?.classList.add("hidden");
 }
 
 document.getElementById("dialogClose")?.addEventListener("click",()=>document.getElementById("entryDialog")?.close());
+document.getElementById("entryDialog")?.addEventListener("close",()=>{
+  if(isDatabasePage&&databaseDialogTrigger?.isConnected) databaseDialogTrigger.focus();
+  databaseDialogTrigger=null;
+});
 
 document.addEventListener("keydown",e=>{
   if(e.key==="/"&&input&&document.activeElement!==input){e.preventDefault();input.focus()}
-  if(e.key==="Escape")results?.classList.add("hidden");
+  if(e.key==="Escape"){
+    results?.classList.add("hidden");
+    const entryDialog=document.getElementById("entryDialog");
+    if(isDatabasePage&&entryDialog?.open){e.preventDefault();entryDialog.close();}
+  }
 });
 document.addEventListener("click",e=>{
   if(!e.target.closest(".search-shell")&&!e.target.closest(".search-results")&&!e.target.closest("[data-query]"))results?.classList.add("hidden");

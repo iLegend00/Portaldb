@@ -7,7 +7,7 @@
   <title>PortalDB — Database</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="site-nav.css?v=20260827-global-nav-1" /><link rel="stylesheet" href="site-pages.css?v=20260830-database-architecture-1" /><link rel="stylesheet" href="database.css?v=20260830-database-visual-1" /><link rel="stylesheet" href="npc-art.css" /><link rel="stylesheet" href="fantasy-theme.css?v=20260819-1" />
+  <link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="site-nav.css?v=20260827-global-nav-1" /><link rel="stylesheet" href="site-pages.css?v=20260830-database-pass3-2" /><link rel="stylesheet" href="database.css?v=20260830-database-pass3-2" /><link rel="stylesheet" href="npc-art.css" /><link rel="stylesheet" href="fantasy-theme.css?v=20260819-1" />
   <link rel="stylesheet" href="layout-spacing.css?v=20260825-1" />
 </head>
 <body class="database-page">
@@ -20,25 +20,25 @@
       <section class="database-group" aria-labelledby="worldContentTitle"><h2 id="worldContentTitle">World &amp; Content</h2><div class="database-group-grid">
         <a class="database-category-card" href="item-finder.html"><span>ITEMS</span><h3>Items</h3><p>Weapons, armor, tools, materials, consumables, and acquisition sources.</p><b class="database-card-action">Open Item Finder →</b></a>
         <a class="database-category-card" href="quests.html"><span>QUESTS</span><h3>Quests</h3><p>Main-story progression, objectives, rewards, NPCs, and locations.</p><b class="database-card-action">Open Quest Guide →</b></a>
-        <button type="button" class="database-category-card" data-category="npcs" aria-controls="databaseBrowser"><span>NPCS</span><h3>NPCs</h3><p>Merchants, services, shops, quest relationships, and other NPC information.</p><b class="database-card-action">Browse →</b></button>
-        <button type="button" class="database-category-card" data-category="bosses" aria-controls="databaseBrowser"><span>BOSSES</span><h3>Bosses</h3><p>Encounters, mechanics, drops, schedules, and related content.</p><b class="database-card-action">Browse →</b></button>
-        <button type="button" class="database-category-card" data-category="locations" aria-controls="databaseBrowser"><span>LOCATIONS</span><h3>Locations</h3><p>Villages, regions, sub-areas, services, and related content.</p><b class="database-card-action">Browse →</b></button>
+        <button type="button" class="database-category-card" data-category="npcs" aria-controls="databaseBrowser" aria-pressed="false"><span>NPCS</span><h3>NPCs</h3><p>Merchants, services, shops, quest relationships, and other NPC information.</p><b class="database-card-action">Browse →</b></button>
+        <button type="button" class="database-category-card" data-category="bosses" aria-controls="databaseBrowser" aria-pressed="false"><span>BOSSES</span><h3>Bosses</h3><p>Encounters, mechanics, drops, schedules, and related content.</p><b class="database-card-action">Browse →</b></button>
+        <button type="button" class="database-category-card" data-category="locations" aria-controls="databaseBrowser" aria-pressed="false"><span>LOCATIONS</span><h3>Locations</h3><p>Villages, regions, sub-areas, services, and related content.</p><b class="database-card-action">Browse →</b></button>
       </div></section>
       <section class="database-group" aria-labelledby="characterTitle"><h2 id="characterTitle">Character</h2><div class="database-group-grid">
-        <button type="button" class="database-category-card" data-category="races" aria-controls="databaseBrowser"><span>RACES</span><h3>Races</h3><p>Races, variants, stat bonuses, and character information.</p><b class="database-card-action">Browse →</b></button>
-        <button type="button" class="database-category-card" data-category="jobs" aria-controls="databaseBrowser"><span>JOBS</span><h3>Jobs</h3><p>Warrior, Defender, Enchanter, Cleric, and related job information.</p><b class="database-card-action">Browse →</b></button>
-        <button type="button" class="database-category-card" data-category="skills" aria-controls="databaseBrowser"><span>SKILLS</span><h3>Skills</h3><p>Skills, costs, cooldowns, effects, and related mechanics.</p><b class="database-card-action">Browse →</b></button>
+        <button type="button" class="database-category-card" data-category="races" aria-controls="databaseBrowser" aria-pressed="false"><span>RACES</span><h3>Races</h3><p>Races, variants, stat bonuses, and character information.</p><b class="database-card-action">Browse →</b></button>
+        <button type="button" class="database-category-card" data-category="jobs" aria-controls="databaseBrowser" aria-pressed="false"><span>JOBS</span><h3>Jobs</h3><p>Warrior, Defender, Enchanter, Cleric, and related job information.</p><b class="database-card-action">Browse →</b></button>
+        <button type="button" class="database-category-card" data-category="skills" aria-controls="databaseBrowser" aria-pressed="false"><span>SKILLS</span><h3>Skills</h3><p>Skills, costs, cooldowns, effects, and related mechanics.</p><b class="database-card-action">Browse →</b></button>
       </div></section>
       <section class="database-group" aria-labelledby="gameSystemsTitle"><h2 id="gameSystemsTitle">Game Systems</h2><div class="database-group-grid">
-        <button type="button" class="database-category-card" data-category="mechanics" aria-controls="databaseBrowser"><span>MECHANICS</span><h3>Mechanics</h3><p>Combat, regeneration, account systems, and gameplay rules.</p><b class="database-card-action">Browse →</b></button>
+        <button type="button" class="database-category-card" data-category="mechanics" aria-controls="databaseBrowser" aria-pressed="false"><span>MECHANICS</span><h3>Mechanics</h3><p>Combat, regeneration, account systems, and gameplay rules.</p><b class="database-card-action">Browse →</b></button>
       </div></section>
       <section class="database-group" aria-labelledby="newsReferenceTitle"><h2 id="newsReferenceTitle">News &amp; Reference</h2><div class="database-group-grid">
-        <button type="button" class="database-category-card" data-category="codes" aria-controls="databaseBrowser"><span>CODES</span><h3>Codes</h3><p>Published redemption codes and their rewards.</p><b class="database-card-action">Browse →</b></button>
-        <button type="button" class="database-category-card" data-category="patches" aria-controls="databaseBrowser"><span>PATCHES</span><h3>Patch History</h3><p>Versioned patch notes and gameplay changes.</p><b class="database-card-action">Browse →</b></button>
-        <button type="button" class="database-category-card" data-category="updates" aria-controls="databaseBrowser"><span>UPDATES</span><h3>Updates</h3><p>Major game updates and feature additions.</p><b class="database-card-action">Browse →</b></button>
+        <button type="button" class="database-category-card" data-category="codes" aria-controls="databaseBrowser" aria-pressed="false"><span>CODES</span><h3>Codes</h3><p>Published redemption codes and their rewards.</p><b class="database-card-action">Browse →</b></button>
+        <button type="button" class="database-category-card" data-category="patches" aria-controls="databaseBrowser" aria-pressed="false"><span>PATCHES</span><h3>Patch History</h3><p>Versioned patch notes and gameplay changes.</p><b class="database-card-action">Browse →</b></button>
+        <button type="button" class="database-category-card" data-category="updates" aria-controls="databaseBrowser" aria-pressed="false"><span>UPDATES</span><h3>Updates</h3><p>Major game updates and feature additions.</p><b class="database-card-action">Browse →</b></button>
       </div></section>
     </section>
-    <section id="databaseBrowser" class="database-browser hidden" tabindex="-1" aria-labelledby="databaseBrowserTitle">
+    <section id="databaseBrowser" class="database-browser hidden" tabindex="-1" aria-labelledby="databaseBrowserTitle" aria-live="polite">
       <header class="database-browser-header"><div><span class="panel-kicker">CATEGORY BROWSER</span><h2 id="databaseBrowserTitle"></h2><p id="databaseBrowserDescription"></p></div><span id="databaseBrowserCount" class="database-browser-count"></span></header>
       <div id="databaseBrowserResults" class="database-browser-results"></div>
     </section>
@@ -46,7 +46,7 @@
   <footer class="footer shell"><div><strong>PORTALDB</strong><p>Unofficial community resource. Not affiliated with Roblox or The Portal's developers.</p></div><aside class="footer-provenance" aria-label="Provenance legend"><span class="footer-provenance-title">PROVENANCE</span><div class="footer-provenance-items"><span class="footer-provenance-item"><span class="verification-seal verification-official" aria-hidden="true">✦</span><span>Official confirmed</span></span><span class="footer-provenance-item"><span class="verification-seal verification-community" aria-hidden="true">✓</span><span>Community verified</span></span></div></aside></footer>
   <dialog id="entryDialog"><button id="dialogClose" class="dialog-close">×</button><div id="dialogContent"></div></dialog>
   <script src="npc-art.js?v=20260819-all-npcs-1"></script>
-  <script src="app.js?v=20260830-database-visual-1"></script>
+  <script src="app.js?v=20260830-database-pass3-2"></script>
   <script src="npc-art-ui.js"></script>
 </body>
 </html>
