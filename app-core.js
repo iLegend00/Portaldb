@@ -85,30 +85,42 @@ document.querySelectorAll("[data-query]").forEach(btn=>btn.addEventListener("cli
 
 const categoryButtons=[...document.querySelectorAll("[data-category]")];
 const supportedCategoryKeys=new Set(categoryButtons.map(btn=>btn.dataset.category));
+const databaseBrowser=document.getElementById("databaseBrowser");
+const databaseBrowserTitle=document.getElementById("databaseBrowserTitle");
+const databaseBrowserDescription=document.getElementById("databaseBrowserDescription");
+const databaseBrowserCount=document.getElementById("databaseBrowserCount");
+const databaseBrowserResults=document.getElementById("databaseBrowserResults");
+const databaseCategoryTitles={npcs:"NPCs",bosses:"Bosses",locations:"Locations",races:"Races",jobs:"Jobs",skills:"Skills",mechanics:"Mechanics",codes:"Codes",patches:"Patch History",updates:"Updates"};
+const databaseCategoryDescriptions={npcs:"Merchants, services, shops, quest relationships, and other NPC information.",bosses:"Encounters, mechanics, drops, schedules, and related content.",locations:"Villages, regions, sub-areas, services, and related content.",races:"Races, variants, stat bonuses, and character information.",jobs:"Warrior, Defender, Enchanter, Cleric, and related job information.",skills:"Skills, costs, cooldowns, effects, and related mechanics.",mechanics:"Combat, regeneration, account systems, and gameplay rules.",codes:"Published redemption codes and their rewards.",patches:"Versioned patch notes and gameplay changes.",updates:"Major game updates and feature additions."};
 
-function activateDatabaseCategory(cat,{syncUrl=false,focusSearch=true}={}){
-  if(!supportedCategoryKeys.has(cat)) return false;
-  if(cat==="items"){
-    document.getElementById("item-finder")?.scrollIntoView({behavior:"smooth"});
-    document.getElementById("itemFinderSearch")?.focus();
-  } else if(collections.includes(cat)){
-    const rows=database.filter(x=>x._collection===cat);
-    showResults(rows);
-    if(input){
-      input.value=cat.replace(/s$/,'');
-      if(focusSearch) input.focus();
-    }
-  } else {
-    if(input) input.value="";
-    if(results){
-      results.innerHTML=`<div class="result-row"><span><strong>${cat[0].toUpperCase()+cat.slice(1)} is planned.</strong><small>This section becomes active after the underlying data model is ready.</small></span></div>`;
-      results.classList.remove("hidden");
-    }
+function resetDatabaseBrowser(){
+  categoryButtons.forEach(btn=>{btn.classList.remove("is-active");btn.removeAttribute("aria-current");});
+  databaseBrowser?.classList.add("hidden");
+  if(databaseBrowserResults) databaseBrowserResults.innerHTML="";
+}
+
+function renderDatabaseCategory(cat){
+  if(!databaseBrowser || !databaseBrowserResults) return;
+  const rows=database.filter(entry=>entry._collection===cat);
+  if(databaseBrowserTitle) databaseBrowserTitle.textContent=databaseCategoryTitles[cat]||cat;
+  if(databaseBrowserDescription) databaseBrowserDescription.textContent=databaseCategoryDescriptions[cat]||"";
+  if(databaseBrowserCount) databaseBrowserCount.textContent=`${rows.length} ${rows.length===1?"record":"records"}`;
+  databaseBrowserResults.innerHTML=rows.map((entry,index)=>`<button type="button" class="database-record" data-database-record="${index}"><span>${escapeHtml(labels[entry._collection]||"ENTRY")}</span><strong>${escapeHtml(entry._displayName)}</strong><small>${escapeHtml(getDescription(entry))}</small></button>`).join("");
+  databaseBrowserResults.querySelectorAll("[data-database-record]").forEach((btn,index)=>btn.addEventListener("click",()=>openEntry(rows[index])));
+  databaseBrowser.classList.remove("hidden");
+}
+
+function activateDatabaseCategory(cat,{syncUrl=false}={}){
+  if(!supportedCategoryKeys.has(cat)){
+    resetDatabaseBrowser();
+    return false;
   }
+  categoryButtons.forEach(btn=>{const active=btn.dataset.category===cat;btn.classList.toggle("is-active",active);if(active)btn.setAttribute("aria-current","true");else btn.removeAttribute("aria-current");});
+  renderDatabaseCategory(cat);
   if(syncUrl){
     const url=new URL(window.location.href);
     url.searchParams.set("category",cat);
-    window.history.pushState({},"",url);
+    window.history.pushState({category:cat},"",url);
   }
   return true;
 }
@@ -116,12 +128,18 @@ function activateDatabaseCategory(cat,{syncUrl=false,focusSearch=true}={}){
 function applyInitialDatabaseCategory(){
   if(!categoryButtons.length) return;
   const category=new URLSearchParams(window.location.search).get("category");
-  if(category) activateDatabaseCategory(category,{focusSearch:false});
+  if(category) activateDatabaseCategory(category);
 }
 
 categoryButtons.forEach(btn=>btn.addEventListener("click",()=>{
   activateDatabaseCategory(btn.dataset.category,{syncUrl:true});
 }));
+
+window.addEventListener("popstate",()=>{
+  if(!categoryButtons.length) return;
+  const category=new URLSearchParams(window.location.search).get("category");
+  if(!category || !activateDatabaseCategory(category)) resetDatabaseBrowser();
+});
 
 function normalizeObtain(value){
   if(!value) return [];

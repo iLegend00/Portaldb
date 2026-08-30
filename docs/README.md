@@ -20,6 +20,7 @@ Feature-specific UX and implementation decisions live under [`features/`](featur
 
 - [Full Walkthrough Architecture](features/walkthrough.md) — navigation, responsive field-guide layout, data sources, future chapter growth, and artwork hooks.
 - [Homepage Information Architecture](features/homepage.md) — player-intent quick access, section ordering, modular card art, and temporary destinations.
+- [Database Architecture](features/database.md) — grouped category browsing, dedicated search and browse regions, and deep-link/history behavior.
 
 ## Data and evidence
 
