@@ -8,6 +8,7 @@ This directory records durable architecture and UX decisions for major PortalDB 
 - [Homepage Information Architecture](homepage.md)
 - [Database Architecture](database.md)
 - [NPC Profile Architecture](npc-profiles.md)
+- [Shared Record Profile Architecture](record-profiles.md)
 
 Return to the [master documentation index](../README.md).
 

@@ -22,6 +22,7 @@ Feature-specific UX and implementation decisions live under [`features/`](featur
 - [Homepage Information Architecture](features/homepage.md) — player-intent quick access, section ordering, modular card art, and temporary destinations.
 - [Database Architecture](features/database.md) — grouped category browsing, dedicated search and browse regions, and deep-link/history behavior.
 - [NPC Profile Architecture](features/npc-profiles.md) — conditional profile sections, factual-field omission, supporting portrait art, and linked content behavior.
+- [Shared Record Profile Architecture](features/record-profiles.md) — category-aware detail sections, conditional facts, and exact-name linked record navigation.
 
 ## Data and evidence
 

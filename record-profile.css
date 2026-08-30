@@ -1,0 +1,26 @@
+dialog.record-profile-dialog{width:min(780px,calc(100% - 30px));max-height:88vh;overflow:auto}
+.record-profile{padding:32px;color:var(--text)}
+.record-profile-header{padding-bottom:18px;border-bottom:1px solid var(--line)}
+.record-profile-header h2{margin:8px 0;color:var(--text);font-size:32px}
+.record-profile-summary{max-width:68ch;margin:10px 0 0;color:var(--muted);line-height:1.7}
+.record-profile-section{margin-top:22px}
+.record-profile-section>h3{margin:0 0 12px;font-size:19px}
+.record-profile-subsection+.record-profile-subsection{margin-top:16px}
+.record-profile-subsection>h4{margin:0 0 9px;color:var(--gold2);font:600 10px/1.3 Cinzel,serif;letter-spacing:.08em;text-transform:uppercase}
+.record-profile-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.record-profile-fact{padding:11px;border:1px solid var(--line);border-radius:8px;background:var(--panel2)}
+.record-profile-fact small{display:block;margin-bottom:5px;color:var(--muted);font-size:8px;letter-spacing:.1em;text-transform:uppercase}
+.record-profile-fact strong{font:600 11px/1.45 Inter,sans-serif}
+.record-profile-list{margin:0;padding-left:20px;color:var(--muted);font-size:11px;line-height:1.65}
+.record-profile-list li+li{margin-top:5px}
+.record-profile-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.record-profile-link,.record-profile-label{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--text);font-size:11px;text-align:left}
+.record-profile-link b{color:var(--gold2);font-size:8px;text-transform:uppercase}
+.record-profile-link:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+.record-reward-list,.record-profile-detail-list,.record-wave-list{display:grid;gap:7px;margin:0}
+.record-reward-list>div,.record-profile-detail-list>div,.record-wave-list>div{display:flex;justify-content:space-between;gap:16px;padding:9px 11px;border-bottom:1px solid var(--line)}
+.record-profile-detail-list dt{color:var(--muted);font-size:10px}.record-profile-detail-list dd{margin:0;font-size:11px;font-weight:600;text-align:right}
+.record-reward-list span,.record-wave-list span{color:var(--muted);font-size:10px}.record-reward-list strong,.record-wave-list strong{font:600 11px Inter,sans-serif}
+.record-mechanic-groups{display:grid;gap:9px}.record-mechanic-groups article{padding:12px;border:1px solid var(--line);border-radius:8px}.record-mechanic-groups article>p{margin:5px 0;font-size:10px}
+@media(max-width:600px){dialog.record-profile-dialog{width:calc(100% - 20px);max-height:92vh}.record-profile{padding:26px 18px}.record-profile-facts,.record-profile-links{grid-template-columns:1fr}.record-reward-list>div,.record-profile-detail-list>div,.record-wave-list>div{align-items:flex-start}.record-wave-list>div{flex-direction:column;gap:3px}}
+

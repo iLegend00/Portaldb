@@ -15,7 +15,7 @@ async function loadData(){
       const res = await fetch(`data/${name}.json?v=20260828-two-state-provenance-1`);
       if(!res.ok) return [];
       const rows = await res.json();
-      return rows.map(row=>({...row,_collection:name,_displayName:row.name||row.code||row.version||row.id}));
+      return rows.map(row=>({...row,_collection:name,_displayName:row.name||row.title||row.code||row.version||row.id}));
     }catch{
       return [];
     }
@@ -435,6 +435,133 @@ function bindNpcDialogLinks(entry){
   }));
 }
 
+const recordProfileCollections=new Set(["bosses","races","jobs","skills","locations","mechanics","codes","patches","updates"]);
+
+function displayNumber(value){
+  return typeof value==="number"?value.toLocaleString():String(value);
+}
+
+function recordLabel(key){
+  const names={hp:"HP",class:"Job / Class",locationType:"Type",parentLocation:"Parent Location",durationMinutes:"Duration",minimumPlayersForAutoSpawn:"Minimum Players",prizeThresholdDamage:"Prize Threshold",participationDamage:"Participation Threshold",rewardDelivery:"Reward Delivery",disconnectPersistence:"Reconnect Behavior",eventCalendarDisplay:"Event Calendar",normalDrops:"Normal Drops",dropsExp:"EXP Drops",dropsTria:"Tria Drops",basePrizePool:"Base Prize Pool",previousBasePrizePool:"Previous Prize Pool",maxPrizes:"Maximum Prizes",guildExp:"Guild EXP",guildCoin:"Guild Coin",postedDate:"Published",tutorialChoice:"Tutorial Choice",variantChance:"Variant Chance",startingMemberCapacity:"Starting Capacity",maximumUpgradedCapacity:"Maximum Capacity",maximumPercent:"Current Maximum",previousMaximumPercent:"Previous Maximum"};
+  return names[key]||prettyKey(key);
+}
+
+function recordValue(value,suffix=""){
+  if(typeof value==="boolean") return value?"Yes":"No";
+  return `${displayNumber(value)}${suffix}`;
+}
+
+function renderRecordHeader(entry){
+  return `<header class="record-profile-header"><div class="type">${escapeHtml(labels[entry._collection]||"ENTRY")}</div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${entry._collection==="items"?"":verificationMarker(entry)}</div>${entry.description?`<p class="record-profile-summary">${escapeHtml(entry.description)}</p>`:""}</header>`;
+}
+
+function renderRecordQuickInfo(items){
+  const cells=items.filter(([,value])=>value!==undefined&&value!==null&&value!=="").map(([label,value])=>`<div class="record-profile-fact"><small>${escapeHtml(label)}</small><strong>${escapeHtml(value)}</strong></div>`).join("");
+  return cells?`<section class="record-profile-section record-profile-quick"><h3>Quick Info</h3><div class="record-profile-facts">${cells}</div></section>`:"";
+}
+
+function renderRecordSection(title,body,className=""){
+  return body?`<section class="record-profile-section ${className}"><h3>${escapeHtml(title)}</h3>${body}</section>`:"";
+}
+
+function renderTextList(values,className="record-profile-list"){
+  const rows=(values||[]).filter(value=>value!==undefined&&value!==null&&value!=="");
+  return rows.length?`<ul class="${className}">${rows.map(value=>`<li>${escapeHtml(value)}</li>`).join("")}</ul>`:"";
+}
+
+function uniqueNames(values){
+  const seen=new Set();
+  return (values||[]).filter(value=>{const key=String(value).trim().toLowerCase();if(!key||seen.has(key))return false;seen.add(key);return true;});
+}
+
+function renderLinkedNames(values){
+  const names=uniqueNames(values);
+  return names.length?`<div class="record-profile-links">${names.map(name=>findLinkedEntry(name)?`<button class="record-profile-link" data-record-link="${escapeHtml(name)}"><span>${escapeHtml(name)}</span><b aria-hidden="true">Open ↗</b></button>`:`<span class="record-profile-label">${escapeHtml(name)}</span>`).join("")}</div>`:"";
+}
+
+function renderRewardMap(rewards){
+  if(!rewards||!Object.keys(rewards).length) return "";
+  return `<div class="record-reward-list">${Object.entries(rewards).map(([name,quantity])=>`<div><span>${escapeHtml(recordLabel(name))}</span><strong>×${escapeHtml(displayNumber(quantity))}</strong></div>`).join("")}</div>`;
+}
+
+function renderRewardEntries(rewards){
+  if(!rewards?.length) return "";
+  return `<div class="record-reward-list">${rewards.map(reward=>`<div><span>${escapeHtml(reward.name||reward.item)}</span><strong>×${escapeHtml(displayNumber(reward.amount||reward.quantity||1))}</strong></div>`).join("")}</div>`;
+}
+
+function renderSimpleFacts(object){
+  if(!object) return "";
+  const rows=Object.entries(object).filter(([,value])=>["string","number","boolean"].includes(typeof value));
+  return rows.length?`<dl class="record-profile-detail-list">${rows.map(([key,value])=>`<div><dt>${escapeHtml(recordLabel(key))}</dt><dd>${escapeHtml(recordValue(value))}</dd></div>`).join("")}</dl>`:"";
+}
+
+function renderBossDetail(entry){
+  const quick=renderRecordQuickInfo([
+    ["Element",entry.element],["HP",entry.hp!==undefined?displayNumber(entry.hp):""],["Location",entry.location],["Duration",entry.durationMinutes!==undefined?`${entry.durationMinutes} minutes`:""],["Schedule",entry.schedule]
+  ]);
+  const combat=renderTextList(entry.abilities);
+  const rewardParts=[];
+  if(entry.knownDrops?.length) rewardParts.push(`<div class="record-profile-subsection"><h4>Known Drops</h4>${renderLinkedNames(entry.knownDrops)}</div>`);
+  if(entry.possiblePrizes?.length) rewardParts.push(`<div class="record-profile-subsection"><h4>Possible Prizes</h4>${renderTextList(entry.possiblePrizes)}</div>`);
+  if(entry.participationRewards) rewardParts.push(`<div class="record-profile-subsection"><h4>Participation Rewards</h4>${renderRewardMap(entry.participationRewards)}</div>`);
+  if(entry.topDamageRewards) rewardParts.push(`<div class="record-profile-subsection"><h4>Top Damage Rewards</h4>${renderRewardMap(Object.fromEntries(Object.entries(entry.topDamageRewards).map(([rank,value])=>[`Rank ${rank}`,value])))}</div>`);
+  if(entry.additionalTopDamageMagnifyingGlassRewards) rewardParts.push(`<div class="record-profile-subsection"><h4>Additional Magnifying Glass Rewards</h4>${renderRewardMap(Object.fromEntries(Object.entries(entry.additionalTopDamageMagnifyingGlassRewards).map(([rank,value])=>[`Rank ${rank}`,value])))}</div>`);
+  const eventFacts={minimumPlayersForAutoSpawn:entry.minimumPlayersForAutoSpawn,prizeThresholdDamage:entry.prizeThresholdDamage,participationDamage:entry.participationDamage,basePrizePool:entry.basePrizePool,previousBasePrizePool:entry.previousBasePrizePool,maxPrizes:entry.maxPrizes,rewardDelivery:entry.rewardDelivery,normalDrops:entry.normalDrops,dropsExp:entry.dropsExp,dropsTria:entry.dropsTria};
+  const eventNotes=[entry.eventCalendarDisplay,entry.disconnectPersistence,entry.payoutLimit,entry.topDamageMagnifyingGlassDistribution].filter(Boolean);
+  const eventBody=`${renderSimpleFacts(eventFacts)}${entry.countsFor?.length?`<div class="record-profile-subsection"><h4>Counts For</h4>${renderTextList(entry.countsFor)}</div>`:""}${eventNotes.length?renderTextList(eventNotes):""}`;
+  return `${renderRecordHeader(entry)}${quick}${renderRecordSection("Combat",combat,"record-profile-combat")}${renderRecordSection("Rewards",rewardParts.join(""),"record-profile-rewards")}${renderRecordSection("Event Information",eventBody,"record-profile-event")}`;
+}
+
+function renderRaceDetail(entry){
+  return `${renderRecordHeader(entry)}${renderRecordQuickInfo([["Stats",entry.stats?formatStats(entry.stats):""],["Tutorial Choice",entry.tutorialChoice],["Variant Chance",entry.variantChance]])}`;
+}
+
+function renderJobDetail(entry){return renderRecordHeader(entry)}
+
+function renderSkillDetail(entry){
+  return `${renderRecordHeader(entry)}${renderRecordQuickInfo([["Job / Class",entry.class],["Element",entry.element],["Version",entry.version]])}`;
+}
+
+function renderLocationDetail(entry){
+  const characters=uniqueNames([...(entry.npcs||[]),...(entry.relatedNPCs||[])]);
+  const encounters=uniqueNames([...(entry.enemies||[]),...(entry.relatedEnemies||[]),...(entry.bosses||[]),...(entry.relatedBosses||[])]);
+  const quests=uniqueNames([...(entry.quests||[]),...(entry.relatedQuests||[])]);
+  return `${renderRecordHeader(entry)}${renderRecordQuickInfo([["Type",entry.locationType],["Parent Location",entry.parentLocation]])}${renderRecordSection("Places Within",renderLinkedNames(entry.subLocations))}${renderRecordSection("Related Characters",renderLinkedNames(characters))}${renderRecordSection("Related Encounters",renderLinkedNames(encounters))}${renderRecordSection("Related Quests",renderLinkedNames(quests))}`;
+}
+
+function renderMechanicDetail(entry){
+  const quickItems=[["Version",entry.version],["Creation NPC",entry.creationNpc],["Creation Cost",entry.creationCost?`${displayNumber(entry.creationCost.amount)} ${entry.creationCost.currency}`:""],["Starting Capacity",entry.startingMemberCapacity],["Maximum Capacity",entry.maximumUpgradedCapacity],["Current Maximum",entry.maximumPercent!==undefined?`${entry.maximumPercent}%`:""],["Previous Maximum",entry.previousMaximumPercent!==undefined?`${entry.previousMaximumPercent}%`:""]];
+  if(entry.arcaneDefense){quickItems.push(["Availability",entry.arcaneDefense.availability],["Started By",entry.arcaneDefense.startedBy],["Manual Start",entry.arcaneDefense.manualStart?"Required":""])}
+  const parts=[];
+  if(entry.prizePoolAdditions?.length) parts.push(`<div class="record-profile-subsection"><h4>Prize Pool Additions</h4>${renderTextList(entry.prizePoolAdditions.map(item=>`${item.item} — ${item.version}`))}</div>`);
+  if(entry.history?.length) parts.push(`<div class="record-profile-subsection"><h4>History</h4>${renderTextList(entry.history.map(item=>`${item.version}: ${item.facts.join(" · ")}`))}</div>`);
+  if(entry.activityRewards) parts.push(`<div class="record-profile-subsection"><h4>Activity Rewards</h4><div class="record-mechanic-groups">${Object.entries(entry.activityRewards).map(([key,value])=>`<article><strong>${escapeHtml(recordLabel(key))}</strong><p>${escapeHtml(typeof value.requirement==="string"?value.requirement:Object.entries(value.requirement||{}).map(([k,v])=>`${recordLabel(k)}: ${displayNumber(v)}`).join(" · "))}</p>${renderRewardMap(value.rewards)}</article>`).join("")}</div></div>`);
+  if(entry.guildBase?.use) parts.push(`<div class="record-profile-subsection"><h4>Guild Base</h4>${renderTextList([entry.guildBase.use])}</div>`);
+  if(entry.perWaveBaseRewards) parts.push(`<div class="record-profile-subsection"><h4>Per-Wave Base Rewards</h4>${renderRewardMap(entry.perWaveBaseRewards)}</div>`);
+  if(entry.waves?.length) parts.push(`<div class="record-profile-subsection"><h4>Wave Rewards</h4><div class="record-wave-list">${entry.waves.map(wave=>`<div><strong>Wave ${escapeHtml(wave.wave)}</strong><span>${escapeHtml(displayNumber(wave.tria))} Tria · ${escapeHtml(wave.reward)}</span></div>`).join("")}</div></div>`);
+  return `${renderRecordHeader(entry)}${renderRecordQuickInfo(quickItems)}${renderRecordSection("Details",parts.join(""))}`;
+}
+
+function renderCodeDetail(entry){
+  return `${renderRecordHeader(entry)}${renderRecordQuickInfo([["Published",entry.postedDate],["Status",entry.status]])}${renderRecordSection("Rewards",renderRewardEntries(entry.rewards))}`;
+}
+
+function renderPatchDetail(entry){
+  return `${renderRecordHeader(entry)}${renderRecordQuickInfo([["Version",entry.version],["Date",entry.date]])}${renderRecordSection("Changes",renderTextList(entry.highlights))}`;
+}
+
+function renderUpdateDetail(entry){
+  const changes=entry.changes?.map(change=>Object.entries(change).map(([key,value])=>`${recordLabel(key)}: ${value}`).join(" · "))||[];
+  const details=entry.highlights?.length?entry.highlights:changes;
+  const body=`${renderTextList(details)}${renderSimpleFacts(entry.rules)}${entry.notes?renderTextList([entry.notes]):""}`;
+  return `${renderRecordHeader(entry)}${renderRecordQuickInfo([["Type",entry.type],["Version",entry.version],["Date",entry.date]])}${renderRecordSection("Update Details",body)}`;
+}
+
+function renderRecordProfile(entry){
+  const renderers={bosses:renderBossDetail,races:renderRaceDetail,jobs:renderJobDetail,skills:renderSkillDetail,locations:renderLocationDetail,mechanics:renderMechanicDetail,codes:renderCodeDetail,patches:renderPatchDetail,updates:renderUpdateDetail};
+  return `<div class="dialog-body record-profile record-profile-${escapeHtml(entry._collection)}">${renderers[entry._collection](entry)}</div>`;
+}
+
 function renderGenericDetail(entry){
   const details = [];
   if(entry.stats) details.push(`<div class="meta-box"><small>STATS</small><strong>${formatStats(entry.stats)}</strong></div>`);
@@ -455,10 +582,10 @@ function renderGenericDetail(entry){
   return `<div class="dialog-body">
       <div class="type">${labels[entry._collection]||"ENTRY"}</div>
       <div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${entry._collection==="items"?"":verificationMarker(entry)}</div>
-      <p>${escapeHtml(getDescription(entry))}</p>
-      <div class="meta-grid">
+      ${entry.description?`<p>${escapeHtml(entry.description)}</p>`:""}
+      ${details.length?`<div class="meta-grid">
         ${details.join("")}
-      </div>
+      </div>`:""}
       ${sourceBlock}
       ${entry.highlights?.length ? `<p class="entry-source"><strong>Highlights:</strong> ${escapeHtml(entry.highlights.join(" • "))}</p>` : ""}
       ${entry.notes ? `<p class="entry-source"><strong>Notes:</strong> ${escapeHtml(entry.notes)}</p>` : ""}
@@ -471,15 +598,20 @@ function openEntry(entry){
   if(!dialog) return;
   const entryDialog=document.getElementById("entryDialog");
   entryDialog?.classList.toggle("npc-profile-dialog",entry._collection==="npcs");
+  entryDialog?.classList.toggle("record-profile-dialog",recordProfileCollections.has(entry._collection));
   if(entry._collection==="npcs"){
     dialog.innerHTML=renderNpcDetail(entry);
     bindNpcDialogLinks(entry);
   }else{
-    dialog.innerHTML=renderGenericDetail(entry);
+    dialog.innerHTML=recordProfileCollections.has(entry._collection)?renderRecordProfile(entry):renderGenericDetail(entry);
     const sources=normalizeObtain(entry.obtain);
     dialog.querySelectorAll("[data-generic-source]").forEach(btn=>btn.addEventListener("click",()=>{
       const source=sources[Number(btn.dataset.genericSource)];
       const linked=findLinkedEntry(source?.source);
+      if(linked) openEntry(linked);
+    }));
+    dialog.querySelectorAll("[data-record-link]").forEach(btn=>btn.addEventListener("click",()=>{
+      const linked=findLinkedEntry(btn.dataset.recordLink);
       if(linked) openEntry(linked);
     }));
   }
