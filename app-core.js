@@ -12,7 +12,7 @@ const canonicalPages = [{
 async function loadData(){
   const sets = await Promise.all(collections.map(async name=>{
     try{
-      const res = await fetch(`data/${name}.json?v=20260831-patches-1`);
+      const res = await fetch(`data/${name}.json?v=20260831-major-updates-1`);
       if(!res.ok) return [];
       const rows = await res.json();
       return rows.map(row=>({...row,_collection:name,_displayName:row.name||row.title||row.code||row.version||row.id}));
@@ -135,6 +135,17 @@ function sortPatchHistory(rows){
   }).map(item=>item.entry);
 }
 
+function sortUpdates(rows){
+  return rows.map((entry,index)=>({entry,index})).sort((a,b)=>{
+    const aDate=patchDateValue(a.entry);
+    const bDate=patchDateValue(b.entry);
+    if(aDate!==null&&bDate!==null&&aDate!==bDate) return bDate-aDate;
+    if(aDate===null&&bDate!==null) return 1;
+    if(aDate!==null&&bDate===null) return -1;
+    return a.index-b.index;
+  }).map(item=>item.entry);
+}
+
 function formatPatchDate(date){
   const value=patchDateValue({date});
   return value===null?"":new Intl.DateTimeFormat("en-US",{month:"long",day:"numeric",year:"numeric",timeZone:"UTC"}).format(value);
@@ -164,7 +175,8 @@ function resetDatabaseBrowser(){
 
 function renderDatabaseCategory(cat){
   if(!databaseBrowser || !databaseBrowserResults) return;
-  const rows=database.filter(entry=>entry._collection===cat);
+  const categoryRows=database.filter(entry=>entry._collection===cat);
+  const rows=cat==="updates"?sortUpdates(categoryRows):categoryRows;
   if(databaseBrowserTitle) databaseBrowserTitle.textContent=databaseCategoryTitles[cat]||cat;
   if(databaseBrowserDescription) databaseBrowserDescription.textContent=databaseCategoryDescriptions[cat]||"";
   if(databaseBrowserCount){databaseBrowserCount.textContent=rows.length?`${rows.length} ${rows.length===1?"record":"records"}`:"";databaseBrowserCount.classList.toggle("hidden",!rows.length);}

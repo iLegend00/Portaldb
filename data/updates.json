@@ -1,84 +1,57 @@
 [
   {
     "id": "chapter-2-release",
-    "name": "Chapter 2 Release",
-    "type": "Content Release",
+    "name": "Chapter 2",
+    "type": "Major Update",
     "date": "2026-07-30",
-    "description": "Chapter 2 launched as a major progression and content milestone.",
-    "highlights": [
-      "Chapter 2 released",
-      "Additional Chapter 2 content and progression became available through the July 30 update"
-    ],
+    "version": "July 30, 2026 patch",
+    "description": "Chapter 2 released as a major progression milestone.",
+    "highlights": ["Chapter 2 released"],
     "confidence": "Official confirmed",
     "source": "Official Discord big-updates patch announcement, 2026-07-30"
   },
   {
-    "id": "premium-pass-launch",
-    "name": "Premium Pass Launch",
-    "type": "Feature Launch",
-    "date": "2026-08-03",
-    "description": "The Premium Pass was introduced as a new game feature.",
-    "highlights": [
-      "Premium Pass added"
-    ],
-    "confidence": "Official confirmed",
-    "source": "Official Discord big-updates patch announcement, 2026-08-03"
-  },
-  {
-    "id": "lycaros-world-boss-launch",
-    "name": "Lycaros World Boss Launch",
-    "type": "Content Release",
+    "id": "lycaros-identify-launch",
+    "name": "Lycaros & Identify",
+    "type": "Major Update",
     "date": "2026-08-09",
     "version": "v1.1.6",
-    "description": "Lycaros was introduced as a Weekly World Boss.",
+    "description": "Lycaros launched as a Weekly World Boss alongside the Identify equipment system.",
     "highlights": [
-      "Lycaros added as a Weekly World Boss"
+      "Lycaros added as a Weekly World Boss",
+      "Identify system introduced for Shoes, Gloves, Bracelet, Necklace, and Upper, Middle, and Lower Headgear",
+      "Magnifying Glass introduced for identifying supported equipment"
     ],
     "confidence": "Official confirmed",
-    "source": "Official Discord big-updates patch notes v1.1.6, 2026-08-09"
+    "source": "Official Discord big-updates patch announcement v1.1.6, 2026-08-09"
   },
   {
-    "id": "identify-system-launch",
-    "name": "Identify System Launch",
-    "type": "Feature Launch",
-    "date": "2026-08-09",
-    "version": "v1.1.6",
-    "description": "The equipment Identify system was introduced using Magnifying Glasses.",
-    "highlights": [
-      "Identify system added for Shoes, Gloves, Bracelet, Necklace, Upper Headgear, Middle Headgear, and Lower Headgear",
-      "Magnifying Glasses introduced as Lycaros drops for identifying eligible equipment"
-    ],
-    "confidence": "Official confirmed",
-    "source": "Official Discord big-updates patch notes v1.1.6, 2026-08-09"
-  },
-  {
-    "id": "guild-system-arcane-defense-launch",
-    "name": "Guild System & Arcane Defense Launch",
-    "type": "Feature Launch",
+    "id": "guilds-arcane-defense-launch",
+    "name": "Guilds & Arcane Defense",
+    "type": "Major Update",
     "date": "2026-08-20",
     "version": "v1.2.13",
-    "description": "Guilds opened and Arcane Defense became available as a Guild activity.",
+    "description": "The Guild System and Arcane Defense launched as connected group-progression systems.",
     "highlights": [
-      "Guild System opened through Rendall",
-      "Guilds begin with capacity for 15 members and can be upgraded to 30",
-      "Arcane Defense became available every Friday and is started by the Guild Leader",
-      "Guild activities award Guild EXP and Guild Coins"
+      "Guild System opened with Guild creation through Rendall",
+      "Arcane Defense launched as a Friday Guild activity started by the Guild Leader",
+      "Guild activities introduced Guild EXP and Guild Coin rewards"
     ],
     "confidence": "Official confirmed",
-    "source": "Official Discord v1.2.13 announcement and Guild reward-system announcement by Swaroff [PRTL], 2026-08-20"
+    "source": "Official Discord big-update and Guild reward-system announcements by Swaroff [PRTL], 2026-08-20"
   },
   {
     "id": "battle-pass-season-2-announcement",
     "name": "Battle Pass Season 2",
-    "type": "Upcoming Content",
+    "type": "Upcoming Major Update",
     "date": "2026-08-31",
-    "version": "v1.2.15",
-    "description": "Battle Pass Season 2 was announced to begin September 1, 2026.",
+    "version": "v1.2.15 announcement",
+    "description": "Announced to begin September 1, 2026; not yet presented as active as of this record's August 31 publication date.",
     "highlights": [
-      "Season 2 begins September 1, 2026",
-      "Announced rewards include Sunflower Crop, Fizz Drink, Mimic Chest Storage, Tier 5 Bag, +20 Soil, and the Enchanted title"
+      "Battle Pass Season 2 announced to begin September 1, 2026",
+      "Announced content includes Sunflower Crop, Fizz Drink, Mimic Chest Storage, Tier 5 Bag, +20 Soil, and the Enchanted title"
     ],
     "confidence": "Official confirmed",
-    "source": "Official Discord patch announcement by Swaroff [PRTL], v1.2.15"
+    "source": "Official Discord patch announcement v1.2.15 by Swaroff [PRTL], normalized to 2026-08-31 from the supplied same-day Discord timestamp"
   }
 ]
