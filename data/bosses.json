@@ -2,11 +2,11 @@
   {
     "id": "lycaros",
     "name": "Lycaros",
-    "description": "Weekly World Boss encountered through The Hunt event in front of Dewdrop Castle. As of v1.2.13, the Event Calendar displays the schedule in each player's local time and qualified fighters receive participation rewards.",
+    "description": "Weekly World Boss encountered through The Hunt event in front of Dewdrop Castle. A second attempt contributes to Codex progress, grants half participant rewards only, and can award the Lycaros Undertaker title. Battle Reports are delivered through in-game Mail.",
     "tags": ["boss", "world boss", "weekly", "shadow", "the hunt", "dewdrop castle", "magnifying glass", "goblin coin", "guild exp", "local time"],
     "confidence": "Official confirmed",
-    "version": "Current through v1.2.13",
-    "lastVerified": "2026-08-20",
+    "version": "Current through v1.2.15",
+    "lastVerified": "2026-08-31",
     "element": "Shadow",
     "hp": 12600000,
     "location": "Portal in front of Dewdrop Castle",
@@ -37,7 +37,9 @@
     "schedule": "Every Saturday at 04:00 GMT+7 and 16:00 GMT+7",
     "eventCalendarDisplay": "Lycaros' schedule is displayed in the player's local time.",
     "payoutLimit": "One Lycaros payout per player across all servers per weekly event schedule announcement.",
-    "source": "Official Discord announcements by Swaroff [PRTL], 2026-08-09, 2026-08-11, and big-update announcement 2026-08-20"
+    "secondAttempt": {"countsForCodex": true, "participantRewards": "Half participant rewards only", "titleReward": "Lycaros Undertaker"},
+    "battleReport": {"delivery": "In-game Mail", "version": "v1.2.15"},
+    "source": "Official Discord announcements by Swaroff [PRTL], 2026-08-09 through v1.2.15"
   },
   {
     "id": "junk-king",

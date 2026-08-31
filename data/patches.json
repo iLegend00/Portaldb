@@ -266,5 +266,55 @@
       "Players can donate decorations to the Guild and use them collaboratively to build the Guild Base",
       "The official Arcane Defense chart documents rewards for waves 1–50"
     ]
+  },
+  {
+    "id": "v1.2.14",
+    "title": "Patch Notes — v1.2.14",
+    "date": "2026-08-24",
+    "version": "v1.2.14",
+    "confidence": "Official confirmed",
+    "source": "Official Discord patch announcement by Swaroff [PRTL], 2026-08-24",
+    "highlights": [
+      "Overall monster movement speed adjusted",
+      "Arcane Defense monster base stats reduced and no longer scale; elements still follow the Wave Table; Max HP scaling changed from Exponential to Linear",
+      "Arcane Defense Leaderboard added",
+      "A second Lycaros attempt now contributes to Codex progress, grants half participant rewards only, and can award the Lycaros Undertaker title",
+      "Fixed Lycaros getting stuck or falling through the ground",
+      "Crop Mutation VFX now follows VFX Settings; when multiple mutations are active, only the highest-multiplier mutation VFX is displayed",
+      "Mount actions added: Horse Leap and Junkcycle Nitro",
+      "Block cap increased from 35% to 50%, Ignore DEF cap from 50% to 70%, and Damage Up cap from 120% to 150%",
+      "Punk Lamb's Level 20 Damage Bonus increased from 10% to 15%",
+      "Item Details now display buff stacking information and the HP Bar displays active status effects",
+      "Guild Leaders can create private or public servers in Dewdrop Village"
+    ]
+  },
+  {
+    "id": "v1.2.15",
+    "title": "Patch Notes — v1.2.15",
+    "date": "2026-08-31",
+    "postedTimeLocal": "02:00",
+    "timestampContext": "Discord displayed only the time because the post was from the owner's current local date. Date normalized to 2026-08-31 using the site owner's local date; the 02:00 clock time is the site owner's Discord display timezone and should not be interpreted as the developer's timezone.",
+    "version": "v1.2.15",
+    "confidence": "Official confirmed",
+    "source": "Official Discord patch announcement by Swaroff [PRTL]",
+    "highlights": [
+      "Premium Shop reworked; Lumen Shop and Lumen Packs added; new Pets, Mounts, and Cosmetic added",
+      "Lycaros Battle Report added through in-game Mail",
+      "Guilds can change Name and Icon using Lumen",
+      "Players receive 5 seconds of invulnerability after respawning",
+      "New Playtime reward added",
+      "Battle Pass Season 2 announced to begin September 1 with Sunflower Crop, Fizz Drink, Mimic Chest Storage, Tier 5 Bag, +20 Soil, and the Enchanted title",
+      "Level Cap increased from 30 to 35",
+      "Lumen drops are now personal and a Pity System was added",
+      "Mini-Bosses no longer have a level penalty",
+      "Confirmation pop-ups added when buying or dropping items",
+      "Bag System reworked into 6 different tiers",
+      "x3 Goblin Coin removed from the Claw Machine Pool",
+      "Fixed Claw Machine jams and restocking items, various Arcane Defense bugs, and dimmed Inventory materials",
+      "Fixed horses becoming unrideable after entering water, critical-related achievements not counting, the tutorial cutscene repeating, and pets running in place",
+      "Fixed Bandit Chick stealing its owner's equipment, Junk King leaving its arena, and AoE attacks not respecting arena walls",
+      "Fixed drop notifications displaying party names, regrown fruit reappearing, equipment slots becoming stuck, Weather Buffs not obeying stat caps, and Guild Leaders losing their rights",
+      "Enchanted Forest announced as coming soon"
+    ]
   }
 ]

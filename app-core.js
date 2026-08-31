@@ -12,7 +12,7 @@ const canonicalPages = [{
 async function loadData(){
   const sets = await Promise.all(collections.map(async name=>{
     try{
-      const res = await fetch(`data/${name}.json?v=20260828-two-state-provenance-1`);
+      const res = await fetch(`data/${name}.json?v=20260831-patches-1`);
       if(!res.ok) return [];
       const rows = await res.json();
       return rows.map(row=>({...row,_collection:name,_displayName:row.name||row.title||row.code||row.version||row.id}));
@@ -442,7 +442,7 @@ function displayNumber(value){
 }
 
 function recordLabel(key){
-  const names={hp:"HP",class:"Job / Class",locationType:"Type",parentLocation:"Parent Location",durationMinutes:"Duration",minimumPlayersForAutoSpawn:"Minimum Players",prizeThresholdDamage:"Prize Threshold",participationDamage:"Participation Threshold",rewardDelivery:"Reward Delivery",disconnectPersistence:"Reconnect Behavior",eventCalendarDisplay:"Event Calendar",normalDrops:"Normal Drops",dropsExp:"EXP Drops",dropsTria:"Tria Drops",basePrizePool:"Base Prize Pool",previousBasePrizePool:"Previous Prize Pool",maxPrizes:"Maximum Prizes",guildExp:"Guild EXP",guildCoin:"Guild Coin",postedDate:"Published",tutorialChoice:"Tutorial Choice",variantChance:"Variant Chance",startingMemberCapacity:"Starting Capacity",maximumUpgradedCapacity:"Maximum Capacity",maximumPercent:"Current Maximum",previousMaximumPercent:"Previous Maximum",arcaneDefenseWave:"Arcane Defense Wave",guaranteedHitWithinStuds:"Guaranteed Hit Range",distanceBeyondStudsUses3D:"3D Distance Begins After",attackConeDegreesAtAnnouncement:"Attack Cone at Announcement",largeHeightDifferenceMisses:"Large Height Difference Misses"};
+  const names={hp:"HP",class:"Job / Class",locationType:"Type",parentLocation:"Parent Location",durationMinutes:"Duration",durationSeconds:"Duration",minimumPlayersForAutoSpawn:"Minimum Players",prizeThresholdDamage:"Prize Threshold",participationDamage:"Participation Threshold",rewardDelivery:"Reward Delivery",disconnectPersistence:"Reconnect Behavior",eventCalendarDisplay:"Event Calendar",normalDrops:"Normal Drops",dropsExp:"EXP Drops",dropsTria:"Tria Drops",basePrizePool:"Base Prize Pool",previousBasePrizePool:"Previous Prize Pool",maxPrizes:"Maximum Prizes",guildExp:"Guild EXP",guildCoin:"Guild Coin",postedDate:"Published",tutorialChoice:"Tutorial Choice",variantChance:"Variant Chance",startingMemberCapacity:"Starting Capacity",maximumUpgradedCapacity:"Maximum Capacity",maximumPercent:"Current Maximum",previousMaximumPercent:"Previous Maximum",currentLevel:"Current Level Cap",previousLevel:"Previous Level Cap",arcaneDefenseWave:"Arcane Defense Wave",guaranteedHitWithinStuds:"Guaranteed Hit Range",distanceBeyondStudsUses3D:"3D Distance Begins After",attackConeDegreesAtAnnouncement:"Attack Cone at Announcement",largeHeightDifferenceMisses:"Large Height Difference Misses"};
   return names[key]||prettyKey(key);
 }
 
@@ -537,10 +537,11 @@ function renderLocationDetail(entry){
 }
 
 function renderMechanicDetail(entry){
-  const quickItems=[["Version",entry.version],["Creation NPC",entry.creationNpc],["Creation Cost",entry.creationCost?`${displayNumber(entry.creationCost.amount)} ${entry.creationCost.currency}`:""],["Starting Capacity",entry.startingMemberCapacity],["Maximum Capacity",entry.maximumUpgradedCapacity],["Current Maximum",entry.maximumPercent!==undefined?`${entry.maximumPercent}%`:""],["Previous Maximum",entry.previousMaximumPercent!==undefined?`${entry.previousMaximumPercent}%`:""],["Started By",entry.startedBy],["Manual Start",entry.manualStart===true?"Required":entry.manualStart===false?"Not required":""]];
+  const quickItems=[["Version",entry.version],["Creation NPC",entry.creationNpc],["Creation Cost",entry.creationCost?`${displayNumber(entry.creationCost.amount)} ${entry.creationCost.currency}`:""],["Starting Capacity",entry.startingMemberCapacity],["Maximum Capacity",entry.maximumUpgradedCapacity],["Current Maximum",entry.maximumPercent!==undefined?`${entry.maximumPercent}%`:""],["Previous Maximum",entry.previousMaximumPercent!==undefined?`${entry.previousMaximumPercent}%`:""],["Current Level Cap",entry.currentLevel],["Previous Level Cap",entry.previousLevel],["Duration",entry.durationSeconds!==undefined?`${entry.durationSeconds} seconds`:""],["Started By",entry.startedBy],["Manual Start",entry.manualStart===true?"Required":entry.manualStart===false?"Not required":""]];
   if(entry.arcaneDefense){quickItems.push(["Availability",entry.arcaneDefense.availability],["Started By",entry.arcaneDefense.startedBy],["Manual Start",entry.arcaneDefense.manualStart?"Required":""])}
   const parts=[];
   if(entry.prizePoolAdditions?.length) parts.push(`<div class="record-profile-subsection"><h4>Prize Pool Additions</h4>${renderTextList(entry.prizePoolAdditions.map(item=>`${item.item} — ${item.version}`))}</div>`);
+  if(entry.prizePoolRemovals?.length) parts.push(`<div class="record-profile-subsection"><h4>Prize Pool Removals</h4>${renderTextList(entry.prizePoolRemovals.map(item=>`${item.item} — ${item.version}`))}</div>`);
   if(entry.history?.length) parts.push(`<div class="record-profile-subsection"><h4>History</h4>${renderTextList(entry.history.map(item=>`${item.version}: ${item.facts.join(" · ")}`))}</div>`);
   if(entry.activityRewards) parts.push(`<div class="record-profile-subsection"><h4>Activity Rewards</h4><div class="record-mechanic-groups">${Object.entries(entry.activityRewards).map(([key,value])=>{const requirement=typeof value.requirement==="string"?value.requirement:value.requirement?.wording||Object.entries(value.requirement||{}).map(([k,v])=>`${recordLabel(k)}: ${displayNumber(v)}`).join(" · ");return `<article><strong>${escapeHtml(recordLabel(key))}</strong><p>${escapeHtml(requirement)}</p>${renderRewardMap(value.rewards)}</article>`}).join("")}</div></div>`);
   if(entry.guildBase?.use) parts.push(`<div class="record-profile-subsection"><h4>Guild Base</h4>${renderTextList([entry.guildBase.use])}</div>`);
@@ -654,4 +655,3 @@ function escapeHtml(v){
 }
 
 loadData().catch(console.error);
-

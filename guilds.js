@@ -15,7 +15,7 @@
     document.getElementById('waveEmpty').hidden=rows.length>0;
   }
   async function init(){
-    const [mechanicsResponse,bossesResponse]=await Promise.all([fetch('data/mechanics.json?v=20260820-guild-rewards-1'),fetch('data/bosses.json?v=20260820-guild-rewards-1')]);
+    const [mechanicsResponse,bossesResponse]=await Promise.all([fetch('data/mechanics.json?v=20260831-patches-1'),fetch('data/bosses.json?v=20260831-patches-1')]);
     if(!mechanicsResponse.ok||!bossesResponse.ok)throw new Error('Guild data could not be loaded.');
     const [mechanics,bosses]=await Promise.all([mechanicsResponse.json(),bossesResponse.json()]);
     const guild=mechanics.find(record=>record.id==='guild-system');

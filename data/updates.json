@@ -252,6 +252,48 @@
     ],
     "confidence": "Official confirmed",
     "source": "Official Discord big-update announcement by Swaroff [PRTL], 2026-08-20"
+  },
+  {
+    "id": "patch-v1-2-14",
+    "name": "Patch Notes — v1.2.14",
+    "type": "Patch Notes",
+    "date": "2026-08-24",
+    "version": "v1.2.14",
+    "description": "Monster and Arcane Defense balance, Lycaros updates, mount actions, stat-cap changes, UI improvements, and Guild server controls.",
+    "highlights": [
+      "Monster movement speed adjusted; Arcane Defense base stats reduced and no longer scale, elements still follow the Wave Table, and Max HP scaling changed from Exponential to Linear",
+      "Arcane Defense Leaderboard added",
+      "Second Lycaros attempts contribute to Codex, grant half participant rewards only, and can award Lycaros Undertaker",
+      "Crop Mutation VFX follows VFX Settings and shows only the highest-multiplier mutation effect",
+      "Horse Leap and Junkcycle Nitro actions added",
+      "Block cap increased to 50%, Ignore DEF to 70%, Damage Up to 150%, and Punk Lamb Level 20 Damage Bonus to 15%",
+      "Item Details show buff stacking and HP Bars show active status effects",
+      "Guild Leaders can create private or public servers in Dewdrop Village"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord patch announcement by Swaroff [PRTL], 2026-08-24"
+  },
+  {
+    "id": "patch-v1-2-15",
+    "name": "Patch Notes — v1.2.15",
+    "type": "Patch Notes",
+    "date": "2026-08-31",
+    "postedTimeLocal": "02:00",
+    "timestampContext": "Discord displayed only the time; date normalized from the site owner's current local date of 2026-08-31.",
+    "version": "v1.2.15",
+    "description": "Premium and Lumen shop changes, progression updates, respawn protection, Battle Pass Season 2 announcement, system reworks, and fixes.",
+    "highlights": [
+      "Premium Shop reworked; Lumen Shop and Packs added with new Pets, Mounts, and Cosmetic",
+      "Lycaros Battle Report added through Mail; Guild Name and Icon can be changed using Lumen",
+      "Respawning grants 5 seconds of invulnerability and a new Playtime reward was added",
+      "Battle Pass Season 2 announced for September 1 with Sunflower Crop, Fizz Drink, Mimic Chest Storage, Tier 5 Bag, +20 Soil, and Enchanted title rewards",
+      "Level Cap increased from 30 to 35; Lumen drops are personal with a Pity System",
+      "Mini-Boss level penalty removed; Bag System reworked into 6 tiers; x3 Goblin Coin removed from Claw Machine Pool",
+      "Purchase/drop confirmations added and Claw Machine, Arcane Defense, Inventory, mount, achievement, tutorial, pet, boss, arena, notification, fruit, equipment, Weather Buff, and Guild Leader issues fixed",
+      "Enchanted Forest announced as coming soon"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord patch announcement by Swaroff [PRTL]"
   }
 ]
 

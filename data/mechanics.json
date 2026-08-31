@@ -102,17 +102,19 @@
   {
     "id": "claw-machine-protection",
     "name": "Claw Machine Stuck Protection",
-    "description": "As of v1.1.10, if the Claw Machine gets stuck and gives no reward, the player is guaranteed 1 Goblin Coin. Reward probabilities are displayed and the machine can be restocked. Magnifying Glass was added to the prize pool in v1.2.13.",
+    "description": "If the Claw Machine gets stuck and gives no reward, the player is guaranteed 1 Goblin Coin. Reward probabilities are displayed, the machine can be restocked, and v1.2.15 fixed jams and restocking issues. Magnifying Glass remains in the prize pool; x3 Goblin Coin was removed in v1.2.15.",
     "tags": ["claw machine", "goblin coin", "magnifying glass", "prize pool", "drop chance", "restock"],
     "confidence": "Official confirmed",
-    "version": "Current through v1.2.13",
-    "lastVerified": "2026-08-20",
+    "version": "Current through v1.2.15",
+    "lastVerified": "2026-08-31",
     "prizePoolAdditions": [{"item": "Magnifying Glass", "version": "v1.2.13"}],
+    "prizePoolRemovals": [{"item": "x3 Goblin Coin", "version": "v1.2.15"}],
     "history": [
       {"version": "v1.1.10", "facts": ["Stuck protection guarantees 1 Goblin Coin when no reward is given", "Reward probabilities are displayed", "The machine can be restocked"]},
-      {"version": "v1.2.13", "facts": ["Magnifying Glass added to the prize pool"]}
+      {"version": "v1.2.13", "facts": ["Magnifying Glass added to the prize pool"]},
+      {"version": "v1.2.15", "facts": ["x3 Goblin Coin removed from the prize pool", "Claw Machine jams and restocking issues fixed"]}
     ],
-    "source": "Official Discord small-updates v1.1.10 and big-update announcement by Swaroff [PRTL], 2026-08-20"
+    "source": "Official Discord small-updates v1.1.10 and patch announcements v1.2.13 and v1.2.15 by Swaroff [PRTL]"
   },
   {
     "id": "server-hop-filters",
@@ -207,13 +209,15 @@
   {
     "id": "guild-system",
     "name": "Guild System",
-    "description": "Guilds are created through Rendall for 499 Robux. Guilds begin with capacity for 15 members and can be upgraded to a maximum of 30. Arcane Defense is available every Friday and must be started manually by the Guild Leader. Guild activities award Guild EXP and Guild Coins, and donated decorations can be used collaboratively to build the Guild Base.",
+    "description": "Guilds are created through Rendall for 499 Robux. Guilds begin with capacity for 15 members and can be upgraded to a maximum of 30. Arcane Defense is available every Friday and must be started manually by the Guild Leader. Guild Leaders can create private or public servers in Dewdrop Village, and Guild Name and Icon can be changed using Lumen.",
     "tags": ["guild", "guild system", "guild reward system", "Rendall", "Arcane Defense", "guild leader", "guild capacity", "499 Robux", "Guild EXP", "Guild Coin", "Guild Base", "Materials", "Tria contribution", "Lycaros qualified member", "decorations"],
     "creationNpc": "Rendall",
     "creationCost": {"amount": 499, "currency": "Robux"},
     "startingMemberCapacity": 15,
     "maximumUpgradedCapacity": 30,
-    "arcaneDefense": {"availability": "Every Friday", "startedBy": "Guild Leader", "manualStart": true},
+    "arcaneDefense": {"availability": "Every Friday", "startedBy": "Guild Leader", "manualStart": true, "monsterBaseStats": "Reduced; no longer scale", "elements": "Follow the Wave Table", "maxHpScaling": "Linear", "leaderboard": true},
+    "serverCreation": {"createdBy": "Guild Leader", "location": "Dewdrop Village", "privacyOptions": ["Private", "Public"]},
+    "customization": {"fields": ["Name", "Icon"], "currency": "Lumen"},
     "activityRewards": {
       "materialOffering": {
         "requirement": {"materials": 10},
@@ -237,9 +241,9 @@
       "use": "Donated decorations can be used to build the Guild Base together with fellow Guild members."
     },
     "confidence": "Official confirmed",
-    "version": "v1.2.13",
-    "lastVerified": "2026-08-20",
-    "source": "Official Discord big-update announcement and Guild reward-system announcement by Swaroff [PRTL], 2026-08-20"
+    "version": "Current through v1.2.15",
+    "lastVerified": "2026-08-31",
+    "source": "Official Discord Guild and patch announcements by Swaroff [PRTL], 2026-08-20 through v1.2.15"
   },
   {
     "id": "arcane-defense-rewards",
@@ -309,13 +313,75 @@
   {
     "id": "damage-up-cap",
     "name": "Maximum Damage Up",
-    "description": "The maximum Damage Up cap increased from 100% to 120% in v1.2.13.",
-    "tags": ["Damage Up", "damage cap", "120%", "combat", "stats"],
-    "maximumPercent": 120,
-    "previousMaximumPercent": 100,
+    "description": "The maximum Damage Up cap is 150%, increased from 120% in v1.2.14.",
+    "tags": ["Damage Up", "damage cap", "150%", "combat", "stats"],
+    "maximumPercent": 150,
+    "previousMaximumPercent": 120,
+    "history": [
+      {"version": "v1.2.13", "facts": ["Damage Up cap increased from 100% to 120%"]},
+      {"version": "v1.2.14", "facts": ["Damage Up cap increased from 120% to 150%"]}
+    ],
     "confidence": "Official confirmed",
-    "version": "v1.2.13",
-    "lastVerified": "2026-08-20",
-    "source": "Official Discord big-update announcement by Swaroff [PRTL], 2026-08-20"
+    "version": "v1.2.14",
+    "lastVerified": "2026-08-24",
+    "source": "Official Discord patch announcement by Swaroff [PRTL], 2026-08-24"
+  },
+  {
+    "id": "block-cap",
+    "name": "Maximum Block",
+    "description": "The maximum Block cap is 50%, increased from 35% in v1.2.14.",
+    "tags": ["Block", "block cap", "50%", "combat", "stats"],
+    "maximumPercent": 50,
+    "previousMaximumPercent": 35,
+    "confidence": "Official confirmed",
+    "version": "v1.2.14",
+    "lastVerified": "2026-08-24",
+    "source": "Official Discord patch announcement by Swaroff [PRTL], 2026-08-24"
+  },
+  {
+    "id": "ignore-def-cap",
+    "name": "Maximum Ignore DEF",
+    "description": "The maximum Ignore DEF cap is 70%, increased from 50% in v1.2.14.",
+    "tags": ["Ignore DEF", "Ign DEF", "defense ignore cap", "70%", "combat", "stats"],
+    "maximumPercent": 70,
+    "previousMaximumPercent": 50,
+    "confidence": "Official confirmed",
+    "version": "v1.2.14",
+    "lastVerified": "2026-08-24",
+    "source": "Official Discord patch announcement by Swaroff [PRTL], 2026-08-24"
+  },
+  {
+    "id": "player-level-cap",
+    "name": "Player Level Cap",
+    "description": "The current player level cap is 35, increased from 30 in v1.2.15.",
+    "tags": ["level cap", "level 35", "progression"],
+    "currentLevel": 35,
+    "previousLevel": 30,
+    "confidence": "Official confirmed",
+    "version": "v1.2.15",
+    "lastVerified": "2026-08-31",
+    "source": "Official Discord patch announcement by Swaroff [PRTL], v1.2.15"
+  },
+  {
+    "id": "respawn-invulnerability",
+    "name": "Respawn Invulnerability",
+    "description": "Players receive 5 seconds of invulnerability after respawning.",
+    "tags": ["respawn", "invulnerability", "5 seconds"],
+    "durationSeconds": 5,
+    "confidence": "Official confirmed",
+    "version": "v1.2.15",
+    "lastVerified": "2026-08-31",
+    "source": "Official Discord patch announcement by Swaroff [PRTL], v1.2.15"
+  },
+  {
+    "id": "mini-boss-level-penalty",
+    "name": "Mini-Boss Level Penalty",
+    "description": "Mini-Bosses no longer have a level penalty as of v1.2.15.",
+    "tags": ["mini-boss", "level penalty", "combat"],
+    "hasLevelPenalty": false,
+    "confidence": "Official confirmed",
+    "version": "v1.2.15",
+    "lastVerified": "2026-08-31",
+    "source": "Official Discord patch announcement by Swaroff [PRTL], v1.2.15"
   }
 ]
