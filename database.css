@@ -49,6 +49,19 @@
 .database-page .database-record:focus-visible{outline:3px solid rgba(15,83,132,.35);outline-offset:2px;border-color:#0f5d94}
 .database-page .database-empty-state{grid-column:1/-1;margin:0;padding:14px 2px 2px;color:#6b6257;font-size:11px}
 
+.database-page .database-patch-list{grid-column:1/-1;border-top:1px solid rgba(142,94,29,.42);border-bottom:1px solid rgba(142,94,29,.42)}
+.database-page .database-patch-row{appearance:none;display:grid;width:100%;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:26px;padding:19px 17px;text-align:left;color:#302a24;border:0;border-bottom:1px solid rgba(142,94,29,.25);border-radius:0;background:rgba(255,252,242,.24);cursor:pointer;transition:background-color 180ms ease,border-color 180ms ease,color 180ms ease,box-shadow 180ms ease}
+.database-page .database-patch-row:last-child{border-bottom:0}
+.database-page .database-patch-row:hover{background:rgba(255,249,229,.78);box-shadow:inset 3px 0 0 #b78432}
+.database-page .database-patch-row:focus-visible{position:relative;z-index:1;outline:3px solid rgba(15,83,132,.38);outline-offset:-2px;background:#fff9e8}
+.database-page .database-patch-main{display:grid;min-width:0;gap:5px}
+.database-page .database-patch-heading{display:flex;align-items:center;gap:9px}
+.database-page .database-patch-version{color:#143f65;font:700 18px/1.2 Cinzel,serif}
+.database-page .database-patch-date{color:#91601d;font:700 8px/1.25 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase}
+.database-page .database-patch-summary{max-width:790px;color:#62594e;font:400 10.5px/1.55 Inter,sans-serif}
+.database-page .database-patch-action{white-space:nowrap;color:#155b8d;font:700 8px/1.2 Cinzel,serif;letter-spacing:.05em}
+.database-page .database-patch-latest-label{padding:4px 6px;color:#fff8e5;border:1px solid #b98a3d;border-radius:3px;background:#164f7c;font:700 7px/1 Cinzel,serif;letter-spacing:.1em;text-transform:uppercase}
+
 @media(max-width:900px){.database-page .database-group-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.database-page .database-browser-results{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.database-page .page-shell{padding-top:26px}.database-page .page-hero{padding:25px 0 16px}.database-page .page-hero h1{font-size:clamp(38px,12vw,48px)}.database-page .page-search{height:58px;margin-top:14px;padding-left:13px}.database-page .page-search button{height:46px;min-width:88px;padding:0 14px}.database-page .database-index{gap:27px;margin-top:34px}.database-page .database-group-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.database-page .database-category-card{min-height:176px;padding:18px 16px 15px}.database-page .database-browser{margin-top:34px;padding:23px 20px}.database-page .database-browser-header{display:grid;gap:8px}.database-page .database-browser-count{justify-self:start;margin-top:0}}
-@media(max-width:520px){.database-page .database-group-grid,.database-page .database-browser-results{grid-template-columns:1fr}.database-page .database-category-card{min-height:158px}.database-page .database-group>h2:after{max-width:none}.database-page .database-browser{padding:20px 16px}}
+@media(max-width:520px){.database-page .database-group-grid,.database-page .database-browser-results{grid-template-columns:1fr}.database-page .database-category-card{min-height:158px}.database-page .database-group>h2:after{max-width:none}.database-page .database-browser{padding:20px 16px}.database-page .database-patch-row{grid-template-columns:1fr;gap:11px;padding:17px 12px}.database-page .database-patch-action{justify-self:start}.database-page .database-patch-summary{font-size:10px}}

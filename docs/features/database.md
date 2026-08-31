@@ -22,3 +22,7 @@ Items and Quests link to their dedicated pages. The remaining categories open ex
 Inline categories use `database.html?category=<key>`. A valid deep link restores the selected category and browser contents after data loads. Invalid or absent category values leave the browser in its normal closed state. Category changes use browser history, and back/forward navigation restores the corresponding state. The selected category is communicated visually and with `aria-pressed`.
 
 The category browser does not add provenance markers. Existing record details remain governed by the [Provenance UX](../standards/provenance-ux.md) and [Data Integrity](../standards/data-integrity.md) standards.
+
+## Patch History
+
+Patch History is a reverse-chronological changelog browser. Patch records are sorted by supported implementation date descending and use a compact list presentation rather than the generic Database record-card grid. Records without a supported date follow dated records, and complete patch highlights remain in the shared Patch record-profile dialog.

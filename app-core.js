@@ -99,7 +99,62 @@ const databaseBrowserDescription=document.getElementById("databaseBrowserDescrip
 const databaseBrowserCount=document.getElementById("databaseBrowserCount");
 const databaseBrowserResults=document.getElementById("databaseBrowserResults");
 const databaseCategoryTitles={npcs:"NPCs",bosses:"Bosses",locations:"Locations",races:"Races",jobs:"Jobs",skills:"Skills",mechanics:"Mechanics",codes:"Codes",patches:"Patch History",updates:"Updates"};
-const databaseCategoryDescriptions={npcs:"Merchants, services, shops, quest relationships, and other NPC information.",bosses:"Encounters, mechanics, drops, schedules, and related content.",locations:"Villages, regions, sub-areas, services, and related content.",races:"Races, variants, stat bonuses, and character information.",jobs:"Warrior, Defender, Enchanter, Cleric, and related job information.",skills:"Skills, costs, cooldowns, effects, and related mechanics.",mechanics:"Combat, regeneration, account systems, and gameplay rules.",codes:"Published redemption codes and their rewards.",patches:"Versioned patch notes and gameplay changes.",updates:"Major game updates and feature additions."};
+const databaseCategoryDescriptions={npcs:"Merchants, services, shops, quest relationships, and other NPC information.",bosses:"Encounters, mechanics, drops, schedules, and related content.",locations:"Villages, regions, sub-areas, services, and related content.",races:"Races, variants, stat bonuses, and character information.",jobs:"Warrior, Defender, Enchanter, Cleric, and related job information.",skills:"Skills, costs, cooldowns, effects, and related mechanics.",mechanics:"Combat, regeneration, account systems, and gameplay rules.",codes:"Published redemption codes and their rewards.",patches:"Official patch notes and gameplay changes, newest first.",updates:"Major game updates and feature additions."};
+
+function patchDateValue(entry){
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(entry.date||"")) return null;
+  const value=Date.parse(`${entry.date}T00:00:00Z`);
+  return Number.isNaN(value)?null:value;
+}
+
+function patchVersionParts(entry){
+  const match=String(entry.version||entry.title||"").match(/v(\d+)\.(\d+)\.(\d+)/i);
+  return match?match.slice(1).map(Number):null;
+}
+
+function comparePatchVersions(a,b){
+  const aParts=patchVersionParts(a);
+  const bParts=patchVersionParts(b);
+  if(!aParts&&!bParts) return 0;
+  if(!aParts) return 1;
+  if(!bParts) return -1;
+  for(let index=0;index<aParts.length;index++){
+    if(aParts[index]!==bParts[index]) return bParts[index]-aParts[index];
+  }
+  return 0;
+}
+
+function sortPatchHistory(rows){
+  return rows.map((entry,index)=>({entry,index})).sort((a,b)=>{
+    const aDate=patchDateValue(a.entry);
+    const bDate=patchDateValue(b.entry);
+    if(aDate!==null&&bDate!==null&&aDate!==bDate) return bDate-aDate;
+    if(aDate===null&&bDate!==null) return 1;
+    if(aDate!==null&&bDate===null) return -1;
+    return comparePatchVersions(a.entry,b.entry)||a.index-b.index;
+  }).map(item=>item.entry);
+}
+
+function formatPatchDate(date){
+  const value=patchDateValue({date});
+  return value===null?"":new Intl.DateTimeFormat("en-US",{month:"long",day:"numeric",year:"numeric",timeZone:"UTC"}).format(value);
+}
+
+function patchHistorySummary(entry){
+  if(entry.description) return entry.description;
+  return (entry.highlights||[]).slice(0,2).join(" · ")||"Open the complete patch notes.";
+}
+
+function renderPatchHistory(rows){
+  const sortedRows=sortPatchHistory(rows);
+  const latestIndex=sortedRows.findIndex(entry=>patchDateValue(entry)!==null);
+  databaseBrowserResults.innerHTML=sortedRows.length?`<div class="database-patch-list">${sortedRows.map((entry,index)=>{
+    const date=formatPatchDate(entry.date);
+    const version=entry.version||entry.title||entry._displayName;
+    return `<button type="button" class="database-patch-row${index===latestIndex?" database-patch-latest":""}" data-patch-record="${index}"><span class="database-patch-main"><span class="database-patch-heading"><strong class="database-patch-version">${escapeHtml(version)}</strong>${index===latestIndex?'<span class="database-patch-latest-label">Latest</span>':""}</span>${date?`<time class="database-patch-date" datetime="${escapeHtml(entry.date)}">${escapeHtml(date)}</time>`:""}<span class="database-patch-summary">${escapeHtml(patchHistorySummary(entry))}</span></span><span class="database-patch-action">View details →</span></button>`;
+  }).join("")}</div>`:`<p class="database-empty-state">No entries available.</p>`;
+  databaseBrowserResults.querySelectorAll("[data-patch-record]").forEach((button,index)=>button.addEventListener("click",()=>openEntry(sortedRows[index])));
+}
 
 function resetDatabaseBrowser(){
   categoryButtons.forEach(btn=>{btn.classList.remove("is-active");btn.setAttribute("aria-pressed","false");});
@@ -113,6 +168,11 @@ function renderDatabaseCategory(cat){
   if(databaseBrowserTitle) databaseBrowserTitle.textContent=databaseCategoryTitles[cat]||cat;
   if(databaseBrowserDescription) databaseBrowserDescription.textContent=databaseCategoryDescriptions[cat]||"";
   if(databaseBrowserCount){databaseBrowserCount.textContent=rows.length?`${rows.length} ${rows.length===1?"record":"records"}`:"";databaseBrowserCount.classList.toggle("hidden",!rows.length);}
+  if(cat==="patches"){
+    renderPatchHistory(rows);
+    databaseBrowser.classList.remove("hidden");
+    return;
+  }
   databaseBrowserResults.innerHTML=rows.length?rows.map((entry,index)=>`<button type="button" class="database-record" data-database-record="${index}"><span>${escapeHtml(labels[entry._collection]||"ENTRY")}</span><strong>${escapeHtml(entry._displayName)}</strong><small>${escapeHtml(getDescription(entry))}</small><b class="database-record-action">View details →</b></button>`).join(""):`<p class="database-empty-state">No entries available.</p>`;
   databaseBrowserResults.querySelectorAll("[data-database-record]").forEach((btn,index)=>btn.addEventListener("click",()=>openEntry(rows[index])));
   databaseBrowser.classList.remove("hidden");
