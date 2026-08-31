@@ -1,299 +1,84 @@
 [
   {
-    "id": "patch-2026-07-28",
-    "name": "Patch Notes — 2026-07-28",
-    "type": "Patch Notes",
-    "date": "2026-07-28",
-    "version": null,
-    "description": "Official Discord patch covering upgrade VFX, tutorial changes, balance, account-bound systems, fixes, and performance work.",
-    "highlights": [
-      "Upgrade VFX added for +8, +9, +10 equipment",
-      "Death animations added for NPCs and Goblins without ragdoll",
-      "Tutorial added targeting and spell-casting steps",
-      "Scrap Metal quest requirement reduced from 5 to 3",
-      "Chicken Pet bonus granted after Tutorial Ch1 P3 with an equip tutorial step",
-      "Aurora Wave mana cost per projectile increased 1.5x",
-      "Race Reroll odds normalized to 33.33% per race",
-      "Item drops no longer use physics",
-      "Dewdrop optimized with 4M triangles removed"
-    ],
-    "confidence": "Official confirmed",
-    "source": "Official Discord big-updates tab"
-  },
-  {
-    "id": "combat-update-2026-07-29",
-    "name": "Combat System Update",
-    "type": "Combat System Update",
-    "date": "2026-07-29",
-    "description": "Official combat rules announcement for a subsequent patch.",
-    "rules": {
-      "guaranteedHitWithinStuds": 10,
-      "distanceBeyondStudsUses3D": 10,
-      "attackConeDegreesAtAnnouncement": 20,
-      "largeHeightDifferenceMisses": true
-    },
-    "notes": "A small-update post later changed the planned attack cone from ±20° to ±45° before the patch was applied.",
-    "confidence": "Official confirmed",
-    "source": "Official Discord big-updates tab + supplied combat-system infographic"
-  },
-  {
-    "id": "combat-cone-change-2026-07-30",
-    "name": "Combat Attack Cone Revision",
-    "type": "Small Update",
+    "id": "chapter-2-release",
+    "name": "Chapter 2 Release",
+    "type": "Content Release",
     "date": "2026-07-30",
-    "description": "Planned attack cone widened from ±20° to ±45° for the next combat patch.",
-    "changes": [{"system":"Attack Cone","before":"±20°","after":"±45°"}],
-    "confidence": "Official confirmed",
-    "source": "Official Discord small-updates tab"
-  },
-  {
-    "id": "patch-2026-07-30",
-    "name": "Patch Notes — 2026-07-30",
-    "type": "Patch Notes",
-    "date": "2026-07-30",
-    "description": "Chapter 2 release plus skill, balance, quality-of-life, fix, and anti-cheat changes.",
+    "description": "Chapter 2 launched as a major progression and content milestone.",
     "highlights": [
       "Chapter 2 released",
-      "Every item now displays whether it is bound, tradeable, or free",
-      "Aurora Wave reworked",
-      "Blade Circuit damage and slash count increased",
-      "Timber Charge damage increased and gained a 1-second stun against non-demihumans",
-      "Bash stun and slow increased",
-      "Heal now scales with Magic ATK",
-      "Mana Shield blocks crowd control except Cripple",
-      "Junk King HP increased from 35,000 to 1,050,000",
-      "Tin Tortoise HP increased from 37,500 to 525,000",
-      "Junk King and Tin Tortoise accessory drops about 25% more common",
-      "Spirit Stones about 2.5x more common from Junk King and Tin Tortoise",
-      "Spirit Stone effects can trigger every 1 second instead of every 3 seconds",
-      "World loot unlocks after Working the Land",
-      "Build Mode placement grid added"
+      "Additional Chapter 2 content and progression became available through the July 30 update"
     ],
     "confidence": "Official confirmed",
-    "source": "Official Discord big-updates tab"
+    "source": "Official Discord big-updates patch announcement, 2026-07-30"
   },
   {
-    "id": "patch-2026-08-03",
-    "name": "Patch Notes — 2026-08-03",
-    "type": "Patch Notes",
+    "id": "premium-pass-launch",
+    "name": "Premium Pass Launch",
+    "type": "Feature Launch",
     "date": "2026-08-03",
-    "description": "AI, bug-fix, Premium Pass, elemental-system, headgear, and build-mode update.",
+    "description": "The Premium Pass was introduced as a new game feature.",
     "highlights": [
-      "Stuck monsters return to spawn after 2 seconds and remain invulnerable until reset",
-      "New Enchanter skill: Aqua Bloom (Water Element Magic)",
-      "Premium Pass added",
-      "New decoration recipe: Door",
-      "Monsters now have elemental attributes",
-      "Headgear added to Codex",
-      "Build Mode invalid placement overlay added",
-      "Fortune Clover, Bone Bite, Tinker's Goggles, and Plague Mask added"
+      "Premium Pass added"
     ],
     "confidence": "Official confirmed",
-    "source": "Official Discord big-updates tab"
+    "source": "Official Discord big-updates patch announcement, 2026-08-03"
   },
   {
-    "id": "patch-v1-0-4",
-    "name": "Patch Notes — v1.0.4",
-    "type": "Small Update",
-    "date": "2026-08-06",
-    "version": "v1.0.4",
-    "description": "Collision, ladder, Greenhouse, and invalid-target mana-cost fixes.",
-    "highlights": [
-      "Fixed collision issues that could trap players during repeated Auto Attack",
-      "Baby Phase players can climb ladders",
-      "Fixed various Greenhouse bugs",
-      "Casting without a valid target now consumes 50% of normal mana cost"
-    ],
-    "confidence": "Official confirmed",
-    "source": "Official Discord small-updates tab"
-  },
-  {
-    "id": "patch-v1-0-5",
-    "name": "Patch Notes — v1.0.5",
-    "type": "Small Update",
-    "date": "2026-08-06",
-    "version": "v1.0.5",
-    "description": "Aqua Bloom, Combat Mode, and slippery-pole changes.",
-    "highlights": [
-      "Fixed Aqua Bloom glitch",
-      "Combat Mode now triggers when dealing or receiving damage",
-      "Some poles are now slippery"
-    ],
-    "confidence": "Official confirmed",
-    "source": "Official Discord small-updates tab"
-  },
-  {
-    "id": "patch-v1-1-6",
-    "name": "Patch Notes — v1.1.6",
-    "type": "Patch Notes",
+    "id": "lycaros-world-boss-launch",
+    "name": "Lycaros World Boss Launch",
+    "type": "Content Release",
     "date": "2026-08-09",
     "version": "v1.1.6",
-    "description": "Introduced Lycaros, Identify, regeneration changes, new skills, and other combat/world updates.",
+    "description": "Lycaros was introduced as a Weekly World Boss.",
     "highlights": [
-      "Lycaros added as a Weekly World Boss",
-      "Magnifying Glass introduced for Identify",
-      "HP/MP regeneration formula updated",
-      "In-combat regen is 50%, out-of-combat 100%, sitting 150%",
-      "Body Slam added for Defender / Earth",
-      "Tailwind added for Enchanter / Wind",
-      "Blade Rush added for Warrior / Neutral",
-      "Doombell added for Cleric / Fire",
-      "Whirlwind now scales with DEF and scaling increased from 100% to 400%",
-      "Dewdrop Ore Nodes increased from 20 to 35"
+      "Lycaros added as a Weekly World Boss"
     ],
     "confidence": "Official confirmed",
-    "source": "Official Discord big-updates tab"
+    "source": "Official Discord big-updates patch notes v1.1.6, 2026-08-09"
   },
   {
-    "id": "patch-v1-1-7",
-    "name": "Patch Notes — v1.1.7",
-    "type": "Small Update",
-    "date": "2026-08-10",
-    "version": "v1.1.7",
-    "description": "Lycaros schedule, new skills, Identify reminder, and Part-Time Jobs.",
+    "id": "identify-system-launch",
+    "name": "Identify System Launch",
+    "type": "Feature Launch",
+    "date": "2026-08-09",
+    "version": "v1.1.6",
+    "description": "The equipment Identify system was introduced using Magnifying Glasses.",
     "highlights": [
-      "Lycaros schedule listed as Saturday 16:00 and 04:00 GMT+7",
-      "Part-Time Jobs added for Breda, Eren, Neria, Leaf, Arlette, and Hogan"
+      "Identify system added for Shoes, Gloves, Bracelet, Necklace, Upper Headgear, Middle Headgear, and Lower Headgear",
+      "Magnifying Glasses introduced as Lycaros drops for identifying eligible equipment"
     ],
     "confidence": "Official confirmed",
-    "source": "Official Discord small-updates tab"
+    "source": "Official Discord big-updates patch notes v1.1.6, 2026-08-09"
   },
   {
-    "id": "patch-v1-1-8",
-    "name": "Patch Notes — v1.1.8",
-    "type": "Small Update",
-    "date": "2026-08-12",
-    "version": "v1.1.8",
-    "description": "Lycaros/Forge fixes, player-interaction change, Timber Charge change, extra quick slots, and graphics settings.",
-    "highlights": [
-      "Player interaction can only be triggered while sheathed",
-      "Timber Charge grants CC immunity while active, with queued CC continuing afterward except Timber Charge vs Timber Charge",
-      "Additional Quick Slots unlock after clearing Chapter 2",
-      "Skill VFX Filter added with Self, Party, and Everyone options",
-      "World Motion graphics toggle added"
-    ],
-    "confidence": "Official confirmed",
-    "source": "Official Discord small-updates tab"
-  },
-  {
-    "id": "patch-v1-1-9",
-    "name": "Patch Notes — v1.1.9",
-    "type": "Small Update",
-    "date": "2026-08-14",
-    "version": "v1.1.9",
-    "description": "Dual Wield element, slider UI, SFX slider, and Part-Time Job fixes.",
-    "highlights": [
-      "Fixed Dual Wield elemental effects",
-      "Fixed slider UI on PC and Mobile",
-      "Fixed SFX volume slider",
-      "Fixed skill-spam issue during Part-Time Jobs"
-    ],
-    "confidence": "Official confirmed",
-    "source": "Official Discord small-updates tab"
-  },
-  {
-    "id": "patch-v1-1-10",
-    "name": "Patch Notes — v1.1.10",
-    "type": "Small Update",
-    "date": "2026-08-14",
-    "version": "v1.1.10",
-    "description": "Magnifying Glass monster drops, Claw Machine improvements, and Server Hop filters.",
-    "highlights": [
-      "Junk King and Tin Tortoise can drop Magnifying Glass",
-      "Claw Machine stuck protection guarantees 1 Goblin Coin when no reward is received",
-      "Claw Machine displays reward probabilities",
-      "Claw Machine can be restocked",
-      "Server Hop filters added for All, Friends, and server-name search"
-    ],
-    "confidence": "Official confirmed",
-    "source": "Official Discord small-updates tab"
-  },
-  {
-    "id": "patch-v1-1-12",
-    "name": "Patch Notes — v1.1.12",
-    "type": "Small Update",
-    "date": "2026-08-18",
-    "version": "v1.1.12",
-    "postedTimeLocal": "02:05",
-    "description": "Combat, pet, title, collision, and item-tradability improvements.",
-    "highlights": [
-      "Only one title can be equipped at a time",
-      "Fixed fling-related false bans",
-      "Auto Jump disabled",
-      "All attacks now trigger Combat Mode",
-      "Fortune Clover and Bone Bite are tradable",
-      "Fixed Resurrect target selection",
-      "Pet pathfinding improved",
-      "Pet collision disabled",
-      "Cart collision disabled"
-    ],
-    "notes": "Discord displayed only the time because the post was made on the same local date the user supplied it; date normalized to 2026-08-18 using the user's timezone.",
-    "confidence": "Official confirmed",
-    "source": "Official Discord small-updates tab"
-  },
-  {
-    "id": "patch-v1-2-13",
-    "name": "Patch Notes — v1.2.13",
-    "type": "Patch Notes",
+    "id": "guild-system-arcane-defense-launch",
+    "name": "Guild System & Arcane Defense Launch",
+    "type": "Feature Launch",
     "date": "2026-08-20",
     "version": "v1.2.13",
-    "description": "Guilds, Lycaros rewards, Claw Machine updates, Damage Up cap changes, and network improvements.",
+    "description": "Guilds opened and Arcane Defense became available as a Guild activity.",
     "highlights": [
-      "Guild System opened through Rendall; creation costs 499 Robux",
-      "Guild capacity starts at 15 members and can be upgraded to 30",
-      "Arcane Defense is available every Friday and must be started by the Guild Leader",
-      "Lycaros' Event Calendar schedule is displayed in the player's local time",
-      "Qualified Lycaros fighters receive 2 Magnifying Glass, 3 Goblin Coin, 3,500 Tria, and 300 Guild EXP",
-      "Lycaros base Prize Pool increased from 6 to 10",
-      "Top damage contributors receive additional Magnifying Glass: first 5, second 3, third 2; randomly distributed among party members",
-      "Magnifying Glass added to the Claw Machine prize pool",
-      "Maximum Damage Up increased from 100% to 120%",
-      "Reduced unnecessary network data transmission to improve network performance and data usage"
+      "Guild System opened through Rendall",
+      "Guilds begin with capacity for 15 members and can be upgraded to 30",
+      "Arcane Defense became available every Friday and is started by the Guild Leader",
+      "Guild activities award Guild EXP and Guild Coins"
     ],
     "confidence": "Official confirmed",
-    "source": "Official Discord big-update announcement by Swaroff [PRTL], 2026-08-20"
+    "source": "Official Discord v1.2.13 announcement and Guild reward-system announcement by Swaroff [PRTL], 2026-08-20"
   },
   {
-    "id": "patch-v1-2-14",
-    "name": "Patch Notes — v1.2.14",
-    "type": "Patch Notes",
-    "date": "2026-08-24",
-    "version": "v1.2.14",
-    "description": "Monster and Arcane Defense balance, Lycaros updates, mount actions, stat-cap changes, UI improvements, and Guild server controls.",
-    "highlights": [
-      "Monster movement speed adjusted; Arcane Defense base stats reduced and no longer scale, elements still follow the Wave Table, and Max HP scaling changed from Exponential to Linear",
-      "Arcane Defense Leaderboard added",
-      "Second Lycaros attempts contribute to Codex, grant half participant rewards only, and can award Lycaros Undertaker",
-      "Crop Mutation VFX follows VFX Settings and shows only the highest-multiplier mutation effect",
-      "Horse Leap and Junkcycle Nitro actions added",
-      "Block cap increased to 50%, Ignore DEF to 70%, Damage Up to 150%, and Punk Lamb Level 20 Damage Bonus to 15%",
-      "Item Details show buff stacking and HP Bars show active status effects",
-      "Guild Leaders can create private or public servers in Dewdrop Village"
-    ],
-    "confidence": "Official confirmed",
-    "source": "Official Discord patch announcement by Swaroff [PRTL], 2026-08-24"
-  },
-  {
-    "id": "patch-v1-2-15",
-    "name": "Patch Notes — v1.2.15",
-    "type": "Patch Notes",
+    "id": "battle-pass-season-2-announcement",
+    "name": "Battle Pass Season 2",
+    "type": "Upcoming Content",
     "date": "2026-08-31",
-    "postedTimeLocal": "02:00",
-    "timestampContext": "Discord displayed only the time; date normalized from the site owner's current local date of 2026-08-31.",
     "version": "v1.2.15",
-    "description": "Premium and Lumen shop changes, progression updates, respawn protection, Battle Pass Season 2 announcement, system reworks, and fixes.",
+    "description": "Battle Pass Season 2 was announced to begin September 1, 2026.",
     "highlights": [
-      "Premium Shop reworked; Lumen Shop and Packs added with new Pets, Mounts, and Cosmetic",
-      "Lycaros Battle Report added through Mail; Guild Name and Icon can be changed using Lumen",
-      "Respawning grants 5 seconds of invulnerability and a new Playtime reward was added",
-      "Battle Pass Season 2 announced for September 1 with Sunflower Crop, Fizz Drink, Mimic Chest Storage, Tier 5 Bag, +20 Soil, and Enchanted title rewards",
-      "Level Cap increased from 30 to 35; Lumen drops are personal with a Pity System",
-      "Mini-Boss level penalty removed; Bag System reworked into 6 tiers; x3 Goblin Coin removed from Claw Machine Pool",
-      "Purchase/drop confirmations added and Claw Machine, Arcane Defense, Inventory, mount, achievement, tutorial, pet, boss, arena, notification, fruit, equipment, Weather Buff, and Guild Leader issues fixed",
-      "Enchanted Forest announced as coming soon"
+      "Season 2 begins September 1, 2026",
+      "Announced rewards include Sunflower Crop, Fizz Drink, Mimic Chest Storage, Tier 5 Bag, +20 Soil, and the Enchanted title"
     ],
     "confidence": "Official confirmed",
-    "source": "Official Discord patch announcement by Swaroff [PRTL]"
+    "source": "Official Discord patch announcement by Swaroff [PRTL], v1.2.15"
   }
 ]
-
