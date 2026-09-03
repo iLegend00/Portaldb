@@ -656,12 +656,12 @@ function equipmentValue(value,unit,{signed=true}={}){
 }
 
 function equipmentRange(roll){
-  return `${equipmentValue(roll.min,roll.unit)} to ${equipmentValue(roll.max,roll.unit)}`;
+  return `${equipmentValue(roll.min,roll.unit)} – ${equipmentValue(roll.max,roll.unit)}`;
 }
 
 function renderEquipmentStatRows(rows,{chance=false}={}){
   if(!rows?.length) return "";
-  return `<div class="equipment-stat-list">${rows.map(row=>`<div class="equipment-stat-row"><span>${escapeHtml(row.stat)}</span><strong>${escapeHtml(row.min!==undefined?equipmentRange(row):equipmentValue(row.value,row.unit))}</strong>${chance?`<small>${escapeHtml(row.appearanceChancePercent)}% appearance chance</small>`:""}</div>`).join("")}</div>`;
+  return `<div class="equipment-stat-list${chance?" equipment-stat-list-secondary":""}">${rows.map(row=>`<div class="equipment-stat-row"><span>${escapeHtml(row.stat)}</span><strong>${escapeHtml(row.min!==undefined?equipmentRange(row):equipmentValue(row.value,row.unit))}</strong>${chance?`<small><b>${escapeHtml(row.appearanceChancePercent)}%</b><span> appearance chance</span></small>`:""}</div>`).join("")}</div>`;
 }
 
 function renderEquipmentAcquisition(entry){
@@ -676,13 +676,14 @@ function renderEquipmentRecipe(entry){
 
 function renderEquipmentDetail(entry){
   const subtype=entry.weaponType||entry.armorWeight;
-  const requirement=(entry.requirements||[]).map(r=>`${r.value} ${r.stat}${r.permanent?" permanent requirement":""}`).join(" · ");
-  const overview=renderRecordQuickInfo([["Tier",`T${entry.tier}`],["Type",entry.equipmentType],["Subtype",subtype],["Slot",entry.slot],["Hands",entry.handType],["Sell Value",entry.sellTria!==undefined?`${displayNumber(entry.sellTria)} Tria`:""]]);
-  const header=`<header class="record-profile-header equipment-profile-header"><div class="type">EQUIPMENT</div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div></header>`;
+  const requirement=(entry.requirements||[])[0];
+  const metadata=[`T${entry.tier}`,subtype,entry.slot,entry.handType].filter(Boolean).join(" · ");
+  const header=`<header class="record-profile-header equipment-profile-header"><div class="type">${escapeHtml(entry.equipmentType||"EQUIPMENT")}</div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div><div class="equipment-meta"><span>${escapeHtml(metadata)}</span>${entry.sellTria!==undefined?`<strong>Sell ${escapeHtml(displayNumber(entry.sellTria))} Tria</strong>`:""}</div></header>`;
   const guaranteed=`<div class="equipment-guaranteed"><div><h4>Primary Rolls</h4>${renderEquipmentStatRows(entry.rolls.primary)}</div><div><h4>Fixed Stats</h4>${renderEquipmentStatRows(entry.rolls.fixed)}</div></div>`;
   const bands=[["Common","0–20%"],["Uncommon","20–40%"],["Rare","40–60%"],["Epic","60–80%"],["Legendary","80–100%"]];
-  const quality=`<div class="equipment-quality"><div class="equipment-quality-bands">${bands.map(([name,range])=>`<span><strong>${name}</strong><small>${range}</small></span>`).join("")}</div><p>Roll Quality reflects where a variable stat landed within its allowed range.</p><p>Each listed Secondary modifier has its own documented appearance chance.</p></div>`;
-  return `<div class="dialog-body record-profile equipment-profile">${header}${overview}${renderRecordSection("Permanent Requirement",`<p class="equipment-requirement">${escapeHtml(requirement)}</p>`)}${renderRecordSection("Guaranteed Stats",guaranteed)}${renderRecordSection("Possible Secondary Rolls",renderEquipmentStatRows(entry.rolls.secondary,{chance:true}))}${renderRecordSection("Roll Quality",quality)}${renderRecordSection("Acquisition",renderEquipmentAcquisition(entry))}${renderRecordSection("Crafting Recipe",renderEquipmentRecipe(entry))}</div>`;
+  const quality=`<div class="equipment-quality"><div class="equipment-quality-bands">${bands.map(([name,range])=>`<span><strong class="rarity-${name.toLowerCase()}">${name}</strong><small>${range}</small></span>`).join("")}</div><p>Roll Quality reflects where a variable stat landed within its allowed range.</p><p>Each listed Secondary modifier has its own documented appearance chance.</p></div>`;
+  const requirementBody=requirement?`<div class="equipment-requirement"><strong>${escapeHtml(requirement.value)} ${escapeHtml(requirement.stat)}</strong>${requirement.permanent?"<span>Permanent stat points only</span>":""}</div>`:"";
+  return `<div class="dialog-body record-profile equipment-profile">${header}${renderRecordSection("Stat Requirement",requirementBody)}${renderRecordSection("Guaranteed Stats",guaranteed)}${renderRecordSection("Possible Rolls",renderEquipmentStatRows(entry.rolls.secondary,{chance:true}))}${renderRecordSection("Roll Quality",quality)}${renderRecordSection("Acquisition",renderEquipmentAcquisition(entry))}${renderRecordSection("Crafting Recipe",renderEquipmentRecipe(entry))}</div>`;
 }
 
 function renderGenericDetail(entry){

@@ -25,3 +25,7 @@ The schema is additive. Existing equipment without `rolls`, all other item categ
 ## Responsive Behavior
 
 The desktop profile uses paired groups where space permits. At narrow widths, guaranteed stats, acquisitions, recipes, and individual stat rows collapse into a single readable column without horizontal scrolling.
+
+## Compact Inspection Layout
+
+Equipment Profiles prioritize glanceability and dense RPG inspection-panel readability. Stat values remain visually adjacent to their labels instead of stretching across the dialog, while restrained dividers and proximity replace oversized cards. Roll Quality uses conventional rarity-name colors—gray, green, blue, purple, and warm orange—as semantic accents; the visible rarity names ensure meaning never depends on color alone.
