@@ -659,14 +659,14 @@ function equipmentRange(roll){
   return `${equipmentValue(roll.min,roll.unit)} – ${equipmentValue(roll.max,roll.unit)}`;
 }
 
-function renderEquipmentStatRows(rows,{chance=false,types=false}={}){
+function renderEquipmentStatRows(rows,{chance=false}={}){
   if(!rows?.length) return "";
-  return `<div class="equipment-stat-list${chance?" equipment-stat-list-secondary":""}">${rows.map(row=>`<div class="equipment-stat-row"><span>${escapeHtml(row.stat)}</span><strong>${escapeHtml(row.min!==undefined?equipmentRange(row):equipmentValue(row.value,row.unit))}</strong>${chance?`<small><b>${escapeHtml(row.appearanceChancePercent)}%</b></small>`:""}${types?`<small class="equipment-stat-kind">${escapeHtml(row.rollType)}</small>`:""}</div>`).join("")}</div>`;
+  return `<table class="equipment-stat-table${chance?" equipment-stat-table-possible":" equipment-stat-table-guaranteed"}"><thead><tr><th scope="col">Stat</th><th scope="col">${chance?"Range":"Range / Value"}</th>${chance?'<th scope="col">Chance</th>':""}</tr></thead><tbody>${rows.map(row=>`<tr><th scope="row">${escapeHtml(row.stat)}</th><td>${escapeHtml(row.min!==undefined?equipmentRange(row):equipmentValue(row.value,row.unit))}</td>${chance?`<td>${escapeHtml(row.appearanceChancePercent)}%</td>`:""}</tr>`).join("")}</tbody></table>`;
 }
 
 function renderEquipmentAcquisition(entry){
   if(!entry.acquisition?.length) return "";
-  return `<div class="equipment-acquisition-list">${entry.acquisition.map(source=>{const kind=/craft/i.test(source.method)?"Craft":/event/i.test(source.method)?"Event":source.method;return `<div><small class="equipment-acquisition-kind">${escapeHtml(kind)}</small><strong>${escapeHtml(source.method)}</strong>${renderLinkedNames([source.source])}${source.chancePercent!==undefined?`<small>${escapeHtml(source.chancePercent)}% ${escapeHtml(source.chanceContext||"")}</small>`:""}</div>`}).join("")}</div>`;
+  return `<div class="equipment-acquisition-list">${entry.acquisition.map(source=>{const craft=/craft/i.test(source.method);const event=/event/i.test(source.method);const kind=craft?"Craft":event?"Event":source.method;const method=craft?source.method.replace(/\s*crafting/i,""):event?"":source.method;return `<div><small class="equipment-acquisition-kind">${escapeHtml(kind)}</small><div class="equipment-acquisition-detail">${method?`<strong>${escapeHtml(method)}</strong>`:""}${renderLinkedNames([source.source])}${source.chancePercent!==undefined?`<small>${escapeHtml(source.chancePercent)}% ${escapeHtml(source.chanceContext||"")}</small>`:""}</div></div>`}).join("")}</div>`;
 }
 
 function renderEquipmentRecipe(entry){
@@ -684,13 +684,13 @@ function renderEquipmentDetail(entry){
   const requirement=(entry.requirements||[])[0];
   const metadata=[`T${entry.tier}`,subtype,entry.slot,entry.handType].filter(Boolean).join(" · ");
   const requirementLine=requirement?`<div class="equipment-header-requirement"><strong>Requires ${escapeHtml(requirement.value)} ${escapeHtml(requirement.stat)}</strong>${requirement.permanent?"<span>Permanent stat points only</span>":""}</div>`:"";
-  const identity=`<div class="equipment-identity"><div class="type">${escapeHtml(entry.equipmentType||"EQUIPMENT")}</div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div><div class="equipment-meta"><span>${escapeHtml(metadata)}</span>${entry.sellTria!==undefined?`<strong>Sell ${escapeHtml(displayNumber(entry.sellTria))} Tria</strong>`:""}</div>${requirementLine}${entry.description?`<p class="equipment-description">${escapeHtml(entry.description)}</p>`:""}</div>`;
+  const identity=`<div class="equipment-identity"><div class="type">${escapeHtml(entry.equipmentType||"EQUIPMENT")}</div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div><div class="equipment-meta"><span>${escapeHtml(metadata)}</span></div>${requirementLine}${entry.sellTria!==undefined?`<div class="equipment-sell">Sell ${escapeHtml(displayNumber(entry.sellTria))} Tria</div>`:""}${entry.description?`<p class="equipment-description">${escapeHtml(entry.description)}</p>`:""}</div>`;
   const header=`<header class="record-profile-header equipment-profile-header">${renderEquipmentArtwork(entry)}${identity}</header>`;
-  const guaranteedRows=[...(entry.rolls.primary||[]).map(row=>({...row,rollType:"Primary"})),...(entry.rolls.fixed||[]).map(row=>({...row,rollType:"Fixed"}))];
-  const guaranteed=`<div class="equipment-stats-subsection"><h4>Guaranteed</h4>${renderEquipmentStatRows(guaranteedRows,{types:true})}</div>`;
-  const possible=`<div class="equipment-stats-subsection equipment-possible"><h4>Possible Modifiers</h4><div class="equipment-stat-head" aria-hidden="true"><span>Modifier</span><span>Range</span><span>Chance</span></div>${renderEquipmentStatRows(entry.rolls.secondary,{chance:true})}</div>`;
+  const guaranteedRows=[...(entry.rolls.primary||[]),...(entry.rolls.fixed||[])];
+  const guaranteed=`<div class="equipment-stats-subsection"><h4>Guaranteed Stats</h4>${renderEquipmentStatRows(guaranteedRows)}</div>`;
+  const possible=`<div class="equipment-stats-subsection equipment-possible"><h4>Possible Modifiers</h4>${renderEquipmentStatRows(entry.rolls.secondary,{chance:true})}</div>`;
   const bands=[["Common","0–20%"],["Uncommon","20–40%"],["Rare","40–60%"],["Epic","60–80%"],["Legendary","80–100%"]];
-  const quality=`<div class="equipment-quality"><div class="equipment-quality-bands">${bands.map(([name,range])=>`<span><strong class="rarity-${name.toLowerCase()}">${name}</strong><small>${range}</small></span>`).join("")}</div><p>Roll Quality reflects where a variable stat landed within its allowed range.</p><p>Each listed Secondary modifier has its own documented appearance chance.</p></div>`;
+  const quality=`<div class="equipment-quality"><div class="equipment-quality-bands">${bands.map(([name,range])=>`<span><strong class="rarity-${name.toLowerCase()}">${name}</strong><small>${range}</small></span>`).join("")}</div><p>Roll Quality reflects where a variable stat landed within its allowed range.</p></div>`;
   const stats=`<div class="equipment-stats">${guaranteed}${possible}<div class="equipment-stats-subsection equipment-quality-block"><h4>Roll Quality</h4>${quality}</div></div>`;
   return `<div class="dialog-body record-profile equipment-profile">${header}${renderRecordSection("Stats",stats)}${renderRecordSection("How to Get It",renderEquipmentAcquisition(entry))}${renderRecordSection("Crafting Recipe",renderEquipmentRecipe(entry))}</div>`;
 }
