@@ -4,6 +4,23 @@
 
 This directory is the durable reference for PortalDB architecture, product standards, feature decisions, and structured-data rules. It exists so future development does not depend on old conversations or implicit project history.
 
+## Project continuity
+
+These files preserve the active handoff without replacing the standards hierarchy:
+
+- [Project State](PROJECT_STATE.md) — current phase, recently completed work, next actions, and open questions.
+- [Roadmap](ROADMAP.md) — grounded development direction and sequence.
+- [Decisions](DECISIONS.md) — durable product and architecture decisions.
+- [Research Notes](research/README.md) — collected evidence, observations, conflicts, and unresolved mechanics that may not be production-ready.
+
+### Maintenance
+
+- When a major development phase is completed, update `PROJECT_STATE.md`.
+- When a durable architectural or product decision changes, update `DECISIONS.md`.
+- When development priorities change materially, update `ROADMAP.md`.
+- When new game research is collected, update the relevant `research/*.md` file.
+- Research does not automatically become production data.
+
 ## Site-wide standards
 
 Major rules that apply across PortalDB live under [`standards/`](standards/README.md):
@@ -35,4 +52,3 @@ Feature-specific UX and implementation decisions live under [`features/`](featur
 Folder-specific rules may live beside the files they govern. These local documents supplement the standards above and should remain discoverable from their working directory. For example, [`source-assets/artwork/README.md`](../source-assets/artwork/README.md) defines handling rules for canonical artwork masters.
 
 When standards overlap, apply the more specific rule without weakening the site-wide data-integrity or provenance requirements. If a task explicitly changes a permanent decision, update the relevant document in the same change.
-
