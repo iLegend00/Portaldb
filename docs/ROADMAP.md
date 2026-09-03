@@ -16,9 +16,11 @@ This roadmap records sequence and direction without assigning speculative dates 
 
 ## Current — Farming / Homestead Research
 
-- Verify plot geometry and build-limit behavior.
-- Reconcile structure costs, crop-slot behavior, sprinkler coverage, and vertical limits.
-- Define an architecture only after the underlying mechanics are sufficiently supported.
+- Verify exact build-capacity behavior, plot geometry, snapping, and vertical limits through controlled observation.
+- Reconcile the official Premium Pass Greenhouse rule with the developer-endorsed community reference's Overclocked-title claim.
+- Establish Water Tank, Pump, Pipe/Valve, Sprinkler, and Greenhouse irrigation dependencies.
+- Collect a representative crop/buildable evidence set before creating modular production datasets.
+- Apply the feature-specific implementation gates in `research/farming.md`; architecture planning alone does not make a feature production-ready.
 
 ## Next
 
@@ -31,3 +33,4 @@ This roadmap records sequence and direction without assigning speculative dates 
 - Expand structured content coverage as reliable evidence is collected.
 - Split or deepen walkthrough content when its size justifies dedicated chapter pages.
 - Add focused player-decision tools where the data model can support them without guesses.
+

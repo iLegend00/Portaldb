@@ -8,7 +8,7 @@ This is the canonical handoff for the project's current state. Permanent rules r
 
 **Farming / Homestead Architecture Research**
 
-PortalDB now has additive structured equipment data and a dedicated equipment profile renderer while retaining legacy item compatibility. The active phase moves to verifying enough Farming / Homestead mechanics to support a grounded architecture.
+Farming / Homestead research has been reconciled into official facts, developer-endorsed community references, player observations, approximate measurements, source conflicts, and implementation gates. The phase remains research because core crop, capacity, irrigation, and geometry mechanics are not yet sufficiently established for production features.
 
 ## Recently Completed
 
@@ -23,14 +23,14 @@ PortalDB now has additive structured equipment data and a dedicated equipment pr
 
 ## In Progress
 
-Farming / Homestead research is queued for reconciliation before implementation. Open geometry, build-limit, structure-cost, crop-slot, sprinkler, and vertical-limit questions remain explicitly unresolved.
+The architecture plan is defined, but production implementation is gated. The official Greenhouse default/Premium Pass rules are identified; the Overclocked-title claim remains a documented conflict. Build-capacity accounting, Hydraulics dependencies, crop records, exact geometry, Animal Plot rules, and vertical limits remain blockers.
 
 ## Next
 
-1. Continue farming and homestead research.
-2. Reconcile approximate observations with stronger evidence.
-3. Define farming/building architecture once its mechanics are sufficiently understood.
-4. Consider deeper item comparison only after unresolved equipment semantics are verified.
+1. Run a controlled in-game verification session for build-capacity accounting and Water Tank/Pump/Pipe/Sprinkler dependencies.
+2. Capture current Greenhouse recipe/maximum UI and reconcile the Overclocked-title claim with the official Premium Pass rule.
+3. Collect a small representative crop set with seasons, growth, sources, outputs, watering, and Greenhouse behavior.
+4. Begin modular production datasets only when the feature-specific gates in `research/farming.md` are met.
 
 ## Research Waiting for Implementation
 
@@ -59,6 +59,8 @@ Research notes are not production data and may contain explicitly labeled confli
 - What is the exact sprinkler coverage?
 - What is the vertical build-height limit?
 - How are special or composite structures counted and placed?
+- Do the Overclocked-title and Season 1 Premium Pass Greenhouse bonuses coexist, stack, or supersede one another?
+- How do Water Tank, Pump, Pipe/Valve, Sprinkler, and Greenhouse irrigation depend on one another?
 
 ### Combat
 

@@ -34,6 +34,16 @@ Core fields: `id`, `name`, `locationType`, `parentLocation`, `description`, `npc
 ## Shops
 Shop metadata can remain embedded in NPC records initially. If inventories become large, normalize to `shops.json` with `id`, `name`, `npcId`, hours, restock interval, categories, and inventory.
 
+## Farming / Homestead (proposed)
+
+Farming remains in research and has no production datasets yet. When the implementation gates in [Farming / Homestead Research](research/farming.md) are met, prefer three modular datasets instead of one catch-all file:
+
+- `crops.json`: identity plus supported seasons, growth time, seed sources, harvest outputs, sell value, Greenhouse compatibility, uses, established mutation rules, relationships, and provenance.
+- `buildables.json`: identity, category/subtype, supported function, recipe, sell value, placement classification, functional/decorative classification, measured footprint, build-limit cost, maximum-per-plot rules, prerequisites, relationships, and provenance.
+- `farming-mechanics.json`: separate records for plot limits, season rules, irrigation, Greenhouse behavior, build capacity, crop placement, and livestock behavior.
+
+Fields are optional unless evidence establishes them. Approximate spatial measurements must carry an explicit approximate flag, measurement unit/method, and evidence context; they must not masquerade as exact placement mechanics. Source conflicts and unresolved questions remain in research notes rather than production JSON.
+
 ## Codes
 Core fields: `code`, `rewards[]`, `postedDate`, `postedTimeLocal`, `status`, `lastVerifiedWorking`, `lastChecked`, `confidence`, and `source`. Do not call a code Active unless recently tested or officially described as active. Historical redemption evidence may be published as history without adding a speculative current-status field.
 
