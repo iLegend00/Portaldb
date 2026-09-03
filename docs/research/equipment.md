@@ -1,6 +1,10 @@
 # Equipment Research
 
-**Research status:** Collected reference facts; source-by-source production verification and schema work remain pending. Nothing in this file is automatically live data.
+**Research status:** Initial structured examples are integrated. The unresolved mechanics below remain research-only and must not be inferred by production features.
+
+## Implementation Status
+
+Thornprick, Briar Blade, and Thornguard Hood now use the structured equipment schema in `data/items.json` and the dedicated Equipment Profile renderer. Their community-source classification is preserved; they are not marked Official Confirmed. Primary, Secondary, and Fixed stats, permanent requirements, acquisition, recipes, and the documented roll-quality bands are represented without claims about modifier counts or roll independence.
 
 ## Current Architecture Direction
 

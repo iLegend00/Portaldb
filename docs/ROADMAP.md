@@ -12,19 +12,16 @@ This roadmap records sequence and direction without assigning speculative dates 
 - Shared category-aware Record Profiles.
 - Reverse-chronological Patch History.
 - Curated major Updates separated from exhaustive Patch History.
+- Structured Equipment Profiles with roll, acquisition, recipe, and search support.
 
-## Current — Equipment Profiles
+## Current — Farming / Homestead Research
 
-- Define a structured equipment schema.
-- Add a specialized equipment renderer without bloating the generic record renderer.
-- Model Primary, Secondary, and Fixed rolls.
-- Represent requirements, crafting, acquisition, buy/sell values, and provenance.
-- Represent variable roll ranges, appearance chances, and roll quality without inferring unresolved behavior.
-- Improve equipment search indexing while retaining non-equipment item compatibility.
+- Verify plot geometry and build-limit behavior.
+- Reconcile structure costs, crop-slot behavior, sprinkler coverage, and vertical limits.
+- Define an architecture only after the underlying mechanics are sufficiently supported.
 
 ## Next
 
-- Farming / Homestead architecture after the underlying mechanics are sufficiently verified.
 - Deeper item comparison and equipment-evaluation tools.
 - Crafting data and tools as verified recipes become available.
 - Build-related tools after relevant formulas and equipment semantics are established.

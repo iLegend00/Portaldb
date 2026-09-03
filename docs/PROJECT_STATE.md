@@ -6,12 +6,14 @@ This is the canonical handoff for the project's current state. Permanent rules r
 
 ## Current Phase
 
-**Equipment Data Architecture + Item Profile Upgrade**
+**Farming / Homestead Architecture Research**
 
-PortalDB currently has a generic item dataset and Item Finder, but no specialized equipment schema or equipment profile renderer. The active phase is to design that architecture without breaking existing non-equipment items.
+PortalDB now has additive structured equipment data and a dedicated equipment profile renderer while retaining legacy item compatibility. The active phase moves to verifying enough Farming / Homestead mechanics to support a grounded architecture.
 
 ## Recently Completed
 
+- Equipment profiles implemented with structured Primary, Secondary, and Fixed rolls, requirements, acquisition, recipes, roll-quality guidance, and equipment-aware search.
+- Thornprick, Briar Blade, and Thornguard Hood added as community-sourced structured equipment examples without elevating them to Official Confirmed.
 - NPC Profiles completed and locked after responsive and accessibility QA.
 - Shared category-aware Record Profiles completed and locked after final QA.
 - Official patches v1.2.14 and v1.2.15 added, with supported current mechanics propagated.
@@ -20,21 +22,14 @@ PortalDB currently has a generic item dataset and Item Finder, but no specialize
 
 ## In Progress
 
-Equipment work is queued next; it is not yet implemented. Intended scope:
-
-- structured equipment architecture;
-- specialized equipment profiles;
-- Primary, Secondary, and Fixed roll taxonomy;
-- roll ranges and roll quality;
-- requirements, crafting, acquisition, and values; and
-- equipment-oriented search improvements.
+Farming / Homestead research is queued for reconciliation before implementation. Open geometry, build-limit, structure-cost, crop-slot, sprinkler, and vertical-limit questions remain explicitly unresolved.
 
 ## Next
 
-1. Implement Equipment Profiles architecture.
-2. Add source-supported structured equipment records.
-3. Continue farming and homestead research.
-4. Expand farming/building architecture once its mechanics are sufficiently understood.
+1. Continue farming and homestead research.
+2. Reconcile approximate observations with stronger evidence.
+3. Define farming/building architecture once its mechanics are sufficiently understood.
+4. Consider deeper item comparison only after unresolved equipment semantics are verified.
 
 ## Research Waiting for Implementation
 

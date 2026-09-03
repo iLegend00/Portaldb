@@ -221,5 +221,108 @@
     "confidence": "In-game verified",
     "lastVerified": "2026-08-18",
     "source": "Player-supplied in-game tooltip screenshots"
+  },
+  {
+    "id": "thornprick",
+    "name": "Thornprick",
+    "category": "Equipment",
+    "tier": 3,
+    "equipmentType": "Weapon",
+    "weaponType": "Dagger",
+    "slot": "Main Hand",
+    "handType": "One-handed",
+    "requirements": [{"stat":"DEX","value":35,"permanent":true}],
+    "sellTria": 156,
+    "rolls": {
+      "primary": [{"stat":"Physical Damage","min":42,"max":84,"unit":null}],
+      "secondary": [
+        {"stat":"Max MP","min":45,"max":90,"unit":null,"appearanceChancePercent":40},
+        {"stat":"MP Regen","min":2,"max":4,"unit":null,"appearanceChancePercent":40},
+        {"stat":"Crit Rate","min":8,"max":16,"unit":"%","appearanceChancePercent":20},
+        {"stat":"Crit Damage","min":32,"max":64,"unit":null,"appearanceChancePercent":20}
+      ],
+      "fixed": [{"stat":"Attack Speed","value":0.18,"unit":null}]
+    },
+    "acquisition": [
+      {"method":"Blacksmith crafting","source":"Eren"},
+      {"method":"Lycaros Event","source":"Lycaros","chancePercent":0.45,"chanceContext":"per rolled prize"}
+    ],
+    "recipe": [
+      {"item":"Wood","quantity":12}, {"item":"Briar Vine","quantity":3},
+      {"item":"Enchanted Bark","quantity":3}, {"item":"Living Bark","quantity":3},
+      {"item":"Fossilized Amber","quantity":1}
+    ],
+    "confidence": "Community verified",
+    "source": "Community equipment reference documented in PortalDB research notes"
+  },
+  {
+    "id": "briar-blade",
+    "name": "Briar Blade",
+    "category": "Equipment",
+    "tier": 3,
+    "equipmentType": "Weapon",
+    "weaponType": "Sword",
+    "slot": "Main Hand",
+    "handType": "One-handed",
+    "requirements": [{"stat":"STR","value":35,"permanent":true}],
+    "sellTria": 260,
+    "rolls": {
+      "primary": [{"stat":"Physical Damage","min":61,"max":122,"unit":null}],
+      "secondary": [
+        {"stat":"Max MP","min":45,"max":90,"unit":null,"appearanceChancePercent":40},
+        {"stat":"MP Regen","min":2,"max":4,"unit":null,"appearanceChancePercent":40},
+        {"stat":"Damage Bonus","min":10,"max":20,"unit":"%","appearanceChancePercent":20}
+      ],
+      "fixed": [{"stat":"Attack Speed","value":0.08,"unit":null}]
+    },
+    "acquisition": [
+      {"method":"Blacksmith crafting","source":"Eren"},
+      {"method":"Lycaros Event","source":"Lycaros","chancePercent":0.45,"chanceContext":"per rolled prize"}
+    ],
+    "recipe": [
+      {"item":"Wood","quantity":24}, {"item":"Briar Vine","quantity":6},
+      {"item":"Mystic Essence","quantity":6}, {"item":"Living Bark","quantity":6},
+      {"item":"Fossilized Amber","quantity":2}
+    ],
+    "confidence": "Community verified",
+    "source": "Community equipment reference documented in PortalDB research notes"
+  },
+  {
+    "id": "thornguard-hood",
+    "name": "Thornguard Hood",
+    "category": "Equipment",
+    "tier": 3,
+    "equipmentType": "Armor",
+    "armorWeight": "Medium",
+    "slot": "Head",
+    "requirements": [{"stat":"DEX","value":32,"permanent":true}],
+    "sellTria": 156,
+    "rolls": {
+      "primary": [
+        {"stat":"Max HP","min":100,"max":200,"unit":null},
+        {"stat":"Max MP","min":22,"max":44,"unit":null}
+      ],
+      "secondary": [
+        {"stat":"Physical Defense","min":20,"max":40,"unit":null,"appearanceChancePercent":30},
+        {"stat":"Magic Defense","min":10,"max":20,"unit":null,"appearanceChancePercent":30},
+        {"stat":"HP Regen","min":2,"max":4,"unit":null,"appearanceChancePercent":40},
+        {"stat":"MP Regen","min":1,"max":2,"unit":null,"appearanceChancePercent":40}
+      ],
+      "fixed": [
+        {"stat":"Move Speed","value":-0.6,"unit":null},
+        {"stat":"Armor Weight","value":"Medium","unit":null}
+      ]
+    },
+    "acquisition": [
+      {"method":"Blacksmith crafting","source":"Eren"},
+      {"method":"Lycaros Event","source":"Lycaros","chancePercent":0.45,"chanceContext":"per rolled prize"}
+    ],
+    "recipe": [
+      {"item":"Wood","quantity":24}, {"item":"Enchanted Bark","quantity":6},
+      {"item":"Enchanted Wood","quantity":6}, {"item":"Ancient Heartwood","quantity":6},
+      {"item":"Fossilized Amber","quantity":1}
+    ],
+    "confidence": "Community verified",
+    "source": "Community equipment reference documented in PortalDB research notes"
   }
 ]

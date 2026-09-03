@@ -11,6 +11,8 @@ Detailed provenance remains part of the internal data model, while normal pages 
 ## Items
 Core fields: `id`, `name`, `category`, `subtype[]`, `status`, `description`, `stats{}`, `effects{}`, `requirements{}`, `buyTria`, `sellTria`, `obtain[]`, relationship arrays, and verification metadata. Obtain methods may include drop, shop, gather, fishing, crafting, quest, pass, or code. Never infer missing drop rates or rarity.
 
+Structured equipment additionally uses `tier`, `equipmentType`, `weaponType` or `armorWeight`, `slot`, `handType`, permanent `requirements[]`, `rolls.primary[]`, `rolls.secondary[]`, `rolls.fixed[]`, `acquisition[]`, and `recipe[]`. Variable rolls store `min`, `max`, and nullable `unit`; Secondary rolls may store `appearanceChancePercent`. Fixed rolls store `value` and nullable `unit`. The model does not imply a modifier-count cap, independent appearance checks, or rarity-driven modifier counts. See [Equipment Profile Architecture](features/equipment-profiles.md).
+
 ## NPCs
 Core fields: `id`, `name`, `profession`, `location`, `shopName`, `serviceLocation`, `openHours`, `restockIntervalMinutes`, `dialogueOptions[]`, `shopCategories[]`, `services[]`, `partTimeJob`, `dialogueFacts{}`, relationship arrays, and verification metadata. Keep schedules as displayed strings until time semantics are fully mapped because some cross midnight.
 

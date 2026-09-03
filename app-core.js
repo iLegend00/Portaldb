@@ -38,7 +38,8 @@ function search(query){
     const rewards=(entry.rewards||[]).flatMap(r=>[r.name,r.item,String(r.amount||r.quantity||"")]);
     const highlights=entry.highlights||[];
     const obtain=normalizeObtain(entry.obtain).flatMap(o=>[o.type,o.source,String(o.chancePercent||""),o.time,...(o.weather||[])]);
-    const extra = [entry.tutorialChoice, entry.variantChance, entry.source, entry.status, entry.version, entry.profession, entry.shopName, entry.category, ...(entry.subtype||[]), ...(entry.tags||[]), ...rewards, ...highlights, ...obtain, ...Object.keys(entry.stats||{}), ...Object.values(entry.stats||{}).map(String)];
+    const equipment=[entry.tier?`T${entry.tier}`:"",entry.equipmentType,entry.weaponType,entry.armorWeight,entry.slot,entry.handType,...(Array.isArray(entry.requirements)?entry.requirements.flatMap(r=>[r.stat,String(r.value||"")]):[]),...Object.values(entry.rolls||{}).flat().flatMap(r=>[r.stat,String(r.value??""),String(r.min??""),String(r.max??"")]),...(entry.acquisition||[]).flatMap(a=>[a.method,a.source])];
+    const extra = [entry.tutorialChoice, entry.variantChance, entry.source, entry.status, entry.version, entry.profession, entry.shopName, entry.category, ...(entry.subtype||[]), ...(entry.tags||[]), ...rewards, ...highlights, ...obtain, ...equipment, ...Object.keys(entry.stats||{}), ...Object.values(entry.stats||{}).map(String)];
     const hay=[entry._displayName,getDescription(entry),...extra].filter(Boolean).join(" ").toLowerCase();
     const name=String(entry._displayName||"").toLowerCase();
     let score=0;
@@ -300,7 +301,7 @@ function renderObtainSources(entry){
 }
 
 function itemTypeText(item){
-  const parts=[item.category,...(Array.isArray(item.subtype)?item.subtype:[])].filter(Boolean);
+  const parts=[item.category,item.tier?`T${item.tier}`:"",item.equipmentType,item.weaponType||item.armorWeight,...(Array.isArray(item.subtype)?item.subtype:[])].filter(Boolean);
   return parts.join(" · ") || item.type || "Item";
 }
 
@@ -313,6 +314,7 @@ function itemPriceText(item){
 
 function itemRequirementText(item){
   if(!item.requirements || !Object.keys(item.requirements).length) return "";
+  if(Array.isArray(item.requirements)) return item.requirements.map(r=>`${r.stat} ${r.value}${r.permanent?" (permanent)":""}`).join(" · ");
   return Object.entries(item.requirements).map(([k,v])=>`${k} ${v}`).join(" · ");
 }
 
@@ -374,7 +376,8 @@ function filterItems(){
     const categoryMatch=category==="all" || String(item.category||item.type||"").toLowerCase()===category.toLowerCase();
     const statusMatch=status==="all" || String(item.status||"").toLowerCase()===status.toLowerCase();
     const sources=normalizeObtain(item.obtain).flatMap(o=>[o.source,o.type,String(o.chancePercent||""),...(o.weather||[])]);
-    const hay=[item.name,item.category,item.type,...(item.subtype||[]),item.description,item.status,...(item.tags||[]),...sources,...Object.keys(item.stats||{}),...Object.values(item.stats||{}).map(String)].filter(Boolean).join(" ").toLowerCase();
+    const equipment=[item.tier?`T${item.tier}`:"",item.equipmentType,item.weaponType,item.armorWeight,item.slot,item.handType,...(Array.isArray(item.requirements)?item.requirements.flatMap(r=>[r.stat,String(r.value||"")]):[]),...Object.values(item.rolls||{}).flat().flatMap(r=>r.stat),...(item.acquisition||[]).flatMap(a=>[a.method,a.source])];
+    const hay=[item.name,item.category,item.type,...(item.subtype||[]),item.description,item.status,...(item.tags||[]),...sources,...equipment,...Object.keys(item.stats||{}),...Object.values(item.stats||{}).map(String)].filter(Boolean).join(" ").toLowerCase();
     const queryMatch=!query || hay.includes(query);
     return categoryMatch && statusMatch && queryMatch;
   }).sort((a,b)=>a.name.localeCompare(b.name));
@@ -642,6 +645,46 @@ function renderRecordProfile(entry){
   return `<div class="dialog-body record-profile record-profile-${escapeHtml(entry._collection)}">${renderers[entry._collection](entry)}</div>`;
 }
 
+function isStructuredEquipment(entry){
+  return entry._collection==="items"&&entry.category==="Equipment"&&entry.rolls;
+}
+
+function equipmentValue(value,unit,{signed=true}={}){
+  if(typeof value==="string") return value;
+  const sign=signed&&Number(value)>0?"+":"";
+  return `${sign}${displayNumber(value)}${unit||""}`;
+}
+
+function equipmentRange(roll){
+  return `${equipmentValue(roll.min,roll.unit)} to ${equipmentValue(roll.max,roll.unit)}`;
+}
+
+function renderEquipmentStatRows(rows,{chance=false}={}){
+  if(!rows?.length) return "";
+  return `<div class="equipment-stat-list">${rows.map(row=>`<div class="equipment-stat-row"><span>${escapeHtml(row.stat)}</span><strong>${escapeHtml(row.min!==undefined?equipmentRange(row):equipmentValue(row.value,row.unit))}</strong>${chance?`<small>${escapeHtml(row.appearanceChancePercent)}% appearance chance</small>`:""}</div>`).join("")}</div>`;
+}
+
+function renderEquipmentAcquisition(entry){
+  if(!entry.acquisition?.length) return "";
+  return `<div class="equipment-acquisition-list">${entry.acquisition.map(source=>`<div><strong>${escapeHtml(source.method)}</strong>${renderLinkedNames([source.source])}${source.chancePercent!==undefined?`<small>${escapeHtml(source.chancePercent)}% ${escapeHtml(source.chanceContext||"")}</small>`:""}</div>`).join("")}</div>`;
+}
+
+function renderEquipmentRecipe(entry){
+  if(!entry.recipe?.length) return "";
+  return `<div class="equipment-recipe">${entry.recipe.map(material=>findLinkedEntry(material.item)?`<button class="equipment-material" data-record-link="${escapeHtml(material.item)}"><span>${escapeHtml(material.item)}</span><strong>×${escapeHtml(material.quantity)}</strong></button>`:`<span class="equipment-material"><span>${escapeHtml(material.item)}</span><strong>×${escapeHtml(material.quantity)}</strong></span>`).join("")}</div>`;
+}
+
+function renderEquipmentDetail(entry){
+  const subtype=entry.weaponType||entry.armorWeight;
+  const requirement=(entry.requirements||[]).map(r=>`${r.value} ${r.stat}${r.permanent?" permanent requirement":""}`).join(" · ");
+  const overview=renderRecordQuickInfo([["Tier",`T${entry.tier}`],["Type",entry.equipmentType],["Subtype",subtype],["Slot",entry.slot],["Hands",entry.handType],["Sell Value",entry.sellTria!==undefined?`${displayNumber(entry.sellTria)} Tria`:""]]);
+  const header=`<header class="record-profile-header equipment-profile-header"><div class="type">EQUIPMENT</div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div></header>`;
+  const guaranteed=`<div class="equipment-guaranteed"><div><h4>Primary Rolls</h4>${renderEquipmentStatRows(entry.rolls.primary)}</div><div><h4>Fixed Stats</h4>${renderEquipmentStatRows(entry.rolls.fixed)}</div></div>`;
+  const bands=[["Common","0–20%"],["Uncommon","20–40%"],["Rare","40–60%"],["Epic","60–80%"],["Legendary","80–100%"]];
+  const quality=`<div class="equipment-quality"><div class="equipment-quality-bands">${bands.map(([name,range])=>`<span><strong>${name}</strong><small>${range}</small></span>`).join("")}</div><p>Roll Quality reflects where a variable stat landed within its allowed range.</p><p>Each listed Secondary modifier has its own documented appearance chance.</p></div>`;
+  return `<div class="dialog-body record-profile equipment-profile">${header}${overview}${renderRecordSection("Permanent Requirement",`<p class="equipment-requirement">${escapeHtml(requirement)}</p>`)}${renderRecordSection("Guaranteed Stats",guaranteed)}${renderRecordSection("Possible Secondary Rolls",renderEquipmentStatRows(entry.rolls.secondary,{chance:true}))}${renderRecordSection("Roll Quality",quality)}${renderRecordSection("Acquisition",renderEquipmentAcquisition(entry))}${renderRecordSection("Crafting Recipe",renderEquipmentRecipe(entry))}</div>`;
+}
+
 function renderGenericDetail(entry){
   const details = [];
   if(entry.stats) details.push(`<div class="meta-box"><small>STATS</small><strong>${formatStats(entry.stats)}</strong></div>`);
@@ -680,11 +723,12 @@ function openEntry(entry){
   const replacingOpenDialog=Boolean(entryDialog?.open);
   entryDialog?.classList.toggle("npc-profile-dialog",entry._collection==="npcs");
   entryDialog?.classList.toggle("record-profile-dialog",recordProfileCollections.has(entry._collection));
+  entryDialog?.classList.toggle("equipment-profile-dialog",isStructuredEquipment(entry));
   if(entry._collection==="npcs"){
     dialog.innerHTML=renderNpcDetail(entry);
     bindNpcDialogLinks(entry);
   }else{
-    dialog.innerHTML=recordProfileCollections.has(entry._collection)?renderRecordProfile(entry):renderGenericDetail(entry);
+    dialog.innerHTML=isStructuredEquipment(entry)?renderEquipmentDetail(entry):recordProfileCollections.has(entry._collection)?renderRecordProfile(entry):renderGenericDetail(entry);
     const sources=normalizeObtain(entry.obtain);
     dialog.querySelectorAll("[data-generic-source]").forEach(btn=>btn.addEventListener("click",()=>{
       const source=sources[Number(btn.dataset.genericSource)];

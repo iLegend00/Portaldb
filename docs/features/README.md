@@ -9,6 +9,6 @@ This directory records durable architecture and UX decisions for major PortalDB 
 - [Database Architecture](database.md)
 - [NPC Profile Architecture](npc-profiles.md)
 - [Shared Record Profile Architecture](record-profiles.md)
+- [Equipment Profile Architecture](equipment-profiles.md)
 
 Return to the [master documentation index](../README.md).
-
