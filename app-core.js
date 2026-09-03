@@ -661,7 +661,7 @@ function equipmentRange(roll){
 
 function renderEquipmentStatRows(rows,{chance=false}={}){
   if(!rows?.length) return "";
-  return `<table class="equipment-stat-table${chance?" equipment-stat-table-possible":" equipment-stat-table-guaranteed"}"><thead><tr><th scope="col">Stat</th><th scope="col">${chance?"Range":"Range / Value"}</th>${chance?'<th scope="col">Chance</th>':""}</tr></thead><tbody>${rows.map(row=>`<tr><th scope="row">${escapeHtml(row.stat)}</th><td>${escapeHtml(row.min!==undefined?equipmentRange(row):equipmentValue(row.value,row.unit))}</td>${chance?`<td>${escapeHtml(row.appearanceChancePercent)}%</td>`:""}</tr>`).join("")}</tbody></table>`;
+  return `<table class="equipment-stat-table${chance?" equipment-stat-table-possible":" equipment-stat-table-guaranteed"}"><colgroup><col class="equipment-stat-name-column"><col class="equipment-stat-value-column"><col class="equipment-stat-chance-column"></colgroup><thead><tr><th scope="col">Stat</th><th scope="col">Value / Range</th>${chance?'<th scope="col">Chance</th>':'<th class="equipment-stat-empty-column" aria-hidden="true"></th>'}</tr></thead><tbody>${rows.map(row=>`<tr><th scope="row">${escapeHtml(row.stat)}</th><td>${escapeHtml(row.min!==undefined?equipmentRange(row):equipmentValue(row.value,row.unit))}</td>${chance?`<td>${escapeHtml(row.appearanceChancePercent)}%</td>`:'<td class="equipment-stat-empty-column" aria-hidden="true"></td>'}</tr>`).join("")}</tbody></table>`;
 }
 
 function renderEquipmentAcquisition(entry){
@@ -683,7 +683,7 @@ function renderEquipmentDetail(entry){
   const subtype=entry.weaponType||entry.armorWeight;
   const requirement=(entry.requirements||[])[0];
   const metadata=[`T${entry.tier}`,subtype,entry.slot,entry.handType].filter(Boolean).join(" · ");
-  const requirementLine=requirement?`<div class="equipment-header-requirement"><strong>Requires ${escapeHtml(requirement.value)} ${escapeHtml(requirement.stat)}</strong>${requirement.permanent?"<span>Permanent stat points only</span>":""}</div>`:"";
+  const requirementLine=requirement?`<div class="equipment-header-requirement"><strong>Requires ${escapeHtml(requirement.value)} ${escapeHtml(requirement.stat)}</strong></div>`:"";
   const identity=`<div class="equipment-identity"><div class="type">${escapeHtml(entry.equipmentType||"EQUIPMENT")}</div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div><div class="equipment-meta"><span>${escapeHtml(metadata)}</span></div>${requirementLine}${entry.sellTria!==undefined?`<div class="equipment-sell">Sell ${escapeHtml(displayNumber(entry.sellTria))} Tria</div>`:""}${entry.description?`<p class="equipment-description">${escapeHtml(entry.description)}</p>`:""}</div>`;
   const header=`<header class="record-profile-header equipment-profile-header">${renderEquipmentArtwork(entry)}${identity}</header>`;
   const guaranteedRows=[...(entry.rolls.primary||[]),...(entry.rolls.fixed||[])];
@@ -781,3 +781,4 @@ function escapeHtml(v){
 }
 
 loadData().catch(console.error);
+

@@ -11,20 +11,16 @@
 .equipment-meta{display:flex;flex-wrap:wrap;align-items:center;gap:5px 16px;margin-top:8px;color:#554b3e;font-size:.82rem}
 .equipment-header-requirement{display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 9px;margin-top:8px}
 .equipment-header-requirement strong{color:#173c58;font-size:.86rem}
-.equipment-header-requirement span{color:#635744;font-size:.73rem}
 .equipment-sell{margin-top:4px;color:#75501e;font:700 .76rem/1.3 Cinzel,serif}
 .equipment-description{max-width:58ch;margin:8px 0 0;color:#635744;font-size:.76rem;line-height:1.45}
 .equipment-stats{display:grid;gap:12px}
 .equipment-stats-subsection{min-width:0}
 .equipment-profile h4{margin:0 0 5px;color:#76501c;font:700 .7rem/1.2 Cinzel,Georgia,serif;letter-spacing:.08em;text-transform:uppercase}
-.equipment-stat-table{width:100%;table-layout:fixed;border-collapse:collapse;color:#30291f;font-size:.82rem}
-.equipment-stat-table-guaranteed{max-width:420px}
-.equipment-stat-table-possible{max-width:520px}
-.equipment-stat-table-guaranteed col,.equipment-stat-table-guaranteed th:first-child{width:56%}
-.equipment-stat-table-guaranteed th:nth-child(2){width:44%}
-.equipment-stat-table-possible th:first-child{width:42%}
-.equipment-stat-table-possible th:nth-child(2){width:38%}
-.equipment-stat-table-possible th:nth-child(3){width:20%}
+.equipment-stat-table{width:min(100%,470px);table-layout:fixed;border-collapse:collapse;color:#30291f;font-size:.82rem}
+.equipment-stat-name-column{width:45%}
+.equipment-stat-value-column{width:37%}
+.equipment-stat-chance-column{width:18%}
+.equipment-stat-empty-column{color:transparent}
 .equipment-stat-table thead th{padding:0 8px 4px 0;color:#7a6a56;border-bottom:1px solid rgba(106,72,26,.3);font:700 .58rem/1.2 Inter,sans-serif;letter-spacing:.09em;text-align:left;text-transform:uppercase}
 .equipment-stat-table tbody th,.equipment-stat-table tbody td{padding:5px 8px 5px 0;border-bottom:1px solid rgba(106,72,26,.18);text-align:left}
 .equipment-stat-table tbody tr:last-child>*{border-bottom:0}
@@ -79,11 +75,9 @@ button.equipment-material:focus-visible{outline:3px solid #1b6d91;outline-offset
   .equipment-profile-header{padding-right:32px}
   .equipment-profile-header h2{font-size:19px}
   .equipment-profile-header .verification-heading{gap:3px}
-  .equipment-stat-table-possible th:first-child{width:40%}
-  .equipment-stat-table-possible th:nth-child(2){width:40%}
-  .equipment-stat-table-possible th:nth-child(3){width:20%}
   .equipment-acquisition-list>div{grid-template-columns:40px minmax(0,1fr);gap:3px 5px}
   .equipment-acquisition-kind{font-size:.55rem;letter-spacing:.04em}
   .equipment-acquisition-detail>strong{font-size:.72rem;overflow-wrap:anywhere}
   .equipment-recipe{grid-template-columns:1fr}
 }
+
