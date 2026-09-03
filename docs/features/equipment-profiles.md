@@ -4,13 +4,13 @@ Structured equipment records use a dedicated profile while legacy and non-equipm
 
 ## Recognition and Rendering
 
-An item is treated as structured equipment only when `category` is `Equipment` and a `rolls` object is present. `renderEquipmentDetail(entry)` owns the equipment hierarchy: overview, permanent requirements, guaranteed Primary and Fixed stats, possible Secondary rolls, roll quality, acquisition, and crafting recipe.
+An item is treated as structured equipment when `category` is `Equipment` and a supported `equipmentType` classification is present. This explicit marker avoids routing malformed legacy records or equipment-adjacent items through the specialized renderer. `renderEquipmentDetail(entry)` owns the conditional equipment hierarchy: identity, supported requirements, guaranteed Primary and Fixed stats, possible Secondary rolls, roll quality, acquisition, and crafting recipe.
 
 ## Equipment Fields
 
 Alongside normal item fields, equipment may define `tier`, `equipmentType`, `weaponType`, `armorWeight`, `slot`, `handType`, permanent `requirements[]`, `rolls`, `acquisition[]`, and `recipe[]`.
 
-`rolls.primary` and `rolls.secondary` contain variable `min`/`max` ranges. Secondary rows may include `appearanceChancePercent`. `rolls.fixed` contains exact `value` entries. A nullable `unit` distinguishes plain values from percentages without embedding formatting into the data.
+`rolls.primary` and `rolls.secondary` contain variable `min`/`max` ranges. Secondary rows may include `appearanceChancePercent`. `rolls.fixed` contains exact `value` entries and is also the correct home for supported legacy equipment stats that are exact rather than variable. A nullable `unit` distinguishes plain values from percentages without embedding formatting into the data.
 
 PortalDB does not infer the maximum number of simultaneous Secondary modifiers, independence between appearance checks, or any relationship between rarity and modifier count.
 
@@ -20,7 +20,9 @@ Acquisition sources and recipe materials link to existing records only on exact-
 
 ## Compatibility
 
-The schema is additive. Existing equipment without `rolls`, all other item categories, Item Finder cards, NPC profiles, and shared record profiles keep their established renderers.
+The schema supports variable-roll combat equipment, exact-stat equipment, and sparse equippable tools. Non-equipment items, including equipment-adjacent consumables or mechanics, keep their established renderers.
+
+Equipment sections are evidence-driven and conditional. Stats are omitted when no supported stats exist; Possible Modifiers are omitted when none exist; Roll Quality is omitted unless a variable range establishes that it applies; requirements are omitted when unavailable; and buy or sell values appear only when present. Sparse records must look intentional without `Unknown`, `TBD`, empty panels, or inferred filler.
 
 ## Responsive Behavior
 
@@ -30,7 +32,7 @@ The desktop profile uses paired groups where space permits. At narrow widths, gu
 
 Equipment Profiles prioritize glanceability and dense RPG inspection-panel readability. Stat values remain visually adjacent to their labels instead of stretching across the dialog, while restrained dividers and proximity replace oversized cards. Roll Quality uses conventional rarity-name colors—gray, green, blue, purple, and warm orange—as semantic accents; the visible rarity names ensure meaning never depends on color alone.
 
-The equipment header is the identity and summary layer: tier, subtype, slot, hand type, concise requirement, and sell value stay close to the item name. Requirement permanence remains structured metadata and is not repeated as explanatory header copy. An optional `artwork`, `image`, or `icon` field may add approved item identification art beside that identity; when absent, no placeholder or empty artwork space is rendered.
+The equipment header is the identity and summary layer: available tier, subtype, slot, hand type, trade/status state, concise requirement, and buy/sell values stay close to the item name. Requirement permanence remains structured metadata and is not repeated as explanatory header copy. An optional `artwork`, `image`, or `icon` field may add approved item identification art beside that identity; when absent, no placeholder or empty artwork space is rendered.
 
 Equipment uses one consolidated Stats region. Guaranteed equipment attributes are presented together without exposing the internal Primary versus Fixed taxonomy; the structured data retains that distinction. Guaranteed Stats and Possible Modifiers both use the labels Stat / Value / Range, with Chance added only for possible modifiers. Both semantic tables share the same bounded three-column geometry, leaving the third column visually empty for guaranteed rows so stat names and values begin at identical horizontal positions. Roll Quality sits directly beneath the variable stats it explains. Acquisition and recipe relationships favor direct navigation to exact PortalDB records.
 

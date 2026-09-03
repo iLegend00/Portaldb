@@ -12,7 +12,7 @@ const canonicalPages = [{
 async function loadData(){
   const sets = await Promise.all(collections.map(async name=>{
     try{
-      const res = await fetch(`data/${name}.json?v=20260831-major-updates-1`);
+      const res = await fetch(`data/${name}.json?v=20260903-equipment-migration-1`);
       if(!res.ok) return [];
       const rows = await res.json();
       return rows.map(row=>({...row,_collection:name,_displayName:row.name||row.title||row.code||row.version||row.id}));
@@ -290,7 +290,7 @@ function verificationMarker(entry,overrides){
 }
 
 function renderObtainSources(entry){
-  const sources=normalizeObtain(entry.obtain);
+  const sources=itemSources(entry);
   if(!sources.length) return "";
   return sources.map((source,i)=>{
     const linked=findLinkedEntry(source.source);
@@ -298,6 +298,19 @@ function renderObtainSources(entry){
       <span>${escapeHtml(sourceLabel(source))}</span>${linked?"<b>OPEN ↗</b>":""}
     </button>`;
   }).join("");
+}
+
+function itemSources(item){
+  if(item.acquisition?.length) return item.acquisition.map(source=>({type:source.method,...source}));
+  return normalizeObtain(item.obtain);
+}
+
+function equipmentGuaranteedRows(item){
+  return [...(item.rolls?.primary||[]),...(item.rolls?.fixed||[])];
+}
+
+function formatEquipmentStats(item){
+  return equipmentGuaranteedRows(item).map(row=>`${escapeHtml(row.stat)}: ${escapeHtml(row.min!==undefined?equipmentRange(row):equipmentValue(row.value,row.unit))}`).join(" · ");
 }
 
 function itemTypeText(item){
@@ -330,7 +343,7 @@ function renderItemCards(rows){
   box.innerHTML=rows.map((item,i)=>{
     const prices=itemPriceText(item);
     const req=itemRequirementText(item);
-    const statLine=formatStats(item.stats);
+    const statLine=formatStats(item.stats)||formatEquipmentStats(item);
     const effectLine=formatEffects(item.effects);
     return `<article class="finder-card" data-item-index="${i}">
       <div class="finder-card-top">
@@ -353,7 +366,7 @@ function renderItemCards(rows){
   }));
   box.querySelectorAll(".finder-card").forEach((card,cardIndex)=>{
     const item=rows[cardIndex];
-    const sources=normalizeObtain(item.obtain);
+    const sources=itemSources(item);
     card.querySelectorAll("[data-source-index]").forEach(btn=>btn.addEventListener("click",e=>{
       e.stopPropagation();
       const source=sources[Number(btn.dataset.sourceIndex)];
@@ -375,7 +388,7 @@ function filterItems(){
   const rows=itemEntries.filter(item=>{
     const categoryMatch=category==="all" || String(item.category||item.type||"").toLowerCase()===category.toLowerCase();
     const statusMatch=status==="all" || String(item.status||"").toLowerCase()===status.toLowerCase();
-    const sources=normalizeObtain(item.obtain).flatMap(o=>[o.source,o.type,String(o.chancePercent||""),...(o.weather||[])]);
+    const sources=itemSources(item).flatMap(o=>[o.source,o.type,String(o.chancePercent||""),...(o.weather||[])]);
     const equipment=[item.tier?`T${item.tier}`:"",item.equipmentType,item.weaponType,item.armorWeight,item.slot,item.handType,...(Array.isArray(item.requirements)?item.requirements.flatMap(r=>[r.stat,String(r.value||"")]):[]),...Object.values(item.rolls||{}).flat().flatMap(r=>r.stat),...(item.acquisition||[]).flatMap(a=>[a.method,a.source])];
     const hay=[item.name,item.category,item.type,...(item.subtype||[]),item.description,item.status,...(item.tags||[]),...sources,...equipment,...Object.keys(item.stats||{}),...Object.values(item.stats||{}).map(String)].filter(Boolean).join(" ").toLowerCase();
     const queryMatch=!query || hay.includes(query);
@@ -646,7 +659,7 @@ function renderRecordProfile(entry){
 }
 
 function isStructuredEquipment(entry){
-  return entry._collection==="items"&&entry.category==="Equipment"&&entry.rolls;
+  return entry._collection==="items"&&entry.category==="Equipment"&&Boolean(entry.equipmentType);
 }
 
 function equipmentValue(value,unit,{signed=true}={}){
@@ -666,7 +679,7 @@ function renderEquipmentStatRows(rows,{chance=false}={}){
 
 function renderEquipmentAcquisition(entry){
   if(!entry.acquisition?.length) return "";
-  return `<div class="equipment-acquisition-list">${entry.acquisition.map(source=>{const craft=/craft/i.test(source.method);const event=/event/i.test(source.method);const kind=craft?"Craft":event?"Event":source.method;const method=craft?source.method.replace(/\s*crafting/i,""):event?"":source.method;return `<div><small class="equipment-acquisition-kind">${escapeHtml(kind)}</small><div class="equipment-acquisition-detail">${method?`<strong>${escapeHtml(method)}</strong>`:""}${renderLinkedNames([source.source])}${source.chancePercent!==undefined?`<small>${escapeHtml(source.chancePercent)}% ${escapeHtml(source.chanceContext||"")}</small>`:""}</div></div>`}).join("")}</div>`;
+  return `<div class="equipment-acquisition-list">${entry.acquisition.map(source=>{const craft=/craft/i.test(source.method);const event=/event/i.test(source.method);const kind=craft?"Craft":event?"Event":source.method;const method=craft?source.method.replace(/\s*crafting/i,""):"";return `<div><small class="equipment-acquisition-kind">${escapeHtml(kind)}</small><div class="equipment-acquisition-detail">${method?`<strong>${escapeHtml(method)}</strong>`:""}${renderLinkedNames([source.source])}${source.chancePercent!==undefined?`<small>${escapeHtml(source.chancePercent)}% ${escapeHtml(source.chanceContext||"")}</small>`:""}</div></div>`}).join("")}</div>`;
 }
 
 function renderEquipmentRecipe(entry){
@@ -682,16 +695,21 @@ function renderEquipmentArtwork(entry){
 function renderEquipmentDetail(entry){
   const subtype=entry.weaponType||entry.armorWeight;
   const requirement=(entry.requirements||[])[0];
-  const metadata=[`T${entry.tier}`,subtype,entry.slot,entry.handType].filter(Boolean).join(" · ");
+  const tradeState=entry.tradeable===true?"Tradeable":entry.tradeable===false?"Untradeable":"";
+  const metadata=[entry.tier!==undefined?`T${entry.tier}`:"",subtype,entry.slot,entry.handType,entry.status,tradeState].filter(Boolean).join(" · ");
   const requirementLine=requirement?`<div class="equipment-header-requirement"><strong>Requires ${escapeHtml(requirement.value)} ${escapeHtml(requirement.stat)}</strong></div>`:"";
-  const identity=`<div class="equipment-identity"><div class="type">${escapeHtml(entry.equipmentType||"EQUIPMENT")}</div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div><div class="equipment-meta"><span>${escapeHtml(metadata)}</span></div>${requirementLine}${entry.sellTria!==undefined?`<div class="equipment-sell">Sell ${escapeHtml(displayNumber(entry.sellTria))} Tria</div>`:""}${entry.description?`<p class="equipment-description">${escapeHtml(entry.description)}</p>`:""}</div>`;
+  const valueLine=itemPriceText(entry);
+  const identity=`<div class="equipment-identity"><div class="type">${escapeHtml(entry.equipmentType||"EQUIPMENT")}</div><div class="verification-heading"><h2>${escapeHtml(entry._displayName)}</h2>${verificationMarker(entry)}</div>${metadata?`<div class="equipment-meta"><span>${escapeHtml(metadata)}</span></div>`:""}${requirementLine}${valueLine?`<div class="equipment-sell">${escapeHtml(valueLine)}</div>`:""}${entry.description?`<p class="equipment-description">${escapeHtml(entry.description)}</p>`:""}</div>`;
   const header=`<header class="record-profile-header equipment-profile-header">${renderEquipmentArtwork(entry)}${identity}</header>`;
-  const guaranteedRows=[...(entry.rolls.primary||[]),...(entry.rolls.fixed||[])];
-  const guaranteed=`<div class="equipment-stats-subsection"><h4>Guaranteed Stats</h4>${renderEquipmentStatRows(guaranteedRows)}</div>`;
-  const possible=`<div class="equipment-stats-subsection equipment-possible"><h4>Possible Modifiers</h4>${renderEquipmentStatRows(entry.rolls.secondary,{chance:true})}</div>`;
+  const guaranteedRows=equipmentGuaranteedRows(entry);
+  const secondaryRows=entry.rolls?.secondary||[];
+  const guaranteed=guaranteedRows.length?`<div class="equipment-stats-subsection"><h4>Guaranteed Stats</h4>${renderEquipmentStatRows(guaranteedRows)}</div>`:"";
+  const possible=secondaryRows.length?`<div class="equipment-stats-subsection equipment-possible"><h4>Possible Modifiers</h4>${renderEquipmentStatRows(secondaryRows,{chance:true})}</div>`:"";
   const bands=[["Common","0–20%"],["Uncommon","20–40%"],["Rare","40–60%"],["Epic","60–80%"],["Legendary","80–100%"]];
   const quality=`<div class="equipment-quality"><div class="equipment-quality-bands">${bands.map(([name,range])=>`<span><strong class="rarity-${name.toLowerCase()}">${name}</strong><small>${range}</small></span>`).join("")}</div><p>Roll Quality reflects where a variable stat landed within its allowed range.</p></div>`;
-  const stats=`<div class="equipment-stats">${guaranteed}${possible}<div class="equipment-stats-subsection equipment-quality-block"><h4>Roll Quality</h4>${quality}</div></div>`;
+  const hasVariableRolls=[...(entry.rolls?.primary||[]),...secondaryRows].some(row=>row.min!==undefined&&row.max!==undefined);
+  const qualityBlock=hasVariableRolls?`<div class="equipment-stats-subsection equipment-quality-block"><h4>Roll Quality</h4>${quality}</div>`:"";
+  const stats=guaranteed||possible?`<div class="equipment-stats">${guaranteed}${possible}${qualityBlock}</div>`:"";
   return `<div class="dialog-body record-profile equipment-profile">${header}${renderRecordSection("Stats",stats)}${renderRecordSection("How to Get It",renderEquipmentAcquisition(entry))}${renderRecordSection("Crafting Recipe",renderEquipmentRecipe(entry))}</div>`;
 }
 

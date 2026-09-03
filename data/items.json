@@ -2,10 +2,17 @@
   {
     "id": "fortune-clover",
     "name": "Fortune Clover",
-    "type": "Upper Headgear",
+    "category": "Equipment",
+    "equipmentType": "Headgear",
+    "slot": "Upper Headgear",
     "description": "Headgear obtained from Tin Tortoise. Tradable as of v1.1.12.",
-    "stats": {"criticalRatePercent": 2, "criticalDamagePercent": 5},
-    "sourceMob": "Tin Tortoise",
+    "rolls": {
+      "fixed": [
+        {"stat":"Critical Rate","value":2,"unit":"%"},
+        {"stat":"Critical Damage","value":5,"unit":"%"}
+      ]
+    },
+    "acquisition": [{"method":"Drop","source":"Tin Tortoise"}],
     "tradeable": true,
     "tags": ["headgear", "tin tortoise", "critical rate", "critical damage", "tradable"],
     "confidence": "Official confirmed",
@@ -16,10 +23,17 @@
   {
     "id": "bone-bite",
     "name": "Bone Bite",
-    "type": "Headgear",
+    "category": "Equipment",
+    "equipmentType": "Headgear",
+    "slot": "Headgear",
     "description": "Headgear obtained from Junk King. Tradable as of v1.1.12.",
-    "stats": {"physicalATK": 10, "magicATK": 10},
-    "sourceMob": "Junk King",
+    "rolls": {
+      "fixed": [
+        {"stat":"Physical ATK","value":10,"unit":null},
+        {"stat":"Magic ATK","value":10,"unit":null}
+      ]
+    },
+    "acquisition": [{"method":"Drop","source":"Junk King"}],
     "tradeable": true,
     "tags": ["headgear", "junk king", "physical atk", "magic atk", "tradable"],
     "confidence": "Official confirmed",
@@ -30,10 +44,17 @@
   {
     "id": "tinkers-goggles",
     "name": "Tinker's Goggles",
-    "type": "Headgear",
+    "category": "Equipment",
+    "equipmentType": "Headgear",
+    "slot": "Headgear",
     "description": "Headgear obtained from the Free Pass.",
-    "stats": {"DEF": 6, "MDEF": 3},
-    "obtain": "Free Pass",
+    "rolls": {
+      "fixed": [
+        {"stat":"DEF","value":6,"unit":null},
+        {"stat":"MDEF","value":3,"unit":null}
+      ]
+    },
+    "acquisition": [{"method":"Pass","source":"Free Pass"}],
     "tags": ["headgear", "free pass", "def", "mdef"],
     "confidence": "Official confirmed",
     "version": "August 3, 2026 patch",
@@ -43,10 +64,17 @@
   {
     "id": "plague-mask",
     "name": "Plague Mask",
-    "type": "Headgear",
+    "category": "Equipment",
+    "equipmentType": "Headgear",
+    "slot": "Headgear",
     "description": "Headgear obtained from the Premium Pass.",
-    "stats": {"DEF": 12, "MDEF": 6},
-    "obtain": "Premium Pass",
+    "rolls": {
+      "fixed": [
+        {"stat":"DEF","value":12,"unit":null},
+        {"stat":"MDEF","value":6,"unit":null}
+      ]
+    },
+    "acquisition": [{"method":"Pass","source":"Premium Pass"}],
     "tags": ["headgear", "premium pass", "def", "mdef"],
     "confidence": "Official confirmed",
     "version": "August 3, 2026 patch",
@@ -70,16 +98,25 @@
     "name": "Iron Hammer +3",
     "category": "Equipment",
     "subtype": ["Weapon", "Blunt", "2H", "RightHand"],
+    "equipmentType": "Weapon",
+    "weaponType": "Blunt",
+    "slot": "Right Hand",
+    "handType": "Two-handed",
     "status": "Free",
-    "stats": {"physicalATK": 25, "attackSpeedMultiplier": -0.10},
+    "rolls": {
+      "fixed": [
+        {"stat":"Physical ATK","value":25,"unit":null},
+        {"stat":"Attack Speed Multiplier","value":"-0.10","unit":null}
+      ]
+    },
     "description": "A two-handed iron hammer. Originally for breaking doors. Still is, mostly.",
     "buyTria": 2450,
     "sellTria": 91,
-    "requirements": {"VIT": 17},
-    "obtain": [
-      {"type":"drop","source":"Tin Tortoise","chancePercent":3.93},
-      {"type":"drop","source":"Kettle Beetle","chancePercent":0.18},
-      {"type":"shop","source":"Breda"}
+    "requirements": [{"stat":"VIT","value":17}],
+    "acquisition": [
+      {"method":"Drop","source":"Tin Tortoise","chancePercent":3.93},
+      {"method":"Drop","source":"Kettle Beetle","chancePercent":0.18},
+      {"method":"Shop","source":"Breda"}
     ],
     "confidence": "In-game verified",
     "lastVerified": "2026-08-18",
@@ -90,11 +127,13 @@
     "name": "Axe",
     "category": "Equipment",
     "subtype": ["Tool", "RightHand"],
+    "equipmentType": "Tool",
+    "slot": "Right Hand",
     "status": "Free",
     "description": "A woodcutter's axe. The blade's worn, but it still bites into a trunk.",
     "buyTria": 350,
     "sellTria": 13,
-    "obtain": [{"type":"shop","source":"Arlette"}],
+    "acquisition": [{"method":"Shop","source":"Arlette"}],
     "confidence": "In-game verified",
     "lastVerified": "2026-08-18",
     "source": "Player-supplied in-game tooltip screenshots"
@@ -326,3 +365,4 @@
     "source": "Community equipment reference documented in PortalDB research notes"
   }
 ]
+

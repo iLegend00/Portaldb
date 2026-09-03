@@ -1,6 +1,6 @@
 # PortalDB Project State
 
-**Last updated:** 2026-09-02
+**Last updated:** 2026-09-03
 
 This is the canonical handoff for the project's current state. Permanent rules remain in [`standards/`](standards/), feature architecture remains in [`features/`](features/), and unimplemented evidence remains in [`research/`](research/).
 
@@ -12,6 +12,7 @@ PortalDB now has additive structured equipment data and a dedicated equipment pr
 
 ## Recently Completed
 
+- All supported legacy equipment records migrated to the structured Equipment Profile architecture, including exact-stat headgear and sparse tool coverage without inferred fields.
 - Equipment profiles implemented with structured Primary, Secondary, and Fixed rolls, requirements, acquisition, recipes, roll-quality guidance, and equipment-aware search.
 - Thornprick, Briar Blade, and Thornguard Hood added as community-sourced structured equipment examples without elevating them to Official Confirmed.
 - NPC Profiles completed and locked after responsive and accessibility QA.
@@ -65,3 +66,4 @@ Research notes are not production data and may contain explicitly labeled confli
 - How do damage buckets interact?
 - What defense formulas do bosses use?
 - Which fields are affected by refinement and its bonus slots?
+

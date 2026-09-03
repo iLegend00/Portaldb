@@ -6,6 +6,8 @@
 
 Thornprick, Briar Blade, and Thornguard Hood now use the structured equipment schema in `data/items.json` and the dedicated Equipment Profile renderer. Their community-source classification is preserved; they are not marked Official Confirmed. Primary, Secondary, and Fixed stats, permanent requirements, acquisition, recipes, and the documented roll-quality bands are represented without claims about modifier counts or roll independence.
 
+Legacy migration is complete for the supported records present in the item dataset: Fortune Clover, Bone Bite, Tinker's Goggles, Plague Mask, Iron Hammer +3, and Axe. Exact observed stats remain exact fixed values; sparse tools may omit Stats entirely; acquisition, trade/status, and supported values remain preserved. Magnifying Glass remains a non-equipment Identify item despite its equipment-related tag.
+
 ## Current Architecture Direction
 
 Equipment should support:
@@ -98,3 +100,4 @@ This is a personal gearing preference for the current Warrior plan, not universa
 - Interaction between rarity and multiple rolls.
 - Refinement `Stat Bonus` semantics.
 - The modifier pool used by +5 and +10 bonus slots.
+

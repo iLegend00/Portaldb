@@ -11,7 +11,7 @@ Detailed provenance remains part of the internal data model, while normal pages 
 ## Items
 Core fields: `id`, `name`, `category`, `subtype[]`, `status`, `description`, `stats{}`, `effects{}`, `requirements{}`, `buyTria`, `sellTria`, `obtain[]`, relationship arrays, and verification metadata. Obtain methods may include drop, shop, gather, fishing, crafting, quest, pass, or code. Never infer missing drop rates or rarity.
 
-Structured equipment additionally uses `tier`, `equipmentType`, `weaponType` or `armorWeight`, `slot`, `handType`, permanent `requirements[]`, `rolls.primary[]`, `rolls.secondary[]`, `rolls.fixed[]`, `acquisition[]`, and `recipe[]`. Variable rolls store `min`, `max`, and nullable `unit`; Secondary rolls may store `appearanceChancePercent`. Fixed rolls store `value` and nullable `unit`. The model does not imply a modifier-count cap, independent appearance checks, or rarity-driven modifier counts. See [Equipment Profile Architecture](features/equipment-profiles.md).
+Structured equipment uses the explicit `equipmentType` classification plus supported optional fields such as `tier`, `weaponType` or `armorWeight`, `slot`, `handType`, `requirements[]`, `rolls.primary[]`, `rolls.secondary[]`, `rolls.fixed[]`, `acquisition[]`, and `recipe[]`. Variable rolls store `min`, `max`, and nullable `unit`; Secondary rolls may store `appearanceChancePercent`. Exact guaranteed stats store `value` and nullable `unit` in `rolls.fixed` rather than fake equal minimum/maximum ranges. Sparse equippable records may omit `rolls` entirely. Requirement permanence is stored only when evidence supports it. The model does not imply a modifier-count cap, independent appearance checks, or rarity-driven modifier counts. See [Equipment Profile Architecture](features/equipment-profiles.md).
 
 ## NPCs
 Core fields: `id`, `name`, `profession`, `location`, `shopName`, `serviceLocation`, `openHours`, `restockIntervalMinutes`, `dialogueOptions[]`, `shopCategories[]`, `services[]`, `partTimeJob`, `dialogueFacts{}`, relationship arrays, and verification metadata. Keep schedules as displayed strings until time semantics are fully mapped because some cross midnight.
@@ -47,3 +47,4 @@ Base attributes shown by the game: STR → P.ATK; VIT → Max HP, DEF, HP/s; AGI
 
 ## Relationship rule
 Use exact names initially, then migrate to stable IDs as datasets mature. Features should be generated from relationships in data rather than manually duplicated prose.
+
