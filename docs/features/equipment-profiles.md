@@ -29,3 +29,9 @@ The desktop profile uses paired groups where space permits. At narrow widths, gu
 ## Compact Inspection Layout
 
 Equipment Profiles prioritize glanceability and dense RPG inspection-panel readability. Stat values remain visually adjacent to their labels instead of stretching across the dialog, while restrained dividers and proximity replace oversized cards. Roll Quality uses conventional rarity-name colors—gray, green, blue, purple, and warm orange—as semantic accents; the visible rarity names ensure meaning never depends on color alone.
+
+The equipment header is the identity and summary layer: tier, subtype, slot, hand type, permanent requirement, and sell value stay close to the item name. An optional `artwork`, `image`, or `icon` field may add approved item identification art beside that identity; when absent, no placeholder or empty artwork space is rendered.
+
+Equipment uses one consolidated Stats region. Guaranteed Primary and Fixed stats share one list with quiet semantic labels, Possible Modifiers use a compact Modifier / Range / Chance presentation, and Roll Quality sits directly beneath the variable stats it explains. Acquisition and recipe relationships favor direct navigation to exact PortalDB records.
+
+Do not add redundant stat-entry tools when the visible profile already answers the question. Crafting Calculator integration should be added only when the calculator has a published matching recipe and a supported preset or deep-link contract; otherwise the profile must not display a nonfunctional action.

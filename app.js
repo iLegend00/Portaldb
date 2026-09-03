@@ -13,11 +13,11 @@
   document.head.appendChild(recordProfileCss);
   const equipmentProfileCss=document.createElement('link');
   equipmentProfileCss.rel='stylesheet';
-  equipmentProfileCss.href='equipment-profile.css?v=20260903-compact-equipment-1';
+  equipmentProfileCss.href='equipment-profile.css?v=20260903-equipment-identity-1';
   document.head.appendChild(equipmentProfileCss);
   const verificationCss=document.createElement('link');
   verificationCss.rel='stylesheet';
   verificationCss.href='verification.css?v=20260828-two-state-provenance-1';
   document.head.appendChild(verificationCss);
-  document.write('<script src="verification.js?v=20260828-two-state-provenance-1"><\/script><script src="npc-art.js?v=20260819-all-npcs-1"><\/script><script src="app-core.js?v=20260903-compact-equipment-1"><\/script>');
+  document.write('<script src="verification.js?v=20260828-two-state-provenance-1"><\/script><script src="npc-art.js?v=20260819-all-npcs-1"><\/script><script src="app-core.js?v=20260903-equipment-identity-1"><\/script>');
 })();
