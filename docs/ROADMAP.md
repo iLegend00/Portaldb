@@ -17,16 +17,17 @@ This roadmap records sequence and direction without assigning speculative dates 
 ## Current — Farming / Homestead Research
 
 - Verify exact build-capacity behavior, plot geometry, snapping, and vertical limits through controlled observation.
-- Reconcile the official Premium Pass Greenhouse rule with the developer-endorsed community reference's Overclocked-title claim.
+- Preserve the supported Premium Pass Greenhouse conclusion while verifying whether Overclocked has any independent or historical effect.
 - Establish Water Tank, Pump, Pipe/Valve, Sprinkler, and Greenhouse irrigation dependencies.
 - Collect a representative crop/buildable evidence set before creating modular production datasets.
 - Apply the feature-specific implementation gates in `research/farming.md`; architecture planning alone does not make a feature production-ready.
 
 ## Next
 
-- Deeper item comparison and equipment-evaluation tools.
+- Expand structured equipment and other content coverage as reliable data becomes available.
 - Crafting data and tools as verified recipes become available.
-- Build-related tools after relevant formulas and equipment semantics are established.
+- Add farming/buildable production data only after the relevant implementation gates are met.
+- Build focused decision-support tools only when they reduce real player effort or provide meaningfully new insight beyond visible profile data.
 
 ## Later
 

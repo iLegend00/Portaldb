@@ -1,6 +1,6 @@
 # PortalDB Project State
 
-**Last updated:** 2026-09-03
+**Last updated:** 2026-09-08
 
 This is the canonical handoff for the project's current state. Permanent rules remain in [`standards/`](standards/), feature architecture remains in [`features/`](features/), and unimplemented evidence remains in [`research/`](research/).
 
@@ -8,12 +8,14 @@ This is the canonical handoff for the project's current state. Permanent rules r
 
 **Farming / Homestead Architecture Research**
 
-Farming / Homestead research has been reconciled into official facts, developer-endorsed community references, player observations, approximate measurements, source conflicts, and implementation gates. The phase remains research because core crop, capacity, irrigation, and geometry mechanics are not yet sufficiently established for production features.
+Farming / Homestead research is reconciled into official facts, developer-endorsed community references, player observations, approximate measurements, source conflicts, and implementation gates. Greenhouse evidence is now comparatively strong, but crop coverage, build-capacity rules, irrigation dependencies, and exact geometry remain insufficient for broad production implementation.
 
 ## Recently Completed
 
-- All supported legacy equipment records migrated to the structured Equipment Profile architecture, including exact-stat headgear and sparse tool coverage without inferred fields.
-- Equipment profiles implemented with structured Primary, Secondary, and Fixed rolls, requirements, acquisition, recipes, roll-quality guidance, and equipment-aware search.
+- Farming / Homestead research reconciled with source priority, readiness matrix, modular data architecture, player-facing plan, and implementation gates.
+- Equipment Profile architecture finalized with a compact identity header, optional artwork, conditional exact/sparse/variable rendering, consolidated Stats, rarity-colored Roll Quality, and linked acquisition/recipes.
+- All supported legacy equipment records migrated: Fortune Clover, Bone Bite, Tinker's Goggles, Plague Mask, Iron Hammer +3, and Axe; Magnifying Glass intentionally remains non-equipment.
+- Equipment stat presentation finalized: concise `Requires X STAT` wording, shared `Value / Range` terminology, aligned Guaranteed/Possible columns, and no player-facing Primary/Fixed taxonomy.
 - Thornprick, Briar Blade, and Thornguard Hood added as community-sourced structured equipment examples without elevating them to Official Confirmed.
 - NPC Profiles completed and locked after responsive and accessibility QA.
 - Shared category-aware Record Profiles completed and locked after final QA.
@@ -23,14 +25,15 @@ Farming / Homestead research has been reconciled into official facts, developer-
 
 ## In Progress
 
-The architecture plan is defined, but production implementation is gated. The official Greenhouse default/Premium Pass rules are identified; the Overclocked-title claim remains a documented conflict. Build-capacity accounting, Hydraulics dependencies, crop records, exact geometry, Animal Plot rules, and vertical limits remain blockers.
+The architecture plan is defined, but production implementation remains gated. A Season 1 Premium Pass completer has now verified placing a second Greenhouse while wearing no special title, materially supporting the official permanent-slot claim and showing that Overclocked is not universally required in that case. An independent Overclocked effect and any maximum above two remain unresolved. The planned farm rebuild offers a controlled manual-placement-ledger opportunity; Hydraulics, crops, build-capacity accounting, exact geometry, Animal Plot rules, and vertical limits remain blockers.
 
 ## Next
 
-1. Run a controlled in-game verification session for build-capacity accounting and Water Tank/Pump/Pipe/Sprinkler dependencies.
-2. Capture current Greenhouse recipe/maximum UI and reconcile the Overclocked-title claim with the official Premium Pass rule.
-3. Collect a small representative crop set with seasons, growth, sources, outputs, watering, and Greenhouse behavior.
-4. Begin modular production datasets only when the feature-specific gates in `research/farming.md` are met.
+1. Preserve the supported Greenhouse conclusions while keeping independent Overclocked behavior and higher maximums unresolved.
+2. Use the farm rebuild as a manual placement/build-capacity observation session with categorized counts and recorded rejection behavior.
+3. Verify Water Tank, Pump, Pipe/Valve, Sprinkler, and Greenhouse irrigation dependencies.
+4. Collect a representative crop set with seasons, growth, sources, outputs, watering, and Greenhouse behavior.
+5. Begin modular farming production datasets only when the relevant gates in `research/farming.md` are satisfied.
 
 ## Research Waiting for Implementation
 

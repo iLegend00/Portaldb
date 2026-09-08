@@ -1,6 +1,6 @@
 # Farming / Homestead Research
 
-**Research status:** Reconciled on 2026-09-03. Evidence remains a mix of official facts, developer-endorsed community reference material, player observations, approximate measurements, conflicts, and unresolved questions. These notes are not production data.
+**Research status:** Reconciled through 2026-09-08. Evidence remains a mix of official facts, developer-endorsed community reference material, player observations, approximate measurements, conflicts, and unresolved questions. These notes are not production data.
 
 ## Evidence Inventory and Priority
 
@@ -26,6 +26,7 @@ The community wiki has been observed being directly recommended to players by Th
 - **Player-observed fact:** `data/quests.json`, Chapter 2 parts 1–2, establishes placing an Animal Plot, placing and feeding a chicken, asking what grows in the current season, and checking the season marker near the minimap.
 - **Player-observed fact:** `data/quests.json`, Chapter 1 part 5, records one Animal Plot as a quest reward.
 - **Community-supported fact:** existing community-wiki research supplies the Greenhouse catalog description, recipe, sell value, category, default/title maximum claims, buildable categories, and approximate catalog size.
+- **Player-observed fact:** A player who completed the Season 1 Premium Battle Pass can currently place a second Greenhouse without wearing a special title. This supports the official permanent-slot claim for that player but does not establish every possible maximum or title interaction.
 - **Player-observed fact:** `data/npcs.json` and `data/locations.json` establish Leaf as a seed/farm-tool merchant and Hogan as a livestock/feed/farm/tool merchant. They do not provide inventories or farming formulas.
 - `data/crafting.json` is empty, and the repository contains no structured crop, buildable, irrigation, or legacy homestead dataset. No farming calculator or farming-specific production script exists.
 
@@ -36,22 +37,23 @@ The community wiki has been observed being directly recommended to players by Th
 - **Confirmed fact:** The Greenhouse became craftable at the Workbench in the official August 5, 2026 patch.
 - **Confirmed fact:** The official patch states a default maximum of one Greenhouse per plot.
 - **Confirmed fact:** The official patch states that the Season 1 Premium Pass grants one additional permanent Greenhouse slot.
-- **Community-supported fact:** The developer-endorsed community reference classifies Greenhouse as a Common Structure decoration, stack 1, with a 250 Tria sell value.
-- **Community-supported fact:** The reference describes it as a walk-in growhouse with irrigation and says soil inside can grow plants regardless of season.
+- **Community-supported fact:** The developer-endorsed community reference classifies Greenhouse as Decoration / Structure, rarity Common, stack limit 1, not sold for purchase, with a 250 Tria sell value and yield 1.
+- **Community-supported fact:** Its reference description is “Glass growhouse with piped irrigation. The seasons wait outside.” The reference describes it as a walk-in growhouse with bundled irrigation and says soil inside can grow plants regardless of season.
 - **Community-supported fact:** The collected community recipe names the Crafting Bench and lists Stone Tile 8×4×1 ×8, Wooden Door ×1, Pipe ×20, Glass Pane ×40, and Wood ×80.
 - **Community-supported fact:** The reference reports a base maximum of one per plot and a maximum of two while wearing the Overclocked title.
+- **Player-observed fact:** A player who completed the Season 1 Premium Battle Pass, while wearing no special title, can currently place a second Greenhouse.
 
 ### Source conflict
 
-**Source conflict:** The developer-endorsed community reference attributes access to a second Greenhouse to the Overclocked title, while official patch record `2026-08-05-patch` attributes one additional permanent Greenhouse slot to the Season 1 Premium Pass. The official statement outranks the wiki for the Premium Pass claim, but the two claims may describe separate mechanics. Current evidence does not establish whether:
+**Source conflict:** The developer-endorsed community reference attributes access to a second Greenhouse to the Overclocked title, while official patch record `2026-08-05-patch` attributes one additional permanent Greenhouse slot to the Season 1 Premium Pass. The player observation now directly shows that Overclocked is not universally required for a qualifying Premium Pass owner to place a second Greenhouse. The official statement outranks the wiki and is materially strengthened by that observation, but current evidence still does not establish whether:
 
 - Overclocked and Premium Pass bonuses stack;
-- one system replaced the other;
+- Overclocked has an independent current effect or was historically required;
 - the community page is outdated;
-- wearing the title is continuously required; or
+- more than two Greenhouses is possible under any combination; or
 - “permanent” persists by account, character, plot, or season.
 
-Do not publish a single combined maximum until this conflict is resolved. A future Greenhouse profile may publish the official default count and Premium Pass statement while omitting the unresolved title/stacking behavior.
+Publishable working wording is: base limit one Greenhouse per plot; completing the Season 1 Premium Pass grants one additional permanent Greenhouse slot; player verification confirms a second can be placed without wearing Overclocked. Do not publish a higher absolute maximum or an independent Overclocked effect without evidence.
 
 **Unresolved question:** The official patch says Workbench while the collected community recipe says Crafting Bench. Current evidence does not establish whether these are two names for the same station, a changed station, or a source wording mismatch.
 
@@ -59,6 +61,7 @@ Do not publish a single combined maximum until this conflict is resolved. A futu
 
 - **Player-observed fact:** A player observed placed objects and Soil Plots consuming build capacity individually in the tested context.
 - **Community-supported fact:** A 500-item plot cap is reported as a working community figure, but current repository evidence does not establish it strongly enough to call it confirmed.
+- **Player-observed fact:** No visible item-count or build-capacity counter is known from the current player observation. This absence is not proof that no counter exists elsewhere in the interface.
 - **Planning preference:** For personal layout planning only, target roughly 425–450 placed objects and retain approximately 50–75 slots as a reserve. This is not a general game rule and depends on the unresolved 500 figure.
 
 **Unresolved questions:**
@@ -69,7 +72,13 @@ Do not publish a single combined maximum until this conflict is resolved. A futu
 - Do planted crops consume separate slots?
 - How do special, assembled, or composite structures count?
 - Is capacity plot-wide or divided by category?
-- Is there a reliable in-game current-count display? None has been established in the supplied observation.
+- Is there a reliable in-game current-count display? None is currently known.
+
+### Controlled farm-rebuild observation plan
+
+The planned personal farm rebuild can double as a controlled research session. Maintain a manual placement ledger with separate counts for walls, floors, Soil Plots, Pipes, decorations, ordinary structures, Animal Plots, Greenhouses, and other placed objects, plus a running total. Record the object being placed and any capacity rejection or other observable limit behavior.
+
+The ledger can test the reported 500 cap and reveal whether categories appear to consume capacity differently while also supporting a more efficient personal rebuild. Counts alone are not proof: the cap or rejection behavior must actually be observed, and alternate causes must be excluded before promoting a rule.
 
 ## Plot Geometry
 
@@ -186,16 +195,19 @@ PortalDB should use the developer-endorsed community wiki as a strong factual re
 
 ## Current Farm Layout Planning
 
-Everything in this section is a **Planning preference**, not general PortalDB guidance or factual game data:
+Everything in this section is a **Planning preference**, not general PortalDB guidance, an optimal layout, or factual game data. The layout is being reconsidered and may change. Efficiency comes first, followed by functionality and then a highly polished, welcoming appearance. A basic block diagram is sufficient; a rendered illustration is not required.
 
 - asymmetrical natural layout with wandering, offset loop paths;
 - Greenhouse 1 in the upper-left with an orchard nearby;
-- barn in the upper-right;
-- large crop fields on the left;
+- main crop fields in the upper/left-center;
+- barn in the upper-right with an Animal Yard nearby;
 - home lower-left of center;
+- patio near the home;
 - Greenhouse 2 in the lower-left;
-- cosmetic crafting/utility area in the lower-right; and
-- central open grass/tree negative space.
+- small garden beds for herbs or specialty crops near the lower-left;
+- central open green/scenic space;
+- crafting/utility nook in the lower-right; and
+- irrigation corner near the lower-right containing the Water Tank, Pump, Pipes, and Valve.
 
 Barn concept: approximately 9 × 10 main-grid floor, one or two approximately 3.1 × 3.1 Animal Plots in the back half, and an open front/central aisle. Both Greenhouse 2 and the barn geometry depend on unresolved mechanics.
 
@@ -207,7 +219,7 @@ Barn concept: approximately 9 × 10 main-grid floor, one or two approximately 3.
 | Build cap | Community-supported fact | No exact claim yet | Current exact cap and scope | Community report of 500 |
 | Object slot cost | Player-observed fact | Narrow observation only | Per-object exceptions and categories | In-game placement observation |
 | Greenhouse function | Community-supported fact | Yes, attributed/narrow | Seasonal and irrigation behavior in game | Developer-endorsed community reference |
-| Greenhouse max count | Source conflict | Official pieces only | Overclocked/Premium stacking and persistence | August 5 patch; community reference |
+| Greenhouse max count | Confirmed fact plus Player-observed fact; residual Source conflict | Base one and Premium Pass second slot are publishable | Independent Overclocked effect, stacking, persistence scope, and any maximum above two | August 5 patch; no-title Premium Pass player observation; community reference |
 | Greenhouse recipe | Community-supported fact | After record-level reconciliation | Current recipe and quantities in game | Developer-endorsed community reference |
 | Greenhouse footprint | Approximate measurement | Planning context only | Reproducible bounds/collision method | Player measurement |
 | Animal Plot function | Player-observed fact | Minimal quest sequence only | Capacity, outputs, restrictions | Chapter 2 quest screenshots |
@@ -227,6 +239,10 @@ Barn concept: approximately 9 × 10 main-grid floor, one or two approximately 3.
 
 May begin only after a useful starter set of crop and buildable records has identity plus enough supported decision fields to avoid mostly empty profiles. Greenhouse can be an early record using official facts and reconciled community fields while omitting unresolved combined maximum behavior.
 
+### Greenhouse Profile
+
+The Greenhouse is a strong early buildable-profile candidate because official, community, and player evidence now support its core identity, default limit, Premium Pass slot, recipe reference, and basic function. Omit any unsupported higher maximum, independent Overclocked effect, exact footprint, build-capacity cost, and external-irrigation dependency.
+
 ### Irrigation Guide
 
 Do not implement until Water Tank, Pump, Pipe/Valve, Sprinkler, and Greenhouse dependencies are reproducibly verified. Component presence and approximate footprints are insufficient.
@@ -245,5 +261,5 @@ Do not implement until crop seasons, growth times, seed acquisition, harvest out
 
 ### Recommended next research action
 
-Run a controlled in-game verification session focused first on build-capacity accounting and Hydraulics dependencies, while capturing the current Greenhouse recipe/max UI and a small representative crop set. These findings unblock the highest-value architecture decisions without prematurely building production UI.
+Use the farm rebuild as a controlled manual placement-ledger session, capture the current Greenhouse recipe/maximum UI, verify Hydraulics dependencies, and collect a small representative crop set. These findings unblock the highest-value architecture decisions without prematurely building production UI.
 
