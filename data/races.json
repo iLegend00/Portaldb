@@ -80,9 +80,9 @@
   {
     "id": "race-beastmen-fox",
     "name": "Beastmen — Fox",
-    "description": "Bonus Beastmen variant. Community documentation reports +3 AGI and +2 DEX, with a 10% chance when rolling Beastmen.",
+    "description": "Bonus Beastmen variant. Community documentation reports +3 AGI and +3 DEX, with a 10% chance when rolling Beastmen.",
     "tags": ["race", "beastmen", "fox", "agility", "dexterity", "agi", "dex", "warrior", "bonus race"],
-    "stats": {"AGI": 3, "DEX": 2},
+    "stats": {"AGI": 3, "DEX": 3},
     "tutorialChoice": "Meat",
     "variantChance": "10% within Beastmen family",
     "confidence": "Community verified",

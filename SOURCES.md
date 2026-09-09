@@ -75,7 +75,7 @@ Structured claims currently admitted to the database:
 - High Elf: **+3 INT, +3 WIS**.
 - Beastmen Cat: **+2 AGI, +2 DEX**.
 - Beastmen Wolf: **+2 AGI, +2 DEX**.
-- Beastmen Fox: **+3 AGI, +2 DEX**.
+- Beastmen Fox: **+3 AGI, +3 DEX**.
 
 ### Reported variant rates
 - The guide reports a **10%** chance for Corrupted Human within the Human family.
