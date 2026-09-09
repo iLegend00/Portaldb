@@ -53,5 +53,18 @@
     ],
     "confidence": "Official confirmed",
     "source": "Official Discord patch announcement v1.2.15 by Swaroff [PRTL], normalized to 2026-08-31 from the supplied same-day Discord timestamp"
+  },
+  {
+    "id": "chapter-3-release",
+    "name": "Chapter 3",
+    "type": "Major Content Release",
+    "date": "2026-09-07",
+    "version": "v1.2.17",
+    "description": "Chapter 3 released as a major progression milestone.",
+    "highlights": [
+      "Chapter 3 released"
+    ],
+    "confidence": "Official confirmed",
+    "source": "Official Discord patch announcement by TOYYY [PRTL], Archon"
   }
 ]

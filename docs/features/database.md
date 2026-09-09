@@ -27,6 +27,8 @@ The category browser does not add provenance markers. Existing record details re
 
 Patch History is the complete chronological record of official patches, hotfixes, balance changes, bug fixes, and versioned game changes. It is exhaustive: patch records are sorted by supported implementation date descending and use a compact list presentation rather than the generic Database record-card grid. Records without a supported date follow dated records, and complete patch highlights remain only in the shared Patch record-profile dialog.
 
+The homepage Game Updates panel is data-driven from the canonical `data/patches.json` dataset. It always derives the two newest supported patch records by actual date descending, with deterministic version and record-ID fallbacks; recent patches must never be hardcoded into homepage markup.
+
 ## Updates
 
 Updates contains only major content releases, system launches, and significant game milestones. It is curated: a numbered patch is not automatically duplicated as an Update, although a milestone Update may reference the patch version that introduced it. Update summaries remain focused on the milestone while complete patch details belong only in Patch History. Updates sort by supported date descending and retain the generic Database record presentation.

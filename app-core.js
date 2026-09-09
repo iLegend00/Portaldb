@@ -12,7 +12,7 @@ const canonicalPages = [{
 async function loadData(){
   const sets = await Promise.all(collections.map(async name=>{
     try{
-      const res = await fetch(`data/${name}.json?v=20260903-equipment-migration-1`);
+      const res = await fetch(`data/${name}.json?v=20260909-patches-1`);
       if(!res.ok) return [];
       const rows = await res.json();
       return rows.map(row=>({...row,_collection:name,_displayName:row.name||row.title||row.code||row.version||row.id}));
@@ -799,4 +799,3 @@ function escapeHtml(v){
 }
 
 loadData().catch(console.error);
-

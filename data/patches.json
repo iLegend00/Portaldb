@@ -316,5 +316,44 @@
       "Fixed drop notifications displaying party names, regrown fruit reappearing, equipment slots becoming stuck, Weather Buffs not obeying stat caps, and Guild Leaders losing their rights",
       "Enchanted Forest announced as coming soon"
     ]
+  },
+  {
+    "id": "v1.2.16",
+    "title": "Patch Notes — v1.2.16",
+    "date": "2026-09-01",
+    "version": "v1.2.16",
+    "confidence": "Official confirmed",
+    "source": "Official Discord patch announcement by TOYYY [PRTL], Archon",
+    "highlights": [
+      "Deco Triangle fixed",
+      "EXP required for level 30 → 31 was corrected",
+      "Timber Charge: monsters no longer drop aggro when stunned",
+      "Critter slingshot stones no longer push the player",
+      "Harvest choice now selects the fruit that was clicked",
+      "Farm pets are no longer lost from farm slots"
+    ]
+  },
+  {
+    "id": "v1.2.17",
+    "title": "Patch Notes — v1.2.17",
+    "date": "2026-09-07",
+    "version": "v1.2.17",
+    "confidence": "Official confirmed",
+    "source": "Official Discord patch announcement by TOYYY [PRTL], Archon",
+    "highlights": [
+      "Chapter 3 released",
+      "Always Run toggle added for PC",
+      "New shoes and gloves added",
+      "Cosmetic visuals can now be adjusted",
+      "Monster drop chance in a party now follows the highest-level party member",
+      "Guild Apply requires level 20 or higher",
+      "Goblin Coin x2 removed from the Claw Machine",
+      "Goblin Coin x1 became rarer",
+      "Claw Machine prizes restocked",
+      "LMNTRI Exchange rate follows active player count",
+      "Crosshair and camera bug fixed",
+      "Lumen pity system fixed",
+      "Title login stat issue fixed"
+    ]
   }
 ]

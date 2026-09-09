@@ -1,6 +1,6 @@
 # PortalDB Project State
 
-**Last updated:** 2026-09-08
+**Last updated:** 2026-09-09
 
 This is the canonical handoff for the project's current state. Permanent rules remain in [`standards/`](standards/), feature architecture remains in [`features/`](features/), and unimplemented evidence remains in [`research/`](research/).
 
@@ -12,6 +12,7 @@ Farming / Homestead research is reconciled into official facts, developer-endors
 
 ## Recently Completed
 
+- Official patches v1.2.16 and v1.2.17 added; the homepage Game Updates panel now derives its two newest entries from canonical Patch History data, and the Chapter 3 release is represented once in curated Updates as a major content milestone.
 - Farming / Homestead research reconciled with source priority, readiness matrix, modular data architecture, player-facing plan, and implementation gates.
 - Equipment Profile architecture finalized with a compact identity header, optional artwork, conditional exact/sparse/variable rendering, consolidated Stats, rarity-colored Roll Quality, and linked acquisition/recipes.
 - All supported legacy equipment records migrated: Fortune Clover, Bone Bite, Tinker's Goggles, Plague Mask, Iron Hammer +3, and Axe; Magnifying Glass intentionally remains non-equipment.
@@ -71,4 +72,3 @@ Research notes are not production data and may contain explicitly labeled confli
 - How do damage buckets interact?
 - What defense formulas do bosses use?
 - Which fields are affected by refinement and its bonus slots?
-
