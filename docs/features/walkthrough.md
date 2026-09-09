@@ -2,7 +2,7 @@
 
 **Status:** Active  
 **Scope:** `walkthrough.html` and future chapter pages  
-**Last Updated:** 2026-08-24
+**Last Updated:** 2026-09-09
 
 ## Purpose
 
@@ -75,6 +75,8 @@ Use `data/quests.json` as the primary progression backbone. Supporting context m
 
 The walkthrough should synthesize these relationships into practical progression guidance rather than render a database dump. Quest objectives and rewards remain ordered as stored. Unsupported routes, recommendations, formulas, and optimization claims stay unpublished.
 
+The walkthrough supports partially documented chapters. A chapter's `partCount` records the supported total shown in-game, while `parts.length` is the number of complete, renderable parts currently documented. Known names for undocumented parts may be retained separately as metadata, but undocumented parts must not render as empty placeholders or navigable sections. Coverage labels state the documented count when it is lower than the total, and only supported quest content appears.
+
 ## Provenance
 
 Follow the [Provenance UX Standard](../standards/provenance-ux.md). Use selective record- or chapter-level source markers and avoid phrases such as:
@@ -83,7 +85,7 @@ Follow the [Provenance UX Standard](../standards/provenance-ux.md). Use selectiv
 - verified objectives; or
 - expanding with verified information.
 
-Describe current coverage directly, such as **Chapters 1–2**, without adding placeholder chapters or progress-state filler.
+Describe current coverage directly, such as **Chapters 1–2 and Chapter 3 partial**, without adding placeholder chapters or progress-state filler.
 
 The walkthrough also follows the [Data Integrity Standard](../standards/data-integrity.md): no missing recommendation or progression step may be inferred merely to make the guide appear complete.
 
@@ -108,4 +110,4 @@ Artwork must follow the [Artwork Pipeline Standard](../standards/artwork-pipelin
 - `walkthrough.html` owns the accessible page structure and navigation hooks.
 - `walkthrough.js` renders documented progression from structured data and maintains stable chapter/part anchors.
 - `walkthrough.css` owns the responsive field-guide surface, sticky navigation, callouts, and future artwork layers.
-- Only currently published chapters appear in the walkthrough index and navigation.
+- Only chapters with documented parts appear in the walkthrough index and navigation; within a partial chapter, only documented parts receive links and rendered sections.

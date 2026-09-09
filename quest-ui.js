@@ -7,7 +7,7 @@ async function initQuestUI(){
   try{
     await ensureEnemyData();
     installRelationshipEnhancer();
-    const res=await fetch('data/quests.json');
+    const res=await fetch('data/quests.json?v=20260909-chapter3-1');
     if(!res.ok) throw new Error('quests.json unavailable');
     portalQuestChapters=(await res.json()).filter(q=>q.type==='Main Quest Chapter');
     renderQuestTabs();

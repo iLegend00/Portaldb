@@ -63,5 +63,68 @@
     "version":"Current through 2026-08-18",
     "lastVerified":"2026-08-18",
     "source":"User-supplied in-game Main Quest screenshots on 2026-08-18"
+  },
+  {
+    "id": "main-ch3-the-junkyard",
+    "name": "Chapter 3: The Junkyard",
+    "type": "Main Quest Chapter",
+    "chapter": 3,
+    "partCount": 5,
+    "documentedPartCount": 2,
+    "parts": [
+      {
+        "part": 1,
+        "id": "main-ch3-p1-someone-needs-it",
+        "name": "Someone Needs It",
+        "description": "The board wanted the critters thinned out. Small ones, quick ones, the kind that throw stones and run away.",
+        "objectives": [
+          "Defeat Critter Goblins (30/30)",
+          "Follow the map to the cave by the river",
+          "Recover the Human piece",
+          "Recover the Elf piece",
+          "Recover the Beastmen piece",
+          "Recover the Goblin piece",
+          "Set the four pieces into the altar (4/4)",
+          "Take what the altar gives back"
+        ],
+        "rewards": [
+          {"type": "experience", "name": "EXP", "amount": 4000},
+          {"type": "currency", "name": "Lumen", "amount": 1}
+        ],
+        "verificationStatus": "In-game verified"
+      },
+      {
+        "part": 2,
+        "id": "main-ch3-p2-not-from-this-world",
+        "name": "Not From This World",
+        "description": "The stone lit up red and gave something back, a rune stone of some sort.",
+        "objectives": [
+          "Tell Klepon what the altar did",
+          "Find the stone on the cliff",
+          "Find the stone ball under the fallen bridge",
+          "Dig the stone ring out of the trash heaps",
+          "Set the ball and the ring on the stone base (0/2)",
+          "Align the stone until it finds the sky with two moons",
+          "Take the rune from the pedestal in the trash heaps"
+        ],
+        "rewards": [
+          {"type": "experience", "name": "EXP", "amount": 4500},
+          {"type": "currency", "name": "Lumen", "amount": 1}
+        ],
+        "verificationStatus": "In-game verified"
+      }
+    ],
+    "knownUndocumentedParts": [
+      {"part": 3, "name": "Nobody Answered"},
+      {"part": 4, "name": "The Color With No Name"},
+      {"part": 5, "name": "This Door Is Mine"}
+    ],
+    "futureChaptersShown": ["Chapter 4: The Enchanted Forest — Coming Soon"],
+    "tags": ["main quest", "chapter 3", "the junkyard", "someone needs it", "not from this world"],
+    "confidence": "In-game verified",
+    "dataStatus": "Parts 1–2 documented from current in-game screenshots; Parts 3–5 names visible but objectives and rewards not yet documented.",
+    "version": "Current through 2026-09-09",
+    "lastVerified": "2026-09-09",
+    "source": "User-supplied in-game Main Quest screenshots, 2026-09-09"
   }
 ]

@@ -8,6 +8,10 @@
   const chapterNpcNames=chapter=>[...new Set(chapter.relatedNPCs||chapter.parts.flatMap(part=>part.relatedNPCs||[]))];
   const rewardText=reward=>{const amount=Number(reward.amount??reward.quantity??1).toLocaleString(),name=esc(reward.name||reward.item||reward.type);return reward.type==='currency'||reward.type==='experience'?`${amount} ${name}`:`${amount}× ${name}`};
   const partId=part=>slug(part.name);
+  const coverageText=chapter=>{
+    const documented=chapter.parts.length,total=Number(chapter.partCount)||documented;
+    return documented<total?`${documented} of ${total} parts documented`:`${total} parts`;
+  };
   function documentedUnlocks(chapter){
     if(chapter.chapter===1)return mechanics.filter(row=>row.id==='world-loot-unlock').map(row=>row.description);
     if(chapter.chapter===2)return mechanics.filter(row=>row.id==='quick-slots-chapter-2').map(row=>row.description);
@@ -24,7 +28,7 @@
   }
   function renderOverview(chapter){
     const flow=chapter.locationFlow||[],names=chapterNpcNames(chapter),unlocks=documentedUnlocks(chapter);
-    return `<div class="chapter-overview"><div class="overview-block"><small>Chapter coverage</small><strong>${chapter.parts.length} parts</strong></div>${flow.length?`<div class="overview-block"><small>Primary route</small><p>${flow.map(esc).join(' → ')}</p></div>`:''}${names.length?`<div class="overview-block"><small>Key NPCs</small><p>${names.map(esc).join(' · ')}</p></div>`:''}${unlocks.length?`<div class="overview-block"><small>Progression unlocks</small><p>${unlocks.map(esc).join(' · ')}</p></div>`:''}</div>`;
+    return `<div class="chapter-overview"><div class="overview-block"><small>Chapter coverage</small><strong>${esc(coverageText(chapter))}</strong></div>${flow.length?`<div class="overview-block"><small>Primary route</small><p>${flow.map(esc).join(' → ')}</p></div>`:''}${names.length?`<div class="overview-block"><small>Key NPCs</small><p>${names.map(esc).join(' · ')}</p></div>`:''}${unlocks.length?`<div class="overview-block"><small>Progression unlocks</small><p>${unlocks.map(esc).join(' · ')}</p></div>`:''}</div>`;
   }
   function pagination(chapter,index){
     const previous=chapters[index-1],next=chapters[index+1];
@@ -35,7 +39,7 @@
     return `<section class="guide-chapter" id="chapter-${chapter.chapter}" data-section-name="${esc(chapter.name)}"><header><span class="chapter-kicker">Chapter ${chapter.chapter}</span><div class="chapter-heading"><h2>${esc(chapter.name.replace(/^Chapter \d+:\s*/,''))}</h2>${window.PortalVerification?.marker(chapter)||''}</div><p class="chapter-description">Main-quest progression documented from the in-game quest sequence.</p></header>${renderOverview(chapter)}<nav class="chapter-parts-index" aria-label="${esc(chapter.name)} parts"><strong>Parts in this chapter</strong><div class="chapter-parts-links">${links}</div></nav>${chapter.parts.map(part=>renderPart(part,chapter)).join('')}${pagination(chapter,index)}</section>`;
   }
   function buildIndex(){
-    const documented=chapters.map(chapter=>`<section class="index-chapter"><a href="#chapter-${chapter.chapter}"><span>${esc(chapter.name)}</span><em>${chapter.parts.length} parts</em></a><div class="index-parts">${chapter.parts.map(part=>`<a href="#${partId(part)}" data-index-target="${partId(part)}">${String(part.part).padStart(2,'0')} · ${esc(part.name)}</a>`).join('')}</div></section>`).join('');
+    const documented=chapters.map(chapter=>`<section class="index-chapter"><a href="#chapter-${chapter.chapter}"><span>${esc(chapter.name)}</span><em>${esc(coverageText(chapter))}</em></a><div class="index-parts">${chapter.parts.map(part=>`<a href="#${partId(part)}" data-index-target="${partId(part)}">${String(part.part).padStart(2,'0')} · ${esc(part.name)}</a>`).join('')}</div></section>`).join('');
     document.getElementById('walkthroughIndexBody').innerHTML=documented;
   }
   function populateSelects(){
@@ -52,11 +56,12 @@
     sections.forEach(section=>observer.observe(section));
   }
   async function init(){
-    const responses=await Promise.all(['quests','npcs','mechanics'].map(name=>fetch(`data/${name}.json?v=20260824-walkthrough-2`)));
+    const responses=await Promise.all(['quests','npcs','mechanics'].map(name=>fetch(`data/${name}.json?v=20260909-chapter3-1`)));
     if(responses.some(response=>!response.ok))throw new Error('Walkthrough data could not be loaded.');
     const [quests,npcRows,mechanicRows]=await Promise.all(responses.map(response=>response.json()));npcs=npcRows;mechanics=mechanicRows;
-    chapters=quests.filter(quest=>quest.type==='Main Quest Chapter'&&[1,2].includes(quest.chapter)).sort((a,b)=>a.chapter-b.chapter);
-    if(chapters.length!==2||chapters[0].parts.length!==5||chapters[1].parts.length!==4)throw new Error('The documented Chapter 1–2 sequence is incomplete.');
+    chapters=quests.filter(quest=>quest.type==='Main Quest Chapter'&&Array.isArray(quest.parts)&&quest.parts.length).sort((a,b)=>a.chapter-b.chapter);
+    const invalidChapter=chapters.some(chapter=>!Number.isInteger(chapter.partCount)||chapter.partCount<chapter.parts.length||chapter.parts.some(part=>!part.name||!part.objectives?.length||!part.rewards?.length));
+    if(!chapters.some(chapter=>chapter.chapter===3)||invalidChapter)throw new Error('The documented walkthrough sequence is incomplete.');
     document.getElementById('walkthroughContent').innerHTML=chapters.map(renderChapter).join('');buildIndex();populateSelects();bindNavigation();document.getElementById('walkthroughGuide').hidden=false;document.getElementById('walkthroughStatus').remove();
   }
   init().catch(error=>{const status=document.getElementById('walkthroughStatus');status.classList.add('walkthrough-error');status.textContent=error.message;console.error(error)});
