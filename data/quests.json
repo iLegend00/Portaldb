@@ -7,12 +7,13 @@
     "startingLocation": "Farm",
     "endingLocation": "Farm",
     "partCount": 5,
+    "walkthroughIntro": ["Chapter 1 is your introduction to The Portal. Most of this chapter is designed to teach the basics: combat, farming, equipment, and how your home plot works.", "The game explains most of these systems directly, so the walkthrough stays light here. Follow the objectives in order and use the notes below whenever a step needs a little extra context."],
     "parts": [
-      {"part":1,"id":"main-ch1-p1-first-steps","name":"First Steps","locations":["Farm"],"objectives":["Find something to eat","Find something to test your strength on","Try out your new abilities","Take down the training dummy with your upgraded skill","Lock on and destroy the training dummy once more"],"rewards":[{"type":"currency","name":"Tria","amount":800},{"type":"item","name":"Kettle Greaves","amount":1}]},
-      {"part":2,"id":"main-ch1-p2-martas-lessons","name":"Marta's Lessons","locations":["Farm"],"objectives":["Talk to Marta at home","Get a Hoe (from Leaf, or Rendall at night)","Get a Watering Can (from Leaf, or Rendall at night)"],"rewards":[{"type":"experience","name":"EXP","amount":2700},{"type":"currency","name":"Tria","amount":200},{"type":"item","name":"Kettle Stompers","amount":1},{"type":"item","name":"Kettle Mitts","amount":1}]},
-      {"part":3,"id":"main-ch1-p3-working-the-land","name":"Working the Land","locations":["Farm"],"objectives":["Talk to Marta about farming","Till soil on your farm plot (5/5)","Plant wheat seeds (5/5)","Water your crops (5/5)","Harvest Wheat (5/5)"],"rewards":[{"type":"experience","name":"EXP","amount":5000},{"type":"currency","name":"Tria","amount":300},{"type":"item","name":"Stat Reset Scroll","amount":3},{"type":"item","name":"Pot Armor","amount":1},{"type":"creature","name":"Punk Rooster","amount":1}]},
-      {"part":4,"id":"main-ch1-p4-trial-by-scrap","name":"Trial by Scrap","locations":["Farm","Scrap Fields","Goblin Junkyard"],"objectives":["Prepare your equipment","Go to Scrap Fields in Goblin Junkyard","Kill Cog Crabs and collect Scrap Metal (3/3)","Bring the Scrap Metal to Marta"],"rewards":[{"type":"experience","name":"EXP","amount":800},{"type":"currency","name":"Tria","amount":400},{"type":"item","name":"Kettle Crown","amount":1}]},
-      {"part":5,"id":"main-ch1-p5-the-empty-house","name":"The Empty House","locations":["Farm"],"objectives":["Return home","Talk to the stranger at your plot","Clean up the wreckage (50/50)"],"rewards":[{"type":"experience","name":"EXP","amount":1200},{"type":"currency","name":"Tria","amount":400},{"type":"item","name":"Animal Plot","amount":1},{"type":"skill","name":"Timber Charge I","amount":1}]}
+      {"part":1,"id":"main-ch1-p1-first-steps","name":"First Steps","locations":["Farm"],"objectives":["Find something to eat","Find something to test your strength on","Try out your new abilities","Take down the training dummy with your upgraded skill","Lock on and destroy the training dummy once more"],"walkthrough":[{"text":"Start by following the opening prompts to find something to eat and something to test your strength on."},{"text":"The game then introduces your abilities through the training dummy. Use your abilities as instructed, then defeat the dummy with your upgraded skill."},{"text":"For the final step, use the lock-on system and destroy the training dummy once more."}],"rewards":[{"type":"currency","name":"Tria","amount":800},{"type":"item","name":"Kettle Greaves","amount":1}]},
+      {"part":2,"id":"main-ch1-p2-martas-lessons","name":"Marta's Lessons","locations":["Farm"],"objectives":["Talk to Marta at home","Get a Hoe (from Leaf, or Rendall at night)","Get a Watering Can (from Leaf, or Rendall at night)"],"walkthrough":[{"text":"Speak with Marta at home. She will send you to get the basic farming tools you need."},{"text":"Get both a Hoe and a Watering Can."},{"text":"During the day, Leaf can provide them. Rendall is the nighttime alternative listed by the quest."},{"text":"Once you have both tools, return to the quest flow and continue."}],"rewards":[{"type":"experience","name":"EXP","amount":2700},{"type":"currency","name":"Tria","amount":200},{"type":"item","name":"Kettle Stompers","amount":1},{"type":"item","name":"Kettle Mitts","amount":1}]},
+      {"part":3,"id":"main-ch1-p3-working-the-land","name":"Working the Land","locations":["Farm"],"objectives":["Talk to Marta about farming","Till soil on your farm plot (0/5)","Plant wheat seeds (0/5)","Water your crops (0/5)","Harvest Wheat (0/5)"],"walkthrough":[{"text":"Talk to Marta about farming, then head to your farm plot."},{"text":"This part walks you through the basic crop cycle. Till five pieces of soil, plant five Wheat Seeds, and water all five crops."},{"text":"Once the Wheat has grown, harvest all five."},{"text":"This establishes the basic farming sequence used throughout the game: prepare the soil, plant, water, and harvest."}],"rewards":[{"type":"experience","name":"EXP","amount":5000},{"type":"currency","name":"Tria","amount":300},{"type":"item","name":"Stat Reset Scroll","amount":3},{"type":"item","name":"Pot Armor","amount":1},{"type":"creature","name":"Punk Rooster","amount":1}]},
+      {"part":4,"id":"main-ch1-p4-trial-by-scrap","name":"Trial by Scrap","locations":["Farm","Scrap Fields","Goblin Junkyard"],"objectives":["Prepare your equipment","Go to Scrap Fields in Goblin Junkyard","Kill Cog Crabs and collect Scrap Metal (0/3)","Bring the Scrap Metal to Marta"],"walkthrough":[{"text":"Prepare your equipment, then travel to the Scrap Fields in the Goblin Junkyard."},{"text":"Defeat Cog Crabs until you collect the three required Scrap Metal."},{"text":"Once you have all three, bring the Scrap Metal back to Marta."}],"rewards":[{"type":"experience","name":"EXP","amount":800},{"type":"currency","name":"Tria","amount":400},{"type":"item","name":"Kettle Crown","amount":1}]},
+      {"part":5,"id":"main-ch1-p5-the-empty-house","name":"The Empty House","locations":["Farm"],"objectives":["Return home","Talk to the stranger at your plot","Clean up the wreckage (0/50)"],"walkthrough":[{"text":"Return home and speak with the stranger waiting at your plot."},{"text":"After the conversation, clear the wreckage around the property until all 50 pieces have been cleaned up."},{"text":"Completing the cleanup finishes Chapter 1."}],"rewards":[{"type":"experience","name":"EXP","amount":1200},{"type":"currency","name":"Tria","amount":400},{"type":"item","name":"Animal Plot","amount":1},{"type":"skill","name":"Timber Charge I","amount":1}]}
     ],
     "locationFlow":["Farm","Scrap Fields in Goblin Junkyard","Farm"],
     "relatedNPCs":["Marta","Leaf","Rendall"],
@@ -29,6 +30,7 @@
     "type":"Main Quest Chapter",
     "chapter":2,
     "partCount":4,
+    "walkthroughIntro":["Chapter 2 continues teaching several of The Portal's larger systems, including farm animals, seasons, skills, equipment upgrades, village NPCs, and the quest board.","Like Chapter 1, most objectives are straightforward, so the walkthrough focuses on keeping the sequence clear rather than over-explaining tutorial prompts."],
     "parts":[
       {
         "part":1,
@@ -36,6 +38,7 @@
         "name":"Something to Feed",
         "description":"The wreckage is cleared. The ground where the house stood looks bigger than it should. Theron said work is the best thing for today. Fine. Start with something that complains when it is hungry.",
         "objectives":["Open Build mode and place your Animal Plot","Talk to Hogan the rancher","Buy a Chicken from Hogan","Buy a Hay Bundle (from Hogan, or Rendall at night)","Put your chicken in the Animal Plot","Feed your chicken"],
+        "walkthrough":[{"text":"Start by opening Build Mode and placing the Animal Plot you received at the end of Chapter 1."},{"text":"Next, visit Hogan the rancher."},{"text":"Buy a Chicken and a Hay Bundle. The quest also lists Rendall as a nighttime source for the Hay Bundle."},{"text":"Return to the Animal Plot, place the Chicken inside, and feed it."},{"text":"This completes the game's introduction to farm animals."}],
         "rewards":[{"type":"experience","name":"EXP","amount":3000},{"type":"currency","name":"Tria","amount":500},{"type":"item","name":"Solite","amount":3}],
         "relatedNPCs":["Hogan","Rendall"],
         "verificationStatus":"In-game verified"
@@ -46,15 +49,16 @@
         "name":"Asking Around",
         "description":"The chicken is fed. The quiet comes back anyway. These folk have known this village longer than you have been alive. Someone saw something that night. Ask around. Keep the letter out of it.",
         "objectives":["Ask Arlette about that night","Ask Breda about the attack","Ask Leaf what grows this season","Check the season marker by your minimap"],
+        "walkthrough":[{"text":"This part sends you around the village to speak with several residents."},{"text":"Talk to Arlette about the night of the attack, then speak with Breda."},{"text":"Next, visit Leaf and ask what grows during the current season."},{"text":"Finally, check the season marker near your minimap. This is the game's introduction to seasonal farming information."}],
         "rewards":[{"type":"experience","name":"EXP","amount":3500},{"type":"currency","name":"Tria","amount":500}],
         "relatedNPCs":["Arlette","Breda","Leaf"],
         "verificationStatus":"In-game verified"
       },
       {
-        "part":3,"id":"main-ch2-p3-the-elders-guidance","name":"The Elder's Guidance","description":"Theron waves you in before you knock. Tea already poured. He asks his questions gently, and you answer all but one. The letter stays where it is. Then he says the word you needed: stronger.","objectives":["Visit Elder Theron","Ask Neria for a skill book","Buy your job's skill book from Neria","Learn the skill from your backpack","Place your new skill in a quick slot","Cast your new skill","Show Eren your weapon","Upgrade your weapon twice (2/2)"],"rewards":[{"type":"experience","name":"EXP","amount":4500},{"type":"currency","name":"Tria","amount":500}],"relatedNPCs":["Theron","Neria","Eren"],"verificationStatus":"In-game verified"
+        "part":3,"id":"main-ch2-p3-the-elders-guidance","name":"The Elder's Guidance","description":"Theron waves you in before you knock. Tea already poured. He asks his questions gently, and you answer all but one. The letter stays where it is. Then he says the word you needed: stronger.","objectives":["Visit Elder Theron","Ask Neria for a skill book","Buy your job's skill book from Neria","Learn the skill from your backpack","Place your new skill in a quick slot","Cast your new skill","Show Eren your weapon","Upgrade your weapon twice (0/2)"],"walkthrough":[{"text":"Visit Elder Theron first."},{"text":"After speaking with him, go to Neria and ask for a skill book. Buy the skill book for your current job, open your backpack, and learn it."},{"text":"Place the new skill in a quick slot and cast it."},{"text":"Then visit Eren, show him your weapon, and upgrade that weapon twice."},{"text":"This section introduces the basic skill-learning and weapon-upgrade flow."}],"rewards":[{"type":"experience","name":"EXP","amount":4500},{"type":"currency","name":"Tria","amount":500}],"relatedNPCs":["Theron","Neria","Eren"],"verificationStatus":"In-game verified"
       },
       {
-        "part":4,"id":"main-ch2-p4-mind-whos-listening","name":"Mind Who's Listening","description":"A sharper blade, a new skill, a fed chicken. The village calls that healing. At night the tavern is warm and loud, and Rendall pours without being asked. You almost feel safe. Almost is worth something.","objectives":["Have supper at the tavern","Tell Theron you are ready","Take a bounty from the village quest board"],"rewards":[{"type":"experience","name":"EXP","amount":5000},{"type":"currency","name":"Tria","amount":500}],"relatedNPCs":["Rendall","Theron"],"verificationStatus":"In-game verified"
+        "part":4,"id":"main-ch2-p4-mind-whos-listening","name":"Mind Who's Listening","description":"A sharper blade, a new skill, a fed chicken. The village calls that healing. At night the tavern is warm and loud, and Rendall pours without being asked. You almost feel safe. Almost is worth something.","objectives":["Have supper at the tavern","Tell Theron you are ready","Take a bounty from the village quest board"],"walkthrough":[{"text":"Have supper at the tavern, then speak with Theron and tell him you are ready."},{"text":"Finally, visit the village quest board and accept a bounty."},{"text":"Taking the bounty completes Chapter 2."}],"rewards":[{"type":"experience","name":"EXP","amount":5000},{"type":"currency","name":"Tria","amount":500}],"relatedNPCs":["Rendall","Theron"],"verificationStatus":"In-game verified"
       }
     ],
     "futureChaptersShown":["Chapter 3: The Junkyard","Chapter 4: The Enchanted Forest","Chapter 5: The Castle","Chapter 6: Through the Portal"],
@@ -70,7 +74,7 @@
     "type": "Main Quest Chapter",
     "chapter": 3,
     "partCount": 5,
-    "documentedPartCount": 2,
+    "walkthroughIntro": ["Chapter 3 is where the main quest becomes much more exploratory.", "Instead of primarily teaching systems, this chapter sends you across the Junkyard and Geartown to hunt for hidden objects, defeat enemies, solve environmental puzzles, and investigate a set of mysterious rune stones.", "This is where the walkthrough becomes more detailed, especially for scavenger-hunt and puzzle objectives."],
     "parts": [
       {
         "part": 1,
@@ -78,15 +82,16 @@
         "name": "Someone Needs It",
         "description": "The board wanted the critters thinned out. Small ones, quick ones, the kind that throw stones and run away.",
         "objectives": [
-          "Defeat Critter Goblins (30/30)",
+          "Defeat Critter Goblins (0/30)",
           "Follow the map to the cave by the river",
           "Recover the Human piece",
           "Recover the Elf piece",
           "Recover the Beastmen piece",
           "Recover the Goblin piece",
-          "Set the four pieces into the altar (4/4)",
+          "Set the four pieces into the altar (0/4)",
           "Take what the altar gives back"
         ],
+        "walkthrough": [{"text":"Start by defeating 30 Critter Goblins."},{"text":"Once that is finished, follow the quest toward the cave by the river."},{"text":"You now need to recover four separate pieces:","items":["Human piece","Elf piece","Beastmen piece","Goblin piece"]},{"text":"Make sure you have collected all four before returning to the altar."},{"text":"Set the four pieces into the altar, then take what the altar gives back."},{"text":"This gives you the first item connected to the rune-stone mystery."}],
         "rewards": [
           {"type": "experience", "name": "EXP", "amount": 4000},
           {"type": "currency", "name": "Lumen", "amount": 1}
@@ -107,24 +112,38 @@
           "Align the stone until it finds the sky with two moons",
           "Take the rune from the pedestal in the trash heaps"
         ],
+        "walkthrough": [{"text":"Take what you found back to Klepon and tell him what happened at the altar."},{"text":"Next, follow the quest to the stone on the cliff."},{"text":"Find the stone ball underneath the fallen bridge, then find the stone ring in the trash heaps."},{"text":"Bring both pieces to the stone base and place them into the mechanism."},{"text":"Adjust the stone until it aligns with the sky containing two moons."},{"text":"Once the puzzle is solved, take the rune from the pedestal in the trash heaps."}],
         "rewards": [
           {"type": "experience", "name": "EXP", "amount": 4500},
           {"type": "currency", "name": "Lumen", "amount": 1}
         ],
         "verificationStatus": "In-game verified"
+      },
+      {
+        "part":3,"id":"main-ch3-p3-nobody-answered","name":"Nobody Answered","description":"The second stone lit up. Two more are in the town past the gate, but Klepon will want to hear about this one first.",
+        "objectives":["Tell Klepon what the stone on the cliff gave back","Find the water tower in Geartown","Look at the socket on top of the water tower","Defeat Scarecrow Goblins (0/15)","Defeat Critter Goblins (0/15)","Defeat Buckethead Goblins (0/15)","Set the three cubic stones on the empty socket (0/3)","Turn the stones until the town produces steam","Take the rune from the wheel pedestal"],
+        "walkthrough":[{"text":"Return to Klepon and tell him what the stone on the cliff gave back."},{"text":"Your next destination is Geartown."},{"text":"Find the water tower and inspect the empty socket on top."},{"text":"You now need to defeat:","items":["15 Scarecrow Goblins","15 Critter Goblins","15 Buckethead Goblins"]},{"text":"After completing all three enemy objectives, return to the water tower."},{"text":"Set the three cubic stones into the empty socket."},{"text":"Turn the stones until the town begins producing steam."},{"text":"Once that happens, take the rune from the wheel pedestal."}],
+        "rewards":[{"type":"experience","name":"EXP","amount":5500},{"type":"currency","name":"Lumen","amount":1}],"verificationStatus":"In-game verified"
+      },
+      {
+        "part":4,"id":"main-ch3-p4-the-color-with-no-name","name":"The Color With No Name","description":"The sky over the town turned cyan and magenta. One more stone left in the town, Klepon will want to hear about this one too.",
+        "objectives":["Tell Klepon the sky turned colorful","Find the two pillars past the Crown Mound gate","Find the yellow cog in the market area","Find the orange cog in the trash near the dump trestle","Defeat the Barrel Champion","Defeat Junk King","Set the four cogs into the pillars (0/4)","Turn the cogs until both pillars glow blue","Take the rune from the pedestal behind the Junk King's throne"],
+        "walkthrough":[{"text":"Return to Klepon and tell him that the sky over the town turned colorful."},{"text":"Find the two pillars past the Crown Mound gate. These pillars are the centerpiece of the next puzzle."},{"text":"You need four cogs."},{"text":"Find the yellow cog in the market area and the orange cog in the trash near the dump trestle."},{"text":"The remaining quest progression also requires defeating the Barrel Champion and Junk King."},{"text":"Once you have everything required, return to the two pillars."},{"text":"Set all four cogs into the pillars and turn them until both pillars glow blue."},{"text":"After solving the puzzle, go behind the Junk King's throne and take the rune from the pedestal."}],
+        "rewards":[{"type":"experience","name":"EXP","amount":6500},{"type":"currency","name":"Lumen","amount":1}],"verificationStatus":"In-game verified"
+      },
+      {
+        "part":5,"id":"main-ch3-p5-this-door-is-mine","name":"This Door Is Mine","description":"Four stones in the bag. Klepon says the man went to the cliff, and his footprints stopped at the wall.",
+        "objectives":["Tell Klepon the pillars turned blue","Find the cliff wall where the man vanished","Set the four rune stones on the pedestals (0/4)","Open the door","Go inside","Look at the book on the desk"],
+        "walkthrough":[{"text":"Return to Klepon one final time and tell him the pillars turned blue."},{"text":"Follow the quest to the cliff wall where the man vanished."},{"text":"At the wall, place the four rune stones onto the pedestals."},{"text":"Once all four are in position, open the door and head inside."},{"text":"Find the desk and examine the book sitting on it."},{"text":"This completes Chapter 3."}],
+        "rewards":[{"type":"experience","name":"EXP","amount":8000},{"type":"currency","name":"Lumen","amount":1}],"verificationStatus":"In-game verified"
       }
     ],
-    "knownUndocumentedParts": [
-      {"part": 3, "name": "Nobody Answered"},
-      {"part": 4, "name": "The Color With No Name"},
-      {"part": 5, "name": "This Door Is Mine"}
-    ],
     "futureChaptersShown": ["Chapter 4: The Enchanted Forest — Coming Soon"],
-    "tags": ["main quest", "chapter 3", "the junkyard", "someone needs it", "not from this world"],
+    "tags": ["main quest", "chapter 3", "the junkyard", "someone needs it", "not from this world", "nobody answered", "the color with no name", "this door is mine", "Geartown", "Klepon"],
     "confidence": "In-game verified",
-    "dataStatus": "Parts 1–2 documented from current in-game screenshots; Parts 3–5 names visible but objectives and rewards not yet documented.",
+    "dataStatus": "Complete for all five currently released Chapter 3 parts shown in the quest menu",
     "version": "Current through 2026-09-09",
     "lastVerified": "2026-09-09",
-    "source": "User-supplied in-game Main Quest screenshots, 2026-09-09"
+    "source": "User-supplied in-game Main Quest screenshots and quest text, 2026-09-09"
   }
 ]

@@ -19,6 +19,7 @@
 - When data conflicts, preserve and document the conflict until it is resolved instead of choosing a convenient answer.
 - User-facing copy should be useful and natural. Internal evidence rigor remains strong without becoming product branding.
 - Official patch notes, developer announcements, and other direct first-party statements must preserve source wording as closely as practical when recording gameplay mechanics. Awkward or ambiguous language must not be silently rewritten into an interpretation; any clarification belongs in separate research or explanatory metadata and must never replace the original statement.
+- Quest objectives with a numeric progress requirement are stored and displayed in their initial state as `(0/N)`, preserving the supported denominator. Use a non-zero numerator only when direct evidence shows the quest genuinely begins that way; do not add `(0/1)` to ordinary one-step objectives.
 
 ## Applying Evidence
 

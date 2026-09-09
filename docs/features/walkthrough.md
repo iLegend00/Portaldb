@@ -77,6 +77,8 @@ The walkthrough should synthesize these relationships into practical progression
 
 The walkthrough supports partially documented chapters. A chapter's `partCount` records the supported total shown in-game, while `parts.length` is the number of complete, renderable parts currently documented. Known names for undocumented parts may be retained separately as metadata, but undocumented parts must not render as empty placeholders or navigable sections. Coverage labels state the documented count when it is lower than the total, and only supported quest content appears.
 
+Objectives are the canonical in-game task list. Authored `walkthrough` steps are a separate instructional layer that may clarify supported sequence and context but must not invent mechanics or routes. Each structured step may later receive its own optional screenshot and caption; screenshots should attach to the relevant step rather than appear in a generic gallery. Numeric progress objectives follow the site-wide initial-state `(0/N)` rule.
+
 ## Provenance
 
 Follow the [Provenance UX Standard](../standards/provenance-ux.md). Use selective record- or chapter-level source markers and avoid phrases such as:
@@ -85,7 +87,7 @@ Follow the [Provenance UX Standard](../standards/provenance-ux.md). Use selectiv
 - verified objectives; or
 - expanding with verified information.
 
-Describe current coverage directly, such as **Chapters 1–2 and Chapter 3 partial**, without adding placeholder chapters or progress-state filler.
+Describe current coverage directly, such as **Chapters 1–3**, without adding placeholder chapters or progress-state filler. Chapter 3 is fully documented through all five currently released parts; partial chapters remain supported by the architecture.
 
 The walkthrough also follows the [Data Integrity Standard](../standards/data-integrity.md): no missing recommendation or progression step may be inferred merely to make the guide appear complete.
 

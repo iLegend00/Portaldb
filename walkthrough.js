@@ -22,9 +22,14 @@
     if(!stored.length)return '';
     return stored.map(([field,type])=>`<aside class="guide-callout ${type}"><strong>${esc(field.replace(/([A-Z])/g,' $1'))}</strong>${esc(Array.isArray(part[field])?part[field].join(' · '):part[field])}</aside>`).join('');
   }
+  function renderWalkthrough(part){
+    if(!part.walkthrough?.length)return '';
+    const steps=part.walkthrough.map(step=>`<li><p>${esc(step.text)}</p>${step.items?.length?`<ul>${step.items.map(item=>`<li>${esc(item)}</li>`).join('')}</ul>`:''}</li>`).join('');
+    return `<section class="guide-block walkthrough-block"><h4>Walkthrough</h4><ol class="walkthrough-steps">${steps}</ol></section>`;
+  }
   function renderPart(part,chapter){
     const names=partNpcNames(part,chapter),locations=part.locations||[];
-    return `<article class="guide-part" id="${partId(part)}" data-section-name="${esc(part.name)}"><header class="part-heading"><span class="part-number">${String(part.part).padStart(2,'0')}</span><div><small>Part ${part.part}</small><h3>${esc(part.name)}</h3></div></header>${part.description?`<p class="part-context">${esc(part.description)}</p>`:''}<div class="part-details"><div><section class="guide-block"><h4>What to do</h4><ul class="objective-list">${(part.objectives||[]).map(item=>`<li>${esc(item)}</li>`).join('')}</ul></section><section class="guide-block"><h4>Rewards</h4><div class="reward-list">${(part.rewards||[]).map(reward=>`<span>${rewardText(reward)}</span>`).join('')}</div></section></div><div>${locations.length?`<section class="guide-block"><h4>Key locations</h4><div class="fact-list">${locations.map(name=>`<span>${esc(name)}</span>`).join('')}</div></section>`:''}${names.length?`<section class="guide-block"><h4>Important NPCs</h4><div class="fact-list">${names.map(name=>{const npc=npcByName(name);return `<span>${esc(name)}${npc?.profession?` · ${esc(npc.profession)}`:''}</span>`}).join('')}</div></section>`:''}${renderStoredNotes(part)}</div></div></article>`;
+    return `<article class="guide-part" id="${partId(part)}" data-section-name="${esc(part.name)}"><header class="part-heading"><span class="part-number">${String(part.part).padStart(2,'0')}</span><div><small>Part ${part.part}</small><h3>${esc(part.name)}</h3></div></header>${part.description?`<p class="part-context">${esc(part.description)}</p>`:''}<div class="part-details"><div><section class="guide-block"><h4>Objectives</h4><ul class="objective-list">${(part.objectives||[]).map(item=>`<li>${esc(item)}</li>`).join('')}</ul></section>${renderWalkthrough(part)}<section class="guide-block"><h4>Rewards</h4><div class="reward-list">${(part.rewards||[]).map(reward=>`<span>${rewardText(reward)}</span>`).join('')}</div></section></div><div>${locations.length?`<section class="guide-block"><h4>Key locations</h4><div class="fact-list">${locations.map(name=>`<span>${esc(name)}</span>`).join('')}</div></section>`:''}${names.length?`<section class="guide-block"><h4>Important NPCs</h4><div class="fact-list">${names.map(name=>{const npc=npcByName(name);return `<span>${esc(name)}${npc?.profession?` · ${esc(npc.profession)}`:''}</span>`}).join('')}</div></section>`:''}${renderStoredNotes(part)}</div></div></article>`;
   }
   function renderOverview(chapter){
     const flow=chapter.locationFlow||[],names=chapterNpcNames(chapter),unlocks=documentedUnlocks(chapter);
@@ -36,7 +41,8 @@
   }
   function renderChapter(chapter,index){
     const links=chapter.parts.map(part=>`<a href="#${partId(part)}">${String(part.part).padStart(2,'0')} ${esc(part.name)}</a>`).join('');
-    return `<section class="guide-chapter" id="chapter-${chapter.chapter}" data-section-name="${esc(chapter.name)}"><header><span class="chapter-kicker">Chapter ${chapter.chapter}</span><div class="chapter-heading"><h2>${esc(chapter.name.replace(/^Chapter \d+:\s*/,''))}</h2>${window.PortalVerification?.marker(chapter)||''}</div><p class="chapter-description">Main-quest progression documented from the in-game quest sequence.</p></header>${renderOverview(chapter)}<nav class="chapter-parts-index" aria-label="${esc(chapter.name)} parts"><strong>Parts in this chapter</strong><div class="chapter-parts-links">${links}</div></nav>${chapter.parts.map(part=>renderPart(part,chapter)).join('')}${pagination(chapter,index)}</section>`;
+    const intro=(chapter.walkthroughIntro||['Main-quest progression documented from the in-game quest sequence.']).map(text=>`<p class="chapter-description">${esc(text)}</p>`).join('');
+    return `<section class="guide-chapter" id="chapter-${chapter.chapter}" data-section-name="${esc(chapter.name)}"><header><span class="chapter-kicker">Chapter ${chapter.chapter}</span><div class="chapter-heading"><h2>${esc(chapter.name.replace(/^Chapter \d+:\s*/,''))}</h2>${window.PortalVerification?.marker(chapter)||''}</div>${intro}</header>${renderOverview(chapter)}<nav class="chapter-parts-index" aria-label="${esc(chapter.name)} parts"><strong>Parts in this chapter</strong><div class="chapter-parts-links">${links}</div></nav>${chapter.parts.map(part=>renderPart(part,chapter)).join('')}${pagination(chapter,index)}</section>`;
   }
   function buildIndex(){
     const documented=chapters.map(chapter=>`<section class="index-chapter"><a href="#chapter-${chapter.chapter}"><span>${esc(chapter.name)}</span><em>${esc(coverageText(chapter))}</em></a><div class="index-parts">${chapter.parts.map(part=>`<a href="#${partId(part)}" data-index-target="${partId(part)}">${String(part.part).padStart(2,'0')} · ${esc(part.name)}</a>`).join('')}</div></section>`).join('');
@@ -56,7 +62,7 @@
     sections.forEach(section=>observer.observe(section));
   }
   async function init(){
-    const responses=await Promise.all(['quests','npcs','mechanics'].map(name=>fetch(`data/${name}.json?v=20260909-chapter3-1`)));
+    const responses=await Promise.all(['quests','npcs','mechanics'].map(name=>fetch(`data/${name}.json?v=20260909-walkthrough-complete-1`)));
     if(responses.some(response=>!response.ok))throw new Error('Walkthrough data could not be loaded.');
     const [quests,npcRows,mechanicRows]=await Promise.all(responses.map(response=>response.json()));npcs=npcRows;mechanics=mechanicRows;
     chapters=quests.filter(quest=>quest.type==='Main Quest Chapter'&&Array.isArray(quest.parts)&&quest.parts.length).sort((a,b)=>a.chapter-b.chapter);
