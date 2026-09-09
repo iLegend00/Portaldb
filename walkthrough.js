@@ -24,7 +24,7 @@
   }
   function renderWalkthrough(part){
     if(!part.walkthrough?.length)return '';
-    const steps=part.walkthrough.map(step=>`<li><p>${esc(step.text)}</p>${step.items?.length?`<ul>${step.items.map(item=>`<li>${esc(item)}</li>`).join('')}</ul>`:''}</li>`).join('');
+    const steps=part.walkthrough.map(step=>`<li class="walkthrough-step${step.callout?` is-${esc(step.callout)}`:''}">${step.heading?`<h5>${esc(step.heading)}</h5>`:''}<p>${esc(step.text)}</p>${(step.paragraphs||[]).map(text=>`<p>${esc(text)}</p>`).join('')}${step.facts?.length?`<dl class="walkthrough-facts">${step.facts.map(fact=>`<div><dt>${esc(fact.label)}</dt><dd>${esc(fact.value)}</dd></div>`).join('')}</dl>`:''}${step.items?.length?`<ul>${step.items.map(item=>`<li>${esc(item)}</li>`).join('')}</ul>`:''}</li>`).join('');
     return `<section class="guide-block walkthrough-block"><h4>Walkthrough</h4><ol class="walkthrough-steps">${steps}</ol></section>`;
   }
   function renderPart(part,chapter){
@@ -62,7 +62,7 @@
     sections.forEach(section=>observer.observe(section));
   }
   async function init(){
-    const responses=await Promise.all(['quests','npcs','mechanics'].map(name=>fetch(`data/${name}.json?v=20260909-walkthrough-complete-1`)));
+    const responses=await Promise.all(['quests','npcs','mechanics'].map(name=>fetch(`data/${name}.json?v=20260909-first-steps-1`)));
     if(responses.some(response=>!response.ok))throw new Error('Walkthrough data could not be loaded.');
     const [quests,npcRows,mechanicRows]=await Promise.all(responses.map(response=>response.json()));npcs=npcRows;mechanics=mechanicRows;
     chapters=quests.filter(quest=>quest.type==='Main Quest Chapter'&&Array.isArray(quest.parts)&&quest.parts.length).sort((a,b)=>a.chapter-b.chapter);

@@ -79,6 +79,8 @@ The walkthrough supports partially documented chapters. A chapter's `partCount` 
 
 Objectives are the canonical in-game task list. Authored `walkthrough` steps are a separate instructional layer that may clarify supported sequence and context but must not invent mechanics or routes. Each structured step may later receive its own optional screenshot and caption; screenshots should attach to the relevant step rather than appear in a generic gallery. Numeric progress objectives follow the site-wide initial-state `(0/N)` rule.
 
+A walkthrough step should explain meaningful player context hidden behind an objective when needed: choice implications, system introductions, consequences, requirements, and other supported decision context. It must not merely restate the objective. Guide depth may vary by part: simple quests can remain brief, while important choice-, puzzle-, or navigation-heavy quests may receive richer structured guidance. The structure follows the player's experience rather than forcing one paragraph for every canonical objective.
+
 ## Provenance
 
 Follow the [Provenance UX Standard](../standards/provenance-ux.md). Use selective record- or chapter-level source markers and avoid phrases such as:
