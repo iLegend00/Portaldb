@@ -12,6 +12,7 @@ Farming / Homestead research is reconciled into official facts, developer-endors
 
 ## Recently Completed
 
+- Official patch-note handling tightened so direct developer wording is preserved and ambiguous mechanics are not silently interpreted; v1.2.16 and v1.2.17 were corrected accordingly.
 - Official patches v1.2.16 and v1.2.17 added; the homepage Game Updates panel now derives its two newest entries from canonical Patch History data, and the Chapter 3 release is represented once in curated Updates as a major content milestone.
 - Farming / Homestead research reconciled with source priority, readiness matrix, modular data architecture, player-facing plan, and implementation gates.
 - Equipment Profile architecture finalized with a compact identity header, optional artwork, conditional exact/sparse/variable rendering, consolidated Stats, rarity-colored Roll Quality, and linked acquisition/recipes.

@@ -325,12 +325,12 @@
     "confidence": "Official confirmed",
     "source": "Official Discord patch announcement by TOYYY [PRTL], Archon",
     "highlights": [
-      "Deco Triangle fixed",
-      "EXP required for level 30 → 31 was corrected",
-      "Timber Charge: monsters no longer drop aggro when stunned",
-      "Critter slingshot stones no longer push the player",
-      "Harvest choice now selects the fruit that was clicked",
-      "Farm pets are no longer lost from farm slots"
+      "Fixed — Deco Triangle",
+      "Fixed — EXP for level 30 → 31 was set to the wrong number",
+      "Fixed — Timber Charge: monsters no longer drop aggro when stunned",
+      "Fixed — Critter slingshot stones no longer push you",
+      "Fixed — Harvest choice now picks the fruit you clicked",
+      "Fixed — Farm pets no longer lost from slots in farm"
     ]
   },
   {
@@ -341,19 +341,19 @@
     "confidence": "Official confirmed",
     "source": "Official Discord patch announcement by TOYYY [PRTL], Archon",
     "highlights": [
-      "Chapter 3 released",
-      "Always Run toggle added for PC",
-      "New shoes and gloves added",
-      "Cosmetic visuals can now be adjusted",
-      "Monster drop chance in a party now follows the highest-level party member",
-      "Guild Apply requires level 20 or higher",
-      "Goblin Coin x2 removed from the Claw Machine",
-      "Goblin Coin x1 became rarer",
-      "Claw Machine prizes restocked",
-      "LMNTRI Exchange rate follows active player count",
-      "Crosshair and camera bug fixed",
-      "Lumen pity system fixed",
-      "Title login stat issue fixed"
+      "New Update — Chapter 3 is here.",
+      "New Update — New Always Run toggle (PC only).",
+      "New Update — New shoes and gloves.",
+      "New Update — Cosmetic visuals can be adjusted.",
+      "System Change — Party level drop chance from monster follows the highest level party member.",
+      "System Change — Guild Apply at level 20 or higher.",
+      "System Change — remove Goblin Coin x2 from the Claw Machine.",
+      "System Change — Goblin Coin x1 chance is Rarer.",
+      "System Change — Claw Machine prizes Restocked.",
+      "System Change — Rate LMNTRI Exchange follows active players.",
+      "Bug Fix — Crosshair and camera bug fixed.",
+      "Bug Fix — Lumen pity system fixed.",
+      "Bug Fix — Title login stat fixed."
     ]
   }
 ]

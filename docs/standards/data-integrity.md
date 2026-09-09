@@ -2,7 +2,7 @@
 
 **Status:** Active  
 **Scope:** Entire site and all structured game data  
-**Last Updated:** 2026-08-28
+**Last Updated:** 2026-09-09
 
 ## Core Rules
 
@@ -18,6 +18,7 @@
 - Old information may remain as historical patch context but must not silently override current data.
 - When data conflicts, preserve and document the conflict until it is resolved instead of choosing a convenient answer.
 - User-facing copy should be useful and natural. Internal evidence rigor remains strong without becoming product branding.
+- Official patch notes, developer announcements, and other direct first-party statements must preserve source wording as closely as practical when recording gameplay mechanics. Awkward or ambiguous language must not be silently rewritten into an interpretation; any clarification belongs in separate research or explanatory metadata and must never replace the original statement.
 
 ## Applying Evidence
 
