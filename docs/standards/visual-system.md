@@ -51,3 +51,8 @@ Classify every blue use as a substantial surface, small accent, or documented se
 ## Text contrast
 
 Choose text color from the immediate background, not from a component's general theme. Substantial blue surfaces use light cream/off-white for primary text and readable light gold for secondary emphasis; never place the general blue accent on them. Light parchment surfaces use dark ink or warm brown, while dark and wood surfaces use light text. Hover, focus, active, selected, and disabled states must preserve the same readable foreground/background relationship. Target WCAG AA contrast where practical. The homepage remains the visual source of truth and should not be altered unnecessarily by shared contrast corrections.
+
+
+## Surface hierarchy
+
+Use the canonical blue surface for major branded UI such as heroes, prominent results, navigation bars, and strong table headers. Use parchment as the primary information and content surface, with the established deeper parchment as its secondary variation. Gold belongs to trim, borders, dividers, labels, and ornament; ink is primarily text on parchment. Wood and brown support framing and decorative structure rather than large content-panel fills. Dark, near-black, and purple content panels are not part of the default PortalDB page system. Any feature-specific exception must be intentional, semantic, and documented. The homepage is the visual reference for overall palette balance.
