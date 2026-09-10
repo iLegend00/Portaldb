@@ -12,7 +12,7 @@ Farming / Homestead research is reconciled into official facts, developer-endors
 
 ## Recently Completed
 
-- Chapter 3 Part 5, This Door Is Mine, received its detailed guided-walkthrough revision; remaining walkthrough parts continue to be refined sequentially. Its planned Cogtown cave-location screenshot remains pending because the supplied image was not available in the workspace.
+- Chapter 3 Part 5, This Door Is Mine, now uses the Cogtown cave-location screenshot as step-level walkthrough media; remaining walkthrough parts continue to be refined sequentially.
 - Chapter 1 Part 2, Marta's Lessons, received its guided-walkthrough revision; walkthrough parts continue to be refined sequentially without changing the Farming / Homestead project phase.
 - Chapter 1 Part 1, First Steps, received the first detailed guided-walkthrough revision; the remaining parts are being refined sequentially without changing the Farming / Homestead project phase.
 - The authored walkthrough now covers all 14 quest parts across Chapters 1–3; Chapter 3 Parts 1–5 are complete in quest data, with step-specific screenshot/location integration reserved for a later refinement.
