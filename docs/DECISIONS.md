@@ -46,3 +46,7 @@ Patch History is exhaustive and reverse chronological. Updates is a curated set 
 
 Research does not become production data until it satisfies the existing data-integrity and provenance standards.
 
+
+## 2026-09-10 — Homepage visual language guides internal pages
+
+The homepage palette and material language are the visual source of truth for general PortalDB pages: deep blue, polished gold, parchment, dark ink, and restrained wood or fantasy accents. Feature-specific treatments may remain where they serve the feature, but internal pages should avoid unrelated dark-purple, near-black SaaS styling.

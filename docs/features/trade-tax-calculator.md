@@ -12,7 +12,7 @@ The calculator answers one question: if the agreed item price is X Tria, what mi
 
 ## Behavior
 
-Tax Calculation defaults to on. When enabled, the calculator accepts both player levels, uses their absolute level difference, and displays the resulting rate. When disabled, level inputs are unavailable, the rate is 0%, and the amount sent equals the agreed price.
+Tax is always calculated from the two player levels. The calculator uses their absolute level difference and displays the resulting rate.
 
 The documented rule used by the calculator is:
 
@@ -33,7 +33,7 @@ Ceiling rounding prevents the seller from receiving less than the agreed whole-T
 
 - `trade-tax.html` owns semantic inputs, accessible live results, the compact example, and global navigation.
 - `trade-tax.css` owns the responsive PortalDB-themed presentation.
-- `trade-tax.js` centralizes tax-rate calculation, gross-up calculation, formatting, validation, toggle behavior, and live updates.
+- `trade-tax.js` centralizes tax-rate calculation, gross-up calculation, formatting, validation and live updates.
 - `tools.html` exposes the calculator from the existing Tools grid.
 
 ## Provenance and status

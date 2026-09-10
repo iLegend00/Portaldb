@@ -15,12 +15,9 @@
     return Number.isFinite(value)?Math.trunc(value).toLocaleString('en-US'):'—';
   }
 
-  const taxEnabled=document.getElementById('taxEnabled');
   const agreedPrice=document.getElementById('agreedPrice');
   const yourLevel=document.getElementById('yourLevel');
   const otherLevel=document.getElementById('otherLevel');
-  const levelFields=document.getElementById('levelFields');
-  const toggleStatus=document.getElementById('taxToggleStatus');
   const output={
     amount:document.getElementById('amountToSend'),
     seller:document.getElementById('sellerReceives'),
@@ -53,35 +50,23 @@
   }
 
   function update(){
-    const enabled=taxEnabled.checked;
-    levelFields.disabled=!enabled;
-    toggleStatus.textContent=enabled?'On':'Off';
-
     const price=wholeNumber(agreedPrice,false);
     setError(agreedPrice,price.valid?'':price.message);
 
-    let rate=0,difference=0,levelsValid=true;
-    if(enabled){
-      const first=wholeNumber(yourLevel,true);
-      const second=wholeNumber(otherLevel,true);
-      setError(yourLevel,first.valid?'':first.message);
-      setError(otherLevel,second.valid?'':second.message);
-      levelsValid=first.valid&&second.valid;
-      if(levelsValid){
-        difference=Math.abs(first.value-second.value);
-        rate=calculateTaxRate(first.value,second.value);
-      }
-    }else{
-      setError(yourLevel,'');
-      setError(otherLevel,'');
-    }
+    const first=wholeNumber(yourLevel,true);
+    const second=wholeNumber(otherLevel,true);
+    setError(yourLevel,first.valid?'':first.message);
+    setError(otherLevel,second.valid?'':second.message);
+    const levelsValid=first.valid&&second.valid;
+    const difference=levelsValid?Math.abs(first.value-second.value):0;
+    const rate=levelsValid?calculateTaxRate(first.value,second.value):0;
 
     if(!price.valid||!levelsValid){
       clearResults(rate,difference);
       return;
     }
 
-    const amount=enabled?calculateRequiredSend(price.value,rate):price.value;
+    const amount=calculateRequiredSend(price.value,rate);
     output.amount.textContent=formatTria(amount);
     output.amount.dataset.empty='false';
     output.seller.textContent=formatTria(price.value)+' Tria';
@@ -90,7 +75,7 @@
     output.difference.textContent=String(difference);
   }
 
-  [taxEnabled,agreedPrice,yourLevel,otherLevel].forEach(control=>control.addEventListener('input',update));
+  [agreedPrice,yourLevel,otherLevel].forEach(control=>control.addEventListener('input',update));
   document.querySelectorAll('[data-amount]').forEach(button=>button.addEventListener('click',()=>{
     agreedPrice.value=button.dataset.amount;
     update();

@@ -1,4 +1,12 @@
 :root{
+  --portal-blue:#0b4f8b;
+  --portal-blue-deep:#062e57;
+  --portal-gold:#c99b45;
+  --portal-gold-light:#f0ce7b;
+  --portal-parchment:#fff8e5;
+  --portal-parchment-deep:#ead3a4;
+  --portal-ink:#332b22;
+  --portal-wood:#563616;
   --bg:#0b0a16;
   --bg2:#151027;
   --panel:rgba(19,16,35,.88);

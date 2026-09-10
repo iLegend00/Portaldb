@@ -7,7 +7,7 @@
   <title>PortalDB — Trade Tax Calculator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="site-nav.css?v=20260827-global-nav-1" /><link rel="stylesheet" href="site-pages.css" /><link rel="stylesheet" href="verification.css?v=20260828-two-state-provenance-1" /><link rel="stylesheet" href="fantasy-theme.css?v=20260819-1" /><link rel="stylesheet" href="trade-tax.css?v=20260910-1" />
+  <link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="site-nav.css?v=20260827-global-nav-1" /><link rel="stylesheet" href="site-pages.css?v=20260910-cohesion-1" /><link rel="stylesheet" href="verification.css?v=20260828-two-state-provenance-1" /><link rel="stylesheet" href="fantasy-theme.css?v=20260910-cohesion-1" /><link rel="stylesheet" href="trade-tax.css?v=20260910-2" />
   <link rel="stylesheet" href="layout-spacing.css?v=20260825-1" />
 </head>
 <body class="trade-tax-page">
@@ -21,10 +21,7 @@
     </section>
     <section class="trade-tax-card" aria-labelledby="calculatorTitle">
       <div class="trade-tax-form">
-        <div class="trade-tax-heading">
-          <div><span class="panel-kicker">AGREED-PRICE CALCULATOR</span><h2 id="calculatorTitle">Set the seller's final price.</h2></div>
-          <label class="tax-switch"><span><strong>Tax Calculation</strong><small id="taxToggleStatus">On</small></span><input id="taxEnabled" type="checkbox" role="switch" checked><span class="tax-switch-track" aria-hidden="true"></span></label>
-        </div>
+        <div class="trade-tax-heading"><div><span class="panel-kicker">AGREED-PRICE CALCULATOR</span><h2 id="calculatorTitle">Set the seller's final price.</h2></div></div>
         <div class="tax-field tax-price-field">
           <label for="agreedPrice">Agreed Price</label>
           <div class="tax-input-wrap"><input id="agreedPrice" type="number" min="1" step="1" inputmode="numeric" placeholder="100000" aria-describedby="agreedPriceHelp agreedPriceError"><span>Tria</span></div>
@@ -34,7 +31,7 @@
         <div class="quick-amounts" aria-label="Quick agreed prices">
           <button type="button" data-amount="10000">10K</button><button type="button" data-amount="25000">25K</button><button type="button" data-amount="50000">50K</button><button type="button" data-amount="100000">100K</button><button type="button" data-amount="250000">250K</button><button type="button" data-amount="500000">500K</button><button type="button" data-amount="1000000">1M</button>
         </div>
-        <fieldset class="level-fields" id="levelFields">
+        <fieldset class="level-fields">
           <legend>Player levels</legend>
           <div class="level-grid">
             <div class="tax-field"><label for="yourLevel">Your Level</label><input id="yourLevel" type="number" min="0" step="1" inputmode="numeric" value="1" aria-describedby="yourLevelError"><span class="tax-error" id="yourLevelError"></span></div>
@@ -56,6 +53,6 @@
     <aside class="tax-example" aria-labelledby="exampleTitle"><div><span class="panel-kicker">QUICK EXAMPLE</span><h2 id="exampleTitle">100,000 Tria at 20% tax</h2></div><dl><div><dt>Send</dt><dd>125,000 Tria</dd></div><div><dt>Seller receives</dt><dd>100,000 Tria</dd></div><div><dt>Tax burned</dt><dd>25,000 Tria</dd></div></dl></aside>
   </main>
   <footer class="footer shell"><div><strong>PORTALDB</strong><p>Unofficial community resource. Not affiliated with Roblox or The Portal's developers.</p></div><aside class="footer-provenance" aria-label="Provenance legend"><span class="footer-provenance-title">PROVENANCE</span><div class="footer-provenance-items"><span class="footer-provenance-item"><span class="verification-seal verification-official" aria-hidden="true">✦</span><span>Official confirmed</span></span><span class="footer-provenance-item"><span class="verification-seal verification-community" aria-hidden="true">✓</span><span>Community verified</span></span></div></aside></footer>
-  <script src="verification.js?v=20260828-two-state-provenance-1"></script><script src="trade-tax.js?v=20260910-1"></script>
+  <script src="verification.js?v=20260828-two-state-provenance-1"></script><script src="trade-tax.js?v=20260910-2"></script>
 </body>
 </html>
