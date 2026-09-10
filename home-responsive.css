@@ -27,7 +27,7 @@
 }
 .hero-copy-text .hero-subtitle{
   margin:14px 0 0;
-  color:#0a4f91;
+  color:var(--portal-blue);
   font:600 20px/1.25 Cinzel,serif;
   letter-spacing:-.015em;
 }

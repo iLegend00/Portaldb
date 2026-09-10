@@ -32,7 +32,7 @@
 .equipment-quality-bands span{display:grid;gap:1px;padding:4px 3px;text-align:center;border-bottom:1px solid rgba(106,72,26,.22)}
 .equipment-quality-bands strong{font-size:.72rem}
 .equipment-quality-bands small{color:#665a49;font-size:.68rem}
-.equipment-quality .rarity-common{color:#5f6670}
+.equipment-quality .rarity-common{color:#665d50}
 .equipment-quality .rarity-uncommon{color:#2f7132}
 .equipment-quality .rarity-rare{color:#215f9a}
 .equipment-quality .rarity-epic{color:#713793}
