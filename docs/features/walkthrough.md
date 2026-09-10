@@ -81,6 +81,12 @@ Objectives are the canonical in-game task list. Authored `walkthrough` steps are
 
 A walkthrough step should explain meaningful player context hidden behind an objective when needed: choice implications, system introductions, consequences, requirements, and other supported decision context. It must not merely restate the objective. Guide depth may vary by part: simple quests can remain brief, while important choice-, puzzle-, or navigation-heavy quests may receive richer structured guidance. The structure follows the player's experience rather than forcing one paragraph for every canonical objective.
 
+## Step media
+
+Walkthrough screenshots and location images are instructional content and attach to the exact `walkthrough` step they support through an optional `media[]` field. Each media entry requires `src` and meaningful `alt`; `caption` is optional and should tell the player what to notice rather than repeat a filename. A step may have zero, one, or multiple images when every image solves a distinct player problem.
+
+Media renders in the same editorial flow as its step: after the supporting text on desktop and immediately below it on mobile, with captions beneath their images. Generic galleries, detached screenshot sidebars, chapter-wide dumps, and part-wide miscellaneous image sections are not the default pattern. Simple parts may need no images, while navigation-, scavenger-, or puzzle-heavy parts may use substantially more when each image provides distinct guidance.
+
 ## Provenance
 
 Follow the [Provenance UX Standard](../standards/provenance-ux.md). Use selective record- or chapter-level source markers and avoid phrases such as:

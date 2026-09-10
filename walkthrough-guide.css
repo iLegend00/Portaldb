@@ -61,6 +61,36 @@
   margin: 2px 0 0;
 }
 
+.walkthrough-step-media {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.walkthrough-step-media figure {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+}
+
+.walkthrough-step-media img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #b79561;
+  border-radius: 5px;
+  background: #ead8ac;
+}
+
+.walkthrough-step-media figcaption {
+  max-width: 72ch;
+  margin-top: 6px;
+  color: #6d5c45;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
 .walkthrough-steps p {
   margin: 0;
 }
@@ -81,5 +111,9 @@
 
   .walkthrough-facts {
     grid-template-columns: 1fr;
+  }
+
+  .walkthrough-step-media {
+    margin-top: 10px;
   }
 }
