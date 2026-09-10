@@ -48,9 +48,9 @@
 .equipment-acquisition-list .record-profile-links{display:flex;width:auto;margin:0}
 .equipment-acquisition-list .record-profile-link,.equipment-acquisition-list .record-profile-label{min-height:30px;padding:5px 8px}
 .equipment-recipe{display:grid;grid-template-columns:repeat(2,minmax(0,220px));gap:3px 12px}
-.equipment-material{display:flex;justify-content:space-between;gap:10px;align-items:center;min-width:0;padding:6px 8px;border:1px solid transparent;border-bottom-color:rgba(106,72,26,.2);border-radius:3px;background:transparent;color:#2b241b;font:inherit;font-size:.78rem;text-align:left}
+.equipment-material{display:flex;justify-content:space-between;gap:10px;align-items:center;min-width:0;padding:6px 8px;border:1px solid transparent;border-bottom-color:rgba(106,72,26,.2);border-radius:3px;background:transparent;color:var(--portal-ink);font:inherit;font-size:.78rem;text-align:left}
 button.equipment-material{cursor:pointer}
-button.equipment-material:hover{border-color:#b58b49;background:#fff3cf}
+button.equipment-material:hover{border-color:#b58b49;background:var(--portal-parchment-surface-secondary)}
 button.equipment-material:focus-visible{outline:3px solid var(--portal-blue-accent);outline-offset:2px}
 .equipment-material span{min-width:0;overflow-wrap:anywhere}
 .equipment-material strong{flex:none;color:var(--portal-blue-accent)}
