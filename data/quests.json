@@ -869,58 +869,51 @@
             "text": "Speak with Klepon and tell him the pillars turned blue. He points you toward the cliff where the missing man disappeared."
           },
           {
-            "heading": "Leave the Junkyard for Cogtown",
-            "text": "Head through the Junkyard gate that leads toward Cogtown. As you pass through the gate, you will see a portal directly ahead.",
-            "paragraphs": [
-              "Do not take that first portal if you are following the recommended route. Instead, continue along the path to the left."
-            ]
-          },
-          {
             "heading": "Find the Cogtown Bridge Portal",
-            "text": "Follow the path until you reach the Cogtown South Gate area. The South Gate sits up a small hill on the right side of the path; pass the hill rather than heading up it.",
+            "text": "The easiest way to reach the cave is through the Cogtown Bridge portal.",
             "paragraphs": [
-              "Just beyond the hill, look slightly up and to the left. You should see a small pier-like platform along the elevated cliff. The portal there is labeled Cogtown Bridge.",
-              "Take the Cogtown Bridge portal. This is the recommended route because it places you almost directly beside the final cave.",
-              "If you enter Cogtown another way, your destination is still the area where the Cogtown Bridge portal exits. The Bridge route is recommended because it removes most of the navigation guesswork."
+              "Go through the Junkyard gate toward Cogtown. You will see a portal directly ahead, but do not take it.",
+              "Continue along the path to the left. Follow it until you reach the Cogtown South Gate, which sits up a small hill on the right.",
+              "Pass the hill, then look slightly up and to the left for a small pier-like structure on the elevated cliff. The portal there is labeled Cogtown Bridge. Take it."
             ]
           },
           {
             "heading": "Find the Stone Door",
-            "text": "After exiting the Cogtown Bridge portal, look directly to your left. The cave is immediately nearby; look for the large stone door built into the cliff, visibly distinct from the surrounding rock.",
+            "text": "After exiting the Cogtown Bridge portal, look directly to your left. The cave is immediately nearby; look for the large stone door built into the cliff.",
             "paragraphs": [
-              "Approach and interact with the stone door first. After that interaction and dialogue, continue to the rune pedestals."
+              "Interact with the door."
             ],
             "media": [
               {
                 "src": "assets/walkthrough/chapter-3/chapter3-part5-cliff-cave.webp",
-                "alt": "Cogtown Bridge portal beside the large stone-door cave entrance in Cogtown.",
-                "caption": "After taking the Cogtown Bridge portal, look directly to the left. The large stone door beside the portal is the cave entrance."
+                "alt": "Cogtown Bridge portal beside the large stone-door cave entrance.",
+                "caption": "After taking the Cogtown Bridge portal, look directly to the left for the large stone door."
               }
             ]
           },
           {
             "heading": "Place the Four Rune Stones",
-            "text": "Four rune pedestals are positioned around the cave entrance. They resemble the rune pedestals encountered earlier in Chapter 3.",
+            "text": "There are four rune pedestals around the cave:",
             "items": [
-              "One pedestal to the left of the cave entrance",
-              "One pedestal to the right of the cave entrance",
-              "Two pedestals above the cave on top of the cliff"
+              "One to the left of the entrance",
+              "One to the right of the entrance",
+              "Two above the cave on top of the cliff"
             ],
             "paragraphs": [
-              "Place all four rune stones on the pedestals. The stones can be placed in any order; there is no required sequence."
+              "Place all four rune stones. They can be placed in any order."
             ]
           },
           {
             "heading": "Open the Door",
-            "text": "Once all four rune stones are in place, return to the stone door and interact with it again. The door opens after this second interaction; it does not open automatically when the fourth stone is placed."
+            "text": "Return to the stone door and interact with it again."
           },
           {
             "heading": "Go Inside",
-            "text": "Enter the newly opened cave. The interior resembles a small hideaway with several objects, but your target is the desk and its book."
+            "text": "Enter the cave. Your target is the desk."
           },
           {
             "heading": "Examine the Book",
-            "text": "Find the clearly visible book on the desk and interact with it. A brief dialogue follows, effectively completing Chapter 3."
+            "text": "Interact with the book on the desk. A brief dialogue follows and Chapter 3 is completed."
           }
         ],
         "rewards": [
