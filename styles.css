@@ -1,5 +1,10 @@
 :root{
   --portal-blue-surface:linear-gradient(180deg,#0e477d,#082f59);--portal-blue-accent:#0b4f8b;
+  --text-on-blue:#fff8e5;
+  --text-muted-on-blue:#f0ce7b;
+  --text-on-light:#332b22;
+  --text-muted-on-light:#655b4e;
+  --text-on-dark:#fff8e5;
   --portal-gold:#c99b45;
   --portal-gold-light:#f0ce7b;
   --portal-parchment:#fff8e5;

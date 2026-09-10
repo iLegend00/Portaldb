@@ -46,3 +46,8 @@ Keep these colors scoped to their semantic selectors. Do not reuse them for ordi
 ## Review rule
 
 Classify every blue use as a substantial surface, small accent, or documented semantic exception. Inspect the rendered result—not only the variable name—and confirm that no third general-purpose blue family appears.
+
+
+## Text contrast
+
+Choose text color from the immediate background, not from a component's general theme. Substantial blue surfaces use light cream/off-white for primary text and readable light gold for secondary emphasis; never place the general blue accent on them. Light parchment surfaces use dark ink or warm brown, while dark and wood surfaces use light text. Hover, focus, active, selected, and disabled states must preserve the same readable foreground/background relationship. Target WCAG AA contrast where practical. The homepage remains the visual source of truth and should not be altered unnecessarily by shared contrast corrections.
