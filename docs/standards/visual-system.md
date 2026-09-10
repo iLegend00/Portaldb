@@ -57,19 +57,19 @@ Choose text color from the immediate background, not from a component's general 
 
 Use the canonical blue surface for major branded UI such as heroes, prominent results, navigation bars, and strong table headers. Use parchment as the primary information and content surface, with the established deeper parchment as its secondary variation. Gold belongs to trim, borders, dividers, labels, and ornament; ink is primarily text on parchment. Wood and brown support framing and decorative structure rather than large content-panel fills. Dark, near-black, and purple content panels are not part of the default PortalDB page system. Any feature-specific exception must be intentional, semantic, and documented. The homepage is the visual reference for overall palette balance.
 
+## Strict canonical palette
 
-## Fixed canonical palette
+PortalDB uses one exact canonical treatment per general-purpose color role. Feature stylesheets may not introduce lighter, darker, warmer, cooler, secondary, or approximate variants of blue, parchment, gold, ink, or muted text. Visual hierarchy must be created through layout, borders, typography, spacing, and effects rather than alternate palette shades.
 
-PortalDB uses a fixed canonical palette derived from the homepage. General-purpose UI colors must use shared palette tokens. Feature stylesheets may not introduce approximate, lighter, darker, warmer, cooler, or page-specific variants of canonical palette colors.
+- Blue surface: `--portal-blue-surface: linear-gradient(180deg, #0e477d, #082f59)`
+- Blue accent: `--portal-blue-accent: #0b4f8b`
+- Parchment surface: `--portal-parchment-surface: linear-gradient(180deg, rgba(255, 250, 232, .97), rgba(236, 215, 175, .98))`
+- Gold: `--portal-gold: #c99b45`
+- Light gold: `--portal-gold-light: #f0ce7b`
+- Ink: `--portal-ink: #332b22`
+- Muted text: `--portal-text-muted: #655b4e`
+- Text on blue: `--portal-text-on-blue: #fff8e5`
 
-- Blue surface: `var(--portal-blue-surface)` = `linear-gradient(180deg, #0e477d, #082f59)`
-- Blue accent: `var(--portal-blue-accent)` = `#0b4f8b`
-- Parchment surface: `var(--portal-parchment-surface)` = the homepage category-card parchment gradient
-- Secondary parchment: `var(--portal-parchment-surface-secondary)` = the homepage responsive information-panel parchment gradient
-- Gold: `var(--portal-gold)` = `#c99b45`; light gold: `var(--portal-gold-light)` = `#f0ce7b`
-- Ink: `var(--portal-ink)` = `#332b22`
-- Wood: `var(--portal-wood)` = `#563616`
-- Text on blue: `var(--portal-text-on-blue)` = `#fff8e5`
-- Muted text: `var(--portal-text-muted)` = `#655b4e`
+There is no secondary parchment surface.
 
-True semantic colors—rarity, success, warning, error, and provenance—remain scoped exceptions. If a new general-purpose color is desired, it must first be intentionally added to this shared visual system before any feature uses it.
+General-purpose feature UI must consume these shared tokens directly. Noncanonical colors are reserved for true semantic meaning such as rarity, success, warning, error, and provenance states, and must not be reused decoratively.

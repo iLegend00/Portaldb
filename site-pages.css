@@ -13,10 +13,10 @@
 .summary-panel h2{margin:7px 0 10px;font-size:28px}
 .summary-panel p{color:var(--portal-text-muted);font-size:12px;line-height:1.75}
 .summary-points{display:grid;gap:10px;margin-top:16px}
-.summary-point{padding:11px 12px;color:var(--portal-ink,#332b22);font-size:11px;border:1px solid rgba(151,105,40,.3);border-radius:7px;background:var(--portal-parchment-surface-secondary)}
+.summary-point{padding:11px 12px;color:var(--portal-ink,#332b22);font-size:11px;border:1px solid rgba(151,105,40,.3);border-radius:7px;background:var(--portal-parchment-surface)}
 .summary-point b{color:var(--gold2)}
 .home-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:24px 0 0}
-.home-action{display:block;padding:16px;color:var(--portal-ink,#332b22);text-decoration:none;border:1px solid rgba(151,105,40,.42);border-radius:9px;background:var(--portal-parchment-surface-secondary)}
+.home-action{display:block;padding:16px;color:var(--portal-ink,#332b22);text-decoration:none;border:1px solid rgba(151,105,40,.42);border-radius:9px;background:var(--portal-parchment-surface)}
 .home-action:hover{border-color:var(--portal-blue-accent,#0b4f8b)}
 .home-action strong{display:block;margin-bottom:6px}
 .home-action small{color:var(--muted);line-height:1.5}

@@ -49,7 +49,7 @@
 .walkthrough-facts div {
   padding: 7px 8px;
   border-bottom: 1px solid #c5a875;
-  background: var(--portal-parchment-surface-secondary);
+  background: var(--portal-parchment-surface);
 }
 
 .walkthrough-facts dt {
@@ -80,7 +80,7 @@
   height: auto;
   border: 1px solid #b79561;
   border-radius: 5px;
-  background: var(--portal-parchment-surface-secondary);
+  background: var(--portal-parchment-surface);
 }
 
 .walkthrough-step-media figcaption {
