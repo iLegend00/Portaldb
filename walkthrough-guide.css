@@ -4,7 +4,7 @@
 
 .walkthrough-block {
   padding: 16px 18px;
-  border-left: 3px solid var(--portal-blue);
+  border-left: 3px solid var(--portal-blue-accent);
   background: rgba(11,79,139,.055);
 }
 
@@ -24,7 +24,7 @@
 
 .walkthrough-step h5 {
   margin: 0 0 6px;
-  color: var(--portal-blue);
+  color: var(--portal-blue-accent);
   font: 700 12px/1.3 Cinzel, serif;
 }
 

@@ -1,30 +1,38 @@
 # PortalDB Visual System
 
-## Canonical interface blue
+## Canonical blue roles
 
-PortalDB's sole canonical general-purpose interface blue is `#0b4f8b`.
+PortalDB has exactly two general-purpose blue roles.
 
-Use the shared `--portal-blue` custom property for every ordinary blue heading, title bar, section header, button, link, icon, border, selected state, focus indicator, badge, label, result panel, and decorative rule.
+### Substantial blue surface
 
-A token substitution is not sufficient when gradients, opacity, overlays, filters, blending, or inherited effects make a general blue surface visibly lighter, darker, more cyan, or more navy than `#0b4f8b`. Prominent general-purpose blue surfaces must visually render as the flat canonical color.
+The canonical treatment for substantial blue surfaces is the same gradient used by the global header:
 
-## Prohibited variations
+```css
+--portal-blue-surface: linear-gradient(180deg, #0e477d, #082f59);
+```
 
-Outside the global header:
+Use `var(--portal-blue-surface)` for large title and header boxes, strong selected panels, major calculator results, large primary buttons, sticky navigation bars, and other substantial blue surfaces. These surfaces must use the exact vertical two-stop gradient. Feature pages may not introduce lighter, darker, horizontal, or multi-stop blue gradients.
 
-- do not use blue-to-blue gradients;
-- do not introduce lighter, darker, cyan, teal, navy, royal, or slate-blue alternatives for ordinary UI;
-- do not change blue hue for hover, active, or focus states;
-- do not define feature-specific decorative blue variables;
-- do not reuse header-only gradient shades elsewhere.
+### Small blue accent
 
-Interaction hierarchy should instead use border weight, underline, shadow, transform, or surrounding neutral and gold colors while retaining `var(--portal-blue)`.
+The canonical flat accent is:
+
+```css
+--portal-blue-accent: #0b4f8b;
+```
+
+Use `var(--portal-blue-accent)` for small blue text, links, icons, thin borders, tiny labels, compact controls, and restrained focus accents. Do not use alternate flat blues for hierarchy.
+
+## Interaction states
+
+Hover, focus, and active states must not introduce another blue hue or gradient. Keep the applicable surface or accent token and vary gold borders, neutral shadows, underlines, or transforms for feedback.
 
 Transparent `rgba(11, 79, 139, <alpha>)` is limited to subtle shadows, focus rings, borders, and background hints. It must not become a competing visible blue surface.
 
 ## Header
 
-The global header is the visual source of truth. Its established internal gradient shading and emblem highlights are preserved only within the header. Those structural colors are not additional interface-blue tokens and must not be copied into page or feature styling.
+The global header is the visual source of truth for substantial blue surfaces. Its established gradient and emblem details remain unchanged. Header-only emblem highlights and structural effects must not be reused as general page colors.
 
 ## Semantic exceptions
 
@@ -37,4 +45,4 @@ Keep these colors scoped to their semantic selectors. Do not reuse them for ordi
 
 ## Review rule
 
-Start with `var(--portal-blue)`, inspect the rendered result, and confirm it still appears as `#0b4f8b`. Add a different blue only when it encodes a documented semantic meaning, and record any new durable exception here.
+Classify every blue use as a substantial surface, small accent, or documented semantic exception. Inspect the rendered result—not only the variable name—and confirm that no third general-purpose blue family appears.
