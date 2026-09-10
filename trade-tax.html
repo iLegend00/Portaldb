@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Calculate how much Tria to send so a seller receives the agreed price after trade tax." />
+  <title>PortalDB — Trade Tax Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="site-nav.css?v=20260827-global-nav-1" /><link rel="stylesheet" href="site-pages.css" /><link rel="stylesheet" href="verification.css?v=20260828-two-state-provenance-1" /><link rel="stylesheet" href="fantasy-theme.css?v=20260819-1" /><link rel="stylesheet" href="trade-tax.css?v=20260910-1" />
+  <link rel="stylesheet" href="layout-spacing.css?v=20260825-1" />
+</head>
+<body class="trade-tax-page">
+  <div class="page-glow page-glow-a"></div><div class="page-glow page-glow-b"></div>
+  <header class="topbar shell tool-topbar"><a class="brand tool-page-brand" href="index.html"><span class="brand-emblem">✦</span><span class="brand-copy"><strong>PORTAL<span>DB</span></strong><small>TRADE TAX CALCULATOR</small></span></a><nav class="main-nav" aria-label="Primary"><a href="index.html">Home</a><a href="database.html">Database</a><a href="walkthrough.html">Walkthrough</a><a class="active" href="tools.html">Tools</a></nav></header>
+  <main class="trade-tax-main shell">
+    <section class="trade-tax-hero">
+      <span class="panel-kicker">TRADE TAX CALCULATOR</span>
+      <h1>Know exactly how much Tria to send.</h1>
+      <p>Trade tax is deducted from the amount sent. This calculator works backward from the seller's agreed price to show the minimum amount that needs to be sent.</p>
+    </section>
+    <section class="trade-tax-card" aria-labelledby="calculatorTitle">
+      <div class="trade-tax-form">
+        <div class="trade-tax-heading">
+          <div><span class="panel-kicker">AGREED-PRICE CALCULATOR</span><h2 id="calculatorTitle">Set the seller's final price.</h2></div>
+          <label class="tax-switch"><span><strong>Tax Calculation</strong><small id="taxToggleStatus">On</small></span><input id="taxEnabled" type="checkbox" role="switch" checked><span class="tax-switch-track" aria-hidden="true"></span></label>
+        </div>
+        <div class="tax-field tax-price-field">
+          <label for="agreedPrice">Agreed Price</label>
+          <div class="tax-input-wrap"><input id="agreedPrice" type="number" min="1" step="1" inputmode="numeric" placeholder="100000" aria-describedby="agreedPriceHelp agreedPriceError"><span>Tria</span></div>
+          <small id="agreedPriceHelp">Enter the price the seller should receive after tax.</small>
+          <span class="tax-error" id="agreedPriceError" aria-live="polite"></span>
+        </div>
+        <div class="quick-amounts" aria-label="Quick agreed prices">
+          <button type="button" data-amount="10000">10K</button><button type="button" data-amount="25000">25K</button><button type="button" data-amount="50000">50K</button><button type="button" data-amount="100000">100K</button><button type="button" data-amount="250000">250K</button><button type="button" data-amount="500000">500K</button><button type="button" data-amount="1000000">1M</button>
+        </div>
+        <fieldset class="level-fields" id="levelFields">
+          <legend>Player levels</legend>
+          <div class="level-grid">
+            <div class="tax-field"><label for="yourLevel">Your Level</label><input id="yourLevel" type="number" min="0" step="1" inputmode="numeric" value="1" aria-describedby="yourLevelError"><span class="tax-error" id="yourLevelError"></span></div>
+            <div class="tax-field"><label for="otherLevel">Other Player's Level</label><input id="otherLevel" type="number" min="0" step="1" inputmode="numeric" value="1" aria-describedby="otherLevelError"><span class="tax-error" id="otherLevelError"></span></div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="trade-tax-results" id="taxResults" aria-live="polite" aria-atomic="true">
+        <span class="result-kicker">YOU NEED TO SEND</span>
+        <strong class="result-total" id="amountToSend">—</strong>
+        <div class="result-grid">
+          <div><span>Seller Receives</span><b id="sellerReceives">—</b></div>
+          <div><span>Tax Burned</span><b id="taxBurned">—</b></div>
+          <div><span>Tax Rate</span><b id="taxRate">20%</b></div>
+          <div><span>Level Difference</span><b id="levelDifference">0</b></div>
+        </div>
+      </div>
+    </section>
+    <aside class="tax-example" aria-labelledby="exampleTitle"><div><span class="panel-kicker">QUICK EXAMPLE</span><h2 id="exampleTitle">100,000 Tria at 20% tax</h2></div><dl><div><dt>Send</dt><dd>125,000 Tria</dd></div><div><dt>Seller receives</dt><dd>100,000 Tria</dd></div><div><dt>Tax burned</dt><dd>25,000 Tria</dd></div></dl></aside>
+  </main>
+  <footer class="footer shell"><div><strong>PORTALDB</strong><p>Unofficial community resource. Not affiliated with Roblox or The Portal's developers.</p></div><aside class="footer-provenance" aria-label="Provenance legend"><span class="footer-provenance-title">PROVENANCE</span><div class="footer-provenance-items"><span class="footer-provenance-item"><span class="verification-seal verification-official" aria-hidden="true">✦</span><span>Official confirmed</span></span><span class="footer-provenance-item"><span class="verification-seal verification-community" aria-hidden="true">✓</span><span>Community verified</span></span></div></aside></footer>
+  <script src="verification.js?v=20260828-two-state-provenance-1"></script><script src="trade-tax.js?v=20260910-1"></script>
+</body>
+</html>

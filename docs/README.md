@@ -41,6 +41,7 @@ Feature-specific UX and implementation decisions live under [`features/`](featur
 - [NPC Profile Architecture](features/npc-profiles.md) — conditional profile sections, factual-field omission, supporting portrait art, and linked content behavior.
 - [Shared Record Profile Architecture](features/record-profiles.md) — category-aware detail sections, conditional facts, and exact-name linked record navigation.
 - [Equipment Profile Architecture](features/equipment-profiles.md) — structured equipment rolls, requirements, acquisition, recipes, search, and legacy-item compatibility.
+- [Trade Tax Calculator](features/trade-tax-calculator.md) — agreed-price gross-up behavior, level-gap tax calculation, rounding, and provenance.
 
 ## Data and evidence
 

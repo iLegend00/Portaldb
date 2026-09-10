@@ -1,6 +1,6 @@
 # PortalDB Project State
 
-**Last updated:** 2026-09-09
+**Last updated:** 2026-09-10
 
 This is the canonical handoff for the project's current state. Permanent rules remain in [`standards/`](standards/), feature architecture remains in [`features/`](features/), and unimplemented evidence remains in [`research/`](research/).
 
@@ -12,6 +12,7 @@ Farming / Homestead research is reconciled into official facts, developer-endors
 
 ## Recently Completed
 
+- Trade Tax Calculator implemented with an agreed-price gross-up workflow, optional level-difference tax calculation, ceiling rounding, validation, and Tools-page integration.
 - Chapter 3 Part 5, This Door Is Mine, now uses the Cogtown cave-location screenshot as step-level walkthrough media; remaining walkthrough parts continue to be refined sequentially.
 - Chapter 1 Part 2, Marta's Lessons, received its guided-walkthrough revision; walkthrough parts continue to be refined sequentially without changing the Farming / Homestead project phase.
 - Chapter 1 Part 1, First Steps, received the first detailed guided-walkthrough revision; the remaining parts are being refined sequentially without changing the Farming / Homestead project phase.
