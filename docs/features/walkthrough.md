@@ -45,6 +45,10 @@ The architecture supports:
 
 Navigation must preserve keyboard access, usable anchor targets, readable focus behavior, and interactive card or select controls above decorative layers.
 
+Navigation-heavy walkthrough steps should not rely solely on formal location or portal names. When supported, route guidance should begin from the player's likely current position and use visible landmarks, turns, terrain, gates, structures, and relative directions so players can follow the route without already knowing the area's terminology.
+
+Formal in-game names should still be included when known, but they should be paired with visual and contextual directions whenever name-only guidance would leave the destination ambiguous.
+
 ## Current Page Strategy
 
 Keep the current walkthrough on one page while the documented content remains manageable. Future chapters may move to dedicated pages when guide depth makes the single page unwieldy. Do not create one page per tiny quest part.

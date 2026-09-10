@@ -869,24 +869,32 @@
             "text": "Speak with Klepon and tell him the pillars turned blue. He points you toward the cliff where the missing man disappeared."
           },
           {
-            "heading": "Recommended Route to the Cliff",
-            "text": "The easiest route is through the Cogtown Bridge portal. Reach the area through Cogtown East Gate or by continuing through the camp to the left. Just past Cogtown South Gate, look for the elevated portal up the cliff labeled Cogtown Bridge.",
+            "heading": "Leave the Junkyard for Cogtown",
+            "text": "Head through the Junkyard gate that leads toward Cogtown. As you pass through the gate, you will see a portal directly ahead.",
             "paragraphs": [
-              "Take that portal if possible; it places you almost directly beside the final cave area. Cogtown Bridge is the recommended route, not the only route.",
-              "If you use another route, make your way toward the northwest side of Cogtown. You are aiming for the area where the Cogtown Bridge portal exits."
+              "Do not take that first portal if you are following the recommended route. Instead, continue along the path to the left."
+            ]
+          },
+          {
+            "heading": "Find the Cogtown Bridge Portal",
+            "text": "Follow the path until you reach the Cogtown South Gate area. The South Gate sits up a small hill on the right side of the path; pass the hill rather than heading up it.",
+            "paragraphs": [
+              "Just beyond the hill, look slightly up and to the left. You should see a small pier-like platform along the elevated cliff. The portal there is labeled Cogtown Bridge.",
+              "Take the Cogtown Bridge portal. This is the recommended route because it places you almost directly beside the final cave.",
+              "If you enter Cogtown another way, your destination is still the area where the Cogtown Bridge portal exits. The Bridge route is recommended because it removes most of the navigation guesswork."
             ]
           },
           {
             "heading": "Find the Stone Door",
-            "text": "After exiting the Cogtown Bridge portal, look directly to your left. The cave is immediately nearby, with a large stone door built into the cliff that is visibly different from the surrounding rock.",
+            "text": "After exiting the Cogtown Bridge portal, look directly to your left. The cave is immediately nearby; look for the large stone door built into the cliff, visibly distinct from the surrounding rock.",
             "paragraphs": [
               "Approach and interact with the stone door first. After that interaction and dialogue, continue to the rune pedestals."
             ],
             "media": [
               {
                 "src": "assets/walkthrough/chapter-3/chapter3-part5-cliff-cave.webp",
-                "alt": "Cogtown Bridge portal beside the stone-door cave entrance in northwest Cogtown.",
-                "caption": "After exiting the Cogtown Bridge portal, look directly to the left for the large stone door in the cliff."
+                "alt": "Cogtown Bridge portal beside the large stone-door cave entrance in Cogtown.",
+                "caption": "After taking the Cogtown Bridge portal, look directly to the left. The large stone door beside the portal is the cave entrance."
               }
             ]
           },
