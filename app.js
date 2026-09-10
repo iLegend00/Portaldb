@@ -5,15 +5,15 @@
   document.head.appendChild(css);
   const npcProfileCss=document.createElement('link');
   npcProfileCss.rel='stylesheet';
-  npcProfileCss.href='npc-profile.css?v=20260830-npc-profile-4';
+  npcProfileCss.href='npc-profile.css?v=20260910-blue-1';
   document.head.appendChild(npcProfileCss);
   const recordProfileCss=document.createElement('link');
   recordProfileCss.rel='stylesheet';
-  recordProfileCss.href='record-profile.css?v=20260830-record-profile-pass3-1';
+  recordProfileCss.href='record-profile.css?v=20260910-blue-1';
   document.head.appendChild(recordProfileCss);
   const equipmentProfileCss=document.createElement('link');
   equipmentProfileCss.rel='stylesheet';
-  equipmentProfileCss.href='equipment-profile.css?v=20260903-standardized-columns-1';
+  equipmentProfileCss.href='equipment-profile.css?v=20260910-blue-1';
   document.head.appendChild(equipmentProfileCss);
   const verificationCss=document.createElement('link');
   verificationCss.rel='stylesheet';

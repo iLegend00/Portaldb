@@ -25,6 +25,7 @@ These files preserve the active handoff without replacing the standards hierarch
 
 Major rules that apply across PortalDB live under [`standards/`](standards/README.md):
 
+- [Visual System](standards/visual-system.md) — canonical PortalDB interface blue and rules for semantic color exceptions.
 - [Provenance UX](standards/provenance-ux.md) — how source information appears without becoming product branding.
 - [Data Integrity](standards/data-integrity.md) — how reliable, conflicting, historical, and screenshot-derived facts are handled.
 - [Artwork Pipeline](standards/artwork-pipeline.md) — canonical masters, optimized production derivatives, transparency, and predictable asset paths.

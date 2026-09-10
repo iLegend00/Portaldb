@@ -1,8 +1,8 @@
-:root{--record-navy:#123f68;--record-navy-deep:#082f59;--record-gold:#a77a34;--record-gold-soft:#d2b36f;--record-parchment:#fff9e9;--record-parchment-deep:#f1e1bc;--record-ink:#292720;--record-muted:#665d50;--record-line:rgba(151,109,47,.34)}
+:root{--record-navy:var(--portal-blue);--record-navy-deep:var(--portal-blue);--record-gold:#a77a34;--record-gold-soft:#d2b36f;--record-parchment:#fff9e9;--record-parchment-deep:#f1e1bc;--record-ink:#292720;--record-muted:#665d50;--record-line:rgba(151,109,47,.34)}
 dialog.record-profile-dialog{width:min(860px,calc(100% - 36px));max-height:min(88vh,900px);overflow:auto;border:1px solid #a87d3f;border-radius:16px;background:linear-gradient(145deg,#fffbed 0%,#f4e5c4 100%);box-shadow:0 28px 80px rgba(7,31,52,.32),inset 0 0 0 4px rgba(255,255,255,.34)}
 .record-profile-dialog .dialog-close{position:sticky;z-index:5;float:right;top:12px;right:12px;margin:12px 12px -46px 0;border-color:#b58b49;background:var(--record-navy);color:#fff4d4;box-shadow:0 4px 12px rgba(7,38,65,.2);transition:background-color .18s,border-color .18s,box-shadow .18s,color .18s}
-.record-profile-dialog .dialog-close:hover{background:#185b8e;border-color:#d2ad63;box-shadow:0 5px 16px rgba(7,38,65,.28)}
-.record-profile-dialog .dialog-close:focus-visible{outline:3px solid #087cb8;outline-offset:3px}
+.record-profile-dialog .dialog-close:hover{background:var(--portal-blue);border-color:#d2ad63;box-shadow:0 5px 16px rgba(7,38,65,.28)}
+.record-profile-dialog .dialog-close:focus-visible{outline:3px solid var(--portal-blue);outline-offset:3px}
 .record-profile{padding:38px 42px 44px;color:var(--record-ink);font-family:Inter,sans-serif}
 .record-profile-header{position:relative;padding:4px 56px 26px 0;border-bottom:1px solid var(--record-line)}
 .record-profile-header:after{content:"";position:absolute;bottom:-1px;left:0;width:88px;height:2px;background:linear-gradient(90deg,var(--record-gold),transparent)}
@@ -36,7 +36,7 @@ dialog.record-profile-dialog{width:min(860px,calc(100% - 36px));max-height:min(8
 .record-profile-link{cursor:pointer;box-shadow:0 3px 8px rgba(75,52,23,.06);transition:background-color .18s,border-color .18s,box-shadow .18s,color .18s}
 .record-profile-link b{flex:none;color:#956a2d;font:700 8px/1.2 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase}
 .record-profile-link:hover{border-color:#8f641f;background:#fffdf6;box-shadow:0 5px 14px rgba(66,49,25,.13)}
-.record-profile-link:focus-visible{outline:3px solid #087cb8;outline-offset:2px}
+.record-profile-link:focus-visible{outline:3px solid var(--portal-blue);outline-offset:2px}
 .record-profile-label{justify-content:flex-start;border-color:rgba(173,140,84,.46);background:rgba(255,250,240,.48);color:var(--record-muted);box-shadow:none}
 .record-reward-list,.record-profile-detail-list,.record-wave-list{display:grid;gap:0;margin:0;overflow:hidden;border:1px solid #c8aa71;border-radius:7px;background:rgba(255,252,240,.6)}
 .record-reward-list>div,.record-profile-detail-list>div,.record-wave-list>div{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:10px 13px;border-bottom:1px solid rgba(156,119,59,.28)}

@@ -4,6 +4,7 @@ This directory contains active standards and design guidance for the PortalDB si
 
 ## Current standards
 
+- [Visual System](visual-system.md) — canonical interface color tokens and semantic exceptions.
 - [Provenance UX](provenance-ux.md)
 - [Data Integrity](data-integrity.md)
 - [Artwork Pipeline](artwork-pipeline.md)

@@ -5,11 +5,11 @@
 .trade-tax-card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);border:1px solid rgba(232,190,103,.28);border-radius:14px;background:#efe1b9;color:#201a22;box-shadow:0 24px 58px rgba(5,4,12,.34);overflow:hidden}
 .trade-tax-form{padding:30px;background:linear-gradient(180deg,#f5e9c8,#e9d7a9)}
 .trade-tax-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:26px}
-.trade-tax-heading h2{margin:7px 0 0;color:#18274a;font-size:clamp(24px,3vw,34px)}
+.trade-tax-heading h2{margin:7px 0 0;color:var(--portal-blue);font-size:clamp(24px,3vw,34px)}
 .tax-field{display:grid;gap:7px}
 .tax-field label,.level-fields legend{color:#392f25;font-size:11px;font-weight:800}
 .tax-field input{width:100%;height:48px;padding:0 13px;border:1px solid #a88651;border-radius:7px;background:#fffaf0;color:#161321;font:600 16px Inter,sans-serif;outline:none}
-.tax-field input:focus{border-color:#174f73;box-shadow:0 0 0 3px rgba(23,79,115,.16)}
+.tax-field input:focus{border-color:var(--portal-blue);box-shadow:0 0 0 3px rgba(11,79,139,.16)}
 .tax-input-wrap{position:relative}
 .tax-input-wrap input{padding-right:62px}
 .tax-input-wrap>span{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:#725722;font-size:11px;font-weight:800}
@@ -17,19 +17,19 @@
 .tax-error{min-height:14px;color:#9d2d28;font-size:10px;font-weight:700}
 .quick-amounts{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0 24px}
 .quick-amounts button{min-height:34px;padding:0 11px;border:1px solid #b08a4a;border-radius:6px;background:#f9efda;color:#4d391d;font:700 10px Inter,sans-serif;cursor:pointer}
-.quick-amounts button:hover{border-color:#174f73;background:#fff8e9}
-.quick-amounts button:focus-visible{outline:3px solid #245fba;outline-offset:2px}
+.quick-amounts button:hover{border-color:var(--portal-blue);background:#fff8e9}
+.quick-amounts button:focus-visible{outline:3px solid var(--portal-blue);outline-offset:2px}
 .level-fields{margin:0;padding:20px;border:1px solid rgba(99,73,35,.25);border-radius:9px}
 .level-fields legend{padding:0 7px}
 .level-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.trade-tax-results{display:flex;min-width:0;flex-direction:column;justify-content:center;padding:34px;border-left:1px solid #c99b45;background:linear-gradient(160deg,#176da5,#0b4f8b);color:#fff8e8}
+.trade-tax-results{display:flex;min-width:0;flex-direction:column;justify-content:center;padding:34px;border-left:1px solid #c99b45;background:var(--portal-blue);color:#fff8e8}
 .result-kicker{color:#e5bd65;font:700 11px/1.3 Cinzel,serif;letter-spacing:.13em}
 .result-total{margin:11px 0 28px;color:#fff5d8;font:700 clamp(36px,5vw,60px)/1.05 Cinzel,serif;overflow-wrap:anywhere}
 .result-total:not(:empty)::after{content:" Tria";display:block;margin-top:8px;color:#d6bf87;font:600 13px/1.3 Inter,sans-serif}
 .result-total[data-empty="true"]::after{content:""}
 .result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .result-grid>div{min-width:0;padding:13px;border:1px solid rgba(240,206,123,.48);border-radius:7px;background:rgba(255,248,229,.1)}
-.result-grid span{display:block;margin-bottom:5px;color:#b9c5dd;font-size:9px;text-transform:uppercase;letter-spacing:.08em}
+.result-grid span{display:block;margin-bottom:5px;color:var(--portal-blue);font-size:9px;text-transform:uppercase;letter-spacing:.08em}
 .result-grid b{color:#fff4d7;font-size:14px;overflow-wrap:anywhere}
 .tax-example{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-top:18px;padding:20px 24px;border:1px solid rgba(232,190,103,.18);border-radius:12px;background:rgba(15,22,43,.88)}
 .tax-example h2{margin:6px 0 0;font-size:20px}
