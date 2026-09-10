@@ -81,5 +81,6 @@
     update();
     agreedPrice.focus();
   }));
+  window.addEventListener('pageshow',update);
   update();
 })();
