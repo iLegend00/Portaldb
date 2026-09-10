@@ -143,7 +143,15 @@
       {
         "part":5,"id":"main-ch3-p5-this-door-is-mine","name":"This Door Is Mine","description":"Four stones in the bag. Klepon says the man went to the cliff, and his footprints stopped at the wall.",
         "objectives":["Tell Klepon the pillars turned blue","Find the cliff wall where the man vanished","Set the four rune stones on the pedestals (0/4)","Open the door","Go inside","Look at the book on the desk"],
-        "walkthrough":[{"text":"Return to Klepon one final time and tell him the pillars turned blue."},{"text":"Follow the quest to the cliff wall where the man vanished."},{"text":"At the wall, place the four rune stones onto the pedestals."},{"text":"Once all four are in position, open the door and head inside."},{"text":"Find the desk and examine the book sitting on it."},{"text":"This completes Chapter 3."}],
+        "walkthrough":[
+          {"heading":"Return to Klepon","text":"Speak with Klepon and tell him the pillars turned blue. He points you toward the cliff where the missing man disappeared."},
+          {"heading":"Recommended Route to the Cliff","text":"The easiest route is through the Cogtown Bridge portal. Reach the area through Cogtown East Gate or by continuing through the camp to the left. Just past Cogtown South Gate, look for the elevated portal up the cliff labeled Cogtown Bridge.","paragraphs":["Take that portal if possible; it places you almost directly beside the final cave area. Cogtown Bridge is the recommended route, not the only route.","If you use another route, make your way toward the northwest side of Cogtown. You are aiming for the area where the Cogtown Bridge portal exits."]},
+          {"heading":"Find the Stone Door","text":"After exiting the Cogtown Bridge portal, look directly to your left. The cave is immediately nearby, with a large stone door built into the cliff that is visibly different from the surrounding rock.","paragraphs":["Approach and interact with the stone door first. After that interaction and dialogue, continue to the rune pedestals."]},
+          {"heading":"Place the Four Rune Stones","text":"Four rune pedestals are positioned around the cave entrance. They resemble the rune pedestals encountered earlier in Chapter 3.","items":["One pedestal to the left of the cave entrance","One pedestal to the right of the cave entrance","Two pedestals above the cave on top of the cliff"],"paragraphs":["Place all four rune stones on the pedestals. The stones can be placed in any order; there is no required sequence."]},
+          {"heading":"Open the Door","text":"Once all four rune stones are in place, return to the stone door and interact with it again. The door opens after this second interaction; it does not open automatically when the fourth stone is placed."},
+          {"heading":"Go Inside","text":"Enter the newly opened cave. The interior resembles a small hideaway with several objects, but your target is the desk and its book."},
+          {"heading":"Examine the Book","text":"Find the clearly visible book on the desk and interact with it. A brief dialogue follows, effectively completing Chapter 3."}
+        ],
         "rewards":[{"type":"experience","name":"EXP","amount":8000},{"type":"currency","name":"Lumen","amount":1}],"verificationStatus":"In-game verified"
       }
     ],
