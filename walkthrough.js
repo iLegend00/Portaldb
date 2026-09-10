@@ -67,7 +67,7 @@
     sections.forEach(section=>observer.observe(section));
   }
   async function init(){
-    const responses=await Promise.all(['quests','npcs','mechanics'].map(name=>fetch(`data/${name}.json?v=20260909-first-steps-1`)));
+    const responses=await Promise.all(['quests','npcs','mechanics'].map(name=>fetch(`data/${name}.json?v=20260909-martas-lessons-1`)));
     if(responses.some(response=>!response.ok))throw new Error('Walkthrough data could not be loaded.');
     const [quests,npcRows,mechanicRows]=await Promise.all(responses.map(response=>response.json()));npcs=npcRows;mechanics=mechanicRows;
     chapters=quests.filter(quest=>quest.type==='Main Quest Chapter'&&Array.isArray(quest.parts)&&quest.parts.length).sort((a,b)=>a.chapter-b.chapter);

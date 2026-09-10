@@ -12,6 +12,7 @@ Farming / Homestead research is reconciled into official facts, developer-endors
 
 ## Recently Completed
 
+- Chapter 1 Part 2, Marta's Lessons, received its guided-walkthrough revision; walkthrough parts continue to be refined sequentially without changing the Farming / Homestead project phase.
 - Chapter 1 Part 1, First Steps, received the first detailed guided-walkthrough revision; the remaining parts are being refined sequentially without changing the Farming / Homestead project phase.
 - The authored walkthrough now covers all 14 quest parts across Chapters 1–3; Chapter 3 Parts 1–5 are complete in quest data, with step-specific screenshot/location integration reserved for a later refinement.
 - Official patch-note handling tightened so direct developer wording is preserved and ambiguous mechanics are not silently interpreted; v1.2.16 and v1.2.17 were corrected accordingly.

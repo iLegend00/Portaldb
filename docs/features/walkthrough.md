@@ -81,6 +81,8 @@ Objectives are the canonical in-game task list. Authored `walkthrough` steps are
 
 A walkthrough step should explain meaningful player context hidden behind an objective when needed: choice implications, system introductions, consequences, requirements, and other supported decision context. It must not merely restate the objective. Guide depth may vary by part: simple quests can remain brief, while important choice-, puzzle-, or navigation-heavy quests may receive richer structured guidance. The structure follows the player's experience rather than forcing one paragraph for every canonical objective.
 
+When a quest first introduces a recurring world system, such as NPC schedules, explain that system briefly at the point where the player first encounters it. Later quest parts should rely on that established context instead of repeating the same general explanation unless new supported behavior materially changes what the player needs to know.
+
 ## Step media
 
 Walkthrough screenshots and location images are instructional content and attach to the exact `walkthrough` step they support through an optional `media[]` field. Each media entry requires `src` and meaningful `alt`; `caption` is optional and should tell the player what to notice rather than repeat a filename. A step may have zero, one, or multiple images when every image solves a distinct player problem.
