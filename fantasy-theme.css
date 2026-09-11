@@ -156,3 +156,5 @@ body:not(.fantasy-home):not(.walkthrough-page) :is(.verification-official,.verif
     border-radius:14px;
   }
 }
+
+body:not(.fantasy-home):not(.walkthrough-page) .guild-hero.charter-panel{border-width:1px;background:var(--portal-blue-surface);box-shadow:0 15px 36px rgba(34,24,16,.2)}
