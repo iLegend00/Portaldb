@@ -50,24 +50,28 @@ Classify every blue use as a substantial surface, small accent, or documented se
 
 ## Text contrast
 
-Choose text color from the immediate background, not from a component's general theme. Substantial blue surfaces use light cream/off-white for primary text and readable light gold for secondary emphasis; never place the general blue accent on them. Light parchment surfaces use dark ink or warm brown, while dark and wood surfaces use light text. Hover, focus, active, selected, and disabled states must preserve the same readable foreground/background relationship. Target WCAG AA contrast where practical. The homepage remains the visual source of truth and should not be altered unnecessarily by shared contrast corrections.
+Choose text color from the immediate background, not from a component's general theme. Substantial blue surfaces use light cream/off-white for primary text and readable light gold for secondary emphasis; never place the general blue accent on them. Light parchment surfaces use dark ink or warm brown, while dark and wood surfaces use light text. Hover, focus, active, selected, and disabled states must preserve the same readable foreground/background relationship. Target WCAG AA contrast where practical. The homepage remains artwork-led and is excluded from internal-page visual-system changes.
 
 
 ## Surface hierarchy
 
-Use the canonical blue surface for major branded UI such as heroes, prominent results, navigation bars, and strong table headers. Use parchment as the primary information and content surface, with the established deeper parchment as its secondary variation. Gold belongs to trim, borders, dividers, labels, and ornament; ink is primarily text on parchment. Wood and brown support framing and decorative structure rather than large content-panel fills. Dark, near-black, and purple content panels are not part of the default PortalDB page system. Any feature-specific exception must be intentional, semantic, and documented. The homepage is the visual reference for overall palette balance.
+Use the canonical blue surface for major branded UI such as heroes, prominent results, navigation bars, and strong table headers. Use parchment as the primary information and content surface, with the established deeper parchment as its secondary variation. Gold belongs to trim, borders, dividers, labels, and ornament; ink is primarily text on parchment. Wood and brown support framing and decorative structure rather than large content-panel fills. Dark, near-black, and purple content panels are not part of the default PortalDB page system. Any feature-specific exception must be intentional, semantic, and documented. The walkthrough defines the material and palette hierarchy for internal pages.
 
-## Locked internal-page palette
+## Canonical internal-page reference
 
-PortalDB internal pages use one solid parchment surface: #F3E6C5. There are no secondary parchment, beige, or tan variants. Visual hierarchy must be created through structure, borders, spacing, typography, shadows, gold trim, and canonical blue branded surfaces—not alternate background colors.
+The PortalDB Walkthrough page is the canonical visual reference for all non-homepage pages. New and existing internal pages must follow its material hierarchy, palette roles, typography hierarchy, framing language, and contrast system.
 
-- Blue surface: `--portal-blue-surface: linear-gradient(180deg, #0e477d, #082f59)`
-- Blue accent: `--portal-blue-accent: #0b4f8b`
-- Parchment surface: `--portal-parchment-surface: #F3E6C5`
-- Gold: `--portal-gold: #c99b45`
-- Ink: `--portal-ink: #332b22`
-- Text on blue: `--portal-text-on-blue: #fff8e5`
+Internal pages use the walkthrough's atmospheric blue-to-parchment page field, canonical blue branded hero surfaces, wood-and-gold structural frames, and textured parchment content interiors. Larger parchments may retain decorative breathing room; hierarchy comes from material role, typography, borders, spacing, and restrained shadows.
 
-The homepage is intentionally exempt from the simplified internal-page surface treatment and retains its established artwork-led presentation through homepage-scoped styles.
+- Atmospheric field: `--portal-internal-background`
+- Substantial blue surface: `--portal-blue-surface`
+- Small blue accent: `--portal-blue-accent`
+- Timber frame: `--portal-field-guide-frame`
+- Parchment interior: `--portal-field-guide-parchment`
+- Gold structure: `--portal-gold`
+- Ink: `--portal-ink`
+- Text on blue: `--portal-text-on-blue`
 
-New general-purpose colors must not be added without intentionally revising this visual standard first. Noncanonical colors are limited to tightly scoped semantic meanings such as rarity, success, warning, error, and provenance.
+The homepage is intentionally exempt and retains its established artwork-led presentation. The walkthrough remains the unchanged reference implementation.
+
+Semantic colors are limited to tightly scoped meanings such as rarity, success, warning, error, and provenance; they must not become general-purpose page decoration.

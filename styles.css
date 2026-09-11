@@ -12,6 +12,9 @@
   --portal-parchment:#fff8e5;
   --portal-parchment-deep:#ead3a4;
   --portal-parchment-surface:#F3E6C5;
+  --portal-internal-background:radial-gradient(circle at 50% 0,rgba(11,79,139,.18),transparent 32%),linear-gradient(180deg,#dbe7e1,#e6dcc4 43%,#cdb78d);
+  --portal-field-guide-frame:linear-gradient(90deg,#33200e,#765027 4%,#3c250f 8%,#4b2d14 92%,#8d6130 96%,#33200e);
+  --portal-field-guide-parchment:radial-gradient(circle at 20% 6%,rgba(255,255,255,.36),transparent 25%),linear-gradient(90deg,rgba(118,78,33,.08),transparent 4% 96%,rgba(118,78,33,.09)),var(--portal-parchment);
   --portal-ink:#332b22;
   --portal-wood:#563616;
   --bg:#0b0a16;
