@@ -1,16 +1,16 @@
 .database-page .page-shell{padding-top:42px}
 .database-page .page-hero{padding:30px 0 20px}
 .database-page .page-hero .panel-kicker{display:inline-flex;align-items:center;gap:10px;color:#8a5a17;font:700 10px/1 Cinzel,serif;letter-spacing:.2em}
-.database-page .page-hero .panel-kicker:after{content:"";width:54px;height:1px;background:linear-gradient(90deg,#b98734,transparent)}
+.database-page .page-hero .panel-kicker:after{content:"";width:54px;height:1px;background:linear-gradient(90deg,var(--portal-gold),transparent)}
 .database-page .page-hero h1{max-width:760px;margin:10px 0 9px;color:var(--portal-blue-accent);font-size:clamp(42px,5vw,62px);letter-spacing:-.035em}
-.database-page .page-hero p{max-width:720px;margin:0;color:#554e45;font-size:13px;line-height:1.65}
+.database-page .page-hero p{max-width:720px;margin:0;color:var(--portal-ink);font-size:13px;line-height:1.65}
 
 .database-page .page-search{width:min(820px,100%);max-width:none;height:62px;margin:17px 0 0;padding:5px 6px 5px 17px;border:1px solid var(--portal-gold);border-radius:13px;background:var(--portal-parchment-surface);box-shadow:0 8px 22px rgba(70,48,22,.16),inset 0 0 0 1px rgba(255,255,255,.68)}
 .database-page .page-search .search-mark{color:var(--portal-blue-accent);font-size:23px}
-.database-page .page-search input{color:#2e2923;font-size:13px}
-.database-page .page-search input::placeholder{color:#766b5e}
+.database-page .page-search input{color:var(--portal-ink);font-size:13px}
+.database-page .page-search input::placeholder{color:var(--portal-ink)}
 .database-page .page-search:focus-within{border-color:var(--portal-blue-accent);box-shadow:0 0 0 3px rgba(11,79,139,.18),0 10px 24px rgba(52,45,35,.17)}
-.database-page .page-search button{height:50px;min-width:118px;padding:0 22px;border:1px solid #d0a956;border-radius:9px;background:var(--portal-blue-surface);color:var(--portal-text-on-blue);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 3px 8px rgba(11,79,139,.22);font:700 11px/1 Cinzel,serif;letter-spacing:.09em}
+.database-page .page-search button{height:50px;min-width:118px;padding:0 22px;border:1px solid var(--portal-gold);border-radius:9px;background:var(--portal-blue-surface);color:var(--portal-text-on-blue);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 3px 8px rgba(11,79,139,.22);font:700 11px/1 Cinzel,serif;letter-spacing:.09em}
 .database-page .page-search button:hover{background:var(--portal-blue-surface)}
 .database-page .page-search button:focus-visible{outline:3px solid rgba(11,79,139,.32);outline-offset:3px}
 .database-page #searchResults{width:min(820px,100%);margin-top:8px;border:1px solid #b58a48;border-radius:10px;background:var(--portal-parchment-surface);box-shadow:0 12px 30px rgba(65,45,23,.2)}

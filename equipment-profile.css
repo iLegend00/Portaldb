@@ -1,5 +1,5 @@
 .equipment-profile-dialog{width:min(750px,calc(100vw - 32px));max-height:min(900px,calc(100vh - 32px))}
-.equipment-profile{display:grid;gap:13px;padding:30px 34px 34px;color:#231b12}
+.equipment-profile{display:grid;gap:13px;padding:30px 34px 34px;color:var(--portal-ink)}
 .equipment-profile-header{display:flex;align-items:center;gap:18px;padding-bottom:16px}
 .equipment-identity{min-width:0;flex:1}
 .equipment-artwork{display:grid;width:96px;height:96px;flex:0 0 96px;place-items:center}
@@ -8,7 +8,7 @@
 .equipment-profile .record-profile-section>h3{margin-bottom:8px;font-size:17px}
 .equipment-profile-header .verification-heading{margin-top:5px}
 .equipment-profile-header h2{font-size:clamp(32px,5vw,44px)}
-.equipment-meta{display:flex;flex-wrap:wrap;align-items:center;gap:5px 16px;margin-top:8px;color:#554b3e;font-size:.82rem}
+.equipment-meta{display:flex;flex-wrap:wrap;align-items:center;gap:5px 16px;margin-top:8px;color:var(--portal-ink);font-size:.82rem}
 .equipment-header-requirement{display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 9px;margin-top:8px}
 .equipment-header-requirement strong{color:var(--portal-blue-accent);font-size:.86rem}
 .equipment-sell{margin-top:4px;color:var(--portal-gold);font:700 .76rem/1.3 Cinzel,serif}

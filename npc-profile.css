@@ -4,7 +4,7 @@ dialog.npc-profile-dialog{width:min(920px,calc(100% - 36px));max-height:min(88vh
 .npc-profile-dialog .dialog-close:focus-visible{outline:3px solid var(--portal-blue-accent);outline-offset:3px}
 .npc-profile{padding:34px 38px 40px;color:var(--portal-ink);font-family:Inter,sans-serif}
 .npc-profile-identity{display:grid;grid-template-columns:minmax(220px,290px) minmax(0,1fr);gap:clamp(24px,4vw,42px);align-items:center;padding:4px 0 28px;border-bottom:1px solid rgba(141,101,41,.38)}
-.npc-profile-portrait{position:relative;display:grid;grid-template-rows:minmax(0,1fr) auto;place-items:center;gap:8px;height:330px;padding:18px 18px 10px;overflow:hidden;border:1px solid #ad8241;border-radius:10px;background:radial-gradient(circle at 50% 34%,rgba(255,255,255,.82),transparent 48%),linear-gradient(155deg,#f7edcf,#ead3a4 72%,var(--portal-text-muted));box-shadow:inset 0 0 0 4px rgba(255,250,232,.7),0 10px 24px rgba(67,50,27,.13)}
+.npc-profile-portrait{position:relative;display:grid;grid-template-rows:minmax(0,1fr) auto;place-items:center;gap:8px;height:330px;padding:18px 18px 10px;overflow:hidden;border:1px solid var(--portal-gold);border-radius:10px;background:var(--portal-parchment-surface);box-shadow:inset 0 0 0 4px rgba(255,250,232,.7),0 10px 24px rgba(67,50,27,.13)}
 .npc-profile-portrait:before,.npc-profile-portrait:after{content:"";position:absolute;pointer-events:none}
 .npc-profile-portrait:before{inset:7px;border:1px solid rgba(154,111,44,.42);border-radius:6px}
 .npc-profile-portrait:after{top:12px;left:50%;width:46px;height:3px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,var(--portal-gold),transparent)}

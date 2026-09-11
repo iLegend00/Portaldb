@@ -4,14 +4,14 @@
   --text-on-blue:var(--portal-text-on-blue);
   --text-muted-on-blue:#f0ce7b;
   --text-on-light:#332b22;
-  --portal-text-muted:#655b4e;
-  --text-muted-on-light:var(--portal-text-muted);
+  --portal-text-muted:var(--portal-ink);
+  --text-muted-on-light:var(--portal-ink);
   --text-on-dark:#fff8e5;
   --portal-gold:#c99b45;
   --portal-gold-light:#f0ce7b;
   --portal-parchment:#fff8e5;
   --portal-parchment-deep:#ead3a4;
-  --portal-parchment-surface:linear-gradient(180deg,rgba(255,250,232,.97),rgba(236,215,175,.98));
+  --portal-parchment-surface:#F3E6C5;
   --portal-ink:#332b22;
   --portal-wood:#563616;
   --bg:#0b0a16;
