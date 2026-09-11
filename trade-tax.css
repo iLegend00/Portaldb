@@ -16,7 +16,7 @@
 .tax-field small{color:var(--portal-ink);font-size:10px;line-height:1.5}
 .tax-error{min-height:14px;color:#9d2d28;font-size:10px;font-weight:700}
 .quick-amounts{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0 24px}
-.quick-amounts button{min-height:34px;padding:0 11px;border:1px solid #b08a4a;border-radius:6px;background:var(--portal-parchment-surface);color:#4d391d;font:700 10px Inter,sans-serif;cursor:pointer}
+.quick-amounts button{min-height:34px;padding:0 11px;border:1px solid var(--portal-gold);border-radius:6px;background:var(--portal-parchment-surface);color:var(--portal-ink);font:700 10px Inter,sans-serif;cursor:pointer}
 .quick-amounts button:hover{border-color:var(--portal-blue-accent);background:var(--portal-parchment-surface)}
 .quick-amounts button:focus-visible{outline:3px solid var(--portal-blue-accent);outline-offset:2px}
 .level-fields{margin:0;padding:20px;border:1px solid rgba(99,73,35,.25);border-radius:9px}

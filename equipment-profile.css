@@ -21,7 +21,7 @@
 .equipment-stat-value-column{width:37%}
 .equipment-stat-chance-column{width:18%}
 .equipment-stat-empty-column{color:transparent}
-.equipment-stat-table thead th{padding:0 8px 4px 0;color:#7a6a56;border-bottom:1px solid rgba(106,72,26,.3);font:700 .58rem/1.2 Inter,sans-serif;letter-spacing:.09em;text-align:left;text-transform:uppercase}
+.equipment-stat-table thead th{padding:0 8px 4px 0;color:var(--portal-ink);border-bottom:1px solid rgba(106,72,26,.3);font:700 .58rem/1.2 Inter,sans-serif;letter-spacing:.09em;text-align:left;text-transform:uppercase}
 .equipment-stat-table tbody th,.equipment-stat-table tbody td{padding:5px 8px 5px 0;border-bottom:1px solid rgba(106,72,26,.18);text-align:left}
 .equipment-stat-table tbody tr:last-child>*{border-bottom:0}
 .equipment-stat-table tbody th{color:var(--portal-ink);font-weight:400;overflow-wrap:anywhere}
@@ -31,13 +31,13 @@
 .equipment-quality-bands{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;width:min(100%,560px)}
 .equipment-quality-bands span{display:grid;gap:1px;padding:4px 3px;text-align:center;border-bottom:1px solid rgba(106,72,26,.22)}
 .equipment-quality-bands strong{font-size:.72rem}
-.equipment-quality-bands small{color:#665a49;font-size:.68rem}
-.equipment-quality .rarity-common{color:#665d50}
+.equipment-quality-bands small{color:var(--portal-ink);font-size:.68rem}
+.equipment-quality .rarity-common{color:var(--portal-ink)}
 .equipment-quality .rarity-uncommon{color:#2f7132}
 .equipment-quality .rarity-rare{color:#215f9a}
 .equipment-quality .rarity-epic{color:#713793}
 .equipment-quality .rarity-legendary{color:#a9570d}
-.equipment-quality p{margin:0;color:#574b3c;font-size:.76rem;line-height:1.4}
+.equipment-quality p{margin:0;color:var(--portal-ink);font-size:.76rem;line-height:1.4}
 .equipment-acquisition-list{display:grid;gap:0}
 .equipment-acquisition-list>div{display:grid;grid-template-columns:52px minmax(0,1fr);align-items:center;gap:5px 9px;padding:5px 0;border-bottom:1px solid rgba(106,72,26,.18)}
 .equipment-acquisition-list>div:last-child{border-bottom:0}
