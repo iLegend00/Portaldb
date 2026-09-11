@@ -3,10 +3,10 @@ dialog.npc-profile-dialog{width:min(920px,calc(100% - 36px));max-height:min(88vh
 .npc-profile-dialog .dialog-close:hover{background:var(--portal-blue-accent);border-color:var(--portal-gold);box-shadow:0 5px 16px rgba(34,24,16,.28)}
 .npc-profile-dialog .dialog-close:focus-visible{outline:3px solid var(--portal-blue-accent);outline-offset:3px}
 .npc-profile{padding:34px 38px 40px;color:var(--portal-ink);font-family:Inter,sans-serif}
-.npc-profile-identity{display:grid;grid-template-columns:minmax(220px,290px) minmax(0,1fr);gap:clamp(24px,4vw,42px);align-items:center;padding:4px 0 28px;border-bottom:1px solid rgba(141,101,41,.38)}
+.npc-profile-identity{display:grid;grid-template-columns:minmax(220px,290px) minmax(0,1fr);gap:clamp(24px,4vw,42px);align-items:center;padding:4px 0 28px;border-bottom:1px solid var(--portal-border-soft)}
 .npc-profile-portrait{position:relative;display:grid;grid-template-rows:minmax(0,1fr) auto;place-items:center;gap:8px;height:330px;padding:18px 18px 10px;overflow:hidden;border:1px solid var(--portal-gold);border-radius:10px;background:var(--portal-parchment-surface);box-shadow:inset 0 0 0 4px rgba(255,250,232,.7),0 10px 24px rgba(67,50,27,.13)}
 .npc-profile-portrait:before,.npc-profile-portrait:after{content:"";position:absolute;pointer-events:none}
-.npc-profile-portrait:before{inset:7px;border:1px solid rgba(154,111,44,.42);border-radius:6px}
+.npc-profile-portrait:before{inset:7px;border:1px solid var(--portal-border-soft);border-radius:6px}
 .npc-profile-portrait:after{top:12px;left:50%;width:46px;height:3px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,var(--portal-gold),transparent)}
 .npc-profile-identity-copy{min-width:0;padding-right:24px}
 .npc-profile .type{color:var(--portal-gold);font:700 10px/1.2 Cinzel,serif;letter-spacing:.16em}
@@ -21,7 +21,7 @@ dialog.npc-profile-dialog{width:min(920px,calc(100% - 36px));max-height:min(88vh
 .npc-profile-subsection+.npc-profile-subsection{margin-top:20px}
 .npc-profile-subsection>h4{margin:0 0 10px;color:var(--portal-gold);font:700 10px/1.35 Cinzel,serif;letter-spacing:.12em;text-transform:uppercase}
 .npc-meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0;margin:0;overflow:hidden;border:1px solid var(--portal-gold);border-radius:9px;background:var(--portal-parchment-surface)}
-.npc-meta-grid .meta-box{min-width:0;padding:12px 14px;border:0;border-right:1px solid rgba(154,116,57,.3);border-radius:0;background:transparent}
+.npc-meta-grid .meta-box{min-width:0;padding:12px 14px;border:0;border-right:1px solid var(--portal-border-soft);border-radius:0;background:transparent}
 .npc-meta-grid .meta-box:last-child{border-right:0}
 .npc-meta-grid .meta-box small{margin-bottom:6px;color:var(--portal-gold);font:700 8px/1.25 Cinzel,serif;letter-spacing:.11em}
 .npc-meta-grid .meta-box strong{color:var(--portal-blue-accent);font:650 11px/1.4 Inter,sans-serif}
@@ -35,10 +35,10 @@ dialog.npc-profile-dialog{width:min(920px,calc(100% - 36px));max-height:min(88vh
 .npc-service-row strong{color:var(--portal-blue-accent);font:700 12px/1.35 Cinzel,serif}
 .npc-service-row>span{display:block;margin-top:5px;color:var(--portal-text-muted);font:500 10px/1.5 Inter,sans-serif}
 .npc-dialogue-list{display:grid;gap:7px;margin:0;padding:0;list-style:none;counter-reset:npc-dialogue}
-.npc-dialogue-list li{counter-increment:npc-dialogue;position:relative;padding:10px 12px 10px 39px;border-bottom:1px solid rgba(156,119,59,.3);background:var(--portal-parchment-surface);color:var(--portal-ink);font:500 11px/1.55 Inter,sans-serif}
+.npc-dialogue-list li{counter-increment:npc-dialogue;position:relative;padding:10px 12px 10px 39px;border-bottom:1px solid var(--portal-border-soft);background:var(--portal-parchment-surface);color:var(--portal-ink);font:500 11px/1.55 Inter,sans-serif}
 .npc-dialogue-list li:before{content:counter(npc-dialogue,"0") ".";position:absolute;left:13px;top:10px;color:var(--portal-gold);font:700 9px/1.7 Cinzel,serif}
-.npc-facts{display:grid;border-top:1px solid rgba(156,119,59,.28)}
-.npc-fact{display:grid;grid-template-columns:minmax(125px,.34fr) minmax(0,1fr);gap:18px;padding:11px 4px;border-bottom:1px solid rgba(156,119,59,.28)}
+.npc-facts{display:grid;border-top:1px solid var(--portal-border-soft)}
+.npc-fact{display:grid;grid-template-columns:minmax(125px,.34fr) minmax(0,1fr);gap:18px;padding:11px 4px;border-bottom:1px solid var(--portal-border-soft)}
 .npc-fact small{color:var(--portal-gold);font:700 9px/1.45 Cinzel,serif;letter-spacing:.07em;text-transform:uppercase}
 .npc-fact span{color:var(--portal-ink);font:400 11px/1.6 Inter,sans-serif}
 .npc-link-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
@@ -55,7 +55,7 @@ dialog.npc-profile-dialog{width:min(920px,calc(100% - 36px));max-height:min(88vh
   .npc-profile-identity-copy{padding-right:0}
   .npc-profile-identity-copy h2{font-size:clamp(29px,10vw,40px)}
   .npc-meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .npc-meta-grid .meta-box{border-right:1px solid rgba(154,116,57,.3);border-bottom:1px solid rgba(154,116,57,.3)}
+  .npc-meta-grid .meta-box{border-right:1px solid var(--portal-border-soft);border-bottom:1px solid var(--portal-border-soft)}
   .npc-meta-grid .meta-box:nth-child(2n){border-right:0}
   .npc-meta-grid .meta-box:nth-last-child(-n+2){border-bottom:0}
   .npc-meta-grid .meta-box:last-child:nth-child(odd){border-right:0;border-bottom:0}

@@ -75,3 +75,8 @@ Internal pages use the walkthrough's atmospheric blue-to-parchment page field, c
 The homepage is intentionally exempt and retains its established artwork-led presentation. The walkthrough remains the unchanged reference implementation.
 
 Semantic colors are limited to tightly scoped meanings such as rarity, success, warning, error, and provenance; they must not become general-purpose page decoration.
+
+
+## Border materials
+
+Wood/brown framing is a material treatment reserved for intentional decorative structures such as the Walkthrough's main guide frame. Ordinary UI panels, cards, controls, and content containers must not use brown/wood borders. Standard structural borders use canonical PortalDB gold; interactive/focus borders use canonical blue.

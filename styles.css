@@ -8,6 +8,8 @@
   --text-muted-on-light:var(--portal-ink);
   --text-on-dark:#fff8e5;
   --portal-gold:#c99b45;
+  --portal-border:var(--portal-gold);
+  --portal-border-soft:rgba(201,155,69,.42);
   --portal-gold-light:#f0ce7b;
   --portal-parchment:#fff8e5;
   --portal-parchment-deep:#ead3a4;

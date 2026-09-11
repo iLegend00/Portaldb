@@ -24,8 +24,8 @@ dialog.record-profile-dialog{width:min(860px,calc(100% - 36px));max-height:min(8
 .record-profile-facts:has(.record-profile-fact:nth-child(5):last-child) .record-profile-fact:nth-last-child(-n+2){grid-column:span 3}
 .record-profile-fact small{display:block;margin-bottom:6px;color:var(--portal-gold);font:700 8px/1.25 Cinzel,serif;letter-spacing:.11em;text-transform:uppercase}
 .record-profile-fact strong{display:block;color:var(--portal-blue-accent);font:650 12px/1.45 Inter,sans-serif;overflow-wrap:anywhere}
-.record-profile-list{display:grid;gap:0;margin:0;padding:0;list-style:none;border-top:1px solid rgba(156,119,59,.25)}
-.record-profile-list li{position:relative;padding:10px 12px 10px 30px;border-bottom:1px solid rgba(156,119,59,.27);background:var(--portal-parchment-surface);color:var(--portal-ink);font:500 11px/1.55 Inter,sans-serif;overflow-wrap:anywhere}
+.record-profile-list{display:grid;gap:0;margin:0;padding:0;list-style:none;border-top:1px solid var(--portal-border-soft)}
+.record-profile-list li{position:relative;padding:10px 12px 10px 30px;border-bottom:1px solid var(--portal-border-soft);background:var(--portal-parchment-surface);color:var(--portal-ink);font:500 11px/1.55 Inter,sans-serif;overflow-wrap:anywhere}
 .record-profile-list li:before{content:"✦";position:absolute;left:11px;top:10px;color:var(--portal-gold);font-size:8px;line-height:1.9}
 .record-profile-combat .record-profile-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border:0}
 .record-profile-combat .record-profile-list li{padding:10px 12px;border:1px solid var(--portal-gold);border-radius:6px;background:var(--portal-parchment-surface);color:var(--portal-blue-accent);font-weight:650}
@@ -36,14 +36,14 @@ dialog.record-profile-dialog{width:min(860px,calc(100% - 36px));max-height:min(8
 .record-profile-link b{flex:none;color:var(--portal-gold);font:700 8px/1.2 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase}
 .record-profile-link:hover{border-color:var(--portal-gold);background:var(--portal-parchment-surface);box-shadow:0 5px 14px rgba(66,49,25,.13)}
 .record-profile-link:focus-visible{outline:3px solid var(--portal-blue-accent);outline-offset:2px}
-.record-profile-label{justify-content:flex-start;border-color:rgba(173,140,84,.46);background:var(--portal-parchment-surface);color:var(--portal-text-muted);box-shadow:none}
+.record-profile-label{justify-content:flex-start;border-color:var(--portal-border-soft);background:var(--portal-parchment-surface);color:var(--portal-text-muted);box-shadow:none}
 .record-reward-list,.record-profile-detail-list,.record-wave-list{display:grid;gap:0;margin:0;overflow:hidden;border:1px solid var(--portal-gold);border-radius:7px;background:var(--portal-parchment-surface)}
-.record-reward-list>div,.record-profile-detail-list>div,.record-wave-list>div{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:10px 13px;border-bottom:1px solid rgba(156,119,59,.28)}
+.record-reward-list>div,.record-profile-detail-list>div,.record-wave-list>div{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:10px 13px;border-bottom:1px solid var(--portal-border-soft)}
 .record-reward-list>div:last-child,.record-profile-detail-list>div:last-child,.record-wave-list>div:last-child{border-bottom:0}
 .record-profile-detail-list dt,.record-reward-list span,.record-wave-list span{min-width:0;color:var(--portal-text-muted);font:500 11px/1.5 Inter,sans-serif;overflow-wrap:anywhere}
 .record-profile-detail-list dd{margin:0;color:var(--portal-blue-accent);font:650 11px/1.45 Inter,sans-serif;text-align:right;overflow-wrap:anywhere}
 .record-reward-list strong,.record-wave-list strong{flex:none;color:var(--portal-blue-accent);font:700 12px/1.4 Inter,sans-serif;white-space:nowrap}
-.record-profile-rewards{padding:18px;border:1px solid rgba(171,129,62,.42);border-radius:9px;background:var(--portal-parchment-surface)}
+.record-profile-rewards{padding:18px;border:1px solid var(--portal-border-soft);border-radius:9px;background:var(--portal-parchment-surface)}
 .record-profile-rewards>h3{margin-bottom:16px}
 .record-mechanic-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
 .record-mechanic-groups article{min-width:0;padding:14px;border:1px solid var(--portal-gold);border-radius:7px;background:var(--portal-parchment-surface)}
